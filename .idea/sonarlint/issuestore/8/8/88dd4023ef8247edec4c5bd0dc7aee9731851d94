@@ -1,0 +1,8 @@
+
+O
+java:S1854^"9Remove this useless assignment to local variable "count".(‰ÉÕ²
+S	java:S1069"9Replace this use of System.out or System.err by a logger.(Ÿ¹Æçþÿÿÿÿ
+D
+java:S1125”"(Remove the literal "true" boolean value.(ù©ì…ùÿÿÿÿ
+R
+java:S1854@"<Remove this useless assignment to local variable "rv001DTO".(¼²Ê

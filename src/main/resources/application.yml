@@ -1,0 +1,267 @@
+server:
+  host: 118.70.245.192
+  port: 22
+  user: info_woori
+  password: Infocity@123
+
+path:
+  fbk: /root/WRB_Gateway/
+  fbkbackup: /root/WRB_Gateway/Complete/
+  fbksend: /root/WRB_Gateway/Send/
+  fbksendbk: /root/WRB_Gateway/SendBK/
+  fbktowrb: /home/partner/INFO01/to_org
+  fbkfromwrb: /home/partner/INFO01/from_org
+  file:
+    type: .dat
+    header_snd: fbk_snd
+    header_vir: fbk_vir
+    header_awa: fbk_awa
+    header_ccr: fbk_ccr
+
+bank:
+  code: 970457
+oranization:
+  code: 000000098
+
+
+rv001:
+  length:
+    coNo: 9
+    mgscd: 5
+    recMsgcd: 5
+    tmsDt: 8
+    tmsTm: 6
+    msgDscd: 1
+    trnDt: 8
+    trnTm: 6
+    msgNo: 7
+    wdracNo: 25
+    wdrViracNo: 25
+    rcvacNo: 25
+    rcvViracNo: 25
+    rcvacDppeNm: 69
+    curCd: 3
+    wdrAm: 23
+    tobkDscd: 1
+    istDscd: 1
+    inCdAccGb: 1
+    rcvbk1Cd: 8
+    rcvbk2Cd: 8
+    regModCd: 1
+    trnStat: 5
+    trnSrno: 7
+    refNo: 100
+    vractCusNm: 200
+    stsDscd: 2
+
+rv002:
+  length:
+    s_coNo: 9
+    s_aplDscd: 5
+    s_filler: 435
+    coNo: 9
+    aplDscd: 5
+    outActNo: 25
+    virActNo: 25
+    virAcNm: 200
+    refNo: 100
+    recCodCd: 2
+    trnAm: 23
+    trnAvlSdt: 8
+    trnAvlEdt: 8
+    trnAvlStm: 6
+    trnAvlEtm: 6
+    trnAvlyn: 1
+    corpRecCompCode: 9
+    filler: 46
+    e_totCnt: 7
+    e_totReqCnt: 7
+    e_totReqAmt: 23
+    e_filler: 412
+
+ht002:
+  length:
+    tmsDt: 8
+    tmsTm: 6
+    coNo: 9
+    mgscd: 5
+    msgDscd: 1
+    actNo: 25
+    trnDt: 8
+    trnTm: 6
+    drCr: 1
+    trnAmt: 23
+    trnAfBl: 23
+    brCd: 3
+    chkAmt: 23
+    trnType: 2
+    particular: 210
+    depSeq: 7
+    status: 2
+    channelType: 2
+    trnSrno: 16
+    destAccount: 25
+    recieveName: 69
+    refTxt: 210
+    depRmk: 210
+    trmPrcSrno: 7
+    virActNo: 25
+
+er001:
+  length:
+    tmsDt: 8
+    tmsTm: 6
+    mgscd: 5
+    other: 21
+    msgDscd: 1
+    noticeDt: 8
+    noticeCnt: 1
+    fromCcy: 3
+    toCcy: 3
+    baseRate: 23
+    cashBuying: 23
+    cashSelling: 23
+    ttBuying: 23
+    ttSelling: 23
+    orderDscd: 2
+    status: 5
+    filler: 583
+
+pr001:
+  length:
+    coNo: 9
+    mgscd: 5
+    recMsgcd: 5
+    tmsDt: 8
+    tmsTm: 6
+    etc: 16
+    msgDscd: 1
+    trnDt: 8
+    trnTm: 6
+    msgNo: 7
+    wdracNo: 25
+    wdrViracNo: 25
+    rcvacNo: 25
+    rcvViracNo: 25
+    rcvacDppeNm: 69
+    curCd: 3
+    wdrAm: 23
+    tobkDscd: 1
+    istDscd: 1
+    inCdAccGb: 1
+    rcvbk1Cd: 8
+    rcvbk2Cd: 8
+    regModCd: 1
+    trnStat: 5
+    norTranCnt: 9
+    norTranTotAmt: 23
+    canTranCnt: 9
+    canTranTotAmt: 23
+    procTranTotCnt: 9
+    procTransTotAmt: 23
+
+vlr001:
+  length:
+    tmsDt: 8
+    tmsTm: 6
+    coNo: 9
+    outActNo: 25
+    dataCnt: 8
+    etc: 16
+    msgDscd: 1
+    virActNo: 25
+    aplDscd: 5
+    vractCusNm: 200
+    trnAm: 23
+    irTrnYn: 1
+    lmtAmOvYn: 1
+    lmtAmBlwYn: 1
+    dupRcvPrhbYn: 1
+    moacrvAvlYn: 1
+    trnAvlSdt: 8
+    trnAvlEdt: 8
+    trnAvlStm: 6
+    trnAvlEtm: 6
+    rgsTrnDt: 8
+    docNo: 50
+    stsDscd: 2
+    filler: 424
+    lineFlag: 1
+
+ra001:
+  length:
+    tmsDt: 8
+    tmsTm: 6
+    coNo: 9
+    ActNo: 25
+    dataCnt: 8
+    etcAr: 16
+    msgDscd: 1
+    wdrActNo: 25
+    aplDscd: 5
+    msgTrno: 50
+    trnStDt: 8
+    trnClsDt: 8
+    trnType: 5
+    status: 5
+    curCd: 3
+    rcpAm: 23
+    rcpCnt: 5
+    outParticular: 210
+    inParticular: 210
+    cus_id_no_cd: 2
+    cus_id_no: 50
+    isuDt: 8
+    vld_edt: 8
+
+rb001:
+  length:
+    s_msgDscd_1: 1
+    s_coNo: 9
+    s_reqDt: 8
+    s_trnDt: 8
+    s_inActNo: 25
+    s_trnDscd: 2
+    s_msgDscd_2: 5
+    s_rqDscd: 1
+    s_multiTrnCd: 1
+    s_feePreOcc: 1
+    s_feeInclYn: 1
+    s_firmSvrSec: 10
+    s_firmSvrSec2: 8
+    s_comfirmDupYn: 1
+    s_filler: 424
+    msgDscd: 1
+    seq: 10
+    outActNo: 25
+    curCd: 3
+    trnAm: 23
+    tobkDscd: 1
+    istDscd: 1
+    inCdAccGb: 1
+    rcvbk1Cd: 11
+    rcvbk2Cd: 11
+    rcvbkNm: 140
+    sndName: 69
+    rcvacDppeNm: 69
+    depRmk: 210
+    wdrRmk: 210
+    trnSrno: 14
+    status: 5
+    prcCd: 2
+    errCd: 8
+    refNo: 100
+    filler: 77
+    e_msgDscd: 1
+    e_totCnt: 7
+    e_totReqCnt: 7
+    e_totReqAmt: 23
+    e_totSucCnt: 7
+    e_totSucAmt: 23
+    e_failCnt: 7
+    e_failAmt: 23
+    e_inSucCnt: 7
+    e_inSucAmt: 23
+    e_outSucCnt: 7
+    e_outSucAmt: 23
+    e_filler: 342
