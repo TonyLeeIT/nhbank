@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Gateway_WRB.iml" filepath="$PROJECT_DIR$/Gateway_WRB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nh_bank.iml" filepath="$PROJECT_DIR$/nh_bank.iml" />
     </modules>
   </component>
 </project>
