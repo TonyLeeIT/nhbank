@@ -64,7 +64,6 @@ public class AFEX_XPH_COVER_DTO {
     private String TXT23;
     private String DRAWER;
     private String TXT24;
-    private Date ON FXVN.AFEX_XPH_COVER(TRAN_;
     private String LA25;
     private String TXT25;
     private String TXT26;

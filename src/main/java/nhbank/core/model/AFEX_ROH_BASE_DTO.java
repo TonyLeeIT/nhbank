@@ -61,7 +61,6 @@ public class AFEX_ROH_BASE_DTO {
     private int EXCH_CHG;
     private String RCV_BKCD;
     private String BOP_TRX_REMARK;
-    private Date ON FXVN.AFEX_ROH_BASE(VALUE_;
     private int CASH_CHG;
     private String IBJI_MD;
     private int CVT_AMT;

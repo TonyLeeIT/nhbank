@@ -7,7 +7,6 @@ import java.util.Date;
 @Data
 public class AFEX_RIH_BASE_DTO {
     private String JUN_NO;
-    private Date ON FXVN.AFEX_RIH_BASE(VALUE_;
     private String MND_GB;
     private String REFUND_GB;
     private String REFUND_REF_NO;
