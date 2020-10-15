@@ -1,40 +1,37 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.sql.Date;
-
-@Entity
-@Table(name = "ACOM_DMH_ALLOCHIS")
-@Data
-public class ACOM_DMH_ALLOCHISInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private int ALLOC_AMT;
-    private String OP_NO;
-    private Date REG_DT;
-    private Date GIS_IL;
-    private int HIS_NO;
-    private String MNG_NO;
-    private String UPD_EMP_NO;
-    private String CIX_NO;
-    private int ALLOC_RATIO;
-    private Date IB_IL;
-    private String SD_BR;
-    private String DAMBO_NO;
-    private String STS;
-    private Date AC_IL;
-    private String TR_TIME;
-    private int SEQ_NO;
-    private Date UPD_DT;
-    private String TR_BR;
-    private String SNG_NO;
-    private String UPD_TM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.Entity; 
+import javax.persistence.GeneratedValue; 
+import javax.persistence.Id; 
+import javax.persistence.Table; 
+import java.io.Serializable; 
+import java.sql.Date; 
+@Entity 
+@Table(name = "ACOM_DMH_ALLOCHIS") 
+@Data 
+public class ACOM_DMH_ALLOCHISInfo implements Serializable { 
+@Id 
+@GeneratedValue 
+private int allocAmt; 
+private String opNo; 
+private Date regDt; 
+private Date gisIl; 
+private int hisNo; 
+private String mngNo; 
+private String updEmpNo; 
+private String cixNo; 
+private int allocRatio; 
+private Date ibIl; 
+private String sdBr; 
+private String damboNo; 
+private String sts; 
+private Date acIl; 
+private String trTime; 
+private int seqNo; 
+private Date updDt; 
+private String trBr; 
+private String sngNo; 
+private String updTm; 
+private String regEmpNo; 
+private String regTm; 
 } 

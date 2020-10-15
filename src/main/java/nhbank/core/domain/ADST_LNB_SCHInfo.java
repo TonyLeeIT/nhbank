@@ -1,80 +1,77 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.sql.Date;
-
-@Entity
-@Table(name = "ADST_LNB_SCH")
-@Data
-public class ADST_LNB_SCHInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private int JS_DS_TERM;
-    private int PT_RCV_AMT;
-    private int PV_AMT;
-    private int YC_RCV_AMT;
-    private Date FROM_IL;
-    private String UPD_EMP_NO;
-    private int PLAN_AMT;
-    private Date FST_PAY_IL;
-    private int BBS_CVT_AMT;
-    private int YC_RT;
-    private String STS;
-    private Date PT_LISU_IL;
-    private int PV_RT;
-    private Date UPD_DT;
-    private String SPREAD_GB;
-    private Date YC_TO_IL;
-    private int USD_CVT_AMT;
-    private int PAY_AMT;
-    private String REG_EMP_NO;
-    private Date PLAN_IL;
-    private Date TO_IL;
-    private int PT_AMT;
-    private Date PT_TO_IL;
-    private Date YC_FR_IL;
-    private Date YC_LISU_IL;
-    private int LST_SUB_NO;
-    private int JS_DS_AMT;
-    private int SPREAD_RT;
-    private int INDEX_RT;
-    private int JS_AMT;
-    private int DS_TERM;
-    private int ADJ_SEQ;
-    private int MAKE_HIS_NO;
-    private int MISU_INT_AMT;
-    private int YC_DS_AMT;
-    private int DS_AMT;
-    private int PT_DS_TERM;
-    private int TOTAL_RT;
-    private String FIX_GB;
-    private int YC_AMT;
-    private int YC_DS_TERM;
-    private int JS_RCV_AMT;
-    private Date JS_LISU_IL;
-    private int PT_RT;
-    private int FIX_AMT;
-    private int SEQ_NO;
-    private String REF_NO;
-    private Date JS_FR_IL;
-    private String PROCESS_GB;
-    private Date LST_AC_IL;
-    private Date REG_DT;
-    private int SCH_SEQ;
-    private Date LST_IB_IL;
-    private Date JS_TO_IL;
-    private int PT_DS_AMT;
-    private Date RATE_FIX_IL;
-    private String SCH_GB;
-    private Date MAKE_IL;
-    private String CCY;
-    private String UPD_TM;
-    private Date PT_FR_IL;
-    private String REG_TM;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.Entity; 
+import javax.persistence.GeneratedValue; 
+import javax.persistence.Id; 
+import javax.persistence.Table; 
+import java.io.Serializable; 
+import java.sql.Date; 
+@Entity 
+@Table(name = "ADST_LNB_SCH") 
+@Data 
+public class ADST_LNB_SCHInfo implements Serializable { 
+@Id 
+@GeneratedValue 
+private int jsDsTerm; 
+private int ptRcvAmt; 
+private int pvAmt; 
+private int ycRcvAmt; 
+private Date fromIl; 
+private String updEmpNo; 
+private int planAmt; 
+private Date fstPayIl; 
+private int bbsCvtAmt; 
+private int ycRt; 
+private String sts; 
+private Date ptLisuIl; 
+private int pvRt; 
+private Date updDt; 
+private String spreadGb; 
+private Date ycToIl; 
+private int usdCvtAmt; 
+private int payAmt; 
+private String regEmpNo; 
+private Date planIl; 
+private Date toIl; 
+private int ptAmt; 
+private Date ptToIl; 
+private Date ycFrIl; 
+private Date ycLisuIl; 
+private int lstSubNo; 
+private int jsDsAmt; 
+private int spreadRt; 
+private int indexRt; 
+private int jsAmt; 
+private int dsTerm; 
+private int adjSeq; 
+private int makeHisNo; 
+private int misuIntAmt; 
+private int ycDsAmt; 
+private int dsAmt; 
+private int ptDsTerm; 
+private int totalRt; 
+private String fixGb; 
+private int ycAmt; 
+private int ycDsTerm; 
+private int jsRcvAmt; 
+private Date jsLisuIl; 
+private int ptRt; 
+private int fixAmt; 
+private int seqNo; 
+private String refNo; 
+private Date jsFrIl; 
+private String processGb; 
+private Date lstAcIl; 
+private Date regDt; 
+private int schSeq; 
+private Date lstIbIl; 
+private Date jsToIl; 
+private int ptDsAmt; 
+private Date rateFixIl; 
+private String schGb; 
+private Date makeIl; 
+private String ccy; 
+private String updTm; 
+private Date ptFrIl; 
+private String regTm; 
 } 

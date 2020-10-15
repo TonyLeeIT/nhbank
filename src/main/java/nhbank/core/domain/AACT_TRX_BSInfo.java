@@ -1,71 +1,68 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.sql.Date;
-
-@Entity
-@Table(name = "AACT_TRX_BS")
-@Data
-public class AACT_TRX_BSInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private int BOOK_HRT;
-    private int FAMT;
-    private String UPD_EMP_NO;
-    private String YD_GB;
-    private String CD_SNG_NO;
-    private String ABA_NO;
-    private String DTLS_BAL_DV_CD;
-    private String IBJI_CD;
-    private String PST_GB;
-    private Date UPD_DT;
-    private String SNG_NO;
-    private String REG_EMP_NO;
-    private String DOC_ID;
-    private int HIS_NO;
-    private String YD_DSFG;
-    private String JUKI_GB;
-    private String DP_NO;
-    private String MSG_TYPE;
-    private String DEPO_CD;
-    private String FBS_CD;
-    private int BAMT;
-    private String CHECK_NO;
-    private String SLIP_GB;
-    private int BASIC_HRT;
-    private String IFRS_DV_CD;
-    private String ID_NO;
-    private String REF_NO2;
-    private String ORG_GB;
-    private String POS_GB;
-    private Date VALUE_IL;
-    private int APPL_HRT;
-    private String MBS_CD;
-    private int SEG_SEQ;
-    private Date ACT_IL;
-    private String BS_CCY;
-    private String REF_NO;
-    private String IBF_GB;
-    private int YD_HISNO;
-    private int GOSI_HRT;
-    private int DEMI_HRT;
-    private String REMARK;
-    private String MBS_BSPL;
-    private Date REG_DT;
-    private String BBS_CD;
-    private int FTP_RT;
-    private String CIX_NO;
-    private String YD_REFNO;
-    private String THEIR_REFNO;
-    private int BAL_AMT;
-    private String ILGE_GB;
-    private String UPD_TM;
-    private String ACT_BR;
-    private String REG_TM;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.Entity; 
+import javax.persistence.GeneratedValue; 
+import javax.persistence.Id; 
+import javax.persistence.Table; 
+import java.io.Serializable; 
+import java.sql.Date; 
+@Entity 
+@Table(name = "AACT_TRX_BS") 
+@Data 
+public class AACT_TRX_BSInfo implements Serializable { 
+@Id 
+@GeneratedValue 
+private int bookHrt; 
+private int famt; 
+private String updEmpNo; 
+private String ydGb; 
+private String cdSngNo; 
+private String abaNo; 
+private String dtlsBalDvCd; 
+private String ibjiCd; 
+private String pstGb; 
+private Date updDt; 
+private String sngNo; 
+private String regEmpNo; 
+private String docId; 
+private int hisNo; 
+private String ydDsfg; 
+private String jukiGb; 
+private String dpNo; 
+private String msgType; 
+private String depoCd; 
+private String fbsCd; 
+private int bamt; 
+private String checkNo; 
+private String slipGb; 
+private int basicHrt; 
+private String ifrsDvCd; 
+private String idNo; 
+private String refNo2; 
+private String orgGb; 
+private String posGb; 
+private Date valueIl; 
+private int applHrt; 
+private String mbsCd; 
+private int segSeq; 
+private Date actIl; 
+private String bsCcy; 
+private String refNo; 
+private String ibfGb; 
+private int ydHisno; 
+private int gosiHrt; 
+private int demiHrt; 
+private String remark; 
+private String mbsBspl; 
+private Date regDt; 
+private String bbsCd; 
+private int ftpRt; 
+private String cixNo; 
+private String ydRefno; 
+private String theirRefno; 
+private int balAmt; 
+private String ilgeGb; 
+private String updTm; 
+private String actBr; 
+private String regTm; 
 } 

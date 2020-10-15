@@ -1,61 +1,58 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.sql.Date;
-
-@Entity
-@Table(name = "ACOM_FAB_HIS")
-@Data
-public class ACOM_FAB_HISInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private String TR_CD;
-    private int LAST_DEPRI_JAN;
-    private String MNG_NO;
-    private String UPD_EMP_NO;
-    private String CD_SNG_NO;
-    private int SAL_AMT;
-    private String SD_BR;
-    private int AF_DEPRI_JAN;
-    private int CD_SIL_SEQ;
-    private String STS;
-    private Date AC_IL;
-    private int TR_BAMT;
-    private Date UPD_DT;
-    private String REF_NO;
-    private int TR_FAMT;
-    private Date DEPRI_IL;
-    private String IB_TIME;
-    private String REMARK;
-    private Date CAN_IL;
-    private String REG_EMP_NO;
-    private int DEPRI_AMT;
-    private String OP_NO;
-    private Date REG_DT;
-    private int SELL_AMT;
-    private Date GIS_IL;
-    private int THIS_DEPRI_JAN;
-    private int SD_HIS_NO;
-    private String BG_REF_NO;
-    private Date BFR_DEPRI_IL;
-    private int HIS_NO;
-    private int CAPITAL_JAN;
-    private int AF_JAN;
-    private Date IB_IL;
-    private int DEPRI_JAN;
-    private String ILGE_YN;
-    private int DISP_JAN;
-    private String TR_BR;
-    private String TR_GB;
-    private int PL_AMT;
-    private String UPD_TM;
-    private int EVEN_AMT;
-    private String TR_CCY;
-    private String REG_TM;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.Entity; 
+import javax.persistence.GeneratedValue; 
+import javax.persistence.Id; 
+import javax.persistence.Table; 
+import java.io.Serializable; 
+import java.sql.Date; 
+@Entity 
+@Table(name = "ACOM_FAB_HIS") 
+@Data 
+public class ACOM_FAB_HISInfo implements Serializable { 
+@Id 
+@GeneratedValue 
+private String trCd; 
+private int lastDepriJan; 
+private String mngNo; 
+private String updEmpNo; 
+private String cdSngNo; 
+private int salAmt; 
+private String sdBr; 
+private int afDepriJan; 
+private int cdSilSeq; 
+private String sts; 
+private Date acIl; 
+private int trBamt; 
+private Date updDt; 
+private String refNo; 
+private int trFamt; 
+private Date depriIl; 
+private String ibTime; 
+private String remark; 
+private Date canIl; 
+private String regEmpNo; 
+private int depriAmt; 
+private String opNo; 
+private Date regDt; 
+private int sellAmt; 
+private Date gisIl; 
+private int thisDepriJan; 
+private int sdHisNo; 
+private String bgRefNo; 
+private Date bfrDepriIl; 
+private int hisNo; 
+private int capitalJan; 
+private int afJan; 
+private Date ibIl; 
+private int depriJan; 
+private String ilgeYn; 
+private int dispJan; 
+private String trBr; 
+private String trGb; 
+private int plAmt; 
+private String updTm; 
+private int evenAmt; 
+private String trCcy; 
+private String regTm; 
 } 

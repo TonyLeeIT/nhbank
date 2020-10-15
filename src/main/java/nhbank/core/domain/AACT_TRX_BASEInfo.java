@@ -1,85 +1,82 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.sql.Date;
-
-@Entity
-@Table(name = "AACT_TRX_BASE")
-@Data
-public class AACT_TRX_BASEInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private int BOOK_HRT;
-    private String BUSEO_NO;
-    private String ACT_MACH;
-    private int JAKI_AMT;
-    private int BS_CNT;
-    private String GEOR_CD;
-    private String ACT_EVNT_CD_CTT;
-    private String UPD_EMP_NO;
-    private String ACT_CD;
-    private int VOUCHER_NO;
-    private String CDSNG_NO;
-    private String TRX_BR;
-    private String STS;
-    private int CAN_HISNO;
-    private Date UPD_DT;
-    private String IB_TIME;
-    private String MGR_NO;
-    private Date CAN_IL;
-    private String REG_EMP_NO;
-    private String OP_NO;
-    private Date GIS_IL;
-    private int ETC3_AMT;
-    private int HIS_NO;
-    private String ACT_APLY_DV_CD;
-    private int CCY_CNT;
-    private Date IB_IL;
-    private int USD_AMT;
-    private String DPYD_GB;
-    private String VIP_GB;
-    private String ACT_DSEQ;
-    private String ACT_CCY;
-    private int BASIC_HRT;
-    private String IFRS_DV_CD;
-    private String ID_NO;
-    private String GLOB_ID;
-    private String PL_ADD_YN;
-    private String UPMU_CD;
-    private int FDC_HDAMT;
-    private int ETC1_AMT;
-    private String ACT_DTYP;
-    private int APPL_HRT;
-    private int ACT_AMT;
-    private Date AC_IL;
-    private String POS_KIND;
-    private String ACT_BSPL_GB;
-    private String REF_NO;
-    private String IBF_GB;
-    private int PL_CNT;
-    private int ETC2_AMT;
-    private int GOSI_HRT;
-    private int DEMI_HRT;
-    private String ACT_OVRD_APLY_CD;
-    private Date REG_DT;
-    private String IBJI_MD;
-    private String RM_NO;
-    private int TRX_SEQ;
-    private Date TRX_IL;
-    private String CIX_NO;
-    private String ACT_CJUM;
-    private String ACT_MODE;
-    private int FDC_AMT;
-    private String THEIR_REFNO;
-    private String ACT_TELL;
-    private String ILGE_GB;
-    private String ACT_SJUM;
-    private String UPD_TM;
-    private String REG_TM;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.Entity; 
+import javax.persistence.GeneratedValue; 
+import javax.persistence.Id; 
+import javax.persistence.Table; 
+import java.io.Serializable; 
+import java.sql.Date; 
+@Entity 
+@Table(name = "AACT_TRX_BASE") 
+@Data 
+public class AACT_TRX_BASEInfo implements Serializable { 
+@Id 
+@GeneratedValue 
+private int bookHrt; 
+private String buseoNo; 
+private String actMach; 
+private int jakiAmt; 
+private int bsCnt; 
+private String georCd; 
+private String actEvntCdCtt; 
+private String updEmpNo; 
+private String actCd; 
+private int voucherNo; 
+private String cdsngNo; 
+private String trxBr; 
+private String sts; 
+private int canHisno; 
+private Date updDt; 
+private String ibTime; 
+private String mgrNo; 
+private Date canIl; 
+private String regEmpNo; 
+private String opNo; 
+private Date gisIl; 
+private int etc3Amt; 
+private int hisNo; 
+private String actAplyDvCd; 
+private int ccyCnt; 
+private Date ibIl; 
+private int usdAmt; 
+private String dpydGb; 
+private String vipGb; 
+private String actDseq; 
+private String actCcy; 
+private int basicHrt; 
+private String ifrsDvCd; 
+private String idNo; 
+private String globId; 
+private String plAddYn; 
+private String upmuCd; 
+private int fdcHdamt; 
+private int etc1Amt; 
+private String actDtyp; 
+private int applHrt; 
+private int actAmt; 
+private Date acIl; 
+private String posKind; 
+private String actBsplGb; 
+private String refNo; 
+private String ibfGb; 
+private int plCnt; 
+private int etc2Amt; 
+private int gosiHrt; 
+private int demiHrt; 
+private String actOvrdAplyCd; 
+private Date regDt; 
+private String ibjiMd; 
+private String rmNo; 
+private int trxSeq; 
+private Date trxIl; 
+private String cixNo; 
+private String actCjum; 
+private String actMode; 
+private int fdcAmt; 
+private String theirRefno; 
+private String actTell; 
+private String ilgeGb; 
+private String actSjum; 
+private String updTm; 
+private String regTm; 
 } 

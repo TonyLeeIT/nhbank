@@ -1,61 +1,58 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.sql.Date;
-
-@Entity
-@Table(name = "ACOM_COM_ACTCD")
-@Data
-public class ACOM_COM_ACTCDInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private String BOK_GB;
-    private String SYS_GB;
-    private String BSPL_GB;
-    private String ENM;
-    private String CONTRA_AC;
-    private String HNM;
-    private String FB_GB;
-    private String UPD_EMP_NO;
-    private String LNM;
-    private String ESNM;
-    private String FSS_NM;
-    private Date UPD_DT;
-    private String AMRT_AC;
-    private String BR_NO;
-    private String IBF_GB;
-    private String OLD_CD3;
-    private String OLD_CD2;
-    private String SUS_GB;
-    private String OLD_CD1;
-    private String REG_EMP_NO;
-    private Date REG_DT;
-    private String BCD;
-    private String LSNM;
-    private String AC_KD;
-    private String HSNM;
-    private String AC_CD;
-    private String CD2;
-    private String MNBL_GB;
-    private String ACCR_AC;
-    private String CD1;
-    private String CD4;
-    private String CD3;
-    private String CD5;
-    private String FSS_CD;
-    private int AC_SORT2;
-    private int AC_SORT1;
-    private String TR_GB;
-    private String BLDRCR_GB;
-    private String REFCTL_GB;
-    private String CONTRA_GB;
-    private String UPD_TM;
-    private String BOK_CD;
-    private String REG_TM;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.Entity; 
+import javax.persistence.GeneratedValue; 
+import javax.persistence.Id; 
+import javax.persistence.Table; 
+import java.io.Serializable; 
+import java.sql.Date; 
+@Entity 
+@Table(name = "ACOM_COM_ACTCD") 
+@Data 
+public class ACOM_COM_ACTCDInfo implements Serializable { 
+@Id 
+@GeneratedValue 
+private String bokGb; 
+private String sysGb; 
+private String bsplGb; 
+private String enm; 
+private String contraAc; 
+private String hnm; 
+private String fbGb; 
+private String updEmpNo; 
+private String lnm; 
+private String esnm; 
+private String fssNm; 
+private Date updDt; 
+private String amrtAc; 
+private String brNo; 
+private String ibfGb; 
+private String oldCd3; 
+private String oldCd2; 
+private String susGb; 
+private String oldCd1; 
+private String regEmpNo; 
+private Date regDt; 
+private String bcd; 
+private String lsnm; 
+private String acKd; 
+private String hsnm; 
+private String acCd; 
+private String cd2; 
+private String mnblGb; 
+private String accrAc; 
+private String cd1; 
+private String cd4; 
+private String cd3; 
+private String cd5; 
+private String fssCd; 
+private int acSort2; 
+private int acSort1; 
+private String trGb; 
+private String bldrcrGb; 
+private String refctlGb; 
+private String contraGb; 
+private String updTm; 
+private String bokCd; 
+private String regTm; 
 } 

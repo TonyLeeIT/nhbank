@@ -1,66 +1,63 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.sql.Date;
-
-@Entity
-@Table(name = "ACOM_LMT_BASEACT")
-@Data
-public class ACOM_LMT_BASEACTInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private int SIL_WOIJAN;
-    private int WOI_GAETRM;
-    private String WOI_SUTGB;
-    private int GRACE_DAY;
-    private String UPD_EMP_NO;
-    private String SNG_STS;
-    private String ACT_CD;
-    private String SNG_BRNO;
-    private int ACT_AMT;
-    private String WOI_SUNHU;
-    private int BOJ_MJ_AMT;
-    private String ACT_RTJO;
-    private int SIL_CNT;
-    private String SNG_AUTH;
-    private int BOJ_BCNT;
-    private int WOI_INTTRM;
-    private String RATE_JUGI;
-    private Date UPD_DT;
-    private Date FST_IL;
-    private int BOJ_FCNT;
-    private int ACT_SPRD;
-    private String SNG_NO;
-    private Date LST_IL;
-    private int SPREAD;
-    private int PENAL_RATE;
-    private Date CAN_IL;
-    private String REG_EMP_NO;
-    private Date REG_DT;
-    private int SIL_JANAMT;
-    private int YONCHE_RATE;
-    private int SIL_DJGJAN;
-    private int ACT_RATE;
-    private String CIX_NO;
-    private String ACT_RTGB;
-    private String SNG_INFO;
-    private int BOJ_BJAN;
-    private int BOJ_FJAN;
-    private String RATE_GB;
-    private String BUSI_DAY_RULE;
-    private Date SIL_LSTIL;
-    private int SNG_APLSEQ;
-    private String MNG_BR;
-    private Date LST_IBIL;
-    private String DAY_CNT_BASIS;
-    private String UPD_TM;
-    private int WOI_YONGDO;
-    private int SIL_ACCUM;
-    private String REG_TM;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.Entity; 
+import javax.persistence.GeneratedValue; 
+import javax.persistence.Id; 
+import javax.persistence.Table; 
+import java.io.Serializable; 
+import java.sql.Date; 
+@Entity 
+@Table(name = "ACOM_LMT_BASEACT") 
+@Data 
+public class ACOM_LMT_BASEACTInfo implements Serializable { 
+@Id 
+@GeneratedValue 
+private int silWoijan; 
+private int woiGaetrm; 
+private String woiSutgb; 
+private int graceDay; 
+private String updEmpNo; 
+private String sngSts; 
+private String actCd; 
+private String sngBrno; 
+private int actAmt; 
+private String woiSunhu; 
+private int bojMjAmt; 
+private String actRtjo; 
+private int silCnt; 
+private String sngAuth; 
+private int bojBcnt; 
+private int woiInttrm; 
+private String rateJugi; 
+private Date updDt; 
+private Date fstIl; 
+private int bojFcnt; 
+private int actSprd; 
+private String sngNo; 
+private Date lstIl; 
+private int spread; 
+private int penalRate; 
+private Date canIl; 
+private String regEmpNo; 
+private Date regDt; 
+private int silJanamt; 
+private int yoncheRate; 
+private int silDjgjan; 
+private int actRate; 
+private String cixNo; 
+private String actRtgb; 
+private String sngInfo; 
+private int bojBjan; 
+private int bojFjan; 
+private String rateGb; 
+private String busiDayRule; 
+private Date silLstil; 
+private int sngAplseq; 
+private String mngBr; 
+private Date lstIbil; 
+private String dayCntBasis; 
+private String updTm; 
+private int woiYongdo; 
+private int silAccum; 
+private String regTm; 
 } 

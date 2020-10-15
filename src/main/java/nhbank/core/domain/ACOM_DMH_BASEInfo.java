@@ -1,90 +1,87 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.sql.Date;
-
-@Entity
-@Table(name = "ACOM_DMH_BASE")
-@Data
-public class ACOM_DMH_BASEInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private int FAMT;
-    private String GRT_ID_NO;
-    private String UPD_EMP_NO;
-    private int PRIORITY;
-    private int FAMT_INT;
-    private String DAMBO_CITY;
-    private String SYSTEM_GB;
-    private String STS;
-    private String DAMBO_ADDR;
-    private Date UPD_DT;
-    private String CERT_NO;
-    private int FST_APP_VALUE_INT;
-    private String INSUR_REMARK;
-    private Date EXPIRE_DATE;
-    private String REG_EMP_NO;
-    private String OP_NO;
-    private int FST_APP_VALUE;
-    private Date DAMBO_EXP_DATE;
-    private String FILING_NUM;
-    private int FIRST_FIX_AMT_EXT;
-    private String COLL_OWNER_NAME;
-    private int FST_APP_VALUE_EXT;
-    private int FIRST_FIX_AMT;
-    private String DAMBO_GUR_YN;
-    private int GRT_PORTION;
-    private Date STS_EXP_DATE;
-    private String INSUR_OBJ_ADDR;
-    private String MNG_BR;
-    private String APPRAISER_TYPE;
-    private Date FST_APP_DATE_INT;
-    private int ALLOC_AMT;
-    private String CERT_STS;
-    private String FIX_STS;
-    private String INSUR_CODE;
-    private String ACCT_NO;
-    private String ISSUE_NM;
-    private String ST_CO_GB;
-    private String DAMBO_CD;
-    private Date AC_IL;
-    private int INSUR_AMT;
-    private int SEQ_NO;
-    private String DAMBO_TYPE;
-    private Date INSUR_EXP_DATE;
-    private Date RE_APP_DATE;
-    private String INSUR_POLICY_NO;
-    private int LST_HIS_NO;
-    private String APP_APPRAISER;
-    private int FAMT_EXT;
-    private Date FILING_DATE;
-    private Date LST_AC_IL;
-    private Date REG_DT;
-    private String DAMBO_CNT_GB;
-    private String ST_CO_NAME;
-    private int FIRST_FIX_AMT_INT;
-    private String CERT_TYPE;
-    private String OFFER_GB;
-    private String CIX_NO;
-    private int ALLOC_RATIO;
-    private Date FST_APP_DATE_EXT;
-    private String TO_MORTGAGE;
-    private String DEPOSIT_CD;
-    private Date FST_APP_DATE;
-    private String JUDICIAL_SCRIVENER;
-    private String DAMBO_NO;
-    private int RE_APP_VALUE;
-    private int APP_GAP;
-    private int APP_LAND_VALUE;
-    private String CCY;
-    private int OBANK_FIX_AMT;
-    private String INSUR_COMPANY;
-    private String UPD_TM;
-    private String REG_TM;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.Entity; 
+import javax.persistence.GeneratedValue; 
+import javax.persistence.Id; 
+import javax.persistence.Table; 
+import java.io.Serializable; 
+import java.sql.Date; 
+@Entity 
+@Table(name = "ACOM_DMH_BASE") 
+@Data 
+public class ACOM_DMH_BASEInfo implements Serializable { 
+@Id 
+@GeneratedValue 
+private int famt; 
+private String grtIdNo; 
+private String updEmpNo; 
+private int priority; 
+private int famtInt; 
+private String damboCity; 
+private String systemGb; 
+private String sts; 
+private String damboAddr; 
+private Date updDt; 
+private String certNo; 
+private int fstAppValueInt; 
+private String insurRemark; 
+private Date expireDate; 
+private String regEmpNo; 
+private String opNo; 
+private int fstAppValue; 
+private Date damboExpDate; 
+private String filingNum; 
+private int firstFixAmtExt; 
+private String collOwnerName; 
+private int fstAppValueExt; 
+private int firstFixAmt; 
+private String damboGurYn; 
+private int grtPortion; 
+private Date stsExpDate; 
+private String insurObjAddr; 
+private String mngBr; 
+private String appraiserType; 
+private Date fstAppDateInt; 
+private int allocAmt; 
+private String certSts; 
+private String fixSts; 
+private String insurCode; 
+private String acctNo; 
+private String issueNm; 
+private String stCoGb; 
+private String damboCd; 
+private Date acIl; 
+private int insurAmt; 
+private int seqNo; 
+private String damboType; 
+private Date insurExpDate; 
+private Date reAppDate; 
+private String insurPolicyNo; 
+private int lstHisNo; 
+private String appAppraiser; 
+private int famtExt; 
+private Date filingDate; 
+private Date lstAcIl; 
+private Date regDt; 
+private String damboCntGb; 
+private String stCoName; 
+private int firstFixAmtInt; 
+private String certType; 
+private String offerGb; 
+private String cixNo; 
+private int allocRatio; 
+private Date fstAppDateExt; 
+private String toMortgage; 
+private String depositCd; 
+private Date fstAppDate; 
+private String judicialScrivener; 
+private String damboNo; 
+private int reAppValue; 
+private int appGap; 
+private int appLandValue; 
+private String ccy; 
+private int obankFixAmt; 
+private String insurCompany; 
+private String updTm; 
+private String regTm; 
 } 

@@ -1,75 +1,72 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.sql.Date;
-
-@Entity
-@Table(name = "AFEX_ROB_AMD")
-@Data
-public class AFEX_ROB_AMDInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private String RCV_BK_ADDR1;
-    private String TBL_GB;
-    private String RCV_BK_ADDR2;
-    private String APPL_NM2;
-    private String RCV_BK_ADDR3;
-    private String APPL_NM1;
-    private String UPD_EMP_NO;
-    private String STS;
-    private Date UPD_DT;
-    private Date LST_IL;
-    private String APPL_ADDR1;
-    private String APPL_ADDR2;
-    private String APPL_ADDR3;
-    private String REG_EMP_NO;
-    private String OP_NO;
-    private Date GIS_IL;
-    private String RCV_NM2;
-    private String RCV_NM1;
-    private String OWNER_NO;
-    private int HIS_NO;
-    private String RCV_BK_ACNO;
-    private String YD_GUJA;
-    private String MT199_NAME;
-    private int CHG_SEQ;
-    private String INFO72_NAME1;
-    private String BASE_STS;
-    private String INFO72_NAME2;
-    private String INFO72_NAME3;
-    private String INFO72_NAME4;
-    private String INFO72_NAME5;
-    private String INFO72_NAME6;
-    private String CAN_GB;
-    private String OPER_NO;
-    private String CHG_CD;
-    private Date AC_IL;
-    private String INFO_NAME6;
-    private String INFO_NAME5;
-    private String REF_NO;
-    private String INFO_NAME4;
-    private String INFO_NAME3;
-    private String INFO_NAME2;
-    private String INFO_NAME1;
-    private String RCV_ACCT_NO;
-    private String MJ_GB;
-    private String MT192_NAME;
-    private Date REG_DT;
-    private String IBJI_MD;
-    private String RCV_BKNM2;
-    private String RCV_ADDR1;
-    private String RCV_ADDR2;
-    private Date LST_IB_IL;
-    private String RCV_ADDR3;
-    private String INTER_BANK2;
-    private String INTER_BANK1;
-    private String RCV_BKNM1;
-    private String UPD_TM;
-    private String REG_TM;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.Entity; 
+import javax.persistence.GeneratedValue; 
+import javax.persistence.Id; 
+import javax.persistence.Table; 
+import java.io.Serializable; 
+import java.sql.Date; 
+@Entity 
+@Table(name = "AFEX_ROB_AMD") 
+@Data 
+public class AFEX_ROB_AMDInfo implements Serializable { 
+@Id 
+@GeneratedValue 
+private String rcvBkAddr1; 
+private String tblGb; 
+private String rcvBkAddr2; 
+private String applNm2; 
+private String rcvBkAddr3; 
+private String applNm1; 
+private String updEmpNo; 
+private String sts; 
+private Date updDt; 
+private Date lstIl; 
+private String applAddr1; 
+private String applAddr2; 
+private String applAddr3; 
+private String regEmpNo; 
+private String opNo; 
+private Date gisIl; 
+private String rcvNm2; 
+private String rcvNm1; 
+private String ownerNo; 
+private int hisNo; 
+private String rcvBkAcno; 
+private String ydGuja; 
+private String mt199Name; 
+private int chgSeq; 
+private String info72Name1; 
+private String baseSts; 
+private String info72Name2; 
+private String info72Name3; 
+private String info72Name4; 
+private String info72Name5; 
+private String info72Name6; 
+private String canGb; 
+private String operNo; 
+private String chgCd; 
+private Date acIl; 
+private String infoName6; 
+private String infoName5; 
+private String refNo; 
+private String infoName4; 
+private String infoName3; 
+private String infoName2; 
+private String infoName1; 
+private String rcvAcctNo; 
+private String mjGb; 
+private String mt192Name; 
+private Date regDt; 
+private String ibjiMd; 
+private String rcvBknm2; 
+private String rcvAddr1; 
+private String rcvAddr2; 
+private Date lstIbIl; 
+private String rcvAddr3; 
+private String interBank2; 
+private String interBank1; 
+private String rcvBknm1; 
+private String updTm; 
+private String regTm; 
 } 

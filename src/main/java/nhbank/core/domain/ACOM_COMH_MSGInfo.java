@@ -1,91 +1,88 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.sql.Date;
-
-@Entity
-@Table(name = "ACOM_COMH_MSG")
-@Data
-public class ACOM_COMH_MSGInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private String LST_TTY;
-    private String CO_BKNM3;
-    private String BE_DOC;
-    private String CO_BKNM4;
-    private String PRIO_YN;
-    private String AP_TIME;
-    private String UPD_EMP_NO;
-    private String COND_STS;
-    private String CO_BKNM1;
-    private Date AP_IL;
-    private Date TKEY_IL;
-    private String TKEY_VAL;
-    private String TLX_MNG_NO;
-    private String REL_DOC;
-    private String CO_BKNM2;
-    private String TKEY_BKCD;
-    private String ANS_BACK;
-    private String AF_DOC;
-    private String INOUT_TIME;
-    private String TKEY_YN;
-    private String TKEY_VAR;
-    private String MOR_NO;
-    private Date UPD_DT;
-    private String DONE_TIME;
-    private String BRAN_PRINT;
-    private String USER_KEY;
-    private Date LST_IL;
-    private String REG_EMP_NO;
-    private String DOC_ID;
-    private String OP_NO;
-    private String TELEX_NO;
-    private String PREV_MOR;
-    private String OUR_REF;
-    private String DUP_YN;
-    private String LST_TIME;
-    private String MSG_TYPE;
-    private String TKEY_CNI1;
-    private String LST_OP_NO;
-    private String CO_BKCD;
-    private Date INOUT_IL;
-    private String PHYS_DIVI;
-    private int MSG_AMT;
-    private String TKEY_CNI2;
-    private String IO_GB;
-    private String GLOB_ID;
-    private String ERR_MSG;
-    private String UPMU_GB;
-    private String TKEY_PREF;
-    private int SEQ_NO;
-    private String BR_NO;
-    private String FLAG_1;
-    private String PREV_TS;
-    private String FLAG_2;
-    private String FLAG_3;
-    private Date REG_DT;
-    private String MSG_GB;
-    private String TRAIL_GB;
-    private Date DONE_IL;
-    private String PREV_MIR;
-    private String AP_MNG_NO;
-    private String TS_KEY;
-    private String NETW_GB;
-    private String MSG_CCY;
-    private String TKEY_LINE;
-    private String TYPE_GB;
-    private String THEIR_REF;
-    private Date MAKE_IL;
-    private String HEAD_PRINT;
-    private String MIR_NO;
-    private Date PREV_IL;
-    private String UPD_TM;
-    private String MSG_FILE_NM;
-    private String REG_TM;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.Entity; 
+import javax.persistence.GeneratedValue; 
+import javax.persistence.Id; 
+import javax.persistence.Table; 
+import java.io.Serializable; 
+import java.sql.Date; 
+@Entity 
+@Table(name = "ACOM_COMH_MSG") 
+@Data 
+public class ACOM_COMH_MSGInfo implements Serializable { 
+@Id 
+@GeneratedValue 
+private String lstTty; 
+private String coBknm3; 
+private String beDoc; 
+private String coBknm4; 
+private String prioYn; 
+private String apTime; 
+private String updEmpNo; 
+private String condSts; 
+private String coBknm1; 
+private Date apIl; 
+private Date tkeyIl; 
+private String tkeyVal; 
+private String tlxMngNo; 
+private String relDoc; 
+private String coBknm2; 
+private String tkeyBkcd; 
+private String ansBack; 
+private String afDoc; 
+private String inoutTime; 
+private String tkeyYn; 
+private String tkeyVar; 
+private String morNo; 
+private Date updDt; 
+private String doneTime; 
+private String branPrint; 
+private String userKey; 
+private Date lstIl; 
+private String regEmpNo; 
+private String docId; 
+private String opNo; 
+private String telexNo; 
+private String prevMor; 
+private String ourRef; 
+private String dupYn; 
+private String lstTime; 
+private String msgType; 
+private String tkeyCni1; 
+private String lstOpNo; 
+private String coBkcd; 
+private Date inoutIl; 
+private String physDivi; 
+private int msgAmt; 
+private String tkeyCni2; 
+private String ioGb; 
+private String globId; 
+private String errMsg; 
+private String upmuGb; 
+private String tkeyPref; 
+private int seqNo; 
+private String brNo; 
+private String flag1; 
+private String prevTs; 
+private String flag2; 
+private String flag3; 
+private Date regDt; 
+private String msgGb; 
+private String trailGb; 
+private Date doneIl; 
+private String prevMir; 
+private String apMngNo; 
+private String tsKey; 
+private String netwGb; 
+private String msgCcy; 
+private String tkeyLine; 
+private String typeGb; 
+private String theirRef; 
+private Date makeIl; 
+private String headPrint; 
+private String mirNo; 
+private Date prevIl; 
+private String updTm; 
+private String msgFileNm; 
+private String regTm; 
 } 
