@@ -155,13 +155,6 @@ public class NHBankController {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                    case Constant.TBL_DATE_NOT_NULL:
-                        try {
-                            outStream.writeBytes("private Date " + k + "; \n");
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        break;
                     default:
                         break;
                 }
