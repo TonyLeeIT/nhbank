@@ -9,4 +9,5 @@ public interface BackupService {
     void insertTable(HT002Info ht002Info);
 
     boolean isExistTable(HT002Info rv001Info);
+
 }

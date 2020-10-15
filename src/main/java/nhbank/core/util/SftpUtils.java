@@ -7,7 +7,7 @@ import net.schmizz.sshj.SSHClient;
 import net.schmizz.sshj.sftp.SFTPClient;
 import net.schmizz.sshj.transport.verification.PromiscuousVerifier;
 import net.schmizz.sshj.xfer.FileSystemFile;
-import nhbank.core.controllers.FbkController;
+import nhbank.core.controllers.NHBankController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class SftpUtils {
-    public static final Logger logger = LoggerFactory.getLogger(FbkController.class);
+    public static final Logger logger = LoggerFactory.getLogger(NHBankController.class);
 
     public void getFilesSftp(String SFTPHOST, String SFTPUSER, String SFTPPASS, String SFTPWORKINGDIR, String SFTPREMOTE) throws IOException {
         Session session = null;
