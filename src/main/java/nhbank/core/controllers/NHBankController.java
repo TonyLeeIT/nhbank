@@ -55,8 +55,67 @@ public class NHBankController {
             System.out.println("File path: " + file.getAbsolutePath());
             Map<String, String> listFields = convertFiletoObject(file);
             buildModel(file.getName(), listFields);
+            buildDomain(file.getName(), listFields);
         }
         return new ResponseEntity<>("OK", HttpStatus.OK);
+    }
+
+    private void buildDomain(String fileName, Map<String, String> listFields) {
+        String sFileName = fileName.replace(".sql", "");
+        try {
+
+            File target = new File("C:\\NHBANK_TARGET\\INFO\\" + fileName.replace(".sql", "") + "Info.java");
+            target.createNewFile();
+
+            FileOutputStream outputStream = new FileOutputStream(target);
+            DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
+            outStream.writeBytes("package nhbank.core.domain; \n");
+            outStream.writeBytes("import lombok.Data; \n");
+            outStream.writeBytes("import javax.persistence.Entity; \n");
+            outStream.writeBytes("import javax.persistence.GeneratedValue; \n");
+            outStream.writeBytes("import javax.persistence.Id; \n");
+            outStream.writeBytes("import javax.persistence.Table; \n");
+            outStream.writeBytes("import java.io.Serializable; \n");
+            outStream.writeBytes("import java.sql.Date; \n");
+            outStream.writeBytes("@Entity \n");
+            outStream.writeBytes("@Table(name = \"" + sFileName + "\") \n");
+            outStream.writeBytes("@Data \n");
+            outStream.writeBytes("public class " + sFileName + "Info implements Serializable { \n");
+            outStream.writeBytes("@Id \n");
+            outStream.writeBytes("@GeneratedValue \n");
+            listFields.forEach((k, v) -> {
+                System.out.println(k + "----" + v);
+                switch (v) {
+                    case Constant.TBL_VARCHAR:
+                        try {
+                            outStream.writeBytes("private String " + k + "; \n");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    case Constant.TBL_NUMBER:
+                        try {
+                            outStream.writeBytes("private int " + k + "; \n");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    case Constant.TBL_DATE:
+                        try {
+                            outStream.writeBytes("private Date " + k + "; \n");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            });
+            outStream.writeBytes("} \n");
+            outStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void buildModel(String fileName, Map<String, String> listFields) {
@@ -91,6 +150,12 @@ public class NHBankController {
                         }
                         break;
                     case Constant.TBL_DATE:
+                        try {
+                            outStream.writeBytes("private Date " + k + "; \n");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    case Constant.TBL_DATE_NOT_NULL:
                         try {
                             outStream.writeBytes("private Date " + k + "; \n");
                         } catch (IOException e) {
@@ -131,6 +196,10 @@ public class NHBankController {
                 }
                 if (currentLine.contains(Constant.TBL_DATE)) {
                     key = currentLine.substring(0, currentLine.indexOf(Constant.TBL_DATE)).trim();
+                    field.put(key, Constant.TBL_DATE);
+                }
+                if (currentLine.contains(Constant.TBL_DATE_NOT_NULL)) {
+                    key = currentLine.substring(0, currentLine.indexOf(Constant.TBL_DATE_NOT_NULL)).trim();
                     field.put(key, Constant.TBL_DATE);
                 }
                 currentLine = reader.readLine();
