@@ -7,14 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name = "ACOM_LMT_BASEHIS")
 @Data
 public class ACOM_LMT_BASEHISInfo implements Serializable {
     @Id
-    @GeneratedValue
+    private String SNG_NO;
     private int SIL_WOIJAN;
     private String TR_CD;
     private int WOI_GAETRM;
@@ -37,7 +37,6 @@ public class ACOM_LMT_BASEHISInfo implements Serializable {
     private Date EXP_IL;
     private int BOJ_FCNT;
     private String SNG_ASTMGR;
-    private String SNG_NO;
     private int EXP_MM;
     private Date CAN_IL;
     private String SNG_COND;
