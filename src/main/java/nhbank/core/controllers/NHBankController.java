@@ -2,7 +2,6 @@ package nhbank.core.controllers;
 
 import lombok.extern.log4j.Log4j;
 import nhbank.core.config.Config;
-import nhbank.core.constant.Constant;
 import nhbank.core.services.BackupService;
 import nhbank.core.util.GenerateUtils;
 import org.slf4j.Logger;
@@ -15,8 +14,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.io.*;
-import java.util.HashMap;
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
@@ -54,7 +52,7 @@ public class NHBankController {
             }
             System.out.println("File name: " + file.getName());
             System.out.println("File path: " + file.getAbsolutePath());
-            Map<String, String> listFields = GenerateUtils.convertFiletoObject(file);
+            Map<Integer, String> listFields = GenerateUtils.convertFiletoObject(file);
             GenerateUtils.buildModel(file.getName(), listFields);
             GenerateUtils.buildDomain(file.getName(), listFields);
         }

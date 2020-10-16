@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class GenerateUtils {
 
-    public static void buildDomain(String fileName, Map<String, String> listFields) {
+    public static void buildDomain(String fileName, Map<Integer, String> listFields) {
         String sFileName = fileName.replace(".sql", "");
         try {
 
@@ -33,10 +33,12 @@ public class GenerateUtils {
             outStream.writeBytes("@GeneratedValue \n");
             listFields.forEach((k, v) -> {
                 System.out.println(k + "----" + v);
-                switch (v) {
+                String val = v.substring(0, v.indexOf("|"));
+                String type = v.substring(v.indexOf("|") + 1);
+                switch (type) {
                     case Constant.TBL_VARCHAR:
                         try {
-                            String key = convertCamelCase(k);
+                            String key = convertCamelCase(val);
                             outStream.writeBytes("private String " + key + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -44,7 +46,7 @@ public class GenerateUtils {
                         break;
                     case Constant.TBL_NUMBER:
                         try {
-                            String key = convertCamelCase(k);
+                            String key = convertCamelCase(val);
                             outStream.writeBytes("private int " + key + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -52,7 +54,7 @@ public class GenerateUtils {
                         break;
                     case Constant.TBL_DATE:
                         try {
-                            String key = convertCamelCase(k);
+                            String key = convertCamelCase(val);
                             outStream.writeBytes("private Date " + key + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -69,7 +71,7 @@ public class GenerateUtils {
         }
     }
 
-    public static void buildModel(String fileName, Map<String, String> listFields) {
+    public static void buildModel(String fileName, Map<Integer, String> listFields) {
         String sFileName = fileName.replace(".sql", "");
         try {
 
@@ -85,24 +87,26 @@ public class GenerateUtils {
             outStream.writeBytes("public class " + sFileName + "_DTO { \n");
             listFields.forEach((k, v) -> {
                 System.out.println(k + "----" + v);
-                switch (v) {
+                String val = v.substring(0, v.indexOf("|"));
+                String type = v.substring(v.indexOf("|") + 1);
+                switch (type) {
                     case Constant.TBL_VARCHAR:
                         try {
-                            outStream.writeBytes("private String " + k + "; \n");
+                            outStream.writeBytes("private String " + val + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                         break;
                     case Constant.TBL_NUMBER:
                         try {
-                            outStream.writeBytes("private int " + k + "; \n");
+                            outStream.writeBytes("private int " + val + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                         break;
                     case Constant.TBL_DATE:
                         try {
-                            outStream.writeBytes("private Date " + k + "; \n");
+                            outStream.writeBytes("private Date " + val + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -120,9 +124,10 @@ public class GenerateUtils {
         }
     }
 
-    public static Map<String, String> convertFiletoObject(File file) {
-        Map<String, String> field = new HashMap<>();
+    public static Map<Integer, String> convertFiletoObject(File file) {
+        Map<Integer, String> field = new HashMap<>();
         try {
+            int i = 0;
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String currentLine = reader.readLine();
             while (currentLine != null) {
@@ -132,21 +137,22 @@ public class GenerateUtils {
                 }
                 if (currentLine.contains(Constant.TBL_VARCHAR)) {
                     key = currentLine.substring(0, currentLine.indexOf(Constant.TBL_VARCHAR)).trim();
-                    field.put(key, Constant.TBL_VARCHAR);
+                    field.put(i, key + "|" + Constant.TBL_VARCHAR);
                 }
                 if (currentLine.contains(Constant.TBL_NUMBER)) {
                     key = currentLine.substring(0, currentLine.indexOf(Constant.TBL_NUMBER)).trim();
-                    field.put(key, Constant.TBL_NUMBER);
+                    field.put(i, key + "|" + Constant.TBL_NUMBER);
                 }
                 if (currentLine.contains(Constant.TBL_DATE)) {
                     key = currentLine.substring(0, currentLine.indexOf(Constant.TBL_DATE)).trim();
-                    field.put(key, Constant.TBL_DATE);
+                    field.put(i, key + "|" + Constant.TBL_DATE);
                 }
                 if (currentLine.contains(Constant.TBL_DATE_NOT_NULL)) {
                     key = currentLine.substring(0, currentLine.indexOf(Constant.TBL_DATE_NOT_NULL)).trim();
-                    field.put(key, Constant.TBL_DATE);
+                    field.put(i, key + "|" + Constant.TBL_DATE);
                 }
                 currentLine = reader.readLine();
+                i++;
             }
             reader.close();
 
@@ -157,15 +163,15 @@ public class GenerateUtils {
     }
 
 
-    static String convertCamelCase(String s){
+    static String convertCamelCase(String s) {
         return toCamelCase(s).substring(0, 1).toLowerCase() +
                 toCamelCase(s).substring(1);
     }
 
-    static String toCamelCase(String s){
+    static String toCamelCase(String s) {
         String[] parts = s.split("_");
         String camelCaseString = "";
-        for (String part : parts){
+        for (String part : parts) {
             camelCaseString = camelCaseString + toProperCase(part);
         }
         return camelCaseString;

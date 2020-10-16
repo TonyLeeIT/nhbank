@@ -1,88 +1,91 @@
-package nhbank.core.domain; 
-import lombok.Data; 
-import javax.persistence.Entity; 
-import javax.persistence.GeneratedValue; 
-import javax.persistence.Id; 
-import javax.persistence.Table; 
-import java.io.Serializable; 
-import java.sql.Date; 
-@Entity 
-@Table(name = "ACOM_DMH_HIS") 
-@Data 
-public class ACOM_DMH_HISInfo implements Serializable { 
-@Id 
-@GeneratedValue 
-private int famt; 
-private String trCd; 
-private String grtIdNo; 
-private String updEmpNo; 
-private int priority; 
-private int famtInt; 
-private String damboCity; 
-private String sts; 
-private String damboAddr; 
-private Date updDt; 
-private String certNo; 
-private int fstAppValueInt; 
-private String insurRemark; 
-private Date expireDate; 
-private Date canIl; 
-private String regEmpNo; 
-private String opNo; 
-private int fstAppValue; 
-private int hisNo; 
-private Date damboExpDate; 
-private String filingNum; 
-private int firstFixAmtExt; 
-private String collOwnerName; 
-private Date ibIl; 
-private int fstAppValueExt; 
-private int firstFixAmt; 
-private String damboGurYn; 
-private int grtPortion; 
-private Date stsExpDate; 
-private String insurObjAddr; 
-private String mngBr; 
-private String appraiserType; 
-private Date fstAppDateInt; 
-private int allocAmt; 
-private String certSts; 
-private String fixSts; 
-private String insurCode; 
-private String acctNo; 
-private String issueNm; 
-private String stCoGb; 
-private String damboCd; 
-private Date acIl; 
-private int insurAmt; 
-private String damboType; 
-private Date insurExpDate; 
-private Date reAppDate; 
-private String insurPolicyNo; 
-private String appAppraiser; 
-private int famtExt; 
-private Date filingDate; 
-private Date regDt; 
-private String damboCntGb; 
-private String stCoName; 
-private int firstFixAmtInt; 
-private String certType; 
-private String offerGb; 
-private String cixNo; 
-private int allocRatio; 
-private Date fstAppDateExt; 
-private String toMortgage; 
-private String depositCd; 
-private Date fstAppDate; 
-private String judicialScrivener; 
-private String damboNo; 
-private int reAppValue; 
-private int appGap; 
-private int appLandValue; 
-private String ccy; 
-private int obankFixAmt; 
-private String trGb; 
-private String insurCompany; 
-private String updTm; 
-private String regTm; 
+package nhbank.core.domain;
+
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.sql.Date;
+
+@Entity
+@Table(name = "ACOM_DMH_HIS")
+@Data
+public class ACOM_DMH_HISInfo implements Serializable {
+    @Id
+    @GeneratedValue
+    private String cixNo;
+    private String damboNo;
+    private int hisNo;
+    private String sts;
+    private String trGb;
+    private String trCd;
+    private String mngBr;
+    private String opNo;
+    private Date ibIl;
+    private Date acIl;
+    private Date canIl;
+    private String damboCd;
+    private String damboType;
+    private Date damboExpDate;
+    private String ccy;
+    private int famt;
+    private int obankFixAmt;
+    private int firstFixAmt;
+    private String damboAddr;
+    private String damboCity;
+    private int appLandValue;
+    private String offerGb;
+    private String grtIdNo;
+    private int grtPortion;
+    private String acctNo;
+    private String issueNm;
+    private String damboCntGb;
+    private String damboGurYn;
+    private String appraiserType;
+    private String appAppraiser;
+    private int fstAppValue;
+    private Date fstAppDate;
+    private Date reAppDate;
+    private int reAppValue;
+    private String judicialScrivener;
+    private String fixSts;
+    private String certType;
+    private String certSts;
+    private String certNo;
+    private String insurCode;
+    private String insurPolicyNo;
+    private String insurCompany;
+    private Date insurExpDate;
+    private int insurAmt;
+    private String insurRemark;
+    private String toMortgage;
+    private String collOwnerName;
+    private String insurObjAddr;
+    private int allocRatio;
+    private int allocAmt;
+    private String depositCd;
+    private String stCoGb;
+    private String stCoName;
+    private Date filingDate;
+    private String filingNum;
+    private Date expireDate;
+    private int priority;
+    private Date stsExpDate;
+    private int appGap;
+    private int famtInt;
+    private int firstFixAmtInt;
+    private int fstAppValueInt;
+    private Date fstAppDateInt;
+    private int famtExt;
+    private int firstFixAmtExt;
+    private int fstAppValueExt;
+    private Date fstAppDateExt;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

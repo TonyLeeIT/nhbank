@@ -1,37 +1,40 @@
-package nhbank.core.domain; 
-import lombok.Data; 
-import javax.persistence.Entity; 
-import javax.persistence.GeneratedValue; 
-import javax.persistence.Id; 
-import javax.persistence.Table; 
-import java.io.Serializable; 
-import java.sql.Date; 
-@Entity 
-@Table(name = "ADST_DPB_GYUL") 
-@Data 
-public class ADST_DPB_GYULInfo implements Serializable { 
-@Id 
-@GeneratedValue 
-private Date regDt; 
-private int intTax1; 
-private int intTax2; 
-private String yede; 
-private int hisNo; 
-private String lstTime; 
-private String updEmpNo; 
-private Date lstIbIl; 
-private String acctNo; 
-private String errMsg; 
-private Date ibIl; 
-private String sts; 
-private int intYcInt; 
-private String errNo; 
-private Date updDt; 
-private String errPgm; 
-private int prcpYcInt; 
-private int mmAvgAmt; 
-private String updTm; 
-private int jsInt; 
-private String regEmpNo; 
-private String regTm; 
+package nhbank.core.domain;
+
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.sql.Date;
+
+@Entity
+@Table(name = "ADST_DPB_GYUL")
+@Data
+public class ADST_DPB_GYULInfo implements Serializable {
+    @Id
+    @GeneratedValue
+    private Date ibIl;
+    private String yede;
+    private String acctNo;
+    private String sts;
+    private int jsInt;
+    private int prcpYcInt;
+    private int intYcInt;
+    private int mmAvgAmt;
+    private int intTax1;
+    private int intTax2;
+    private int hisNo;
+    private String errPgm;
+    private String errMsg;
+    private String errNo;
+    private Date lstIbIl;
+    private String lstTime;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

@@ -1,83 +1,86 @@
-package nhbank.core.domain; 
-import lombok.Data; 
-import javax.persistence.Entity; 
-import javax.persistence.GeneratedValue; 
-import javax.persistence.Id; 
-import javax.persistence.Table; 
-import java.io.Serializable; 
-import java.sql.Date; 
-@Entity 
-@Table(name = "ACOM_LMT_BASEHD") 
-@Data 
-public class ACOM_LMT_BASEHDInfo implements Serializable { 
-@Id 
-@GeneratedValue 
-private int woiGaetrm; 
-private String woiSutgb; 
-private int graceDay; 
-private String updEmpNo; 
-private int sngAbtamt; 
-private String condSts; 
-private int totBojBjan; 
-private Date totSilLstil; 
-private String sngBrno; 
-private int totBojFjan; 
-private String ikCixno; 
-private String sngAuth; 
-private String sngClerk; 
-private String isSngno; 
-private Date updDt; 
-private String sngJumjang; 
-private Date fstIl; 
-private Date expIl; 
-private String sngAstmgr; 
-private String sngNo; 
-private Date lstIl; 
-private int expMm; 
-private Date canIl; 
-private String sngCond; 
-private String regEmpNo; 
-private String isBrno; 
-private String busiDayRule; 
-private String agreeNo; 
-private String revolGb; 
-private int totSilJanamt; 
-private String mngBr; 
-private String dayCntBasis; 
-private int woiYongdo; 
-private int totSilAccum; 
-private Date ikIl; 
-private String sngSts; 
-private String ikSngno; 
-private String woiSunhu; 
-private int bojMjAmt; 
-private int woiInttrm; 
-private String rateJugi; 
-private String isCixno; 
-private String sngCcy; 
-private String sisSngno; 
-private int sngAbtrt; 
-private String sngChajang; 
-private int spread; 
-private int penalRate; 
-private String pogwlGb; 
-private Date regDt; 
-private int yoncheRate; 
-private int sngAmt; 
-private String cixNo; 
-private String sngInfo; 
-private int totSilCnt; 
-private String rateGb; 
-private String ikBrno; 
-private Date isIl; 
-private int sngAplseq; 
-private String gihanGb; 
-private Date sngIl; 
-private int totBojBcnt; 
-private String sngLonmgr; 
-private int totBojFcnt; 
-private Date lstIbil; 
-private String updTm; 
-private int totSilDjgjan; 
-private String regTm; 
+package nhbank.core.domain;
+
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.sql.Date;
+
+@Entity
+@Table(name = "ACOM_LMT_BASEHD")
+@Data
+public class ACOM_LMT_BASEHDInfo implements Serializable {
+    @Id
+    @GeneratedValue
+    private String sngNo;
+    private String mngBr;
+    private String cixNo;
+    private Date fstIl;
+    private Date lstIl;
+    private Date canIl;
+    private String sngSts;
+    private String sngInfo;
+    private String sisSngno;
+    private String pogwlGb;
+    private String revolGb;
+    private String gihanGb;
+    private int expMm;
+    private Date expIl;
+    private Date sngIl;
+    private String sngCcy;
+    private int sngAmt;
+    private int sngAbtrt;
+    private int sngAbtamt;
+    private int totSilCnt;
+    private int totSilJanamt;
+    private int totSilAccum;
+    private int totSilDjgjan;
+    private Date totSilLstil;
+    private int totBojBcnt;
+    private int totBojBjan;
+    private int totBojFcnt;
+    private int totBojFjan;
+    private int woiYongdo;
+    private String woiSunhu;
+    private int woiInttrm;
+    private int woiGaetrm;
+    private String woiSutgb;
+    private String sngCond;
+    private String isSngno;
+    private String isCixno;
+    private String isBrno;
+    private Date isIl;
+    private String ikSngno;
+    private String ikCixno;
+    private String ikBrno;
+    private Date ikIl;
+    private int sngAplseq;
+    private String sngAuth;
+    private Date lstIbil;
+    private String sngBrno;
+    private String sngClerk;
+    private String sngAstmgr;
+    private String sngLonmgr;
+    private String sngChajang;
+    private String sngJumjang;
+    private int bojMjAmt;
+    private String rateGb;
+    private String rateJugi;
+    private int spread;
+    private int yoncheRate;
+    private int graceDay;
+    private String dayCntBasis;
+    private String busiDayRule;
+    private int penalRate;
+    private String agreeNo;
+    private String condSts;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

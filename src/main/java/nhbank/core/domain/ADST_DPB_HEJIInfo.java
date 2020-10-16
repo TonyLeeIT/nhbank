@@ -1,57 +1,60 @@
-package nhbank.core.domain; 
-import lombok.Data; 
-import javax.persistence.Entity; 
-import javax.persistence.GeneratedValue; 
-import javax.persistence.Id; 
-import javax.persistence.Table; 
-import java.io.Serializable; 
-import java.sql.Date; 
-@Entity 
-@Table(name = "ADST_DPB_HEJI") 
-@Data 
-public class ADST_DPB_HEJIInfo implements Serializable { 
-@Id 
-@GeneratedValue 
-private int depCnt; 
-private int dptRt; 
-private int trxNo; 
-private int totPayAamt; 
-private String trCd; 
-private int afIntAamt; 
-private int rtnTax4Amt; 
-private String updEmpNo; 
-private int rtnIntAamt; 
-private String acctNo; 
-private int tax3Amt; 
-private String mechGb; 
-private int bfIntBamt; 
-private int tax1Amt; 
-private Date clsIl; 
-private String sts; 
-private Date updDt; 
-private int rtnTax1Amt; 
-private String ibTime; 
-private int tax2Amt; 
-private int clsFee; 
-private Date canIl; 
-private int clsAamt; 
-private String regEmpNo; 
-private String bfCixNo; 
-private String opNo; 
-private Date regDt; 
-private Date gisIl; 
-private int taxRt; 
-private int totPayBamt; 
-private int rtnTax2Amt; 
-private int hisNo; 
-private int afIntBamt; 
-private int rtnIntBamt; 
-private Date ibIl; 
-private int bfIntAamt; 
-private int pnltAmt; 
-private int rtnTax3Amt; 
-private int tax4Amt; 
-private String updTm; 
-private int clsBamt; 
-private String regTm; 
+package nhbank.core.domain;
+
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.sql.Date;
+
+@Entity
+@Table(name = "ADST_DPB_HEJI")
+@Data
+public class ADST_DPB_HEJIInfo implements Serializable {
+    @Id
+    @GeneratedValue
+    private String acctNo;
+    private Date ibIl;
+    private int trxNo;
+    private String trCd;
+    private String bfCixNo;
+    private int depCnt;
+    private String sts;
+    private String mechGb;
+    private String opNo;
+    private String ibTime;
+    private Date clsIl;
+    private Date gisIl;
+    private Date canIl;
+    private int taxRt;
+    private int dptRt;
+    private int clsBamt;
+    private int clsAamt;
+    private int bfIntBamt;
+    private int bfIntAamt;
+    private int afIntBamt;
+    private int afIntAamt;
+    private int tax1Amt;
+    private int tax2Amt;
+    private int tax3Amt;
+    private int tax4Amt;
+    private int rtnIntBamt;
+    private int rtnIntAamt;
+    private int rtnTax1Amt;
+    private int rtnTax2Amt;
+    private int rtnTax3Amt;
+    private int rtnTax4Amt;
+    private int totPayBamt;
+    private int totPayAamt;
+    private int hisNo;
+    private int clsFee;
+    private int pnltAmt;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 
