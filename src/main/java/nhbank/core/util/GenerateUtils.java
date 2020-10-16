@@ -26,7 +26,7 @@ public class GenerateUtils {
             outStream.writeBytes("import java.io.Serializable; \n");
             outStream.writeBytes("import java.sql.Date; \n");
             outStream.writeBytes("@Entity \n");
-            outStream.writeBytes("@Table(name = \"" + sFileName + "\") \n");
+            outStream.writeBytes("@Table(name = \"" + convertCamelCase(sFileName) + "\") \n");
             outStream.writeBytes("@Data \n");
             outStream.writeBytes("public class " + sFileName + "Info implements Serializable { \n");
             outStream.writeBytes("@Id \n");

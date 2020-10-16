@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-@Table(name = "ACOM_COM_FPHEAD")
+@Table(name = "acomComFphead")
 @Data
 public class ACOM_COM_FPHEADInfo implements Serializable {
     @Id
