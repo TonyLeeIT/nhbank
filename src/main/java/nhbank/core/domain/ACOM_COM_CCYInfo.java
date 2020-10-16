@@ -15,20 +15,20 @@ import java.sql.Date;
 public class ACOM_COM_CCYInfo implements Serializable {
     @Id
     @GeneratedValue
-    private Date REG_DT;
-    private String CD;
-    private String GOSI_GB;
-    private int UNIT;
-    private String UPD_EMP_NO;
-    private int DIGIT;
-    private String CTRY_CD;
-    private int SEQ_NO;
-    private Date UPD_DT;
-    private Date MAKE_IL;
-    private String UPD_TM;
-    private String BOK_CD;
-    private int YEAR_GB;
-    private String NM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String cd;
+    private String bokCd;
+    private String nm;
+    private int unit;
+    private int digit;
+    private String ctryCd;
+    private String gosiGb;
+    private int seqNo;
+    private int yearGb;
+    private Date makeIl;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

@@ -15,15 +15,15 @@ import java.sql.Date;
 public class AFEX_RCH_SEQNOInfo implements Serializable {
     @Id
     @GeneratedValue
-    private Date REG_DT;
-    private String CD;
-    private Date TR_IL;
-    private int SEQNO;
-    private Date UPD_DT;
-    private String CCY;
-    private String UPD_EMP_NO;
-    private String SA_GB;
-    private String UPD_TM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private Date trIl;
+    private String saGb;
+    private String cd;
+    private String ccy;
+    private int seqno;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

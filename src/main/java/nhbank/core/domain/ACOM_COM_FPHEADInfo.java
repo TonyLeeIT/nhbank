@@ -15,23 +15,23 @@ import java.sql.Date;
 public class ACOM_COM_FPHEADInfo implements Serializable {
     @Id
     @GeneratedValue
-    private String OP_NO;
-    private Date REG_DT;
-    private String OP_NM;
-    private String TR_CD;
-    private int HIS_NO;
-    private String UPMU_CD;
-    private String UPD_EMP_NO;
-    private String HEAD_TXT;
-    private String CIX_NO;
-    private String TELL_NM;
-    private String PRT_KIND;
-    private String TELL_NO;
-    private Date UPD_DT;
-    private String REF_NO;
-    private String TITLE_TXT;
-    private Date TX_DATE;
-    private String UPD_TM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String refNo;
+    private int hisNo;
+    private String prtKind;
+    private String upmuCd;
+    private String trCd;
+    private Date txDate;
+    private String cixNo;
+    private String titleTxt;
+    private String headTxt;
+    private String tellNo;
+    private String tellNm;
+    private String opNo;
+    private String opNm;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

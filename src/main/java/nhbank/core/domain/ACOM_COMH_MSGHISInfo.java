@@ -15,19 +15,19 @@ import java.sql.Date;
 public class ACOM_COMH_MSGHISInfo implements Serializable {
     @Id
     @GeneratedValue
-    private String DOC_ID;
-    private String OP_NO;
-    private Date REG_DT;
-    private String UPD_EMP_NO;
-    private String COND_STS;
-    private String MAKE_TIME;
-    private String MAKE_TTY;
-    private int SEQ_NO;
-    private Date UPD_DT;
-    private String STM_TAIL;
-    private String STM_RMK;
-    private Date MAKE_IL;
-    private String UPD_TM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String docId;
+    private int seqNo;
+    private String condSts;
+    private String stmRmk;
+    private String stmTail;
+    private Date makeIl;
+    private String makeTime;
+    private String makeTty;
+    private String opNo;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

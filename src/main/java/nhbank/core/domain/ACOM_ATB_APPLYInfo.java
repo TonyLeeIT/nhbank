@@ -15,20 +15,20 @@ import java.sql.Date;
 public class ACOM_ATB_APPLYInfo implements Serializable {
     @Id
     @GeneratedValue
-    private Date REG_DT;
-    private int TOT_CNT;
-    private String UPD_EMP_NO;
-    private String APPLY_NO;
-    private String CIX_NO;
-    private String FILE_URL;
-    private Date TRX_DT;
-    private String STS;
-    private int SUS_CNT;
-    private Date UPD_DT;
-    private String FILE_NM;
-    private String BR_NO;
-    private int FAIL_CNT;
-    private String UPD_TM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String applyNo;
+    private Date trxDt;
+    private String sts;
+    private String cixNo;
+    private String brNo;
+    private String fileNm;
+    private String fileUrl;
+    private int totCnt;
+    private int susCnt;
+    private int failCnt;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

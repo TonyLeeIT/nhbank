@@ -15,17 +15,17 @@ import java.sql.Date;
 public class AFEX_RCH_VOSTROInfo implements Serializable {
     @Id
     @GeneratedValue
-    private String OP_NO;
-    private Date REG_DT;
-    private int HIS_NO;
-    private String UPD_EMP_NO;
-    private Date IB_IL;
-    private Date AC_IL;
-    private int SEQ_NO;
-    private int CD_AMT;
-    private Date UPD_DT;
-    private Date VAL_IL;
-    private String UPD_TM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private Date ibIl;
+    private int seqNo;
+    private int hisNo;
+    private int cdAmt;
+    private Date acIl;
+    private String opNo;
+    private Date valIl;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

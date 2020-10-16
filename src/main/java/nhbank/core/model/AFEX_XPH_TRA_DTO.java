@@ -6,28 +6,28 @@ import java.util.Date;
 
 @Data
 public class AFEX_XPH_TRA_DTO {
-    private Date REG_DT;
-    private Date GIS_IL;
-    private int HIS_NO;
-    private String MT_GUBUN;
-    private int AMT;
-    private String UPD_EMP_NO;
-    private String THRU_BANK;
-    private String FILE_NAME;
+    private String REF_NO;
     private String TRA_GB;
-    private String NCU_CCY;
-    private String TLX_NO;
+    private int HIS_NO;
+    private int SEQ_NO;
     private String STS;
     private Date AC_IL;
-    private int SEQ_NO;
-    private String IN_OUT_GB;
-    private Date UPD_DT;
-    private String REF_NO;
+    private Date GIS_IL;
     private String CCY;
-    private String UPD_TM;
+    private int AMT;
+    private String IN_OUT_GB;
+    private String MT_GUBUN;
+    private String TLX_NO;
+    private String FILE_NAME;
+    private String THRU_BANK;
+    private String NCU_CCY;
     private int NCU_AMT;
     private String REG_EMP_NO;
+    private Date REG_DT;
     private String REG_TM;
+    private String UPD_EMP_NO;
+    private Date UPD_DT;
+    private String UPD_TM;
 
     public AFEX_XPH_TRA_DTO() {
     }

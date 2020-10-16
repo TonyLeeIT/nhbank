@@ -15,25 +15,25 @@ import java.sql.Date;
 public class AFEX_RTB_HSSInfo implements Serializable {
     @Id
     @GeneratedValue
-    private Date REG_DT;
-    private int FAMT;
-    private String TR_CD;
-    private int TRSC_SEQ_NO;
-    private String HSS_GB;
-    private String HSS_AP_GB;
-    private String UPD_EMP_NO;
-    private Date LST_IB_IL;
-    private String SD_BR_NO;
-    private String SD_DEPO_CD;
-    private int HSS_FEE;
-    private Date AC_IL;
-    private Date UPD_DT;
-    private String REF_NO;
-    private String CCY;
-    private int BAMT;
-    private Date ICHE_IL;
-    private String CHARGE_TYPE;
-    private String UPD_TM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String refNo;
+    private String trCd;
+    private Date acIl;
+    private Date lstIbIl;
+    private String hssGb;
+    private String hssApGb;
+    private String sdBrNo;
+    private String sdDepoCd;
+    private String chargeType;
+    private int hssFee;
+    private Date icheIl;
+    private String ccy;
+    private int famt;
+    private int bamt;
+    private int trscSeqNo;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

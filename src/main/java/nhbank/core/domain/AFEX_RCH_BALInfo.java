@@ -15,23 +15,23 @@ import java.sql.Date;
 public class AFEX_RCH_BALInfo implements Serializable {
     @Id
     @GeneratedValue
-    private String DOC_ID;
-    private Date REG_DT;
-    private String CD;
-    private Date TR_IL;
-    private String ACT_CONFIRM_YN;
-    private int SHW_CLBS;
-    private String UPD_EMP_NO;
-    private String OPER_ID;
-    private String SHW_CONFIRM_YN;
-    private Date LAST_IL;
-    private String STS;
-    private Date UPD_DT;
-    private String CCY;
-    private int SHW_OPBS;
-    private int ACT_CLBS;
-    private int ACT_OPBS;
-    private String UPD_TM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String cd;
+    private String ccy;
+    private Date trIl;
+    private int shwOpbs;
+    private int shwClbs;
+    private String shwConfirmYn;
+    private int actOpbs;
+    private int actClbs;
+    private String actConfirmYn;
+    private String operId;
+    private Date lastIl;
+    private String sts;
+    private String docId;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

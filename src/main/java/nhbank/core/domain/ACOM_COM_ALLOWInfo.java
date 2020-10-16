@@ -15,22 +15,22 @@ import java.sql.Date;
 public class ACOM_COM_ALLOWInfo implements Serializable {
     @Id
     @GeneratedValue
-    private Date REG_DT;
-    private String TRX_REF_NO;
-    private int ASSET_AMT;
-    private String UPD_EMP_NO;
-    private String COLLECT_CD;
-    private int ALLOW_AMT;
-    private String CIX_NO;
-    private String GWAM_CD;
-    private int COLLECT_AMT;
-    private String STS;
-    private Date UPD_DT;
-    private String REF_NO;
-    private String MNG_BR;
-    private String CURC;
-    private int EXHG_AMT;
-    private String UPD_TM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String refNo;
+    private String trxRefNo;
+    private String mngBr;
+    private String cixNo;
+    private String gwamCd;
+    private String curc;
+    private int assetAmt;
+    private int exhgAmt;
+    private int allowAmt;
+    private int collectAmt;
+    private String collectCd;
+    private String sts;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

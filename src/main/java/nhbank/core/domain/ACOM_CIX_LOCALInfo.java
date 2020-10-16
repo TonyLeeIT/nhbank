@@ -15,14 +15,14 @@ import java.sql.Date;
 public class ACOM_CIX_LOCALInfo implements Serializable {
     @Id
     @GeneratedValue
-    private Date REG_DT;
-    private String ITEM_NM;
-    private Date UPD_DT;
-    private String UPD_EMP_NO;
-    private String REG_DV_CD;
-    private String CIX_NO;
-    private String UPD_TM;
-    private String ITEM_CTT;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String cixNo;
+    private String itemNm;
+    private String itemCtt;
+    private String regDvCd;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

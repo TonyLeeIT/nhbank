@@ -15,18 +15,18 @@ import java.sql.Date;
 public class ADST_DPB_CERTInfo implements Serializable {
     @Id
     @GeneratedValue
-    private Date REG_DT;
-    private String DR_OPNO;
-    private String UPD_EMP_NO;
-    private String DR_TIME;
-    private String ACCT_NO;
-    private Date IB_IL;
-    private int TX_TRX_NO;
-    private String STS;
-    private String PRT_KIND;
-    private Date UPD_DT;
-    private String UPD_TM;
-    private String REMARK;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String acctNo;
+    private Date ibIl;
+    private int txTrxNo;
+    private String sts;
+    private String prtKind;
+    private String drOpno;
+    private String drTime;
+    private String remark;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

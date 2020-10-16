@@ -15,24 +15,24 @@ import java.sql.Date;
 public class AFEX_RCH_TRANInfo implements Serializable {
     @Id
     @GeneratedValue
-    private String DOC_ID;
-    private Date REG_DT;
-    private String CD;
-    private Date TR_IL;
-    private String OUR_REF;
-    private String UPD_EMP_NO;
-    private String OTHER_REF;
-    private Date IB_IL;
-    private int DRCR_AMT;
-    private Date UPD_DT;
-    private String DRCR_GB;
-    private String THEIR_REF;
-    private String MT_GB;
-    private String CCY;
-    private int TR_SEQ;
-    private Date VAL_IL;
-    private String IB_TIME;
-    private String UPD_TM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String cd;
+    private String ccy;
+    private String mtGb;
+    private Date trIl;
+    private int trSeq;
+    private Date valIl;
+    private String drcrGb;
+    private int drcrAmt;
+    private String ourRef;
+    private String theirRef;
+    private Date ibIl;
+    private String ibTime;
+    private String docId;
+    private String otherRef;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

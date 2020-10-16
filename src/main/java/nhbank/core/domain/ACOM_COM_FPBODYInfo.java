@@ -15,15 +15,15 @@ import java.sql.Date;
 public class ACOM_COM_FPBODYInfo implements Serializable {
     @Id
     @GeneratedValue
-    private Date REG_DT;
-    private String PRT_KIND;
-    private Date UPD_DT;
-    private int HIS_NO;
-    private int LINE_SEQ;
-    private String LINE_TXT;
-    private String REF_NO;
-    private String UPD_EMP_NO;
-    private String UPD_TM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String refNo;
+    private int hisNo;
+    private String prtKind;
+    private int lineSeq;
+    private String lineTxt;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

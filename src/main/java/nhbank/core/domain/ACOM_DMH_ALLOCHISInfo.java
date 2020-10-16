@@ -15,26 +15,26 @@ import java.sql.Date;
 public class ACOM_DMH_ALLOCHISInfo implements Serializable {
     @Id
     @GeneratedValue
-    private int ALLOC_AMT;
-    private String OP_NO;
-    private Date REG_DT;
-    private Date GIS_IL;
-    private int HIS_NO;
-    private String MNG_NO;
-    private String UPD_EMP_NO;
-    private String CIX_NO;
-    private int ALLOC_RATIO;
-    private Date IB_IL;
-    private String SD_BR;
-    private String DAMBO_NO;
-    private String STS;
-    private Date AC_IL;
-    private String TR_TIME;
-    private int SEQ_NO;
-    private Date UPD_DT;
-    private String TR_BR;
-    private String SNG_NO;
-    private String UPD_TM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String damboNo;
+    private String cixNo;
+    private String sngNo;
+    private int seqNo;
+    private int hisNo;
+    private String sts;
+    private int allocRatio;
+    private int allocAmt;
+    private Date ibIl;
+    private Date acIl;
+    private Date gisIl;
+    private String trBr;
+    private String sdBr;
+    private String trTime;
+    private String opNo;
+    private String mngNo;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

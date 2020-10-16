@@ -15,24 +15,24 @@ import java.sql.Date;
 public class AFEX_IPH_ATAGInfo implements Serializable {
     @Id
     @GeneratedValue
-    private String TEXT10;
-    private Date REG_DT;
-    private String TEXT01;
-    private String TEXT02;
-    private String UPD_EMP_NO;
-    private String TAG_CD;
-    private Date UPD_DT;
-    private String REF_NO;
-    private String TEXT07;
-    private String TEXT08;
-    private String TEXT09;
-    private String AMD_SEQ;
-    private String TEXT03;
-    private String UPD_TM;
-    private String TEXT04;
-    private int SEQ;
-    private String TEXT05;
-    private String TEXT06;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String refNo;
+    private String amdSeq;
+    private String tagCd;
+    private int seq;
+    private String text01;
+    private String text02;
+    private String text03;
+    private String text04;
+    private String text05;
+    private String text06;
+    private String text07;
+    private String text08;
+    private String text09;
+    private String text10;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

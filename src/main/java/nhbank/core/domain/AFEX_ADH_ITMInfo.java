@@ -15,21 +15,21 @@ import java.sql.Date;
 public class AFEX_ADH_ITMInfo implements Serializable {
     @Id
     @GeneratedValue
-    private Date REG_DT;
-    private Date GIS_IL;
-    private int HIS_NO;
-    private String DR_GB;
-    private String UPD_EMP_NO;
-    private Date LST_IB_IL;
-    private String ITM_CD;
-    private int AF_ITM1;
-    private Date AC_IL;
-    private Date UPD_DT;
-    private String AF_ITM;
-    private String ADV_NO;
-    private String UPD_TM;
-    private int BE_ITM1;
-    private String BE_ITM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String advNo;
+    private int hisNo;
+    private Date acIl;
+    private Date gisIl;
+    private Date lstIbIl;
+    private String drGb;
+    private String itmCd;
+    private String beItm;
+    private String afItm;
+    private int beItm1;
+    private int afItm1;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

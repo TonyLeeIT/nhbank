@@ -15,22 +15,22 @@ import java.sql.Date;
 public class ACOM_COM_FEERTInfo implements Serializable {
     @Id
     @GeneratedValue
-    private Date REG_DT;
-    private int MAX_FEE;
-    private String UPD_EMP_NO;
-    private int FRT;
-    private String LCD;
-    private String CD_NM;
-    private String MCD;
-    private Date APPLY_IL;
-    private String PL_CD;
-    private int MIN_FEE;
-    private String SCD;
-    private Date UPD_DT;
-    private Date MAKE_IL;
-    private String MNG_BR;
-    private int ETC_FRT;
-    private String UPD_TM;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String lcd;
+    private String mcd;
+    private String scd;
+    private String mngBr;
+    private Date applyIl;
+    private int frt;
+    private int maxFee;
+    private int minFee;
+    private int etcFrt;
+    private String cdNm;
+    private Date makeIl;
+    private String plCd;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

@@ -15,23 +15,23 @@ import java.sql.Date;
 public class AFEX_XPB_LGMInfo implements Serializable {
     @Id
     @GeneratedValue
-    private int OP_NO;
-    private Date REG_DT;
-    private Date GIS_IL;
-    private int HIS_NO;
-    private String UPD_EMP_NO;
-    private Date LST_IB_IL;
-    private String HAJA_CD;
-    private String STS;
-    private Date AC_IL;
-    private String TR_TIME;
-    private Date UPD_DT;
-    private String REF_NO;
-    private String TR_BR;
-    private String HAJA_MNG_INFO;
-    private String HAJA_SAYU;
-    private String UPD_TM;
-    private String MJ_GB;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String refNo;
+    private int hisNo;
+    private String sts;
+    private String trBr;
+    private Date acIl;
+    private Date gisIl;
+    private Date lstIbIl;
+    private String hajaCd;
+    private String hajaMngInfo;
+    private String mjGb;
+    private String trTime;
+    private int opNo;
+    private String hajaSayu;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

@@ -15,23 +15,23 @@ import java.sql.Date;
 public class AFEX_XPB_RENEDTInfo implements Serializable {
     @Id
     @GeneratedValue
-    private Date REG_DT;
-    private int AMT;
-    private String UPD_EMP_NO;
-    private Date CA_IL;
-    private String RENE_JUM;
-    private Date MNG_IL;
-    private String NCU_CCY;
-    private Date RENE_IL;
-    private String STS;
-    private int CA_AMT;
-    private Date PRE_CA_IL;
-    private Date UPD_DT;
-    private String REF_NO;
-    private String CCY;
-    private int BAMT;
-    private String UPD_TM;
-    private int NCU_AMT;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private Date mngIl;
+    private String refNo;
+    private String sts;
+    private String ccy;
+    private int amt;
+    private int bamt;
+    private Date preCaIl;
+    private Date reneIl;
+    private String reneJum;
+    private String ncuCcy;
+    private int ncuAmt;
+    private Date caIl;
+    private int caAmt;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

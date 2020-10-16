@@ -15,13 +15,13 @@ import java.sql.Date;
 public class AFEX_XPH_SHIP_RESENDInfo implements Serializable {
     @Id
     @GeneratedValue
-    private Date REG_DT;
-    private int BH_SEQ;
-    private Date UPD_DT;
-    private String REF_NO;
-    private String UPD_EMP_NO;
-    private String UPD_TM;
-    private int SEQ;
-    private String REG_EMP_NO;
-    private String REG_TM;
+    private String refNo;
+    private int bhSeq;
+    private int seq;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

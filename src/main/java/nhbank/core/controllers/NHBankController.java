@@ -5,6 +5,7 @@ import nhbank.core.config.Config;
 import nhbank.core.constant.Constant;
 import nhbank.core.domain.ACOM_LMT_BASEHISInfo;
 import nhbank.core.services.BackupService;
+import nhbank.core.util.GenerateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,7 @@ public class NHBankController {
     @GetMapping(value = "/convert")
     public ResponseEntity<?> parsingFile() {
         List<String> sqlFiles = config.getSql();
-        //Creating a File obj.setect for directory
+        //Creating a File object for directory
         File directoryPath = new File("C:\\NHBANK");
         //List of all files and directories
         File filesList[] = directoryPath.listFiles();
@@ -59,9 +60,9 @@ public class NHBankController {
             }
             System.out.println("File name: " + file.getName());
             System.out.println("File path: " + file.getAbsolutePath());
-            Map<String, String> listFields = convertFiletoObject(file);
-            buildModel(file.getName(), listFields);
-            buildDomain(file.getName(), listFields);
+            Map<Integer, String> listFields = GenerateUtils.convertFiletoObject(file);
+            GenerateUtils.buildModel(file.getName(), listFields);
+            GenerateUtils.buildDomain(file.getName(), listFields);
         }
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
