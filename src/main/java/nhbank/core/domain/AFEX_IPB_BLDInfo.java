@@ -1,85 +1,88 @@
-package nhbank.core.domain; 
-import lombok.Data; 
-import javax.persistence.Entity; 
-import javax.persistence.GeneratedValue; 
-import javax.persistence.Id; 
-import javax.persistence.Table; 
-import java.io.Serializable; 
-import java.sql.Date; 
-@Entity 
-@Table(name = "AFEX_IPB_BLD") 
-@Data 
-public class AFEX_IPB_BLDInfo implements Serializable { 
-@Id 
-@GeneratedValue 
-private String corGb; 
-private int ijaAmt; 
-private String setBkcd; 
-private String updEmpNo; 
-private String transGb; 
-private int blkSseq; 
-private String blNo; 
-private String sts; 
-private Date updDt; 
-private int ncuInsAmt; 
-private String poGb; 
-private String chuGb; 
-private String rcvIn; 
-private String manGb; 
-private String regEmpNo; 
-private int lgbBjan; 
-private int ncuMiJan; 
-private Date gisIl; 
-private int hisNo; 
-private int lgbFjan; 
-private String negoBknm; 
-private int depoSeq; 
-private int amt; 
-private int ncuInsJan; 
-private Date shipIl; 
-private String ncuCcy; 
-private Date insIl; 
-private String blGb; 
-private int seq; 
-private Date blYjubIl; 
-private int miJan; 
-private Date tcLisuIl; 
-private int insAmt; 
-private String jubGb; 
-private String remark10; 
-private Date acIl; 
-private String cccIjaGb; 
-private String budoGb; 
-private String refNo; 
-private String hajaGb; 
-private String yjManIl; 
-private int ncuLgbFjan; 
-private String rcvAcctNo; 
-private String remark9; 
-private Date regDt; 
-private String yukNo; 
-private String remark8; 
-private String insGamGb; 
-private String remark1; 
-private Date lstIbIl; 
-private String remark15; 
-private String remark3; 
-private String remark2; 
-private String remark5; 
-private String remark12; 
-private String remark4; 
-private String remark11; 
-private String remark7; 
-private String remark14; 
-private String remark6; 
-private String remark13; 
-private Date negoIl; 
-private String theirRef; 
-private String yjInsIl; 
-private String ccy; 
-private int insJan; 
-private String updTm; 
-private String applIn; 
-private int ncuAmt; 
-private String regTm; 
+package nhbank.core.domain;
+
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.sql.Date;
+
+@Entity
+@Table(name = "AFEX_IPB_BLD")
+@Data
+public class AFEX_IPB_BLDInfo implements Serializable {
+    @Id
+    @GeneratedValue
+    private String refNo;
+    private int seq;
+    private String sts;
+    private Date acIl;
+    private Date gisIl;
+    private Date lstIbIl;
+    private String ccy;
+    private int amt;
+    private int hisNo;
+    private String jubGb;
+    private String chuGb;
+    private int miJan;
+    private int lgbBjan;
+    private int lgbFjan;
+    private String corGb;
+    private String blGb;
+    private String negoBknm;
+    private String setBkcd;
+    private String hajaGb;
+    private String blNo;
+    private Date negoIl;
+    private Date blYjubIl;
+    private int blkSseq;
+    private String manGb;
+    private Date tcLisuIl;
+    private String cccIjaGb;
+    private String budoGb;
+    private String yukNo;
+    private int depoSeq;
+    private String insGamGb;
+    private Date insIl;
+    private int insAmt;
+    private int insJan;
+    private Date shipIl;
+    private String theirRef;
+    private String poGb;
+    private String applIn;
+    private String rcvIn;
+    private String rcvAcctNo;
+    private String transGb;
+    private String ncuCcy;
+    private int ncuAmt;
+    private int ncuMiJan;
+    private int ncuLgbFjan;
+    private int ncuInsAmt;
+    private int ncuInsJan;
+    private int ijaAmt;
+    private String yjInsIl;
+    private String yjManIl;
+    private String remark1;
+    private String remark2;
+    private String remark3;
+    private String remark4;
+    private String remark5;
+    private String remark6;
+    private String remark7;
+    private String remark8;
+    private String remark9;
+    private String remark10;
+    private String remark11;
+    private String remark12;
+    private String remark13;
+    private String remark14;
+    private String remark15;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

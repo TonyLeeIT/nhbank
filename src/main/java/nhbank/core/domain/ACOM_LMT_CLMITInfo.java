@@ -1,52 +1,55 @@
-package nhbank.core.domain; 
-import lombok.Data; 
-import javax.persistence.Entity; 
-import javax.persistence.GeneratedValue; 
-import javax.persistence.Id; 
-import javax.persistence.Table; 
-import java.io.Serializable; 
-import java.sql.Date; 
-@Entity 
-@Table(name = "ACOM_LMT_CLMIT") 
-@Data 
-public class ACOM_LMT_CLMITInfo implements Serializable { 
-@Id 
-@GeneratedValue 
-private int chgSqno; 
-private int xcrtSc; 
-private String fxAcno; 
-private String updEmpNo; 
-private String rgmnEno; 
-private String lsCmeno; 
-private int laPrdMtcn; 
-private String scid; 
-private int trXcrt; 
-private Date updDt; 
-private int fxTrSqno; 
-private int laInspRcSqno; 
-private String estCurc; 
-private Date lschgDtm; 
-private String dbtAcpC; 
-private String regEmpNo; 
-private Date regDt; 
-private String bndPsvC; 
-private int chbfCusno; 
-private String rmkCntn; 
-private int repCusno; 
-private Date lmtDueDt; 
-private String pnpLaMggKdc; 
-private String wrsC; 
-private int acusAplItr; 
-private String bfLaInspRcno; 
-private String laInspRcC; 
-private String brc; 
-private Date trDt; 
-private int laPmiAm; 
-private String laItrDsc; 
-private int cusno; 
-private String updTm; 
-private String laInspRcno; 
-private String fxStsc; 
-private String ivtmnEno; 
-private String regTm; 
+package nhbank.core.domain;
+
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.sql.Date;
+
+@Entity
+@Table(name = "ACOM_LMT_CLMIT")
+@Data
+public class ACOM_LMT_CLMITInfo implements Serializable {
+    @Id
+    @GeneratedValue
+    private String laInspRcno;
+    private int chgSqno;
+    private int laInspRcSqno;
+    private String laInspRcC;
+    private String fxAcno;
+    private int repCusno;
+    private int cusno;
+    private String brc;
+    private String estCurc;
+    private int laPmiAm;
+    private Date lmtDueDt;
+    private int laPrdMtcn;
+    private String pnpLaMggKdc;
+    private String bndPsvC;
+    private String laItrDsc;
+    private int acusAplItr;
+    private String wrsC;
+    private String rgmnEno;
+    private String ivtmnEno;
+    private String scid;
+    private int trXcrt;
+    private int xcrtSc;
+    private String dbtAcpC;
+    private String bfLaInspRcno;
+    private int chbfCusno;
+    private Date trDt;
+    private int fxTrSqno;
+    private String rmkCntn;
+    private String fxStsc;
+    private Date lschgDtm;
+    private String lsCmeno;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

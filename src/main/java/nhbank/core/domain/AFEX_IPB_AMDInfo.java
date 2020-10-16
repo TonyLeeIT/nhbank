@@ -1,45 +1,48 @@
-package nhbank.core.domain; 
-import lombok.Data; 
-import javax.persistence.Entity; 
-import javax.persistence.GeneratedValue; 
-import javax.persistence.Id; 
-import javax.persistence.Table; 
-import java.io.Serializable; 
-import java.sql.Date; 
-@Entity 
-@Table(name = "AFEX_IPB_AMD") 
-@Data 
-public class AFEX_IPB_AMDInfo implements Serializable { 
-@Id 
-@GeneratedValue 
-private String updEmpNo; 
-private int tcDsamt; 
-private Date beTcLisuIl; 
-private String sts; 
-private Date acIl; 
-private Date updDt; 
-private String refNo; 
-private String regEmpNo; 
-private String amdCd; 
-private Date beExpIl; 
-private Date regDt; 
-private Date afExpIl; 
-private Date gisIl; 
-private String beLess; 
-private String beCcy; 
-private int hisNo; 
-private String afMore; 
-private Date lstIbIl; 
-private String beMore; 
-private String afCcy; 
-private int bojJukYul; 
-private int beAmt; 
-private String reReGb; 
-private String afLess; 
-private String ccy; 
-private int idAmt; 
-private String updTm; 
-private int seq; 
-private int afAmt; 
-private String regTm; 
+package nhbank.core.domain;
+
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.sql.Date;
+
+@Entity
+@Table(name = "AFEX_IPB_AMD")
+@Data
+public class AFEX_IPB_AMDInfo implements Serializable {
+    @Id
+    @GeneratedValue
+    private String refNo;
+    private int seq;
+    private String sts;
+    private Date acIl;
+    private Date gisIl;
+    private Date lstIbIl;
+    private String ccy;
+    private int idAmt;
+    private int hisNo;
+    private String amdCd;
+    private String beCcy;
+    private String afCcy;
+    private int beAmt;
+    private int afAmt;
+    private Date beExpIl;
+    private Date afExpIl;
+    private int bojJukYul;
+    private int tcDsamt;
+    private String reReGb;
+    private String beMore;
+    private String beLess;
+    private String afMore;
+    private String afLess;
+    private Date beTcLisuIl;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

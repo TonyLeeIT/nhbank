@@ -1,41 +1,44 @@
-package nhbank.core.domain; 
-import lombok.Data; 
-import javax.persistence.Entity; 
-import javax.persistence.GeneratedValue; 
-import javax.persistence.Id; 
-import javax.persistence.Table; 
-import java.io.Serializable; 
-import java.sql.Date; 
-@Entity 
-@Table(name = "AFEX_RTB_HIS") 
-@Data 
-public class AFEX_RTB_HISInfo implements Serializable { 
-@Id 
-@GeneratedValue 
-private String trCd; 
-private String updEmpNo; 
-private String userId; 
-private String selCcy; 
-private String preSts; 
-private String sts; 
-private Date acIl; 
-private Date updDt; 
-private String refNo; 
-private String buyCcy; 
-private int selFamt; 
-private Date canIl; 
-private String regEmpNo; 
-private Date regDt; 
-private int buyFamt; 
-private Date gisIl; 
-private int sdHisNo; 
-private int hisNo; 
-private Date lstIbIl; 
-private Date ibIl; 
-private String trTime; 
-private String trBr; 
-private String trGb; 
-private int exHrt; 
-private String updTm; 
-private String regTm; 
+package nhbank.core.domain;
+
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.sql.Date;
+
+@Entity
+@Table(name = "AFEX_RTB_HIS")
+@Data
+public class AFEX_RTB_HISInfo implements Serializable {
+    @Id
+    @GeneratedValue
+    private String refNo;
+    private int hisNo;
+    private String sts;
+    private String trGb;
+    private String trCd;
+    private Date ibIl;
+    private Date acIl;
+    private Date gisIl;
+    private Date canIl;
+    private int sdHisNo;
+    private String buyCcy;
+    private int buyFamt;
+    private String selCcy;
+    private int selFamt;
+    private int exHrt;
+    private String trBr;
+    private String trTime;
+    private String userId;
+    private Date lstIbIl;
+    private String preSts;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

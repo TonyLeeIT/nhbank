@@ -1,42 +1,45 @@
-package nhbank.core.domain; 
-import lombok.Data; 
-import javax.persistence.Entity; 
-import javax.persistence.GeneratedValue; 
-import javax.persistence.Id; 
-import javax.persistence.Table; 
-import java.io.Serializable; 
-import java.sql.Date; 
-@Entity 
-@Table(name = "AFEX_IPB_BOJ") 
-@Data 
-public class AFEX_IPB_BOJInfo implements Serializable { 
-@Id 
-@GeneratedValue 
-private int lgmSseq; 
-private int ncuBeLgcomDsAmt; 
-private String junhwanGb; 
-private String updEmpNo; 
-private int bldSeq; 
-private String sts; 
-private Date acIl; 
-private int beJunhwanWamt; 
-private Date updDt; 
-private String refNo; 
-private int lgmSeq; 
-private String ibjiGb; 
-private String regEmpNo; 
-private int chdAmt; 
-private Date regDt; 
-private String bojGb; 
-private Date gisIl; 
-private int hisNo; 
-private int beLgcomDsAmt; 
-private int amt; 
-private Date lstIbIl; 
-private String ncuCcy; 
-private String ccy; 
-private String updTm; 
-private int ncuAmt; 
-private int seq; 
-private String regTm; 
+package nhbank.core.domain;
+
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.sql.Date;
+
+@Entity
+@Table(name = "AFEX_IPB_BOJ")
+@Data
+public class AFEX_IPB_BOJInfo implements Serializable {
+    @Id
+    @GeneratedValue
+    private String refNo;
+    private int seq;
+    private String sts;
+    private Date acIl;
+    private Date gisIl;
+    private Date lstIbIl;
+    private String ccy;
+    private int amt;
+    private int hisNo;
+    private String ibjiGb;
+    private String bojGb;
+    private int beLgcomDsAmt;
+    private int lgmSeq;
+    private int lgmSseq;
+    private int bldSeq;
+    private String ncuCcy;
+    private int ncuAmt;
+    private int ncuBeLgcomDsAmt;
+    private int chdAmt;
+    private String junhwanGb;
+    private int beJunhwanWamt;
+    private String regEmpNo;
+    private Date regDt;
+    private String regTm;
+    private String updEmpNo;
+    private Date updDt;
+    private String updTm;
 } 

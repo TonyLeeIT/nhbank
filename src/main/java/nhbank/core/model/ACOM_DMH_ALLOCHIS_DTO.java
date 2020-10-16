@@ -6,28 +6,28 @@ import java.util.Date;
 
 @Data
 public class ACOM_DMH_ALLOCHIS_DTO {
-    private int ALLOC_AMT;
-    private String OP_NO;
-    private Date REG_DT;
-    private Date GIS_IL;
-    private int HIS_NO;
-    private String MNG_NO;
-    private String UPD_EMP_NO;
-    private String CIX_NO;
-    private int ALLOC_RATIO;
-    private Date IB_IL;
-    private String SD_BR;
     private String DAMBO_NO;
-    private String STS;
-    private Date AC_IL;
-    private String TR_TIME;
-    private int SEQ_NO;
-    private Date UPD_DT;
-    private String TR_BR;
+    private String CIX_NO;
     private String SNG_NO;
-    private String UPD_TM;
+    private int SEQ_NO;
+    private int HIS_NO;
+    private String STS;
+    private int ALLOC_RATIO;
+    private int ALLOC_AMT;
+    private Date IB_IL;
+    private Date AC_IL;
+    private Date GIS_IL;
+    private String TR_BR;
+    private String SD_BR;
+    private String TR_TIME;
+    private String OP_NO;
+    private String MNG_NO;
     private String REG_EMP_NO;
+    private Date REG_DT;
     private String REG_TM;
+    private String UPD_EMP_NO;
+    private Date UPD_DT;
+    private String UPD_TM;
 
     public ACOM_DMH_ALLOCHIS_DTO() {
     }
