@@ -2,17 +2,18 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class AFEX_IPH_COVER_DTO {
     private String REF_NO;
-    private int SEQ;
+    private BigDecimal SEQ;
     private Date TRAN_DATE;
     private Date DUE_DATE;
     private String IP_CD;
     private String CCY;
-    private int AMOUNT;
+    private BigDecimal AMOUNT;
     private String TREF_NO;
     private String NEGO_BKCD;
     private String NEGO_BKNM;
@@ -20,22 +21,22 @@ public class AFEX_IPH_COVER_DTO {
     private String REIM_BKNM;
     private String DRAWER;
     private String TENOR_GB;
-    private int TENOR_DAY;
+    private BigDecimal TENOR_DAY;
     private String TENOR_CODE;
     private String HAJA_GB;
     private String COMM_GB1;
     private String HAND_CCY;
-    private int HAND_AMT;
+    private BigDecimal HAND_AMT;
     private String COMM_GB2;
     private String CABLE_CCY;
-    private int CABLE_AMT;
+    private BigDecimal CABLE_AMT;
     private String COMM_GB3;
     private String LIEU_CCY;
-    private int LIEU_AMT;
+    private BigDecimal LIEU_AMT;
     private String COMM_GB4;
     private String ETC_CCY;
-    private int ETC_AMT;
-    private int OVERDRAW_AMT;
+    private BigDecimal ETC_AMT;
+    private BigDecimal OVERDRAW_AMT;
     private String AC_NO;
     private String LA10;
     private String LA20;

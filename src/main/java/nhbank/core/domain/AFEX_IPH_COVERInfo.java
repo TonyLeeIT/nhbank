@@ -7,21 +7,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_IPH_COVER")
+@Table(name = "afexIphCover")
 @Data
 public class AFEX_IPH_COVERInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int seq;
+    private BigDecimal seq;
     private Date tranDate;
     private Date dueDate;
     private String ipCd;
     private String ccy;
-    private int amount;
+    private BigDecimal amount;
     private String trefNo;
     private String negoBkcd;
     private String negoBknm;
@@ -29,22 +30,22 @@ public class AFEX_IPH_COVERInfo implements Serializable {
     private String reimBknm;
     private String drawer;
     private String tenorGb;
-    private int tenorDay;
+    private BigDecimal tenorDay;
     private String tenorCode;
     private String hajaGb;
     private String commGb1;
     private String handCcy;
-    private int handAmt;
+    private BigDecimal handAmt;
     private String commGb2;
     private String cableCcy;
-    private int cableAmt;
+    private BigDecimal cableAmt;
     private String commGb3;
     private String lieuCcy;
-    private int lieuAmt;
+    private BigDecimal lieuAmt;
     private String commGb4;
     private String etcCcy;
-    private int etcAmt;
-    private int overdrawAmt;
+    private BigDecimal etcAmt;
+    private BigDecimal overdrawAmt;
     private String acNo;
     private String la10;
     private String la20;

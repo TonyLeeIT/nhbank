@@ -7,18 +7,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ACOM_COM_FPBODY")
+@Table(name = "acomComFpbody")
 @Data
 public class ACOM_COM_FPBODYInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String prtKind;
-    private int lineSeq;
+    private BigDecimal lineSeq;
     private String lineTxt;
     private String regEmpNo;
     private Date regDt;

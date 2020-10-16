@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ACOM_COM_FEERT")
+@Table(name = "acomComFeert")
 @Data
 public class ACOM_COM_FEERTInfo implements Serializable {
     @Id
@@ -20,10 +21,10 @@ public class ACOM_COM_FEERTInfo implements Serializable {
     private String scd;
     private String mngBr;
     private Date applyIl;
-    private int frt;
-    private int maxFee;
-    private int minFee;
-    private int etcFrt;
+    private BigDecimal frt;
+    private BigDecimal maxFee;
+    private BigDecimal minFee;
+    private BigDecimal etcFrt;
     private String cdNm;
     private Date makeIl;
     private String plCd;

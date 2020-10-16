@@ -7,16 +7,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_XPB_LGM")
+@Table(name = "afexXpbLgm")
 @Data
 public class AFEX_XPB_LGMInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String sts;
     private String trBr;
     private Date acIl;
@@ -26,7 +27,7 @@ public class AFEX_XPB_LGMInfo implements Serializable {
     private String hajaMngInfo;
     private String mjGb;
     private String trTime;
-    private int opNo;
+    private BigDecimal opNo;
     private String hajaSayu;
     private String regEmpNo;
     private Date regDt;

@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -14,11 +15,11 @@ public class ACOM_DTG_NAPAS_RECON_DTO {
     private String DE011_TRACE_NO;
     private String DE002_PAN;
     private String DE003_PROC_CD;
-    private int DE004_TRN_AMT;
-    private int DE005_STL_AMT;
-    private int DE006_BIL_AMT;
-    private int DE009_STL_CONV_RT;
-    private int DE010_BIL_CONV_RT;
+    private BigDecimal DE004_TRN_AMT;
+    private BigDecimal DE005_STL_AMT;
+    private BigDecimal DE006_BIL_AMT;
+    private BigDecimal DE009_STL_CONV_RT;
+    private BigDecimal DE010_BIL_CONV_RT;
     private String DE012_LOC_TRN_TIME;
     private String DE013_LOC_TRN_DATE;
     private String DE015_STL_DATE;
@@ -39,18 +40,18 @@ public class ACOM_DTG_NAPAS_RECON_DTO {
     private String DE103_RCV_ACC_INF;
     private String PROCESS;
     private String MTI;
-    private int RTA;
-    private int RCA;
+    private BigDecimal RTA;
+    private BigDecimal RCA;
     private String ISS;
-    private int SVFISSNP;
-    private int IRFISSACQ;
-    private int IRFISSBNB;
-    private int SVFACQNP;
-    private int IRFACQISS;
-    private int IRFACQBNB;
-    private int SVFBNBNP;
-    private int IRFBNBISS;
-    private int IRFBNBACQ;
+    private BigDecimal SVFISSNP;
+    private BigDecimal IRFISSACQ;
+    private BigDecimal IRFISSBNB;
+    private BigDecimal SVFACQNP;
+    private BigDecimal IRFACQISS;
+    private BigDecimal IRFACQBNB;
+    private BigDecimal SVFBNBNP;
+    private BigDecimal IRFBNBISS;
+    private BigDecimal IRFBNBACQ;
     private String RRC;
     private String RSV1;
     private String RSV2;

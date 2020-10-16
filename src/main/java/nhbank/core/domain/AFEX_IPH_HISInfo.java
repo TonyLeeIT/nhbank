@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_IPH_HIS")
+@Table(name = "afexIphHis")
 @Data
 public class AFEX_IPH_HISInfo implements Serializable {
     @Id
@@ -26,10 +27,10 @@ public class AFEX_IPH_HISInfo implements Serializable {
     private String docId2;
     private String docId3;
     private String docId4;
-    private int amdSeq;
+    private BigDecimal amdSeq;
     private Date ibIl;
     private Date canIl;
-    private int sdHisNo;
+    private BigDecimal sdHisNo;
     private String trBr;
     private String ibTime;
     private String opNo;

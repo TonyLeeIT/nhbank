@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ACOM_ATB_APPLY")
+@Table(name = "acomAtbApply")
 @Data
 public class ACOM_ATB_APPLYInfo implements Serializable {
     @Id
@@ -22,9 +23,9 @@ public class ACOM_ATB_APPLYInfo implements Serializable {
     private String brNo;
     private String fileNm;
     private String fileUrl;
-    private int totCnt;
-    private int susCnt;
-    private int failCnt;
+    private BigDecimal totCnt;
+    private BigDecimal susCnt;
+    private BigDecimal failCnt;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -89,17 +90,17 @@ public class ADST_LNB_BASE_DTO {
     private BigDecimal ORIGI_FEE;
     private BigDecimal RENEW_FEE;
     private BigDecimal BROKA_FEE;
-    private int OTHER_FEE;
+    private BigDecimal OTHER_FEE;
     private String SND_DOC_NO;
     private String THR_RCV_DEPO_CCY;
     private String THR_RCV_DEPO_BIC;
     private String EVID_NO;
     private String EVID_CCY;
-    private int EVID_AMT;
-    private int USD_CVT_AMT;
-    private int BBS_CVT_AMT;
+    private BigDecimal EVID_AMT;
+    private BigDecimal USD_CVT_AMT;
+    private BigDecimal BBS_CVT_AMT;
     private String AUTO_DEBIT_YN;
-    private int LOSS_AMT;
+    private BigDecimal LOSS_AMT;
     private String RESTRUCTURING_YN;
     private Date FST_IB_IL;
     private Date LST_DEAL_IL;
@@ -110,12 +111,12 @@ public class ADST_LNB_BASE_DTO {
     private String IBF_GB;
     private String BL_NO;
     private Date LG_OPEN_IL;
-    private int NXT_RT;
+    private BigDecimal NXT_RT;
     private String NXT_SCH_YN;
     private String NEW_SCH_YN;
     private Date MSG_LST_ISU_IL;
     private String AGR_REF_NO;
-    private int AGR_SEQ_NO;
+    private BigDecimal AGR_SEQ_NO;
     private String LONG_SHORT_TYPE;
     private String FLAT_SLIDING;
     private String REG_EMP_NO;
@@ -126,8 +127,8 @@ public class ADST_LNB_BASE_DTO {
     private String UPD_TM;
     private String PARTIAL_YN;
     private Date PARTIAL_EXPI_DT;
-    private int PARTIAL_AMT;
-    private int PARTIAL_JAN;
+    private BigDecimal PARTIAL_AMT;
+    private BigDecimal PARTIAL_JAN;
     private String LN_PRPS_CD;
 
     public ADST_LNB_BASE_DTO() {

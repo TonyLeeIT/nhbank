@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -26,7 +27,7 @@ public class AFEX_IPH_BASE_DTO {
     private String BENE_ADDR2;
     private String BENE_ADDR3;
     private String OPEN_CCY;
-    private int OPEN_AMT;
+    private BigDecimal OPEN_AMT;
     private Date EXP_IL;
     private String EXP_PLACE;
     private String OPEN_GB;
@@ -74,13 +75,13 @@ public class AFEX_IPH_BASE_DTO {
     private String AMD_LSEQ;
     private String AMD_LNO;
     private String LAST_CCY;
-    private int LAST_AMT;
+    private BigDecimal LAST_AMT;
     private String EDI_GB;
     private String EDI_CUST;
     private String EDI_SEND;
     private Date EDI_SND_IL;
     private String EDI_JUM_NO;
-    private int EDI_SEQ_NO;
+    private BigDecimal EDI_SEQ_NO;
     private String EDI_SFNM;
     private String EDI_RCV;
     private Date EDI_RCV_IL;
@@ -101,16 +102,16 @@ public class AFEX_IPH_BASE_DTO {
     private String BANK_GB;
     private String MT7NN_GB;
     private String NCU_OPEN_CCY;
-    private int NCU_OPEN_AMT;
+    private BigDecimal NCU_OPEN_AMT;
     private String NCU_LAST_CCY;
-    private int NCU_LAST_AMT;
+    private BigDecimal NCU_LAST_AMT;
     private String CBS_GB;
     private String THEIR_REF;
     private String CABLE_GB;
     private String SPC_GB;
     private String MNG_INFO;
     private String RALIBO_GB;
-    private int RA_RATE;
+    private BigDecimal RA_RATE;
     private String APPL_RULE;
     private String APPL_RULE2;
     private String LOAD_PORT;

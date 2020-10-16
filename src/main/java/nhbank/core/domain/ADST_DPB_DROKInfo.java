@@ -7,17 +7,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ADST_DPB_DROK")
+@Table(name = "adstDpbDrok")
 @Data
 public class ADST_DPB_DROKInfo implements Serializable {
     @Id
     @GeneratedValue
     private String acctNo;
     private Date ibIl;
-    private int drTrxNo;
+    private BigDecimal drTrxNo;
     private String processCd;
     private String sts;
     private String mechGb;
@@ -31,20 +32,20 @@ public class ADST_DPB_DROKInfo implements Serializable {
     private String drTime;
     private String relsTime;
     private Date baseIl;
-    private int bfNo;
-    private int afNo;
-    private int bfRt;
-    private int afRt;
+    private BigDecimal bfNo;
+    private BigDecimal afNo;
+    private BigDecimal bfRt;
+    private BigDecimal afRt;
     private Date bfDate;
     private Date afDate;
     private String bfString;
     private String afString;
-    private int num1;
-    private int num2;
-    private int num3;
+    private BigDecimal num1;
+    private BigDecimal num2;
+    private BigDecimal num3;
     private String remark;
-    private int drHisNo;
-    private int relsHisNo;
+    private BigDecimal drHisNo;
+    private BigDecimal relsHisNo;
     private Date lstIbIl;
     private String lstTime;
     private Date selfMngIl;

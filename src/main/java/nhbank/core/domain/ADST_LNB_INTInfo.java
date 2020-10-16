@@ -7,42 +7,43 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ADST_LNB_INT")
+@Table(name = "adstLnbInt")
 @Data
 public class ADST_LNB_INTInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
-    private int seqNo;
+    private BigDecimal hisNo;
+    private BigDecimal seqNo;
     private String sts;
-    private int adjSeq;
-    private int schSeq;
-    private int schSubNo;
+    private BigDecimal adjSeq;
+    private BigDecimal schSeq;
+    private BigDecimal schSubNo;
     private Date intRcvIl;
     private String ccy;
-    private int intAmt;
-    private int intDsAmt;
-    private int usdCvtAmt;
-    private int bbsCvtAmt;
+    private BigDecimal intAmt;
+    private BigDecimal intDsAmt;
+    private BigDecimal usdCvtAmt;
+    private BigDecimal bbsCvtAmt;
     private String trCd;
     private String intGb;
     private String trGb;
     private String misuGb;
     private String rollGb;
-    private int indexRt;
+    private BigDecimal indexRt;
     private String spreadGb;
-    private int spreadRt;
-    private int intORt;
-    private int intSRt;
+    private BigDecimal spreadRt;
+    private BigDecimal intORt;
+    private BigDecimal intSRt;
     private Date intFromIl;
     private Date intToIl;
-    private int intDays;
-    private int bizSeq;
-    private int bizSubseq;
+    private BigDecimal intDays;
+    private BigDecimal bizSeq;
+    private BigDecimal bizSubseq;
     private Date bfJsLisuIl;
     private Date bfPtLisuIl;
     private Date bfYcLisuIl;

@@ -7,16 +7,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ACOM_LMT_ITM")
+@Table(name = "acomLmtItm")
 @Data
 public class ACOM_LMT_ITMInfo implements Serializable {
     @Id
     @GeneratedValue
     private String sngNo;
-    private int seq;
+    private BigDecimal seq;
     private String trGb;
     private Date acIl;
     private Date gisIl;
@@ -42,8 +43,8 @@ public class ACOM_LMT_ITMInfo implements Serializable {
     private String afAitm08;
     private String afAitm09;
     private String afAitm10;
-    private int beNitm;
-    private int afNitm;
+    private BigDecimal beNitm;
+    private BigDecimal afNitm;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

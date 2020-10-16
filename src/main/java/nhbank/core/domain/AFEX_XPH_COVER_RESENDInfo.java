@@ -7,27 +7,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_XPH_COVER_RESEND")
+@Table(name = "afexXphCoverResend")
 @Data
 public class AFEX_XPH_COVER_RESENDInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int bhSeq;
+    private BigDecimal bhSeq;
     private String sts;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String tranDate;
     private String lcNo;
     private String issueBknm;
     private String openDate;
     private String impotName;
     private String curr;
-    private int amount;
+    private BigDecimal amount;
     private String tenorGb;
-    private int tenorDay;
+    private BigDecimal tenorDay;
     private String tenorCode;
     private String matur;
     private String drawer;
@@ -36,8 +37,8 @@ public class AFEX_XPH_COVER_RESENDInfo implements Serializable {
     private String openBknm2;
     private String openBknm3;
     private String openBknm4;
-    private int cable;
-    private int whanga;
+    private BigDecimal cable;
+    private BigDecimal whanga;
     private String seqNo0;
     private String seqNo1;
     private String seqNo2;
@@ -120,14 +121,14 @@ public class AFEX_XPH_COVER_RESENDInfo implements Serializable {
     private String txt318;
     private String bknm;
     private String acno;
-    private int draftAmt;
-    private int intRt;
-    private int intAmt;
-    private int commRt;
-    private int commAmt;
-    private int lessRt;
-    private int lessAmt;
-    private int total;
+    private BigDecimal draftAmt;
+    private BigDecimal intRt;
+    private BigDecimal intAmt;
+    private BigDecimal commRt;
+    private BigDecimal commAmt;
+    private BigDecimal lessRt;
+    private BigDecimal lessAmt;
+    private BigDecimal total;
     private String dpda;
     private String brName;
     private String telNo;
@@ -137,8 +138,8 @@ public class AFEX_XPH_COVER_RESENDInfo implements Serializable {
     private String drawbkName3;
     private String bknm1;
     private String negoDate;
-    private int discreAmt;
-    private int cableAmt;
+    private BigDecimal discreAmt;
+    private BigDecimal cableAmt;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

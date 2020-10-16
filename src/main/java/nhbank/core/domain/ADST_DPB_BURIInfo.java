@@ -7,29 +7,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ADST_DPB_BURI")
+@Table(name = "adstDpbBuri")
 @Data
 public class ADST_DPB_BURIInfo implements Serializable {
     @Id
     @GeneratedValue
     private String acctNo;
     private Date buriIl;
-    private int buriJan;
-    private int fstJan;
-    private int maxJan;
+    private BigDecimal buriJan;
+    private BigDecimal fstJan;
+    private BigDecimal maxJan;
     private Date termIl;
-    private int lonSngAmt;
-    private int lonOvrAmt;
+    private BigDecimal lonSngAmt;
+    private BigDecimal lonOvrAmt;
     private String lonRtCd;
-    private int lonRt;
-    private int prcpOverDueIntRt;
-    private int intOverDueIntRt;
-    private int colLonInt;
-    private int lonPrcpYcInt;
-    private int lonIntYcInt;
+    private BigDecimal lonRt;
+    private BigDecimal prcpOverDueIntRt;
+    private BigDecimal intOverDueIntRt;
+    private BigDecimal colLonInt;
+    private BigDecimal lonPrcpYcInt;
+    private BigDecimal lonIntYcInt;
     private String lonYdCd;
     private String regEmpNo;
     private Date regDt;

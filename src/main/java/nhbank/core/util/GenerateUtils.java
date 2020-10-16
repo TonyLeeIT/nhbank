@@ -24,9 +24,10 @@ public class GenerateUtils {
             outStream.writeBytes("import javax.persistence.Id; \n");
             outStream.writeBytes("import javax.persistence.Table; \n");
             outStream.writeBytes("import java.io.Serializable; \n");
-            outStream.writeBytes("import java.sql.Date; \n");
+            outStream.writeBytes("import java.math.BigDecimal; \n");
+            outStream.writeBytes("import java.util.Date; \n");
             outStream.writeBytes("@Entity \n");
-            outStream.writeBytes("@Table(name = \"" + sFileName + "\") \n");
+            outStream.writeBytes("@Table(name = \"" + convertCamelCase(sFileName) + "\") \n");
             outStream.writeBytes("@Data \n");
             outStream.writeBytes("public class " + sFileName + "Info implements Serializable { \n");
             outStream.writeBytes("@Id \n");
@@ -82,6 +83,7 @@ public class GenerateUtils {
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
             outStream.writeBytes("package nhbank.core.model; \n");
             outStream.writeBytes("import lombok.Data; \n");
+            outStream.writeBytes("import java.math.BigDecimal; \n");
             outStream.writeBytes("import java.util.Date; \n");
             outStream.writeBytes("@Data \n");
             outStream.writeBytes("public class " + sFileName + "_DTO { \n");

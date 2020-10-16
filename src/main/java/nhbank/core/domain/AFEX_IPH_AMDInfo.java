@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_IPH_AMD")
+@Table(name = "afexIphAmd")
 @Data
 public class AFEX_IPH_AMDInfo implements Serializable {
     @Id
@@ -30,11 +31,11 @@ public class AFEX_IPH_AMDInfo implements Serializable {
     private String beneAddr2;
     private String beneAddr3;
     private String befoCcy;
-    private int befoAmt;
-    private int incAmt;
-    private int decAmt;
+    private BigDecimal befoAmt;
+    private BigDecimal incAmt;
+    private BigDecimal decAmt;
     private String amdCcy;
-    private int amdAmt;
+    private BigDecimal amdAmt;
     private Date expIl;
     private Date shipIl;
     private String reimBic;
@@ -59,7 +60,7 @@ public class AFEX_IPH_AMDInfo implements Serializable {
     private String ediSend;
     private Date ediSndIl;
     private String ediJumNo;
-    private int ediSeqNo;
+    private BigDecimal ediSeqNo;
     private String ediSfnm;
     private String ediRcv;
     private Date ediRcvIl;
@@ -68,12 +69,12 @@ public class AFEX_IPH_AMDInfo implements Serializable {
     private String sendJumgb;
     private String bankGb;
     private String ncuBefoCcy;
-    private int ncuBefoAmt;
-    private int ncuIncAmt;
-    private int ncuDecAmt;
+    private BigDecimal ncuBefoAmt;
+    private BigDecimal ncuIncAmt;
+    private BigDecimal ncuDecAmt;
     private String ncuAmdCcy;
-    private int ncuAmdAmt;
-    private int hisNo;
+    private BigDecimal ncuAmdAmt;
+    private BigDecimal hisNo;
     private String cbsGb;
     private String mngInfo;
     private String presPrd;

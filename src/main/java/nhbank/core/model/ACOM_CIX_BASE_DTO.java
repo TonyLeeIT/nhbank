@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -73,12 +74,12 @@ public class ACOM_CIX_BASE_DTO {
     private String MAIL_ADDR_4;
     private String CREDIT_GRADE;
     private String EMAIL_ADDR;
-    private int CAPITAL;
-    private int SALES_SCALE;
-    private int PROFIT_EX_TAX;
-    private int ASSET;
-    private int PDIN_CAPTL;
-    private int AMT_EMPLOYEE;
+    private BigDecimal CAPITAL;
+    private BigDecimal SALES_SCALE;
+    private BigDecimal PROFIT_EX_TAX;
+    private BigDecimal ASSET;
+    private BigDecimal PDIN_CAPTL;
+    private BigDecimal AMT_EMPLOYEE;
     private String CORP_TP;
     private String REMARKS1;
     private String REMARKS2;

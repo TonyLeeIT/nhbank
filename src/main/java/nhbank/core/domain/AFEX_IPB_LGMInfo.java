@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_IPB_LGM")
+@Table(name = "afexIpbLgm")
 @Data
 public class AFEX_IPB_LGMInfo implements Serializable {
     @Id
@@ -30,28 +31,28 @@ public class AFEX_IPB_LGMInfo implements Serializable {
     private BigDecimal bojBjan2;
     private BigDecimal bojJan2;
     private String blGb;
-    private int bojJukYul;
+    private BigDecimal bojJukYul;
     private Date ymanIl;
     private Date sYjIl;
-    private int sDsAmt;
+    private BigDecimal sDsAmt;
     private String sJukGb;
     private Date blJubIl;
     private String trGb;
     private Date tcLisuIl;
     private String blNo;
-    private int bldSeq;
-    private int insHisNo;
+    private BigDecimal bldSeq;
+    private BigDecimal insHisNo;
     private Date blBalIl;
     private String lgHoiGb;
     private String csGb;
-    private int term;
+    private BigDecimal term;
     private String termGb;
-    private int jilgBamt;
-    private int jilgFamt;
+    private BigDecimal jilgBamt;
+    private BigDecimal jilgFamt;
     private Date lgcomFrIl;
     private Date lgcomToIl;
-    private int lgcomFrt;
-    private int lgcomDsAmt;
+    private BigDecimal lgcomFrt;
+    private BigDecimal lgcomDsAmt;
     private String mfcsRtCd;
     private String bojfeeGb;
     private String bojJukGb;

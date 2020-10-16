@@ -7,16 +7,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ACOM_DTG_CONT_STS")
+@Table(name = "acomDtgContSts")
 @Data
 public class ACOM_DTG_CONT_STSInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int seqNo;
+    private BigDecimal seqNo;
     private String brNo;
     private Date trxDt;
     private String bfContSts;

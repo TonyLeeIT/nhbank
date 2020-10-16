@@ -7,17 +7,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AACT_TRX_BS")
+@Table(name = "aactTrxBs")
 @Data
 public class AACT_TRX_BSInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
-    private int segSeq;
+    private BigDecimal hisNo;
+    private BigDecimal segSeq;
     private String refNo2;
     private String orgGb;
     private String ilgeGb;
@@ -35,18 +36,18 @@ public class AACT_TRX_BSInfo implements Serializable {
     private String ibjiCd;
     private String slipGb;
     private String jukiGb;
-    private int famt;
-    private int bamt;
-    private int applHrt;
-    private int basicHrt;
-    private int bookHrt;
-    private int demiHrt;
-    private int gosiHrt;
-    private int ftpRt;
+    private BigDecimal famt;
+    private BigDecimal bamt;
+    private BigDecimal applHrt;
+    private BigDecimal basicHrt;
+    private BigDecimal bookHrt;
+    private BigDecimal demiHrt;
+    private BigDecimal gosiHrt;
+    private BigDecimal ftpRt;
     private String cdSngNo;
     private String ydDsfg;
     private String ydRefno;
-    private int ydHisno;
+    private BigDecimal ydHisno;
     private String docId;
     private String remark;
     private String msgType;
@@ -59,7 +60,7 @@ public class AACT_TRX_BSInfo implements Serializable {
     private String theirRefno;
     private String ifrsDvCd;
     private String dtlsBalDvCd;
-    private int balAmt;
+    private BigDecimal balAmt;
     private String idNo;
     private String cixNo;
     private String regEmpNo;

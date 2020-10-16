@@ -2,18 +2,22 @@ package nhbank.core.domain;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_XPB_HIS")
+@Table(name = "afexXpbHis")
 @Data
 public class AFEX_XPB_HISInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String sts;
     private String trGb;
     private String trCd;
@@ -22,11 +26,11 @@ public class AFEX_XPB_HISInfo implements Serializable {
     private Date acIl;
     private Date gisIl;
     private Date canIl;
-    private int sdHisNo;
+    private BigDecimal sdHisNo;
     private String trCcy;
-    private int trFamt;
-    private int trBamt;
-    private int afJan;
+    private BigDecimal trFamt;
+    private BigDecimal trBamt;
+    private BigDecimal afJan;
     private String feeMd;
     private String trBr;
     private String sdBr;
@@ -34,26 +38,26 @@ public class AFEX_XPB_HISInfo implements Serializable {
     private String opNo;
     private String mngNo;
     private String ibjiMd;
-    private int ydSeq;
+    private BigDecimal ydSeq;
     private String ydGuja;
     private String edircvDocNm;
     private Date edircvIl;
-    private int edircvSeqNo;
+    private BigDecimal edircvSeqNo;
     private String edisndDoc1Nm;
-    private int edisnd1SeqNo;
+    private BigDecimal edisnd1SeqNo;
     private String edisndDoc2Nm;
-    private int edisnd2SeqNo;
+    private BigDecimal edisnd2SeqNo;
     private String edisndDoc3Nm;
-    private int edisnd3SeqNo;
+    private BigDecimal edisnd3SeqNo;
     private String edisndDoc4Nm;
-    private int edisnd4SeqNo;
+    private BigDecimal edisnd4SeqNo;
     private String edisndDoc5Nm;
-    private int edisnd5SeqNo;
-    private int bokSeq;
+    private BigDecimal edisnd5SeqNo;
+    private BigDecimal bokSeq;
     private String cdSngNo;
-    private int cdSilSeq;
+    private BigDecimal cdSilSeq;
     private String ftpSngNo;
-    private int ftpSilSeq;
+    private BigDecimal ftpSilSeq;
     private String ijGb;
     private String jichGb;
     private String hijaGb;
@@ -61,29 +65,27 @@ public class AFEX_XPB_HISInfo implements Serializable {
     private String jichmGb;
     private String hcGb;
     private String bijaGb;
-    private int beTerm;
-    private int beHterm;
-    private int crBamt;
+    private BigDecimal beTerm;
+    private BigDecimal beHterm;
+    private BigDecimal crBamt;
     private Date beLisuIl;
-    @Column(name = "BE_HRT")
-    private int beHrt;
-    @Column(name = "BE_H_RT")
-    private int beHRt;
+    private BigDecimal beHrt;
+    private BigDecimal beHRt;
     private Date beYmanIl;
     private Date beYdcIl;
     private Date beShIl;
     private Date beBudoIl;
-    private int beFtpRt;
-    private int beIkisHis;
-    private int beIkisIj;
+    private BigDecimal beFtpRt;
+    private BigDecimal beIkisHis;
+    private BigDecimal beIkisIj;
     private String beHdSngNo;
     private String bePbrmNo;
-    private int gitaAmt;
-    private int caSeq;
+    private BigDecimal gitaAmt;
+    private BigDecimal caSeq;
     private Date baeseoIl;
-    private int actpayHisNo1;
-    private int suspayHisNo1;
-    private int suspayHisNo2;
+    private BigDecimal actpayHisNo1;
+    private BigDecimal suspayHisNo1;
+    private BigDecimal suspayHisNo2;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

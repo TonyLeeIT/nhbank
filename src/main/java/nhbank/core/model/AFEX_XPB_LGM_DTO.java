@@ -2,12 +2,13 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class AFEX_XPB_LGM_DTO {
     private String REF_NO;
-    private int HIS_NO;
+    private BigDecimal HIS_NO;
     private String STS;
     private String TR_BR;
     private Date AC_IL;
@@ -17,7 +18,7 @@ public class AFEX_XPB_LGM_DTO {
     private String HAJA_MNG_INFO;
     private String MJ_GB;
     private String TR_TIME;
-    private int OP_NO;
+    private BigDecimal OP_NO;
     private String HAJA_SAYU;
     private String REG_EMP_NO;
     private Date REG_DT;

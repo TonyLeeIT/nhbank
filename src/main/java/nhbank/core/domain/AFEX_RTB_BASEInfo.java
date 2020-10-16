@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_RTB_BASE")
+@Table(name = "afexRtbBase")
 @Data
 public class AFEX_RTB_BASEInfo implements Serializable {
     @Id
@@ -19,14 +20,14 @@ public class AFEX_RTB_BASEInfo implements Serializable {
     private String cixNo;
     private String cixNm;
     private String buyCcy;
-    private int buyFamt;
+    private BigDecimal buyFamt;
     private String selCcy;
-    private int selFamt;
-    private int exHrt;
+    private BigDecimal selFamt;
+    private BigDecimal exHrt;
     private String rateAmtGb;
     private String frtGb;
-    private int frtRt;
-    private int frtAmt;
+    private BigDecimal frtRt;
+    private BigDecimal frtAmt;
     private Date acIl;
     private Date lstIbIl;
     private String idNo;

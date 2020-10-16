@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ACOM_LMT_BASEHD")
+@Table(name = "acomLmtBasehd")
 @Data
 public class ACOM_LMT_BASEHDInfo implements Serializable {
     @Id
@@ -27,26 +28,26 @@ public class ACOM_LMT_BASEHDInfo implements Serializable {
     private String pogwlGb;
     private String revolGb;
     private String gihanGb;
-    private int expMm;
+    private BigDecimal expMm;
     private Date expIl;
     private Date sngIl;
     private String sngCcy;
-    private int sngAmt;
-    private int sngAbtrt;
-    private int sngAbtamt;
-    private int totSilCnt;
-    private int totSilJanamt;
-    private int totSilAccum;
-    private int totSilDjgjan;
+    private BigDecimal sngAmt;
+    private BigDecimal sngAbtrt;
+    private BigDecimal sngAbtamt;
+    private BigDecimal totSilCnt;
+    private BigDecimal totSilJanamt;
+    private BigDecimal totSilAccum;
+    private BigDecimal totSilDjgjan;
     private Date totSilLstil;
-    private int totBojBcnt;
-    private int totBojBjan;
-    private int totBojFcnt;
-    private int totBojFjan;
-    private int woiYongdo;
+    private BigDecimal totBojBcnt;
+    private BigDecimal totBojBjan;
+    private BigDecimal totBojFcnt;
+    private BigDecimal totBojFjan;
+    private BigDecimal woiYongdo;
     private String woiSunhu;
-    private int woiInttrm;
-    private int woiGaetrm;
+    private BigDecimal woiInttrm;
+    private BigDecimal woiGaetrm;
     private String woiSutgb;
     private String sngCond;
     private String isSngno;
@@ -57,7 +58,7 @@ public class ACOM_LMT_BASEHDInfo implements Serializable {
     private String ikCixno;
     private String ikBrno;
     private Date ikIl;
-    private int sngAplseq;
+    private BigDecimal sngAplseq;
     private String sngAuth;
     private Date lstIbil;
     private String sngBrno;
@@ -66,15 +67,15 @@ public class ACOM_LMT_BASEHDInfo implements Serializable {
     private String sngLonmgr;
     private String sngChajang;
     private String sngJumjang;
-    private int bojMjAmt;
+    private BigDecimal bojMjAmt;
     private String rateGb;
     private String rateJugi;
-    private int spread;
-    private int yoncheRate;
-    private int graceDay;
+    private BigDecimal spread;
+    private BigDecimal yoncheRate;
+    private BigDecimal graceDay;
     private String dayCntBasis;
     private String busiDayRule;
-    private int penalRate;
+    private BigDecimal penalRate;
     private String agreeNo;
     private String condSts;
     private String regEmpNo;

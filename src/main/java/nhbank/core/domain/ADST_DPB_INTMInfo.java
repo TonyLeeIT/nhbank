@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ADST_DPB_INTM")
+@Table(name = "adstDpbIntm")
 @Data
 public class ADST_DPB_INTMInfo implements Serializable {
     @Id

@@ -4,20 +4,6 @@ server:
   user: info_woori
   password: Infocity@123
 
-path:
-  fbk: /root/WRB_Gateway/
-  fbkbackup: /root/WRB_Gateway/Complete/
-  fbksend: /root/WRB_Gateway/Send/
-  fbksendbk: /root/WRB_Gateway/SendBK/
-  fbktowrb: /home/partner/INFO01/to_org
-  fbkfromwrb: /home/partner/INFO01/from_org
-  file:
-    type: .datsqlfiles
-    header_snd: fbk_snd
-    header_vir: fbk_vir
-    header_awa: fbk_awa
-    header_ccr: fbk_ccr
-
 sqlfiles:
   sql:
     - AACT_TRX_BAL

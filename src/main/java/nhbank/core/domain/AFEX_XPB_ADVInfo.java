@@ -7,56 +7,57 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_XPB_ADV")
+@Table(name = "afexXpbAdv")
 @Data
 public class AFEX_XPB_ADVInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String sts;
     private Date acIl;
     private Date gisIl;
     private Date lstIbIl;
     private String ccy;
-    private int amt;
+    private BigDecimal amt;
     private String advGb;
     private String caGb;
     private String delayGb;
     private Date sdTrIl;
     private String jubGb;
-    private int hdAmt;
+    private BigDecimal hdAmt;
     private String junNo1;
-    private int overAmt;
+    private BigDecimal overAmt;
     private String junNo2;
-    private int lessCaAmt;
-    private int lessCoAmt;
-    private int lessGtAmt;
+    private BigDecimal lessCaAmt;
+    private BigDecimal lessCoAmt;
+    private BigDecimal lessGtAmt;
     private String yukNo;
     private String plJiGb;
     private String depoBkcd;
     private String buibGb;
-    private int junAmt;
+    private BigDecimal junAmt;
     private String ijGb;
     private Date manIl;
     private Date caManIl;
-    private int misuAmt;
-    private int misuBamt;
+    private BigDecimal misuAmt;
+    private BigDecimal misuBamt;
     private String sonikGb;
-    private int sonikAmt;
+    private BigDecimal sonikAmt;
     private Date beLcaIl;
     private String ncuCcy;
-    private int ncuAmt;
-    private int ncuHdAmt;
-    private int ncuOverAmt;
-    private int ncuLessCaAmt;
-    private int ncuLessCoAmt;
-    private int ncuLessGtAmt;
-    private int ncuJunAmt;
-    private int ncuMisuAmt;
+    private BigDecimal ncuAmt;
+    private BigDecimal ncuHdAmt;
+    private BigDecimal ncuOverAmt;
+    private BigDecimal ncuLessCaAmt;
+    private BigDecimal ncuLessCoAmt;
+    private BigDecimal ncuLessGtAmt;
+    private BigDecimal ncuJunAmt;
+    private BigDecimal ncuMisuAmt;
     private String junNo3;
     private String payDoYn;
     private String trsfAbano;

@@ -7,24 +7,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_XPH_CA")
+@Table(name = "afexXphCa")
 @Data
 public class AFEX_XPH_CAInfo implements Serializable {
     @Id
     @GeneratedValue
     private Date rcvIl;
-    private int seqNo;
+    private BigDecimal seqNo;
     private String sts;
     private String refNo;
     private String caCcy;
-    private int caAmt;
-    private int lessCaAmt;
-    private int lessCoAmt;
-    private int lessGtAmt;
-    private int overAmt;
+    private BigDecimal caAmt;
+    private BigDecimal lessCaAmt;
+    private BigDecimal lessCoAmt;
+    private BigDecimal lessGtAmt;
+    private BigDecimal overAmt;
     private Date caIl;
     private String depoBkcd;
     private Date sdBalIl;
@@ -41,11 +42,11 @@ public class AFEX_XPH_CAInfo implements Serializable {
     private String divGb;
     private String divRef;
     private String ncuCaCcy;
-    private int ncuCaAmt;
-    private int ncuLessCaAmt;
-    private int ncuLessCoAmt;
-    private int ncuLessGtAmt;
-    private int ncuOverAmt;
+    private BigDecimal ncuCaAmt;
+    private BigDecimal ncuLessCaAmt;
+    private BigDecimal ncuLessCoAmt;
+    private BigDecimal ncuLessGtAmt;
+    private BigDecimal ncuOverAmt;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

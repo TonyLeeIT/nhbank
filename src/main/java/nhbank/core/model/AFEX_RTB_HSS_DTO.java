@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -15,12 +16,12 @@ public class AFEX_RTB_HSS_DTO {
     private String SD_BR_NO;
     private String SD_DEPO_CD;
     private String CHARGE_TYPE;
-    private int HSS_FEE;
+    private BigDecimal HSS_FEE;
     private Date ICHE_IL;
     private String CCY;
-    private int FAMT;
-    private int BAMT;
-    private int TRSC_SEQ_NO;
+    private BigDecimal FAMT;
+    private BigDecimal BAMT;
+    private BigDecimal TRSC_SEQ_NO;
     private String REG_EMP_NO;
     private Date REG_DT;
     private String REG_TM;

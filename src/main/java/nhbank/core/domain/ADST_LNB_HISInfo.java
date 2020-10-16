@@ -7,16 +7,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ADST_LNB_HIS")
+@Table(name = "adstLnbHis")
 @Data
 public class ADST_LNB_HISInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String sts;
     private String trGb;
     private String trCd;
@@ -25,11 +26,11 @@ public class ADST_LNB_HISInfo implements Serializable {
     private Date acIl;
     private Date gisIl;
     private Date canIl;
-    private int sdHisNo;
+    private BigDecimal sdHisNo;
     private String trCcy;
-    private int trFamt;
-    private int trBamt;
-    private int afJan;
+    private BigDecimal trFamt;
+    private BigDecimal trBamt;
+    private BigDecimal afJan;
     private String feeMd;
     private String sndDocNo;
     private String trBr;
@@ -40,9 +41,9 @@ public class ADST_LNB_HISInfo implements Serializable {
     private String ibjiMd;
     private String ydGuja;
     private String cdSngNo;
-    private int cdSilSeq;
+    private BigDecimal cdSilSeq;
     private String ftpSngNo;
-    private int ftpSilSeq;
+    private BigDecimal ftpSilSeq;
     private Date lstIbIl;
     private Date bfLrepayIl;
     private Date bfNrepayIl;
@@ -52,11 +53,11 @@ public class ADST_LNB_HISInfo implements Serializable {
     private Date bfNrollIl;
     private Date bfPycIl;
     private Date bfIycIl;
-    private int bfRepaySeq;
-    private int bfIntSeq;
-    private int bfMsbSeq;
-    private int bfLstRt;
-    private int bfMisuAmt;
+    private BigDecimal bfRepaySeq;
+    private BigDecimal bfIntSeq;
+    private BigDecimal bfMsbSeq;
+    private BigDecimal bfLstRt;
+    private BigDecimal bfMisuAmt;
     private String shJagumGb;
     private String regEmpNo;
     private Date regDt;

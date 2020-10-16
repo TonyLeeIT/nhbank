@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_ROH_BASE")
+@Table(name = "afexRohBase")
 @Data
 public class AFEX_ROH_BASEInfo implements Serializable {
     @Id
@@ -30,7 +31,7 @@ public class AFEX_ROH_BASEInfo implements Serializable {
     private String rtCd;
     private String tsCd;
     private String ccy;
-    private int famt;
+    private BigDecimal famt;
     private String ddType;
     private String ddNo;
     private String sdCtry;
@@ -55,26 +56,26 @@ public class AFEX_ROH_BASEInfo implements Serializable {
     private String idNo;
     private String idNoGb;
     private String jigbNo;
-    private int jigbSeq;
-    private int chAmt;
+    private BigDecimal jigbSeq;
+    private BigDecimal chAmt;
     private String chGb;
     private String junNo2;
     private String mjGb;
     private String cdSngNo;
-    private int cdSilSeq;
+    private BigDecimal cdSilSeq;
     private String opNo;
     private String ownerNo;
     private String pbrmNo;
     private Date sdTrIl;
     private String jiOkNo;
-    private int mileage;
+    private BigDecimal mileage;
     private String phIdNo;
-    private int phSeqNo;
+    private BigDecimal phSeqNo;
     private String ydGuja;
     private String canGb;
     private Date debitVdate;
     private String debitCur;
-    private int debitAmt;
+    private BigDecimal debitAmt;
     private String stateMsg;
     private String emailNm;
     private Date makeIl;
@@ -118,27 +119,27 @@ public class AFEX_ROH_BASEInfo implements Serializable {
     private String info72Name4;
     private String info72Name5;
     private String info72Name6;
-    private int cableChg;
-    private int liftChg;
-    private int cashChg;
-    private int exchChg;
-    private int payComm;
+    private BigDecimal cableChg;
+    private BigDecimal liftChg;
+    private BigDecimal cashChg;
+    private BigDecimal exchChg;
+    private BigDecimal payComm;
     private String boseGb;
     private String paidOption;
     private String instructCcy;
-    private int instructAmt;
-    private int exRate;
+    private BigDecimal instructAmt;
+    private BigDecimal exRate;
     private String bopSeqNo;
     private String bopTrxCode;
     private String bopTrxRemark;
     private String tradeGb;
     private String subDpNo;
     private String cvtCcy;
-    private int cvtAmt;
-    private int cvtExrate;
+    private BigDecimal cvtAmt;
+    private BigDecimal cvtExrate;
     private String fxCcy;
-    private int fxAmt;
-    private int fxExrate;
+    private BigDecimal fxAmt;
+    private BigDecimal fxExrate;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_XPH_TRA")
+@Table(name = "afexXphTra")
 @Data
 public class AFEX_XPH_TRAInfo implements Serializable {
     @Id

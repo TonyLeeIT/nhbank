@@ -7,19 +7,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AACT_TRX_BASE")
+@Table(name = "aactTrxBase")
 @Data
 public class AACT_TRX_BASEInfo implements Serializable {
     @Id
     @GeneratedValue
     private Date trxIl;
     private String trxBr;
-    private int trxSeq;
+    private BigDecimal trxSeq;
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String ibfGb;
     private String idNo;
     private String cixNo;
@@ -28,7 +29,7 @@ public class AACT_TRX_BASEInfo implements Serializable {
     private String georCd;
     private String dpydGb;
     private String sts;
-    private int canHisno;
+    private BigDecimal canHisno;
     private String actMach;
     private String actDtyp;
     private String actDseq;
@@ -36,24 +37,24 @@ public class AACT_TRX_BASEInfo implements Serializable {
     private String actSjum;
     private String actCjum;
     private String actMode;
-    private int ccyCnt;
+    private BigDecimal ccyCnt;
     private String actBsplGb;
     private String actCd;
     private String actCcy;
-    private int actAmt;
-    private int usdAmt;
-    private int fdcAmt;
-    private int fdcHdamt;
-    private int applHrt;
-    private int basicHrt;
-    private int bookHrt;
-    private int demiHrt;
-    private int gosiHrt;
+    private BigDecimal actAmt;
+    private BigDecimal usdAmt;
+    private BigDecimal fdcAmt;
+    private BigDecimal fdcHdamt;
+    private BigDecimal applHrt;
+    private BigDecimal basicHrt;
+    private BigDecimal bookHrt;
+    private BigDecimal demiHrt;
+    private BigDecimal gosiHrt;
     private String ibjiMd;
-    private int jakiAmt;
-    private int etc1Amt;
-    private int etc2Amt;
-    private int etc3Amt;
+    private BigDecimal jakiAmt;
+    private BigDecimal etc1Amt;
+    private BigDecimal etc2Amt;
+    private BigDecimal etc3Amt;
     private Date acIl;
     private Date ibIl;
     private String ibTime;
@@ -63,13 +64,13 @@ public class AACT_TRX_BASEInfo implements Serializable {
     private String opNo;
     private String mgrNo;
     private String rmNo;
-    private int bsCnt;
-    private int plCnt;
+    private BigDecimal bsCnt;
+    private BigDecimal plCnt;
     private String cdsngNo;
     private String vipGb;
     private String theirRefno;
     private String plAddYn;
-    private int voucherNo;
+    private BigDecimal voucherNo;
     private String posKind;
     private String globId;
     private String ifrsDvCd;

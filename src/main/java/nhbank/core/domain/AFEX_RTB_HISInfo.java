@@ -7,16 +7,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_RTB_HIS")
+@Table(name = "afexRtbHis")
 @Data
 public class AFEX_RTB_HISInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String sts;
     private String trGb;
     private String trCd;
@@ -24,12 +25,12 @@ public class AFEX_RTB_HISInfo implements Serializable {
     private Date acIl;
     private Date gisIl;
     private Date canIl;
-    private int sdHisNo;
+    private BigDecimal sdHisNo;
     private String buyCcy;
-    private int buyFamt;
+    private BigDecimal buyFamt;
     private String selCcy;
-    private int selFamt;
-    private int exHrt;
+    private BigDecimal selFamt;
+    private BigDecimal exHrt;
     private String trBr;
     private String trTime;
     private String userId;

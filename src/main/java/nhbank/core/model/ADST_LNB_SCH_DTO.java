@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -52,15 +53,15 @@ public class ADST_LNB_SCH_DTO {
     private BigDecimal YC_DS_TERM;
     private Date YC_LISU_IL;
     private BigDecimal YC_RT;
-    private int MAKE_HIS_NO;
-    private int LST_SUB_NO;
+    private BigDecimal MAKE_HIS_NO;
+    private BigDecimal LST_SUB_NO;
     private Date LST_AC_IL;
     private Date LST_IB_IL;
     private String FIX_GB;
-    private int FIX_AMT;
-    private int PV_RT;
-    private int PV_AMT;
-    private int SEQ_NO;
+    private BigDecimal FIX_AMT;
+    private BigDecimal PV_RT;
+    private BigDecimal PV_AMT;
+    private BigDecimal SEQ_NO;
     private Date RATE_FIX_IL;
     private String REG_EMP_NO;
     private Date REG_DT;

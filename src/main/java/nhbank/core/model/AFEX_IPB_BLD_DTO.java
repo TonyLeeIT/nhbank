@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -50,9 +51,9 @@ public class AFEX_IPB_BLD_DTO {
     private BigDecimal NCU_AMT;
     private BigDecimal NCU_MI_JAN;
     private BigDecimal NCU_LGB_FJAN;
-    private int NCU_INS_AMT;
-    private int NCU_INS_JAN;
-    private int IJA_AMT;
+    private BigDecimal NCU_INS_AMT;
+    private BigDecimal NCU_INS_JAN;
+    private BigDecimal IJA_AMT;
     private String YJ_INS_IL;
     private String YJ_MAN_IL;
     private String REMARK1;

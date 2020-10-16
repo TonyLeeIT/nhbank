@@ -7,28 +7,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_IPB_BLD")
+@Table(name = "afexIpbBld")
 @Data
 public class AFEX_IPB_BLDInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int seq;
+    private BigDecimal seq;
     private String sts;
     private Date acIl;
     private Date gisIl;
     private Date lstIbIl;
     private String ccy;
-    private int amt;
-    private int hisNo;
+    private BigDecimal amt;
+    private BigDecimal hisNo;
     private String jubGb;
     private String chuGb;
-    private int miJan;
-    private int lgbBjan;
-    private int lgbFjan;
+    private BigDecimal miJan;
+    private BigDecimal lgbBjan;
+    private BigDecimal lgbFjan;
     private String corGb;
     private String blGb;
     private String negoBknm;
@@ -37,17 +38,17 @@ public class AFEX_IPB_BLDInfo implements Serializable {
     private String blNo;
     private Date negoIl;
     private Date blYjubIl;
-    private int blkSseq;
+    private BigDecimal blkSseq;
     private String manGb;
     private Date tcLisuIl;
     private String cccIjaGb;
     private String budoGb;
     private String yukNo;
-    private int depoSeq;
+    private BigDecimal depoSeq;
     private String insGamGb;
     private Date insIl;
-    private int insAmt;
-    private int insJan;
+    private BigDecimal insAmt;
+    private BigDecimal insJan;
     private Date shipIl;
     private String theirRef;
     private String poGb;
@@ -56,12 +57,12 @@ public class AFEX_IPB_BLDInfo implements Serializable {
     private String rcvAcctNo;
     private String transGb;
     private String ncuCcy;
-    private int ncuAmt;
-    private int ncuMiJan;
-    private int ncuLgbFjan;
-    private int ncuInsAmt;
-    private int ncuInsJan;
-    private int ijaAmt;
+    private BigDecimal ncuAmt;
+    private BigDecimal ncuMiJan;
+    private BigDecimal ncuLgbFjan;
+    private BigDecimal ncuInsAmt;
+    private BigDecimal ncuInsJan;
+    private BigDecimal ijaAmt;
     private String yjInsIl;
     private String yjManIl;
     private String remark1;

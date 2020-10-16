@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ACOM_COMH_MSGHIS")
+@Table(name = "acomComhMsghis")
 @Data
 public class ACOM_COMH_MSGHISInfo implements Serializable {
     @Id

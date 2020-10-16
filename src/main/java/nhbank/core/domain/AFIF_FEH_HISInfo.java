@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFIF_FEH_HIS")
+@Table(name = "afifFehHis")
 @Data
 public class AFIF_FEH_HISInfo implements Serializable {
     @Id
@@ -39,13 +40,13 @@ public class AFIF_FEH_HISInfo implements Serializable {
     private String farBuyCcy;
     private BigDecimal farBuyFamt;
     private BigDecimal farBuyBamt;
-    private int farBuyJan;
-    private int farBuyBjan;
+    private BigDecimal farBuyJan;
+    private BigDecimal farBuyBjan;
     private String farSellCcy;
-    private int farSellFamt;
-    private int farSellBamt;
-    private int farSellJan;
-    private int farSellBjan;
+    private BigDecimal farSellFamt;
+    private BigDecimal farSellBamt;
+    private BigDecimal farSellJan;
+    private BigDecimal farSellBjan;
     private String farSndDocNo;
     private String trBr;
     private String sdBr;
@@ -54,9 +55,9 @@ public class AFIF_FEH_HISInfo implements Serializable {
     private String managerId;
     private String ibjiMd;
     private String cdSngNo;
-    private int cdSilSeq;
+    private BigDecimal cdSilSeq;
     private String ftpSngNo;
-    private int ftpSilSeq;
+    private BigDecimal ftpSilSeq;
     private String junNo;
     private String yukNo;
     private Date lstIbIl;

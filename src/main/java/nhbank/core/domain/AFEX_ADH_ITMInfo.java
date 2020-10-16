@@ -7,16 +7,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFEX_ADH_ITM")
+@Table(name = "afexAdhItm")
 @Data
 public class AFEX_ADH_ITMInfo implements Serializable {
     @Id
     @GeneratedValue
     private String advNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private Date acIl;
     private Date gisIl;
     private Date lstIbIl;
@@ -24,8 +25,8 @@ public class AFEX_ADH_ITMInfo implements Serializable {
     private String itmCd;
     private String beItm;
     private String afItm;
-    private int beItm1;
-    private int afItm1;
+    private BigDecimal beItm1;
+    private BigDecimal afItm1;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

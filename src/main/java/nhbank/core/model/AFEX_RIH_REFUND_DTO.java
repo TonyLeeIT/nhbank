@@ -2,12 +2,13 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class AFEX_RIH_REFUND_DTO {
     private String REF_NO;
-    private int SEQ_NO;
+    private BigDecimal SEQ_NO;
     private String STS;
     private String RT_CD;
     private String MONEY_CD;
@@ -15,18 +16,18 @@ public class AFEX_RIH_REFUND_DTO {
     private String RCV_BR;
     private String CIX_NO;
     private String CCY;
-    private int FAMT;
-    private int ORG_FAMT;
+    private BigDecimal FAMT;
+    private BigDecimal ORG_FAMT;
     private String THEIR_REF_NO;
     private String CH_GB;
-    private int CH_AMT;
+    private BigDecimal CH_AMT;
     private String MJ_GB;
-    private int FEE_CNT;
+    private BigDecimal FEE_CNT;
     private String FEE_MSG;
     private String INMSG_GB;
     private String IN_MSG;
     private String CREDIT_CUR;
-    private int CREDIT_AMT;
+    private BigDecimal CREDIT_AMT;
     private Date CREDIT_IL;
     private String APPL_NM;
     private String APPL_ADDR1;
@@ -60,7 +61,7 @@ public class AFEX_RIH_REFUND_DTO {
     private String CBANK_ADDR3;
     private Date VALUE_DATE;
     private String FEE_CUR;
-    private int FEE_AMT;
+    private BigDecimal FEE_AMT;
     private String INFO70_NAME1;
     private String INFO70_NAME2;
     private String INFO70_NAME3;
@@ -82,9 +83,9 @@ public class AFEX_RIH_REFUND_DTO {
     private String IMAD;
     private String OMAD;
     private Date REQUEST_IL;
-    private int REQUEST_HIS;
+    private BigDecimal REQUEST_HIS;
     private Date AMEND_IL;
-    private int AMEND_HIS;
+    private BigDecimal AMEND_HIS;
     private String OUTMSG_GB;
     private String REFUND_RECV_MTTYPE;
     private String REFUND_RECV_MSG;
@@ -98,10 +99,10 @@ public class AFEX_RIH_REFUND_DTO {
     private String RFND_SEND_MTTYPE;
     private String RFND_SEND_MSG;
     private Date RFND_SEND_IL;
-    private int REFUND_AMT;
-    private int AMD_AMT;
-    private int AMD_COMM;
-    private int AMD_FEE;
+    private BigDecimal REFUND_AMT;
+    private BigDecimal AMD_AMT;
+    private BigDecimal AMD_COMM;
+    private BigDecimal AMD_FEE;
     private String REFUND_THEIR_REF;
     private String REFUND_REMARK1;
     private String REFUND_REMARK2;

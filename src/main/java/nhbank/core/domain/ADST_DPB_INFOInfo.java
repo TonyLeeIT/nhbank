@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ADST_DPB_INFO")
+@Table(name = "adstDpbInfo")
 @Data
 public class ADST_DPB_INFOInfo implements Serializable {
     @Id
@@ -88,13 +89,13 @@ public class ADST_DPB_INFOInfo implements Serializable {
     private BigDecimal amt1;
     private BigDecimal amt2;
     private BigDecimal amt3;
-    private int amt4;
-    private int amt5;
-    private int amt6;
-    private int amt7;
-    private int amt8;
-    private int amt9;
-    private int amt10;
+    private BigDecimal amt4;
+    private BigDecimal amt5;
+    private BigDecimal amt6;
+    private BigDecimal amt7;
+    private BigDecimal amt8;
+    private BigDecimal amt9;
+    private BigDecimal amt10;
     private String cd1;
     private String cd2;
     private String cd3;
@@ -105,11 +106,11 @@ public class ADST_DPB_INFOInfo implements Serializable {
     private String cd8;
     private String cd9;
     private String cd10;
-    private int rt1;
-    private int rt2;
-    private int rt3;
-    private int rt4;
-    private int rt5;
+    private BigDecimal rt1;
+    private BigDecimal rt2;
+    private BigDecimal rt3;
+    private BigDecimal rt4;
+    private BigDecimal rt5;
     private Date dt1;
     private Date dt2;
     private Date dt3;

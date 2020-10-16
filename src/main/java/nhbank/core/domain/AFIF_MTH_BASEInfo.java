@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "AFIF_MTH_BASE")
+@Table(name = "afifMthBase")
 @Data
 public class AFIF_MTH_BASEInfo implements Serializable {
     @Id
@@ -21,7 +22,7 @@ public class AFIF_MTH_BASEInfo implements Serializable {
     private String valueYn;
     private Date valueIl;
     private String ccy;
-    private int amt;
+    private BigDecimal amt;
     private String fromDepoCd;
     private String fromDepoNm;
     private String toCcy;
@@ -29,7 +30,7 @@ public class AFIF_MTH_BASEInfo implements Serializable {
     private String toDepoNm;
     private String poYn;
     private Date poIl;
-    private int poSeq;
+    private BigDecimal poSeq;
     private String tag21;
     private String tag53B;
     private String tag56ABic;

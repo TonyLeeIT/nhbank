@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ACOM_ATB_BASE")
+@Table(name = "acomAtbBase")
 @Data
 public class ACOM_ATB_BASEInfo implements Serializable {
     @Id
@@ -25,20 +26,20 @@ public class ACOM_ATB_BASEInfo implements Serializable {
     private String frCixNo;
     private String cixNo;
     private String ccy;
-    private int limitAmt;
-    private int trAmt;
+    private BigDecimal limitAmt;
+    private BigDecimal trAmt;
     private String dueType;
-    private int dueDay;
-    private int dueTimes;
-    private int totTimes;
-    private int procTimes;
+    private BigDecimal dueDay;
+    private BigDecimal dueTimes;
+    private BigDecimal totTimes;
+    private BigDecimal procTimes;
     private Date opnDt;
     private Date expDt;
     private String retryYn;
     private String purposeCd;
     private String rcvRmrk;
     private String rcvAddr;
-    private int depTimes;
+    private BigDecimal depTimes;
     private String type;
     private String channelType;
     private String payerInf;
@@ -47,7 +48,7 @@ public class ACOM_ATB_BASEInfo implements Serializable {
     private String feeFreeYn;
     private String toBankCd;
     private String toCustNm;
-    private int feeAmt;
+    private BigDecimal feeAmt;
     private String applRmrk;
     private String rmteAcctDpKindCd;
     private String rtgsTp;

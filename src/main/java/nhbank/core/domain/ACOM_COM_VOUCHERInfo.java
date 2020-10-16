@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
-@Table(name = "ACOM_COM_VOUCHER")
+@Table(name = "acomComVoucher")
 @Data
 public class ACOM_COM_VOUCHERInfo implements Serializable {
     @Id
@@ -18,7 +19,7 @@ public class ACOM_COM_VOUCHERInfo implements Serializable {
     private String acIl;
     private String acBr;
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String otherRefNo;
     private String upmuCd;
     private String trCd;
@@ -40,8 +41,8 @@ public class ACOM_COM_VOUCHERInfo implements Serializable {
     private String prtGb;
     private String opNo;
     private String opName;
-    private int voucherNo;
-    private int prtSeq;
+    private BigDecimal voucherNo;
+    private BigDecimal prtSeq;
     private String regEmpNo;
     private Date regDt;
     private String regTm;
