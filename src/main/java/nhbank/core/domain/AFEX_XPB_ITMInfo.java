@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-@Table(name = "AFEX_XPB_ITM")
+@Table(name = "afexXpbItm")
 @Data
 public class AFEX_XPB_ITMInfo implements Serializable {
     @Id

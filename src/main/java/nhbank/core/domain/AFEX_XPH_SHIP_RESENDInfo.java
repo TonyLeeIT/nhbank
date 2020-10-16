@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-@Table(name = "AFEX_XPH_SHIP_RESEND")
+@Table(name = "afexXphShipResend")
 @Data
 public class AFEX_XPH_SHIP_RESENDInfo implements Serializable {
     @Id
