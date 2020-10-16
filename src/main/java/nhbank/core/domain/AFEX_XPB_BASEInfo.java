@@ -2,10 +2,7 @@ package nhbank.core.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -102,7 +99,9 @@ public class AFEX_XPB_BASEInfo implements Serializable {
     private int miplGun;
     private String hdSngNo;
     private Date ijaLisuIl;
+    @Column(name = "LST_IJA_HRT")
     private int lstIjaHrt;
+    @Column(name = "LST_IJA_H_RT")
     private int lstIjaHRt;
     private String gaWijaGb;
     private String ijaMjGb1;
