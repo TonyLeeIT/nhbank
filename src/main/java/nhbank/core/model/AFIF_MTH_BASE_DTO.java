@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -12,7 +13,7 @@ public class AFIF_MTH_BASE_DTO {
     private String VALUE_YN;
     private Date VALUE_IL;
     private String CCY;
-    private int AMT;
+    private BigDecimal AMT;
     private String FROM_DEPO_CD;
     private String FROM_DEPO_NM;
     private String TO_CCY;
@@ -20,7 +21,7 @@ public class AFIF_MTH_BASE_DTO {
     private String TO_DEPO_NM;
     private String PO_YN;
     private Date PO_IL;
-    private int PO_SEQ;
+    private BigDecimal PO_SEQ;
     private String TAG21;
     private String TAG53_B;
     private String TAG56_A_BIC;

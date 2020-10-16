@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -24,9 +25,9 @@ public class ADST_DPB_INFO_DTO {
     private String SD_ACCT_NO;
     private String PBOOK_GB;
     private String PBOOK_CD;
-    private int PBOOK_LINE;
-    private int PBOOK_SEQ;
-    private int PWD_ERR_CNT;
+    private BigDecimal PBOOK_LINE;
+    private BigDecimal PBOOK_SEQ;
+    private BigDecimal PWD_ERR_CNT;
     private String OP_NO;
     private String OWNER_NO;
     private String PBRM_NO;
@@ -56,7 +57,7 @@ public class ADST_DPB_INFO_DTO {
     private String LST_TIME;
     private Date SELF_MNG_IL;
     private String IBF_GB;
-    private int LMT_MAX_AMT;
+    private BigDecimal LMT_MAX_AMT;
     private String PBOOK_NO;
     private String EB_USE_GB;
     private String NET_CLS_POSS_YN;
@@ -71,21 +72,21 @@ public class ADST_DPB_INFO_DTO {
     private String INT_WITH_METH_CD;
     private String PRCP_ACCT_NO;
     private String INT_ACCT_NO;
-    private int PRCP_TMPL_CD;
-    private int INT_TMPL_CD;
+    private BigDecimal PRCP_TMPL_CD;
+    private BigDecimal INT_TMPL_CD;
     private String CERT_NO;
     private String SEND_ADDR_DV;
     private String COM_BIT;
-    private int AMT1;
-    private int AMT2;
-    private int AMT3;
-    private int AMT4;
-    private int AMT5;
-    private int AMT6;
-    private int AMT7;
-    private int AMT8;
-    private int AMT9;
-    private int AMT10;
+    private BigDecimal AMT1;
+    private BigDecimal AMT2;
+    private BigDecimal AMT3;
+    private BigDecimal AMT4;
+    private BigDecimal AMT5;
+    private BigDecimal AMT6;
+    private BigDecimal AMT7;
+    private BigDecimal AMT8;
+    private BigDecimal AMT9;
+    private BigDecimal AMT10;
     private String CD1;
     private String CD2;
     private String CD3;
@@ -96,11 +97,11 @@ public class ADST_DPB_INFO_DTO {
     private String CD8;
     private String CD9;
     private String CD10;
-    private int RT1;
-    private int RT2;
-    private int RT3;
-    private int RT4;
-    private int RT5;
+    private BigDecimal RT1;
+    private BigDecimal RT2;
+    private BigDecimal RT3;
+    private BigDecimal RT4;
+    private BigDecimal RT5;
     private Date DT1;
     private Date DT2;
     private Date DT3;

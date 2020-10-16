@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexAdhAmend")
@@ -16,13 +17,13 @@ public class AFEX_ADH_AMENDInfo implements Serializable {
     @Id
     @GeneratedValue
     private Date makeIl;
-    private int seqNo;
-    private int lstHisNo;
+    private BigDecimal seqNo;
+    private BigDecimal lstHisNo;
     private String advNo;
     private String sendGb;
     private String lcNo;
     private Date openIl;
-    private int amdCnt;
+    private BigDecimal amdCnt;
     private String openBkcd;
     private String openBknm1;
     private String openBknm2;
@@ -36,9 +37,9 @@ public class AFEX_ADH_AMENDInfo implements Serializable {
     private Date gyobuIl;
     private String amtGb;
     private String amdCcy;
-    private int amdAmt;
+    private BigDecimal amdAmt;
     private String afCcy;
-    private int afAmt;
+    private BigDecimal afAmt;
     private Date expIl;
     private Date shipIl;
     private String authGb;
@@ -51,7 +52,7 @@ public class AFEX_ADH_AMENDInfo implements Serializable {
     private String swiftMrn;
     private String mngNo;
     private String opNo;
-    private int totSeq;
+    private BigDecimal totSeq;
     private Date lstIl;
     private String mt707Fnm;
     private String relay;
@@ -65,8 +66,8 @@ public class AFEX_ADH_AMENDInfo implements Serializable {
     private String tongPrint;
     private String brNo;
     private String brNm;
-    private int brCharge;
-    private int chargeAmt;
+    private BigDecimal brCharge;
+    private BigDecimal chargeAmt;
     private String chargeGb;
     private String cixNo;
     private String buseoNo;
@@ -74,12 +75,12 @@ public class AFEX_ADH_AMENDInfo implements Serializable {
     private String chargeMd;
     private Date chargeIl;
     private String mt707Fnm1;
-    private int prtCnt;
+    private BigDecimal prtCnt;
     private String reIssue;
     private String mt707Fnm2;
     private String mt707Fnm3;
     private String mt707Fnm4;
-    private int mt707Cnt;
+    private BigDecimal mt707Cnt;
     private String mt730Send;
     private String mt730DocId;
     private Date firstIl;
@@ -115,7 +116,7 @@ public class AFEX_ADH_AMENDInfo implements Serializable {
     private String confirmGb;
     private Date cnfrFrIl;
     private Date cnfrToIl;
-    private int cnfrRt;
+    private BigDecimal cnfrRt;
     private String cnfmBic;
     private String cnfmNm1;
     private String cnfmNm2;
@@ -124,5 +125,5 @@ public class AFEX_ADH_AMENDInfo implements Serializable {
     private String mt708Fnm2;
     private String mt708Fnm3;
     private String mt708Fnm4;
-    private int mt708Cnt;
+    private BigDecimal mt708Cnt;
 } 

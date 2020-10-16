@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "acomFabHis")
@@ -16,7 +17,7 @@ public class ACOM_FAB_HISInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String sts;
     private String trGb;
     private String trCd;
@@ -24,22 +25,22 @@ public class ACOM_FAB_HISInfo implements Serializable {
     private Date acIl;
     private Date gisIl;
     private Date canIl;
-    private int sdHisNo;
+    private BigDecimal sdHisNo;
     private String trCcy;
-    private int trFamt;
-    private int trBamt;
-    private int salAmt;
-    private int evenAmt;
-    private int depriAmt;
-    private int sellAmt;
-    private int plAmt;
-    private int afJan;
-    private int afDepriJan;
-    private int depriJan;
-    private int thisDepriJan;
-    private int lastDepriJan;
-    private int capitalJan;
-    private int dispJan;
+    private BigDecimal trFamt;
+    private BigDecimal trBamt;
+    private BigDecimal salAmt;
+    private BigDecimal evenAmt;
+    private BigDecimal depriAmt;
+    private BigDecimal sellAmt;
+    private BigDecimal plAmt;
+    private BigDecimal afJan;
+    private BigDecimal afDepriJan;
+    private BigDecimal depriJan;
+    private BigDecimal thisDepriJan;
+    private BigDecimal lastDepriJan;
+    private BigDecimal capitalJan;
+    private BigDecimal dispJan;
     private Date depriIl;
     private Date bfrDepriIl;
     private String ilgeYn;
@@ -51,7 +52,7 @@ public class ACOM_FAB_HISInfo implements Serializable {
     private String opNo;
     private String mngNo;
     private String cdSngNo;
-    private int cdSilSeq;
+    private BigDecimal cdSilSeq;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

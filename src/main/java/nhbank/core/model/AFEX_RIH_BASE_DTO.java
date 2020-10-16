@@ -2,12 +2,13 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class AFEX_RIH_BASE_DTO {
     private Date RCV_IL;
-    private int SEQ_NO;
+    private BigDecimal SEQ_NO;
     private String RT_CD;
     private String MONEY_CD;
     private String RCV_GB;
@@ -29,8 +30,8 @@ public class AFEX_RIH_BASE_DTO {
     private String OPER_ID;
     private String MNGR_ID;
     private String CCY;
-    private int FAMT;
-    private int ORG_FAMT;
+    private BigDecimal FAMT;
+    private BigDecimal ORG_FAMT;
     private String DD_NO;
     private String THEIR_REF_NO;
     private String SD_CTRY;
@@ -40,7 +41,7 @@ public class AFEX_RIH_BASE_DTO {
     private String JUKYO;
     private String JUN_NO;
     private String CH_GB;
-    private int CH_AMT;
+    private BigDecimal CH_AMT;
     private String MJ_GB;
     private String RCV_NATION;
     private String RCV_ID_NO;
@@ -54,16 +55,16 @@ public class AFEX_RIH_BASE_DTO {
     private Date JUNGJI_IL;
     private Date SAGO_IL;
     private Date NEGO_CERTI_IL;
-    private int MILEAGE;
+    private BigDecimal MILEAGE;
     private String YD_GUJA;
-    private int FEE_CNT;
+    private BigDecimal FEE_CNT;
     private String FEE_MSG;
     private String INMSG_GB;
     private String IN_MSG;
     private String STATE_MSG;
     private String MND_GB;
     private String CREDIT_CUR;
-    private int CREDIT_AMT;
+    private BigDecimal CREDIT_AMT;
     private Date CREDIT_IL;
     private String APPL_NM;
     private String APPL_ADDR1;
@@ -98,7 +99,7 @@ public class AFEX_RIH_BASE_DTO {
     private String CBANK_ADDR3;
     private Date VALUE_DATE;
     private String FEE_CUR;
-    private int FEE_AMT;
+    private BigDecimal FEE_AMT;
     private String INFO70_NAME1;
     private String INFO70_NAME2;
     private String INFO70_NAME3;
@@ -116,9 +117,9 @@ public class AFEX_RIH_BASE_DTO {
     private String OUT_MSG;
     private String MONEY_MSG;
     private Date OUTMAKE_IL;
-    private int OUT_AMT;
-    private int OUT_COMM;
-    private int OUT_FEE;
+    private BigDecimal OUT_AMT;
+    private BigDecimal OUT_COMM;
+    private BigDecimal OUT_FEE;
     private String MTTYPE_CODE;
     private String ERR_NO;
     private String ERR_MSG;
@@ -139,17 +140,17 @@ public class AFEX_RIH_BASE_DTO {
     private String EXPORT_SETL_GB;
     private String TRADE_GB;
     private String INSTRUCT_CCY;
-    private int INSTRUCT_AMT;
-    private int EX_RATE;
+    private BigDecimal INSTRUCT_AMT;
+    private BigDecimal EX_RATE;
     private String BOP_SEQ_NO;
     private String BOP_TRX_CODE;
     private String BOP_TRX_REMARK;
     private String SUB_DP_NO;
     private String CVT_CCY;
-    private int CVT_AMT;
-    private int CVT_EXRATE;
+    private BigDecimal CVT_AMT;
+    private BigDecimal CVT_EXRATE;
     private String CABLE_CHG_CCY;
-    private int CABLE_CHG_AMT;
+    private BigDecimal CABLE_CHG_AMT;
     private String HOLD_REMARK1;
     private String HOLD_REMARK2;
     private String HOLD_REMARK3;
@@ -168,7 +169,7 @@ public class AFEX_RIH_BASE_DTO {
     private String UPD_TM;
     private String VCB_FEE_GB;
     private String VCB_FEE_CCY;
-    private int VCB_FEE_AMT;
+    private BigDecimal VCB_FEE_AMT;
 
     public AFEX_RIH_BASE_DTO() {
     }

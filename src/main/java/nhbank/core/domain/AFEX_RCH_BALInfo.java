@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexRchBal")
@@ -18,11 +19,11 @@ public class AFEX_RCH_BALInfo implements Serializable {
     private String cd;
     private String ccy;
     private Date trIl;
-    private int shwOpbs;
-    private int shwClbs;
+    private BigDecimal shwOpbs;
+    private BigDecimal shwClbs;
     private String shwConfirmYn;
-    private int actOpbs;
-    private int actClbs;
+    private BigDecimal actOpbs;
+    private BigDecimal actClbs;
     private String actConfirmYn;
     private String operId;
     private Date lastIl;

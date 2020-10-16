@@ -2,20 +2,21 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class AFEX_XPH_CA_DTO {
     private Date RCV_IL;
-    private int SEQ_NO;
+    private BigDecimal SEQ_NO;
     private String STS;
     private String REF_NO;
     private String CA_CCY;
-    private int CA_AMT;
-    private int LESS_CA_AMT;
-    private int LESS_CO_AMT;
-    private int LESS_GT_AMT;
-    private int OVER_AMT;
+    private BigDecimal CA_AMT;
+    private BigDecimal LESS_CA_AMT;
+    private BigDecimal LESS_CO_AMT;
+    private BigDecimal LESS_GT_AMT;
+    private BigDecimal OVER_AMT;
     private Date CA_IL;
     private String DEPO_BKCD;
     private Date SD_BAL_IL;
@@ -32,11 +33,11 @@ public class AFEX_XPH_CA_DTO {
     private String DIV_GB;
     private String DIV_REF;
     private String NCU_CA_CCY;
-    private int NCU_CA_AMT;
-    private int NCU_LESS_CA_AMT;
-    private int NCU_LESS_CO_AMT;
-    private int NCU_LESS_GT_AMT;
-    private int NCU_OVER_AMT;
+    private BigDecimal NCU_CA_AMT;
+    private BigDecimal NCU_LESS_CA_AMT;
+    private BigDecimal NCU_LESS_CO_AMT;
+    private BigDecimal NCU_LESS_GT_AMT;
+    private BigDecimal NCU_OVER_AMT;
     private String REG_EMP_NO;
     private Date REG_DT;
     private String REG_TM;

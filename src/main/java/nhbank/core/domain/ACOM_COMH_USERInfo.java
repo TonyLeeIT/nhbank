@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "acomComhUser")
@@ -55,7 +56,7 @@ public class ACOM_COMH_USERInfo implements Serializable {
     private String oldPasswd8;
     private String oldPasswd9;
     private String passwdLock;
-    private int sessTmOut;
+    private BigDecimal sessTmOut;
     private String linePrt1;
     private String linePrt2;
     private String linePrt3;

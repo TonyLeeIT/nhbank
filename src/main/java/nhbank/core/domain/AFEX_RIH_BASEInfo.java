@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexRihBase")
@@ -16,7 +17,7 @@ public class AFEX_RIH_BASEInfo implements Serializable {
     @Id
     @GeneratedValue
     private Date rcvIl;
-    private int seqNo;
+    private BigDecimal seqNo;
     private String rtCd;
     private String moneyCd;
     private String rcvGb;
@@ -38,8 +39,8 @@ public class AFEX_RIH_BASEInfo implements Serializable {
     private String operId;
     private String mngrId;
     private String ccy;
-    private int famt;
-    private int orgFamt;
+    private BigDecimal famt;
+    private BigDecimal orgFamt;
     private String ddNo;
     private String theirRefNo;
     private String sdCtry;
@@ -49,7 +50,7 @@ public class AFEX_RIH_BASEInfo implements Serializable {
     private String jukyo;
     private String junNo;
     private String chGb;
-    private int chAmt;
+    private BigDecimal chAmt;
     private String mjGb;
     private String rcvNation;
     private String rcvIdNo;
@@ -63,16 +64,16 @@ public class AFEX_RIH_BASEInfo implements Serializable {
     private Date jungjiIl;
     private Date sagoIl;
     private Date negoCertiIl;
-    private int mileage;
+    private BigDecimal mileage;
     private String ydGuja;
-    private int feeCnt;
+    private BigDecimal feeCnt;
     private String feeMsg;
     private String inmsgGb;
     private String inMsg;
     private String stateMsg;
     private String mndGb;
     private String creditCur;
-    private int creditAmt;
+    private BigDecimal creditAmt;
     private Date creditIl;
     private String applNm;
     private String applAddr1;
@@ -107,7 +108,7 @@ public class AFEX_RIH_BASEInfo implements Serializable {
     private String cbankAddr3;
     private Date valueDate;
     private String feeCur;
-    private int feeAmt;
+    private BigDecimal feeAmt;
     private String info70Name1;
     private String info70Name2;
     private String info70Name3;
@@ -125,9 +126,9 @@ public class AFEX_RIH_BASEInfo implements Serializable {
     private String outMsg;
     private String moneyMsg;
     private Date outmakeIl;
-    private int outAmt;
-    private int outComm;
-    private int outFee;
+    private BigDecimal outAmt;
+    private BigDecimal outComm;
+    private BigDecimal outFee;
     private String mttypeCode;
     private String errNo;
     private String errMsg;
@@ -148,17 +149,17 @@ public class AFEX_RIH_BASEInfo implements Serializable {
     private String exportSetlGb;
     private String tradeGb;
     private String instructCcy;
-    private int instructAmt;
-    private int exRate;
+    private BigDecimal instructAmt;
+    private BigDecimal exRate;
     private String bopSeqNo;
     private String bopTrxCode;
     private String bopTrxRemark;
     private String subDpNo;
     private String cvtCcy;
-    private int cvtAmt;
-    private int cvtExrate;
+    private BigDecimal cvtAmt;
+    private BigDecimal cvtExrate;
     private String cableChgCcy;
-    private int cableChgAmt;
+    private BigDecimal cableChgAmt;
     private String holdRemark1;
     private String holdRemark2;
     private String holdRemark3;
@@ -177,5 +178,5 @@ public class AFEX_RIH_BASEInfo implements Serializable {
     private String updTm;
     private String vcbFeeGb;
     private String vcbFeeCcy;
-    private int vcbFeeAmt;
+    private BigDecimal vcbFeeAmt;
 } 

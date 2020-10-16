@@ -2,15 +2,16 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class AFEX_BFH_PAY_DTO {
     private String REF_NO;
-    private int PAY_CNT;
+    private BigDecimal PAY_CNT;
     private Date MAKE_IL;
     private String COND_STS;
-    private int HIS_NO;
+    private BigDecimal HIS_NO;
     private String PAY_GB;
     private Date AC_IL;
     private Date GIS_IL;
@@ -46,9 +47,9 @@ public class AFEX_BFH_PAY_DTO {
     private String TAG72_INFO5;
     private String TAG72_INFO6;
     private String TRAN_CCY;
-    private int TRAN_AMT;
+    private BigDecimal TRAN_AMT;
     private String FEE_CCY;
-    private int FEE_AMT;
+    private BigDecimal FEE_AMT;
     private String FEE_GB;
     private String REG_EMP_NO;
     private Date REG_DT;
@@ -66,7 +67,7 @@ public class AFEX_BFH_PAY_DTO {
     private Date REFUND_IL;
     private Date CONFIRM_IL;
     private String PROC_TYPE;
-    private int REFUND_AMT;
+    private BigDecimal REFUND_AMT;
     private String VCB_DOWN_YN;
 
     public AFEX_BFH_PAY_DTO() {

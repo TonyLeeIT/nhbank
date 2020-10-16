@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexXpbRenedt")
@@ -19,15 +20,15 @@ public class AFEX_XPB_RENEDTInfo implements Serializable {
     private String refNo;
     private String sts;
     private String ccy;
-    private int amt;
-    private int bamt;
+    private BigDecimal amt;
+    private BigDecimal bamt;
     private Date preCaIl;
     private Date reneIl;
     private String reneJum;
     private String ncuCcy;
-    private int ncuAmt;
+    private BigDecimal ncuAmt;
     private Date caIl;
-    private int caAmt;
+    private BigDecimal caAmt;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

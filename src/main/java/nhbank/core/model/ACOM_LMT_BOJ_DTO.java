@@ -2,12 +2,13 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class ACOM_LMT_BOJ_DTO {
     private String SNG_NO;
-    private int SEQ;
+    private BigDecimal SEQ;
     private String STS;
     private Date IB_IL;
     private Date AC_IL;
@@ -16,7 +17,7 @@ public class ACOM_LMT_BOJ_DTO {
     private String TR_GWAM;
     private String TR_GEOR;
     private String CCY;
-    private int AMT;
+    private BigDecimal AMT;
     private String IBJI_GB;
     private String CCY_GB;
     private String BOJ_GB;
@@ -29,7 +30,7 @@ public class ACOM_LMT_BOJ_DTO {
     private String YD_GUJA;
     private String DAMBO_NO;
     private String CD_SNG_NO;
-    private int CD_SIL_SEQ;
+    private BigDecimal CD_SIL_SEQ;
     private String REL_REF_NO;
     private String REG_EMP_NO;
     private Date REG_DT;
@@ -37,12 +38,12 @@ public class ACOM_LMT_BOJ_DTO {
     private String UPD_EMP_NO;
     private Date UPD_DT;
     private String UPD_TM;
-    private int APPL_HRT;
+    private BigDecimal APPL_HRT;
     private String PAY_CCY;
-    private int PAY_AMT;
-    private int CAN_HIS_NO;
-    private int REL_HIS_NO;
-    private int CPTY_SEQ;
+    private BigDecimal PAY_AMT;
+    private BigDecimal CAN_HIS_NO;
+    private BigDecimal REL_HIS_NO;
+    private BigDecimal CPTY_SEQ;
     private String LINK_REF_NO;
     private String REMARK;
 

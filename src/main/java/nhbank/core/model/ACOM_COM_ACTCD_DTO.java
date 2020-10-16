@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -41,8 +42,8 @@ public class ACOM_COM_ACTCD_DTO {
     private String CONTRA_AC;
     private String ACCR_AC;
     private String AMRT_AC;
-    private int AC_SORT1;
-    private int AC_SORT2;
+    private BigDecimal AC_SORT1;
+    private BigDecimal AC_SORT2;
     private String REG_EMP_NO;
     private Date REG_DT;
     private String REG_TM;

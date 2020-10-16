@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "acomComhTagline")
@@ -16,10 +17,10 @@ public class ACOM_COMH_TAGLINEInfo implements Serializable {
     @Id
     @GeneratedValue
     private String docId;
-    private int seqNo;
+    private BigDecimal seqNo;
     private String lineType;
     private String tagNo;
-    private int subNo;
+    private BigDecimal subNo;
     private String lineData;
     private String tagGb;
     private String regEmpNo;

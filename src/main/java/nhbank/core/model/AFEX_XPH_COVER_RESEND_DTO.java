@@ -2,23 +2,24 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class AFEX_XPH_COVER_RESEND_DTO {
     private String REF_NO;
-    private int BH_SEQ;
+    private BigDecimal BH_SEQ;
     private String STS;
-    private int HIS_NO;
+    private BigDecimal HIS_NO;
     private String TRAN_DATE;
     private String LC_NO;
     private String ISSUE_BKNM;
     private String OPEN_DATE;
     private String IMPOT_NAME;
     private String CURR;
-    private int AMOUNT;
+    private BigDecimal AMOUNT;
     private String TENOR_GB;
-    private int TENOR_DAY;
+    private BigDecimal TENOR_DAY;
     private String TENOR_CODE;
     private String MATUR;
     private String DRAWER;
@@ -27,8 +28,8 @@ public class AFEX_XPH_COVER_RESEND_DTO {
     private String OPEN_BKNM2;
     private String OPEN_BKNM3;
     private String OPEN_BKNM4;
-    private int CABLE;
-    private int WHANGA;
+    private BigDecimal CABLE;
+    private BigDecimal WHANGA;
     private String SEQ_NO0;
     private String SEQ_NO1;
     private String SEQ_NO2;
@@ -111,14 +112,14 @@ public class AFEX_XPH_COVER_RESEND_DTO {
     private String TXT318;
     private String BKNM;
     private String ACNO;
-    private int DRAFT_AMT;
-    private int INT_RT;
-    private int INT_AMT;
-    private int COMM_RT;
-    private int COMM_AMT;
-    private int LESS_RT;
-    private int LESS_AMT;
-    private int TOTAL;
+    private BigDecimal DRAFT_AMT;
+    private BigDecimal INT_RT;
+    private BigDecimal INT_AMT;
+    private BigDecimal COMM_RT;
+    private BigDecimal COMM_AMT;
+    private BigDecimal LESS_RT;
+    private BigDecimal LESS_AMT;
+    private BigDecimal TOTAL;
     private String DPDA;
     private String BR_NAME;
     private String TEL_NO;
@@ -128,8 +129,8 @@ public class AFEX_XPH_COVER_RESEND_DTO {
     private String DRAWBK_NAME3;
     private String BKNM1;
     private String NEGO_DATE;
-    private int DISCRE_AMT;
-    private int CABLE_AMT;
+    private BigDecimal DISCRE_AMT;
+    private BigDecimal CABLE_AMT;
     private String REG_EMP_NO;
     private Date REG_DT;
     private String REG_TM;

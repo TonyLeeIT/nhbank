@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "adstDpbGyul")
@@ -19,13 +20,13 @@ public class ADST_DPB_GYULInfo implements Serializable {
     private String yede;
     private String acctNo;
     private String sts;
-    private int jsInt;
-    private int prcpYcInt;
-    private int intYcInt;
-    private int mmAvgAmt;
-    private int intTax1;
-    private int intTax2;
-    private int hisNo;
+    private BigDecimal jsInt;
+    private BigDecimal prcpYcInt;
+    private BigDecimal intYcInt;
+    private BigDecimal mmAvgAmt;
+    private BigDecimal intTax1;
+    private BigDecimal intTax2;
+    private BigDecimal hisNo;
     private String errPgm;
     private String errMsg;
     private String errNo;

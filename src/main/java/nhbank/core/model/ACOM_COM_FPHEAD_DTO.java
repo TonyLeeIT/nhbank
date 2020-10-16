@@ -2,12 +2,13 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class ACOM_COM_FPHEAD_DTO {
     private String REF_NO;
-    private int HIS_NO;
+    private BigDecimal HIS_NO;
     private String PRT_KIND;
     private String UPMU_CD;
     private String TR_CD;

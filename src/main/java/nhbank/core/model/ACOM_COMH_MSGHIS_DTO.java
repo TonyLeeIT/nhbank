@@ -2,12 +2,13 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class ACOM_COMH_MSGHIS_DTO {
     private String DOC_ID;
-    private int SEQ_NO;
+    private BigDecimal SEQ_NO;
     private String COND_STS;
     private String STM_RMK;
     private String STM_TAIL;

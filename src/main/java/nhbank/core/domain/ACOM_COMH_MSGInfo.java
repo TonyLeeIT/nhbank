@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "acomComhMsg")
@@ -20,7 +21,7 @@ public class ACOM_COMH_MSGInfo implements Serializable {
     private String ioGb;
     private String upmuGb;
     private String netwGb;
-    private int seqNo;
+    private BigDecimal seqNo;
     private String msgGb;
     private String condSts;
     private String brNo;
@@ -34,7 +35,7 @@ public class ACOM_COMH_MSGInfo implements Serializable {
     private String ourRef;
     private String theirRef;
     private String msgCcy;
-    private int msgAmt;
+    private BigDecimal msgAmt;
     private String opNo;
     private Date apIl;
     private String apTime;

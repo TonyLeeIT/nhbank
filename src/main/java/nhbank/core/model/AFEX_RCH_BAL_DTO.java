@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -9,11 +10,11 @@ public class AFEX_RCH_BAL_DTO {
     private String CD;
     private String CCY;
     private Date TR_IL;
-    private int SHW_OPBS;
-    private int SHW_CLBS;
+    private BigDecimal SHW_OPBS;
+    private BigDecimal SHW_CLBS;
     private String SHW_CONFIRM_YN;
-    private int ACT_OPBS;
-    private int ACT_CLBS;
+    private BigDecimal ACT_OPBS;
+    private BigDecimal ACT_CLBS;
     private String ACT_CONFIRM_YN;
     private String OPER_ID;
     private Date LAST_IL;

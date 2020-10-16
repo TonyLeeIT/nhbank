@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afifMmhBase")
@@ -27,20 +28,20 @@ public class AFIF_MMH_BASEInfo implements Serializable {
     private Date expIl;
     private String borrowLonGb;
     private String ccy;
-    private int principalAmt;
+    private BigDecimal principalAmt;
     private String rateCcy;
     private String fixFltGb;
-    private int taxAmt;
+    private BigDecimal taxAmt;
     private String rateFreq;
-    private int indexRt;
+    private BigDecimal indexRt;
     private String rateGb;
-    private int spreadRt;
-    private int totalRt;
+    private BigDecimal spreadRt;
+    private BigDecimal totalRt;
     private Date intFromIl;
     private Date intToIl;
-    private int intDays;
+    private BigDecimal intDays;
     private String intCcy;
-    private int intAmt;
+    private BigDecimal intAmt;
     private String advArrGb;
     private String singleBothType;
     private String accrType;
@@ -51,8 +52,8 @@ public class AFIF_MMH_BASEInfo implements Serializable {
     private Date confirmIl;
     private String poYn;
     private Date poIl;
-    private int poSeq;
-    private int poAmt;
+    private BigDecimal poSeq;
+    private BigDecimal poAmt;
     private String ourRcvDepoCcy;
     private String ourRcvDepoCd;
     private String ourRcvDepoNm;
@@ -64,15 +65,15 @@ public class AFIF_MMH_BASEInfo implements Serializable {
     private String thrRcvDepoNm;
     private String brokerId;
     private String brokerFeeCcy;
-    private int brokerFeeAmt;
+    private BigDecimal brokerFeeAmt;
     private String onoffGb;
     private String inoutGb;
     private String borrowGb;
     private String borrowKind;
     private String nationLonGb;
     private String loanUseGb;
-    private int usdCvtAmt;
-    private int baseCvtAmt;
+    private BigDecimal usdCvtAmt;
+    private BigDecimal baseCvtAmt;
     private String rolloverYn;
     private String rolloverType;
     private String rolloverRefNo;
@@ -96,7 +97,7 @@ public class AFIF_MMH_BASEInfo implements Serializable {
     private Date updDt;
     private String updTm;
     private String upfrontFeeCcy;
-    private int upfrontFeeAmt;
+    private BigDecimal upfrontFeeAmt;
     private String intFreq;
     private String holiDayRule;
     private String couponAdjYn;

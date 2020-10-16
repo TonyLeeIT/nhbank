@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexXpbBds")
@@ -16,27 +17,27 @@ public class AFEX_XPB_BDSInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
-    private int budoSeq;
+    private BigDecimal hisNo;
+    private BigDecimal budoSeq;
     private String sts;
     private Date acIl;
     private Date gisIl;
     private Date lstIbIl;
     private String ccy;
-    private int amt;
-    private int hdcAmt;
-    private int bamt;
-    private int bdcAmt;
-    private int bdIja;
-    private int hcHija;
+    private BigDecimal amt;
+    private BigDecimal hdcAmt;
+    private BigDecimal bamt;
+    private BigDecimal bdcAmt;
+    private BigDecimal bdIja;
+    private BigDecimal hcHija;
     private String hJiGb;
-    private int caSumAmt;
+    private BigDecimal caSumAmt;
     private String sonikGb;
-    private int sonikAmt;
+    private BigDecimal sonikAmt;
     private String ncuCcy;
-    private int ncuAmt;
-    private int ncuHdcAmt;
-    private int ncuCaSumAmt;
+    private BigDecimal ncuAmt;
+    private BigDecimal ncuHdcAmt;
+    private BigDecimal ncuCaSumAmt;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

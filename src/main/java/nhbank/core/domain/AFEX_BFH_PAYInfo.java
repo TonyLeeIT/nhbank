@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexBfhPay")
@@ -16,10 +17,10 @@ public class AFEX_BFH_PAYInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int payCnt;
+    private BigDecimal payCnt;
     private Date makeIl;
     private String condSts;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String payGb;
     private Date acIl;
     private Date gisIl;
@@ -55,9 +56,9 @@ public class AFEX_BFH_PAYInfo implements Serializable {
     private String tag72Info5;
     private String tag72Info6;
     private String tranCcy;
-    private int tranAmt;
+    private BigDecimal tranAmt;
     private String feeCcy;
-    private int feeAmt;
+    private BigDecimal feeAmt;
     private String feeGb;
     private String regEmpNo;
     private Date regDt;
@@ -75,6 +76,6 @@ public class AFEX_BFH_PAYInfo implements Serializable {
     private Date refundIl;
     private Date confirmIl;
     private String procType;
-    private int refundAmt;
+    private BigDecimal refundAmt;
     private String vcbDownYn;
 } 

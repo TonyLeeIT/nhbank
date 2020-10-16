@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afifFehHis")
@@ -16,7 +17,7 @@ public class AFIF_FEH_HISInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String sts;
     private String trGb;
     private String trCd;
@@ -24,28 +25,28 @@ public class AFIF_FEH_HISInfo implements Serializable {
     private Date acIl;
     private Date gisIl;
     private Date canIl;
-    private int sdHisNo;
+    private BigDecimal sdHisNo;
     private String nearBuyCcy;
-    private int nearBuyFamt;
-    private int nearBuyBamt;
-    private int nearBuyJan;
-    private int nearBuyBjan;
+    private BigDecimal nearBuyFamt;
+    private BigDecimal nearBuyBamt;
+    private BigDecimal nearBuyJan;
+    private BigDecimal nearBuyBjan;
     private String nearSellCcy;
-    private int nearSellFamt;
-    private int nearSellBamt;
-    private int nearSellJan;
-    private int nearSellBjan;
+    private BigDecimal nearSellFamt;
+    private BigDecimal nearSellBamt;
+    private BigDecimal nearSellJan;
+    private BigDecimal nearSellBjan;
     private String nearSndDocNo;
     private String farBuyCcy;
-    private int farBuyFamt;
-    private int farBuyBamt;
-    private int farBuyJan;
-    private int farBuyBjan;
+    private BigDecimal farBuyFamt;
+    private BigDecimal farBuyBamt;
+    private BigDecimal farBuyJan;
+    private BigDecimal farBuyBjan;
     private String farSellCcy;
-    private int farSellFamt;
-    private int farSellBamt;
-    private int farSellJan;
-    private int farSellBjan;
+    private BigDecimal farSellFamt;
+    private BigDecimal farSellBamt;
+    private BigDecimal farSellJan;
+    private BigDecimal farSellBjan;
     private String farSndDocNo;
     private String trBr;
     private String sdBr;
@@ -54,9 +55,9 @@ public class AFIF_FEH_HISInfo implements Serializable {
     private String managerId;
     private String ibjiMd;
     private String cdSngNo;
-    private int cdSilSeq;
+    private BigDecimal cdSilSeq;
     private String ftpSngNo;
-    private int ftpSilSeq;
+    private BigDecimal ftpSilSeq;
     private String junNo;
     private String yukNo;
     private Date lstIbIl;

@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexRihRefund")
@@ -16,7 +17,7 @@ public class AFEX_RIH_REFUNDInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int seqNo;
+    private BigDecimal seqNo;
     private String sts;
     private String rtCd;
     private String moneyCd;
@@ -24,18 +25,18 @@ public class AFEX_RIH_REFUNDInfo implements Serializable {
     private String rcvBr;
     private String cixNo;
     private String ccy;
-    private int famt;
-    private int orgFamt;
+    private BigDecimal famt;
+    private BigDecimal orgFamt;
     private String theirRefNo;
     private String chGb;
-    private int chAmt;
+    private BigDecimal chAmt;
     private String mjGb;
-    private int feeCnt;
+    private BigDecimal feeCnt;
     private String feeMsg;
     private String inmsgGb;
     private String inMsg;
     private String creditCur;
-    private int creditAmt;
+    private BigDecimal creditAmt;
     private Date creditIl;
     private String applNm;
     private String applAddr1;
@@ -69,7 +70,7 @@ public class AFEX_RIH_REFUNDInfo implements Serializable {
     private String cbankAddr3;
     private Date valueDate;
     private String feeCur;
-    private int feeAmt;
+    private BigDecimal feeAmt;
     private String info70Name1;
     private String info70Name2;
     private String info70Name3;
@@ -91,9 +92,9 @@ public class AFEX_RIH_REFUNDInfo implements Serializable {
     private String imad;
     private String omad;
     private Date requestIl;
-    private int requestHis;
+    private BigDecimal requestHis;
     private Date amendIl;
-    private int amendHis;
+    private BigDecimal amendHis;
     private String outmsgGb;
     private String refundRecvMttype;
     private String refundRecvMsg;
@@ -107,10 +108,10 @@ public class AFEX_RIH_REFUNDInfo implements Serializable {
     private String rfndSendMttype;
     private String rfndSendMsg;
     private Date rfndSendIl;
-    private int refundAmt;
-    private int amdAmt;
-    private int amdComm;
-    private int amdFee;
+    private BigDecimal refundAmt;
+    private BigDecimal amdAmt;
+    private BigDecimal amdComm;
+    private BigDecimal amdFee;
     private String refundTheirRef;
     private String refundRemark1;
     private String refundRemark2;

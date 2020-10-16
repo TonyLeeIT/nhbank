@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -18,20 +19,20 @@ public class AFIF_MMH_BASE_DTO {
     private Date EXP_IL;
     private String BORROW_LON_GB;
     private String CCY;
-    private int PRINCIPAL_AMT;
+    private BigDecimal PRINCIPAL_AMT;
     private String RATE_CCY;
     private String FIX_FLT_GB;
-    private int TAX_AMT;
+    private BigDecimal TAX_AMT;
     private String RATE_FREQ;
-    private int INDEX_RT;
+    private BigDecimal INDEX_RT;
     private String RATE_GB;
-    private int SPREAD_RT;
-    private int TOTAL_RT;
+    private BigDecimal SPREAD_RT;
+    private BigDecimal TOTAL_RT;
     private Date INT_FROM_IL;
     private Date INT_TO_IL;
-    private int INT_DAYS;
+    private BigDecimal INT_DAYS;
     private String INT_CCY;
-    private int INT_AMT;
+    private BigDecimal INT_AMT;
     private String ADV_ARR_GB;
     private String SINGLE_BOTH_TYPE;
     private String ACCR_TYPE;
@@ -42,8 +43,8 @@ public class AFIF_MMH_BASE_DTO {
     private Date CONFIRM_IL;
     private String PO_YN;
     private Date PO_IL;
-    private int PO_SEQ;
-    private int PO_AMT;
+    private BigDecimal PO_SEQ;
+    private BigDecimal PO_AMT;
     private String OUR_RCV_DEPO_CCY;
     private String OUR_RCV_DEPO_CD;
     private String OUR_RCV_DEPO_NM;
@@ -55,15 +56,15 @@ public class AFIF_MMH_BASE_DTO {
     private String THR_RCV_DEPO_NM;
     private String BROKER_ID;
     private String BROKER_FEE_CCY;
-    private int BROKER_FEE_AMT;
+    private BigDecimal BROKER_FEE_AMT;
     private String ONOFF_GB;
     private String INOUT_GB;
     private String BORROW_GB;
     private String BORROW_KIND;
     private String NATION_LON_GB;
     private String LOAN_USE_GB;
-    private int USD_CVT_AMT;
-    private int BASE_CVT_AMT;
+    private BigDecimal USD_CVT_AMT;
+    private BigDecimal BASE_CVT_AMT;
     private String ROLLOVER_YN;
     private String ROLLOVER_TYPE;
     private String ROLLOVER_REF_NO;
@@ -87,7 +88,7 @@ public class AFIF_MMH_BASE_DTO {
     private Date UPD_DT;
     private String UPD_TM;
     private String UPFRONT_FEE_CCY;
-    private int UPFRONT_FEE_AMT;
+    private BigDecimal UPFRONT_FEE_AMT;
     private String INT_FREQ;
     private String HOLI_DAY_RULE;
     private String COUPON_ADJ_YN;

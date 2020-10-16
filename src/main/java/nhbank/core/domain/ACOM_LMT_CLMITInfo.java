@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "acomLmtClmit")
@@ -16,32 +17,32 @@ public class ACOM_LMT_CLMITInfo implements Serializable {
     @Id
     @GeneratedValue
     private String laInspRcno;
-    private int chgSqno;
-    private int laInspRcSqno;
+    private BigDecimal chgSqno;
+    private BigDecimal laInspRcSqno;
     private String laInspRcC;
     private String fxAcno;
-    private int repCusno;
-    private int cusno;
+    private BigDecimal repCusno;
+    private BigDecimal cusno;
     private String brc;
     private String estCurc;
-    private int laPmiAm;
+    private BigDecimal laPmiAm;
     private Date lmtDueDt;
-    private int laPrdMtcn;
+    private BigDecimal laPrdMtcn;
     private String pnpLaMggKdc;
     private String bndPsvC;
     private String laItrDsc;
-    private int acusAplItr;
+    private BigDecimal acusAplItr;
     private String wrsC;
     private String rgmnEno;
     private String ivtmnEno;
     private String scid;
-    private int trXcrt;
-    private int xcrtSc;
+    private BigDecimal trXcrt;
+    private BigDecimal xcrtSc;
     private String dbtAcpC;
     private String bfLaInspRcno;
-    private int chbfCusno;
+    private BigDecimal chbfCusno;
     private Date trDt;
-    private int fxTrSqno;
+    private BigDecimal fxTrSqno;
     private String rmkCntn;
     private String fxStsc;
     private Date lschgDtm;

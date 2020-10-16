@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "aactTrxBal")
@@ -24,7 +25,7 @@ public class AACT_TRX_BALInfo implements Serializable {
     private Date apclStrDt;
     private Date apclEndDt;
     private String brNo;
-    private int balAmt;
+    private BigDecimal balAmt;
     private String subjCd;
     private String opNo;
     private String idNo;

@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexXphShipResend")
@@ -16,8 +17,8 @@ public class AFEX_XPH_SHIP_RESENDInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int bhSeq;
-    private int seq;
+    private BigDecimal bhSeq;
+    private BigDecimal seq;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

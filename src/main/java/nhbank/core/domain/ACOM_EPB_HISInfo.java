@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "acomEpbHis")
@@ -16,7 +17,7 @@ public class ACOM_EPB_HISInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String sts;
     private String trGb;
     private String trCd;
@@ -25,11 +26,11 @@ public class ACOM_EPB_HISInfo implements Serializable {
     private Date acIl;
     private Date gisIl;
     private Date canIl;
-    private int sdHisNo;
+    private BigDecimal sdHisNo;
     private String trCcy;
-    private int trFamt;
-    private int trBamt;
-    private int afJan;
+    private BigDecimal trFamt;
+    private BigDecimal trBamt;
+    private BigDecimal afJan;
     private String trBr;
     private String sdBr;
     private String autoYn;
@@ -37,14 +38,14 @@ public class ACOM_EPB_HISInfo implements Serializable {
     private String remark;
     private String sdBusiCd;
     private String sdRefNo;
-    private int sdHis;
+    private BigDecimal sdHis;
     private String ibTime;
     private String opNo;
     private String mngNo;
     private String cdSngNo;
-    private int cdSilSeq;
-    private int trTax;
-    private int assignAmt;
+    private BigDecimal cdSilSeq;
+    private BigDecimal trTax;
+    private BigDecimal assignAmt;
     private String regEmpNo;
     private Date regDt;
     private String regTm;
@@ -55,5 +56,5 @@ public class ACOM_EPB_HISInfo implements Serializable {
     private String linkType;
     private String payRefNo;
     private String taxCode;
-    private int taxRate;
+    private BigDecimal taxRate;
 } 

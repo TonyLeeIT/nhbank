@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "acomDtgNapasRecon")
@@ -23,11 +24,11 @@ public class ACOM_DTG_NAPAS_RECONInfo implements Serializable {
     private String de011TraceNo;
     private String de002Pan;
     private String de003ProcCd;
-    private int de004TrnAmt;
-    private int de005StlAmt;
-    private int de006BilAmt;
-    private int de009StlConvRt;
-    private int de010BilConvRt;
+    private BigDecimal de004TrnAmt;
+    private BigDecimal de005StlAmt;
+    private BigDecimal de006BilAmt;
+    private BigDecimal de009StlConvRt;
+    private BigDecimal de010BilConvRt;
     private String de012LocTrnTime;
     private String de013LocTrnDate;
     private String de015StlDate;
@@ -48,18 +49,18 @@ public class ACOM_DTG_NAPAS_RECONInfo implements Serializable {
     private String de103RcvAccInf;
     private String process;
     private String mti;
-    private int rta;
-    private int rca;
+    private BigDecimal rta;
+    private BigDecimal rca;
     private String iss;
-    private int svfissnp;
-    private int irfissacq;
-    private int irfissbnb;
-    private int svfacqnp;
-    private int irfacqiss;
-    private int irfacqbnb;
-    private int svfbnbnp;
-    private int irfbnbiss;
-    private int irfbnbacq;
+    private BigDecimal svfissnp;
+    private BigDecimal irfissacq;
+    private BigDecimal irfissbnb;
+    private BigDecimal svfacqnp;
+    private BigDecimal irfacqiss;
+    private BigDecimal irfacqbnb;
+    private BigDecimal svfbnbnp;
+    private BigDecimal irfbnbiss;
+    private BigDecimal irfbnbacq;
     private String rrc;
     private String rsv1;
     private String rsv2;

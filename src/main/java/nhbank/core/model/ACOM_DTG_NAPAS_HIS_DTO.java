@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -10,18 +11,18 @@ public class ACOM_DTG_NAPAS_HIS_DTO {
     private String DE032_ACQ_CD;
     private String DE041_CRD_ACPT_TRM;
     private String DE011_TRACE_NO;
-    private int HIS_NO;
+    private BigDecimal HIS_NO;
     private String INOUT_GB;
     private String BK_CD;
     private String MTI;
     private String DE002_PAN;
     private String DE003_PROC_CD;
-    private int DE004_TRN_AMT;
-    private int DE005_STL_AMT;
-    private int DE006_BIL_AMT;
+    private BigDecimal DE004_TRN_AMT;
+    private BigDecimal DE005_STL_AMT;
+    private BigDecimal DE006_BIL_AMT;
     private String DE007_TRN_DT;
-    private int DE009_STL_CONV_RT;
-    private int DE010_BIL_CONV_RT;
+    private BigDecimal DE009_STL_CONV_RT;
+    private BigDecimal DE010_BIL_CONV_RT;
     private String DE012_LOC_TRN_TIME;
     private String DE013_LOC_TRN_DATE;
     private String DE014_EXP_DATE;
@@ -63,7 +64,7 @@ public class ACOM_DTG_NAPAS_HIS_DTO {
     private String ERR_CD;
     private String REF_NO;
     private Date RCV_IL;
-    private int SEQ_NO;
+    private BigDecimal SEQ_NO;
     private String REG_EMP_NO;
     private Date REG_DT;
     private String REG_TM;

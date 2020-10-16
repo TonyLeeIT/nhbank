@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexRchPend")
@@ -19,16 +20,16 @@ public class AFEX_RCH_PENDInfo implements Serializable {
     private String ccy;
     private String saGb;
     private Date trIl;
-    private int trSeq;
+    private BigDecimal trSeq;
     private Date valIl;
     private String ourRef;
     private String drcrGb;
-    private int drcrAmt;
+    private BigDecimal drcrAmt;
     private String theirRef;
     private String upmuCd;
     private String inidCd;
-    private int origAmt;
-    private int bunhalSeq;
+    private BigDecimal origAmt;
+    private BigDecimal bunhalSeq;
     private Date ibIl;
     private String ibTime;
     private String operId;
@@ -38,7 +39,7 @@ public class AFEX_RCH_PENDInfo implements Serializable {
     private String nrefCnt;
     private String docId;
     private String otherRef;
-    private int refHisNo;
+    private BigDecimal refHisNo;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

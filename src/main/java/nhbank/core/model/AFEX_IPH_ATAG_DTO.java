@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -9,7 +10,7 @@ public class AFEX_IPH_ATAG_DTO {
     private String REF_NO;
     private String AMD_SEQ;
     private String TAG_CD;
-    private int SEQ;
+    private BigDecimal SEQ;
     private String TEXT01;
     private String TEXT02;
     private String TEXT03;

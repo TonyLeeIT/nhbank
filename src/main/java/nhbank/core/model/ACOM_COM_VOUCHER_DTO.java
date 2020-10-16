@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -9,7 +10,7 @@ public class ACOM_COM_VOUCHER_DTO {
     private String AC_IL;
     private String AC_BR;
     private String REF_NO;
-    private int HIS_NO;
+    private BigDecimal HIS_NO;
     private String OTHER_REF_NO;
     private String UPMU_CD;
     private String TR_CD;
@@ -31,8 +32,8 @@ public class ACOM_COM_VOUCHER_DTO {
     private String PRT_GB;
     private String OP_NO;
     private String OP_NAME;
-    private int VOUCHER_NO;
-    private int PRT_SEQ;
+    private BigDecimal VOUCHER_NO;
+    private BigDecimal PRT_SEQ;
     private String REG_EMP_NO;
     private Date REG_DT;
     private String REG_TM;

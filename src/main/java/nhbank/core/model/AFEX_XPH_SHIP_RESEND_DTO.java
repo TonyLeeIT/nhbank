@@ -2,13 +2,14 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class AFEX_XPH_SHIP_RESEND_DTO {
     private String REF_NO;
-    private int BH_SEQ;
-    private int SEQ;
+    private BigDecimal BH_SEQ;
+    private BigDecimal SEQ;
     private String REG_EMP_NO;
     private Date REG_DT;
     private String REG_TM;

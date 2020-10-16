@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -15,7 +16,7 @@ public class AACT_TRX_BAL_DTO {
     private Date APCL_STR_DT;
     private Date APCL_END_DT;
     private String BR_NO;
-    private int BAL_AMT;
+    private BigDecimal BAL_AMT;
     private String SUBJ_CD;
     private String OP_NO;
     private String ID_NO;

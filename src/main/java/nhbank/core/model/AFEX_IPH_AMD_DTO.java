@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -21,11 +22,11 @@ public class AFEX_IPH_AMD_DTO {
     private String BENE_ADDR2;
     private String BENE_ADDR3;
     private String BEFO_CCY;
-    private int BEFO_AMT;
-    private int INC_AMT;
-    private int DEC_AMT;
+    private BigDecimal BEFO_AMT;
+    private BigDecimal INC_AMT;
+    private BigDecimal DEC_AMT;
     private String AMD_CCY;
-    private int AMD_AMT;
+    private BigDecimal AMD_AMT;
     private Date EXP_IL;
     private Date SHIP_IL;
     private String REIM_BIC;
@@ -50,7 +51,7 @@ public class AFEX_IPH_AMD_DTO {
     private String EDI_SEND;
     private Date EDI_SND_IL;
     private String EDI_JUM_NO;
-    private int EDI_SEQ_NO;
+    private BigDecimal EDI_SEQ_NO;
     private String EDI_SFNM;
     private String EDI_RCV;
     private Date EDI_RCV_IL;
@@ -59,12 +60,12 @@ public class AFEX_IPH_AMD_DTO {
     private String SEND_JUMGB;
     private String BANK_GB;
     private String NCU_BEFO_CCY;
-    private int NCU_BEFO_AMT;
-    private int NCU_INC_AMT;
-    private int NCU_DEC_AMT;
+    private BigDecimal NCU_BEFO_AMT;
+    private BigDecimal NCU_INC_AMT;
+    private BigDecimal NCU_DEC_AMT;
     private String NCU_AMD_CCY;
-    private int NCU_AMD_AMT;
-    private int HIS_NO;
+    private BigDecimal NCU_AMD_AMT;
+    private BigDecimal HIS_NO;
     private String CBS_GB;
     private String MNG_INFO;
     private String PRES_PRD;

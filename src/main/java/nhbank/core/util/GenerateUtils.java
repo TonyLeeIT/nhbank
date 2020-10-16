@@ -24,7 +24,8 @@ public class GenerateUtils {
             outStream.writeBytes("import javax.persistence.Id; \n");
             outStream.writeBytes("import javax.persistence.Table; \n");
             outStream.writeBytes("import java.io.Serializable; \n");
-            outStream.writeBytes("import java.sql.Date; \n");
+            outStream.writeBytes("import java.math.BigDecimal; \n");
+            outStream.writeBytes("import java.util.Date; \n");
             outStream.writeBytes("@Entity \n");
             outStream.writeBytes("@Table(name = \"" + convertCamelCase(sFileName) + "\") \n");
             outStream.writeBytes("@Data \n");
@@ -47,7 +48,7 @@ public class GenerateUtils {
                     case Constant.TBL_NUMBER:
                         try {
                             String key = convertCamelCase(val);
-                            outStream.writeBytes("private int " + key + "; \n");
+                            outStream.writeBytes("private BigDecimal " + key + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -82,6 +83,7 @@ public class GenerateUtils {
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
             outStream.writeBytes("package nhbank.core.model; \n");
             outStream.writeBytes("import lombok.Data; \n");
+            outStream.writeBytes("import java.math.BigDecimal; \n");
             outStream.writeBytes("import java.util.Date; \n");
             outStream.writeBytes("@Data \n");
             outStream.writeBytes("public class " + sFileName + "_DTO { \n");
@@ -99,7 +101,7 @@ public class GenerateUtils {
                         break;
                     case Constant.TBL_NUMBER:
                         try {
-                            outStream.writeBytes("private int " + val + "; \n");
+                            outStream.writeBytes("private BigDecimal " + val + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

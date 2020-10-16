@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexIpbBoj")
@@ -16,26 +17,26 @@ public class AFEX_IPB_BOJInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int seq;
+    private BigDecimal seq;
     private String sts;
     private Date acIl;
     private Date gisIl;
     private Date lstIbIl;
     private String ccy;
-    private int amt;
-    private int hisNo;
+    private BigDecimal amt;
+    private BigDecimal hisNo;
     private String ibjiGb;
     private String bojGb;
-    private int beLgcomDsAmt;
-    private int lgmSeq;
-    private int lgmSseq;
-    private int bldSeq;
+    private BigDecimal beLgcomDsAmt;
+    private BigDecimal lgmSeq;
+    private BigDecimal lgmSseq;
+    private BigDecimal bldSeq;
     private String ncuCcy;
-    private int ncuAmt;
-    private int ncuBeLgcomDsAmt;
-    private int chdAmt;
+    private BigDecimal ncuAmt;
+    private BigDecimal ncuBeLgcomDsAmt;
+    private BigDecimal chdAmt;
     private String junhwanGb;
-    private int beJunhwanWamt;
+    private BigDecimal beJunhwanWamt;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

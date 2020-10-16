@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "acomCixBase")
@@ -82,12 +83,12 @@ public class ACOM_CIX_BASEInfo implements Serializable {
     private String mailAddr4;
     private String creditGrade;
     private String emailAddr;
-    private int capital;
-    private int salesScale;
-    private int profitExTax;
-    private int asset;
-    private int pdinCaptl;
-    private int amtEmployee;
+    private BigDecimal capital;
+    private BigDecimal salesScale;
+    private BigDecimal profitExTax;
+    private BigDecimal asset;
+    private BigDecimal pdinCaptl;
+    private BigDecimal amtEmployee;
     private String corpTp;
     private String remarks1;
     private String remarks2;

@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "acomContBase")
@@ -20,14 +21,14 @@ public class ACOM_CONT_BASEInfo implements Serializable {
     private String rgnCd;
     private String sts;
     private String inactRsnCd;
-    private int lstHisNo;
+    private BigDecimal lstHisNo;
     private String trcllStCd;
     private String mgntBrNo;
     private String brfcCd;
     private String pfmcMgntBrNo;
     private String idNo;
     private String cixNo;
-    private int deptSeqNo;
+    private BigDecimal deptSeqNo;
     private String subjCd;
     private String bnkDvCd;
     private String prdCd;
@@ -40,7 +41,7 @@ public class ACOM_CONT_BASEInfo implements Serializable {
     private Date contEndDt;
     private String hsCd;
     private String entrMgntNo;
-    private int cmltMlgeAmt;
+    private BigDecimal cmltMlgeAmt;
     private String corpScalCd;
     private String thrCntyCd;
     private String oriplCntyCd;

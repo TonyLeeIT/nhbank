@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexRihHis")
@@ -16,7 +17,7 @@ public class AFEX_RIH_HISInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String sts;
     private String trGb;
     private String trCd;
@@ -25,11 +26,11 @@ public class AFEX_RIH_HISInfo implements Serializable {
     private Date acIl;
     private Date gisIl;
     private Date canIl;
-    private int sdHisNo;
+    private BigDecimal sdHisNo;
     private String trCcy;
-    private int trFamt;
-    private int trBamt;
-    private int afJan;
+    private BigDecimal trFamt;
+    private BigDecimal trBamt;
+    private BigDecimal afJan;
     private String feeMd;
     private String trBr;
     private String sdBr;
@@ -37,11 +38,11 @@ public class AFEX_RIH_HISInfo implements Serializable {
     private String opNo;
     private String mngNo;
     private String ibjiMd;
-    private int ydSeq;
+    private BigDecimal ydSeq;
     private String ydGuja;
-    private int bokSeq;
+    private BigDecimal bokSeq;
     private String cdSngNo;
-    private int cdSilSeq;
+    private BigDecimal cdSilSeq;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

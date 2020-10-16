@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexXpbAmd")
@@ -16,40 +17,40 @@ public class AFEX_XPB_AMDInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int seqNo;
+    private BigDecimal seqNo;
     private String sts;
     private Date acIl;
     private Date gisIl;
     private Date lstIl;
     private Date lstIbIl;
     private Date canIl;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String beTenorGb;
     private String beReneReqGb;
     private String beNegoGb;
     private String beHjIlCd;
     private Date beManGijIl;
-    private int beHijaTerm;
-    private int beUsanceTerm;
+    private BigDecimal beHijaTerm;
+    private BigDecimal beUsanceTerm;
     private Date beYmanIl;
     private Date beMoJubIl;
     private Date beLstIsuIl;
     private String beWhanRcvGb;
-    private int beWhanFrt;
-    private int beIntAmt;
+    private BigDecimal beWhanFrt;
+    private BigDecimal beIntAmt;
     private String afTenorGb;
     private String afReneReqGb;
     private String afNegoGb;
     private String afHjIlCd;
     private Date afManGijIl;
-    private int afHijaTerm;
-    private int afUsanceTerm;
+    private BigDecimal afHijaTerm;
+    private BigDecimal afUsanceTerm;
     private Date afYmanIl;
     private Date afMoJubIl;
     private Date afLstIsuIl;
     private String afWhanRcvGb;
-    private int afWhanFrt;
-    private int afIntAmt;
+    private BigDecimal afWhanFrt;
+    private BigDecimal afIntAmt;
     private String opNo;
     private String mngNo;
     private String regEmpNo;

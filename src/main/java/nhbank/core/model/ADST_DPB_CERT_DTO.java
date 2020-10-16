@@ -2,13 +2,14 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class ADST_DPB_CERT_DTO {
     private String ACCT_NO;
     private Date IB_IL;
-    private int TX_TRX_NO;
+    private BigDecimal TX_TRX_NO;
     private String STS;
     private String PRT_KIND;
     private String DR_OPNO;

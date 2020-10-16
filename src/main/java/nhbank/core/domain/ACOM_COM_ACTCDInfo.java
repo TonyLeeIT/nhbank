@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "acomComActcd")
@@ -50,8 +51,8 @@ public class ACOM_COM_ACTCDInfo implements Serializable {
     private String contraAc;
     private String accrAc;
     private String amrtAc;
-    private int acSort1;
-    private int acSort2;
+    private BigDecimal acSort1;
+    private BigDecimal acSort2;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

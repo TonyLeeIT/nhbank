@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "acomDmhAllochis")
@@ -18,11 +19,11 @@ public class ACOM_DMH_ALLOCHISInfo implements Serializable {
     private String damboNo;
     private String cixNo;
     private String sngNo;
-    private int seqNo;
-    private int hisNo;
+    private BigDecimal seqNo;
+    private BigDecimal hisNo;
     private String sts;
-    private int allocRatio;
-    private int allocAmt;
+    private BigDecimal allocRatio;
+    private BigDecimal allocAmt;
     private Date ibIl;
     private Date acIl;
     private Date gisIl;

@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexIphBase")
@@ -35,7 +36,7 @@ public class AFEX_IPH_BASEInfo implements Serializable {
     private String beneAddr2;
     private String beneAddr3;
     private String openCcy;
-    private int openAmt;
+    private BigDecimal openAmt;
     private Date expIl;
     private String expPlace;
     private String openGb;
@@ -83,13 +84,13 @@ public class AFEX_IPH_BASEInfo implements Serializable {
     private String amdLseq;
     private String amdLno;
     private String lastCcy;
-    private int lastAmt;
+    private BigDecimal lastAmt;
     private String ediGb;
     private String ediCust;
     private String ediSend;
     private Date ediSndIl;
     private String ediJumNo;
-    private int ediSeqNo;
+    private BigDecimal ediSeqNo;
     private String ediSfnm;
     private String ediRcv;
     private Date ediRcvIl;
@@ -110,16 +111,16 @@ public class AFEX_IPH_BASEInfo implements Serializable {
     private String bankGb;
     private String mt7nnGb;
     private String ncuOpenCcy;
-    private int ncuOpenAmt;
+    private BigDecimal ncuOpenAmt;
     private String ncuLastCcy;
-    private int ncuLastAmt;
+    private BigDecimal ncuLastAmt;
     private String cbsGb;
     private String theirRef;
     private String cableGb;
     private String spcGb;
     private String mngInfo;
     private String raliboGb;
-    private int raRate;
+    private BigDecimal raRate;
     private String applRule;
     private String applRule2;
     private String loadPort;

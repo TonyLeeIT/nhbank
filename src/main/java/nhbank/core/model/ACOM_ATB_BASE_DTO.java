@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -16,20 +17,20 @@ public class ACOM_ATB_BASE_DTO {
     private String FR_CIX_NO;
     private String CIX_NO;
     private String CCY;
-    private int LIMIT_AMT;
-    private int TR_AMT;
+    private BigDecimal LIMIT_AMT;
+    private BigDecimal TR_AMT;
     private String DUE_TYPE;
-    private int DUE_DAY;
-    private int DUE_TIMES;
-    private int TOT_TIMES;
-    private int PROC_TIMES;
+    private BigDecimal DUE_DAY;
+    private BigDecimal DUE_TIMES;
+    private BigDecimal TOT_TIMES;
+    private BigDecimal PROC_TIMES;
     private Date OPN_DT;
     private Date EXP_DT;
     private String RETRY_YN;
     private String PURPOSE_CD;
     private String RCV_RMRK;
     private String RCV_ADDR;
-    private int DEP_TIMES;
+    private BigDecimal DEP_TIMES;
     private String TYPE;
     private String CHANNEL_TYPE;
     private String PAYER_INF;
@@ -38,7 +39,7 @@ public class ACOM_ATB_BASE_DTO {
     private String FEE_FREE_YN;
     private String TO_BANK_CD;
     private String TO_CUST_NM;
-    private int FEE_AMT;
+    private BigDecimal FEE_AMT;
     private String APPL_RMRK;
     private String RMTE_ACCT_DP_KIND_CD;
     private String RTGS_TP;

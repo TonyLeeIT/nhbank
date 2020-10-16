@@ -2,12 +2,13 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class AFEX_ROB_AMD_DTO {
     private String REF_NO;
-    private int CHG_SEQ;
+    private BigDecimal CHG_SEQ;
     private String TBL_GB;
     private String STS;
     private String CHG_CD;
@@ -43,7 +44,7 @@ public class AFEX_ROB_AMD_DTO {
     private String OP_NO;
     private String OWNER_NO;
     private String YD_GUJA;
-    private int HIS_NO;
+    private BigDecimal HIS_NO;
     private String OPER_NO;
     private String MT199_NAME;
     private String MT192_NAME;

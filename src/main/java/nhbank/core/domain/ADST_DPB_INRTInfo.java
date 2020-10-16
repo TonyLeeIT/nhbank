@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "adstDpbInrt")
@@ -17,11 +18,11 @@ public class ADST_DPB_INRTInfo implements Serializable {
     @GeneratedValue
     private String acctNo;
     private String sts;
-    private int hisNo;
+    private BigDecimal hisNo;
     private Date fromIl;
     private Date toIl;
-    private int famt;
-    private int intRt;
+    private BigDecimal famt;
+    private BigDecimal intRt;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

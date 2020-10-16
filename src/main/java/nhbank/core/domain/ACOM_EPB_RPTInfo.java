@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "acomEpbRpt")
@@ -17,23 +18,23 @@ public class ACOM_EPB_RPTInfo implements Serializable {
     @GeneratedValue
     private String refNo;
     private String acrNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String mngBr;
     private String trCcy;
-    private int bgDrAmt;
-    private int bgCrAmt;
-    private int plDrAmt;
-    private int plCrAmt;
+    private BigDecimal bgDrAmt;
+    private BigDecimal bgCrAmt;
+    private BigDecimal plDrAmt;
+    private BigDecimal plCrAmt;
     private String busiCd;
     private String busiGrpCd;
     private String plCd;
     private String mngYr;
     private Date acrFmDt;
     private Date acrToDt;
-    private int acrAmt;
-    private int trBamt;
-    private int bizSeq;
-    private int bizSubSeq;
+    private BigDecimal acrAmt;
+    private BigDecimal trBamt;
+    private BigDecimal bizSeq;
+    private BigDecimal bizSubSeq;
     private Date trDt;
     private String trGb;
     private String trCd;

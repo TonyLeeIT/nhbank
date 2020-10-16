@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexRchBase")
@@ -39,7 +40,7 @@ public class AFEX_RCH_BASEInfo implements Serializable {
     private String cbsCd;
     private String dbsCd;
     private String vostroYn;
-    private int mk950Seq;
+    private BigDecimal mk950Seq;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

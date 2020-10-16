@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexIpbBlk")
@@ -16,33 +17,33 @@ public class AFEX_IPB_BLKInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int seq;
-    private int sseq;
+    private BigDecimal seq;
+    private BigDecimal sseq;
     private String sts;
     private Date acIl;
     private Date gisIl;
     private Date lstIbIl;
     private String ccy;
-    private int amt;
-    private int hisNo;
+    private BigDecimal amt;
+    private BigDecimal hisNo;
     private String jagmGb;
-    private int jilcBamt;
-    private int jilcFamt;
-    private int jilgBamt;
-    private int jilgFamt;
-    private int sngSseq;
-    private int djbSeq;
+    private BigDecimal jilcBamt;
+    private BigDecimal jilcFamt;
+    private BigDecimal jilgBamt;
+    private BigDecimal jilgFamt;
+    private BigDecimal sngSseq;
+    private BigDecimal djbSeq;
     private String setBkcd;
     private String junGb;
     private String fjnNo;
     private String setGb;
-    private int gtAmt;
+    private BigDecimal gtAmt;
     private String amtGb;
     private String ncuCcy;
-    private int ncuAmt;
-    private int ncuJilcFamt;
-    private int ncuJilgFamt;
-    private int ncuGtAmt;
+    private BigDecimal ncuAmt;
+    private BigDecimal ncuJilcFamt;
+    private BigDecimal ncuJilgFamt;
+    private BigDecimal ncuGtAmt;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

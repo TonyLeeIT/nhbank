@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexRobAmd")
@@ -16,7 +17,7 @@ public class AFEX_ROB_AMDInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int chgSeq;
+    private BigDecimal chgSeq;
     private String tblGb;
     private String sts;
     private String chgCd;
@@ -52,7 +53,7 @@ public class AFEX_ROB_AMDInfo implements Serializable {
     private String opNo;
     private String ownerNo;
     private String ydGuja;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String operNo;
     private String mt199Name;
     private String mt192Name;

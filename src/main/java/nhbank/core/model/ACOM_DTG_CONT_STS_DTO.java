@@ -2,12 +2,13 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class ACOM_DTG_CONT_STS_DTO {
     private String REF_NO;
-    private int SEQ_NO;
+    private BigDecimal SEQ_NO;
     private String BR_NO;
     private Date TRX_DT;
     private String BF_CONT_STS;

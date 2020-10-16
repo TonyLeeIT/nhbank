@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexRchTran")
@@ -19,10 +20,10 @@ public class AFEX_RCH_TRANInfo implements Serializable {
     private String ccy;
     private String mtGb;
     private Date trIl;
-    private int trSeq;
+    private BigDecimal trSeq;
     private Date valIl;
     private String drcrGb;
-    private int drcrAmt;
+    private BigDecimal drcrAmt;
     private String ourRef;
     private String theirRef;
     private Date ibIl;

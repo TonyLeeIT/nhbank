@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "acomComAllow")
@@ -21,10 +22,10 @@ public class ACOM_COM_ALLOWInfo implements Serializable {
     private String cixNo;
     private String gwamCd;
     private String curc;
-    private int assetAmt;
-    private int exhgAmt;
-    private int allowAmt;
-    private int collectAmt;
+    private BigDecimal assetAmt;
+    private BigDecimal exhgAmt;
+    private BigDecimal allowAmt;
+    private BigDecimal collectAmt;
     private String collectCd;
     private String sts;
     private String regEmpNo;

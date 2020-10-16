@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -46,7 +47,7 @@ public class ACOM_COMH_USER_DTO {
     private String OLD_PASSWD8;
     private String OLD_PASSWD9;
     private String PASSWD_LOCK;
-    private int SESS_TM_OUT;
+    private BigDecimal SESS_TM_OUT;
     private String LINE_PRT1;
     private String LINE_PRT2;
     private String LINE_PRT3;

@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "afexXphRenego")
@@ -20,7 +21,7 @@ public class AFEX_XPH_RENEGOInfo implements Serializable {
     private Date trIl;
     private String reneGb;
     private String negoCcy;
-    private int negoAmt;
+    private BigDecimal negoAmt;
     private Date negoIl;
     private String reimBkcd;
     private String reimBknm;
@@ -28,18 +29,18 @@ public class AFEX_XPH_RENEGOInfo implements Serializable {
     private String collBknm;
     private Date exprIl;
     private String exprCcy;
-    private int exprAmt;
-    private int hijaAmt;
-    private int dcAmt;
-    private int cable;
-    private int collAmt;
+    private BigDecimal exprAmt;
+    private BigDecimal hijaAmt;
+    private BigDecimal dcAmt;
+    private BigDecimal cable;
+    private BigDecimal collAmt;
     private String ccGb;
     private Date ccIl;
     private String ccRtCd;
     private String m202Nm;
     private String m999Nm;
     private String ncuNegoCcy;
-    private int ncuNegoAmt;
+    private BigDecimal ncuNegoAmt;
     private String yukNo;
     private String regEmpNo;
     private Date regDt;

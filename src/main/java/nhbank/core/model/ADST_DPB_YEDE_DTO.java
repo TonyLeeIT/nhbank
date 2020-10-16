@@ -2,6 +2,7 @@ package nhbank.core.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -9,27 +10,27 @@ public class ADST_DPB_YEDE_DTO {
     private String ACCT_NO;
     private String MODE_GB;
     private Date GEJUNG_IL;
-    private int BS_DPT_JAN;
-    private int BS_LON_JAN;
-    private int BS_JAN;
-    private int DPT_C_IAMT;
-    private int DPT_D_IAMT;
-    private int DPT_N_IAMT;
-    private int DPT_C_JAMT;
-    private int DPT_D_JAMT;
-    private int DPT_N_JAMT;
-    private int LON_C_IAMT;
-    private int LON_D_IAMT;
-    private int LON_N_IAMT;
-    private int LON_C_JAMT;
-    private int LON_D_JAMT;
-    private int LON_N_JAMT;
-    private int JBR_CK1_AMT;
-    private int JBR_CK2_AMT;
-    private int JBR_CK4_AMT;
-    private int TBR_CK1_AMT;
-    private int TBR_CK2_AMT;
-    private int TBR_CK4_AMT;
+    private BigDecimal BS_DPT_JAN;
+    private BigDecimal BS_LON_JAN;
+    private BigDecimal BS_JAN;
+    private BigDecimal DPT_C_IAMT;
+    private BigDecimal DPT_D_IAMT;
+    private BigDecimal DPT_N_IAMT;
+    private BigDecimal DPT_C_JAMT;
+    private BigDecimal DPT_D_JAMT;
+    private BigDecimal DPT_N_JAMT;
+    private BigDecimal LON_C_IAMT;
+    private BigDecimal LON_D_IAMT;
+    private BigDecimal LON_N_IAMT;
+    private BigDecimal LON_C_JAMT;
+    private BigDecimal LON_D_JAMT;
+    private BigDecimal LON_N_JAMT;
+    private BigDecimal JBR_CK1_AMT;
+    private BigDecimal JBR_CK2_AMT;
+    private BigDecimal JBR_CK4_AMT;
+    private BigDecimal TBR_CK1_AMT;
+    private BigDecimal TBR_CK2_AMT;
+    private BigDecimal TBR_CK4_AMT;
     private String REG_EMP_NO;
     private Date REG_DT;
     private String REG_TM;

@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "acomLmtSil")
@@ -21,10 +22,10 @@ public class ACOM_LMT_SILInfo implements Serializable {
     private Date fstIl;
     private Date lstIl;
     private Date lstIbil;
-    private int silAmt;
-    private int djgAmt;
-    private int gurBamt;
-    private int gurFamt;
+    private BigDecimal silAmt;
+    private BigDecimal djgAmt;
+    private BigDecimal gurBamt;
+    private BigDecimal gurFamt;
     private String regEmpNo;
     private Date regDt;
     private String regTm;
