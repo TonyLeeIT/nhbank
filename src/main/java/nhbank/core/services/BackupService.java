@@ -1,13 +1,13 @@
 package nhbank.core.services;
 
 
-import nhbank.core.domain.HT002Info;
+import java.util.List;
 
-public interface BackupService {
-    void updateTable(HT002Info ht002Info);
+public interface BackupService<T> {
 
-    void insertTable(HT002Info ht002Info);
+    void updateTable(List<T> t);
 
-    boolean isExistTable(HT002Info rv001Info);
+    void insertTable(T t);
 
+    boolean isExistTable(T t);
 }
