@@ -15,7 +15,6 @@ import java.util.Date;
 @Data
 public class ACOM_LMT_BASEHISInfo implements Serializable {
     @Id
-    @GeneratedValue
     private String sngNo;
     private String actCd;
     private BigDecimal hisNo;
