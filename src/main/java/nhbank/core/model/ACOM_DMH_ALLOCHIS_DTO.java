@@ -9,11 +9,11 @@ public class ACOM_DMH_ALLOCHIS_DTO {
     private String DAMBO_NO;
     private String CIX_NO;
     private String SNG_NO;
-    private int SEQ_NO;
-    private int HIS_NO;
+    private BigDecimal SEQ_NO;
+    private BigDecimal HIS_NO;
     private String STS;
-    private int ALLOC_RATIO;
-    private int ALLOC_AMT;
+    private BigDecimal ALLOC_RATIO;
+    private BigDecimal ALLOC_AMT;
     private Date IB_IL;
     private Date AC_IL;
     private Date GIS_IL;

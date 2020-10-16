@@ -7,8 +7,8 @@ import java.util.Date;
 @Data
 public class AACT_TRX_BS_DTO {
     private String REF_NO;
-    private int HIS_NO;
-    private int SEG_SEQ;
+    private BigDecimal HIS_NO;
+    private BigDecimal SEG_SEQ;
     private String REF_NO2;
     private String ORG_GB;
     private String ILGE_GB;
@@ -26,18 +26,18 @@ public class AACT_TRX_BS_DTO {
     private String IBJI_CD;
     private String SLIP_GB;
     private String JUKI_GB;
-    private int FAMT;
-    private int BAMT;
-    private int APPL_HRT;
-    private int BASIC_HRT;
-    private int BOOK_HRT;
-    private int DEMI_HRT;
-    private int GOSI_HRT;
-    private int FTP_RT;
+    private BigDecimal FAMT;
+    private BigDecimal BAMT;
+    private BigDecimal APPL_HRT;
+    private BigDecimal BASIC_HRT;
+    private BigDecimal BOOK_HRT;
+    private BigDecimal DEMI_HRT;
+    private BigDecimal GOSI_HRT;
+    private BigDecimal FTP_RT;
     private String CD_SNG_NO;
     private String YD_DSFG;
     private String YD_REFNO;
-    private int YD_HISNO;
+    private BigDecimal YD_HISNO;
     private String DOC_ID;
     private String REMARK;
     private String MSG_TYPE;
@@ -50,7 +50,7 @@ public class AACT_TRX_BS_DTO {
     private String THEIR_REFNO;
     private String IFRS_DV_CD;
     private String DTLS_BAL_DV_CD;
-    private int BAL_AMT;
+    private BigDecimal BAL_AMT;
     private String ID_NO;
     private String CIX_NO;
     private String REG_EMP_NO;

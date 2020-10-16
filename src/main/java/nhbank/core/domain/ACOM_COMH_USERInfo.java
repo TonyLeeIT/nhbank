@@ -55,7 +55,7 @@ public class ACOM_COMH_USERInfo implements Serializable {
     private String oldPasswd8;
     private String oldPasswd9;
     private String passwdLock;
-    private int sessTmOut;
+    private BigDecimal sessTmOut;
     private String linePrt1;
     private String linePrt2;
     private String linePrt3;

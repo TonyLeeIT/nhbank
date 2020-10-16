@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "ACOM_LMT_BASEHIS")
@@ -36,7 +37,7 @@ public class ACOM_LMT_BASEHISInfo implements Serializable {
     private Date expIl;
     private Date sngIl;
     private String sngCcy;
-    private int sngAmt;
+    private BigDecimal sngAmt;
     private int sngAbtrt;
     private int sngAbtamt;
     private int actAmt;
@@ -45,7 +46,7 @@ public class ACOM_LMT_BASEHISInfo implements Serializable {
     private int actSprd;
     private String actRtjo;
     private int silCnt;
-    private int silJanamt;
+    private BigDecimal silJanamt;
     private int silAccum;
     private int silWoijan;
     private int silDjgjan;
@@ -80,8 +81,8 @@ public class ACOM_LMT_BASEHISInfo implements Serializable {
     private int bojMjAmt;
     private String rateGb;
     private String rateJugi;
-    private int spread;
-    private int yoncheRate;
+    private BigDecimal spread;
+    private BigDecimal yoncheRate;
     private int graceDay;
     private String dayCntBasis;
     private String busiDayRule;

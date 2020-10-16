@@ -7,13 +7,13 @@ import java.util.Date;
 @Data
 public class AFEX_ADH_AMEND_DTO {
     private Date MAKE_IL;
-    private int SEQ_NO;
-    private int LST_HIS_NO;
+    private BigDecimal SEQ_NO;
+    private BigDecimal LST_HIS_NO;
     private String ADV_NO;
     private String SEND_GB;
     private String LC_NO;
     private Date OPEN_IL;
-    private int AMD_CNT;
+    private BigDecimal AMD_CNT;
     private String OPEN_BKCD;
     private String OPEN_BKNM1;
     private String OPEN_BKNM2;
@@ -27,9 +27,9 @@ public class AFEX_ADH_AMEND_DTO {
     private Date GYOBU_IL;
     private String AMT_GB;
     private String AMD_CCY;
-    private int AMD_AMT;
+    private BigDecimal AMD_AMT;
     private String AF_CCY;
-    private int AF_AMT;
+    private BigDecimal AF_AMT;
     private Date EXP_IL;
     private Date SHIP_IL;
     private String AUTH_GB;
@@ -42,7 +42,7 @@ public class AFEX_ADH_AMEND_DTO {
     private String SWIFT_MRN;
     private String MNG_NO;
     private String OP_NO;
-    private int TOT_SEQ;
+    private BigDecimal TOT_SEQ;
     private Date LST_IL;
     private String MT707_FNM;
     private String RELAY;
@@ -56,8 +56,8 @@ public class AFEX_ADH_AMEND_DTO {
     private String TONG_PRINT;
     private String BR_NO;
     private String BR_NM;
-    private int BR_CHARGE;
-    private int CHARGE_AMT;
+    private BigDecimal BR_CHARGE;
+    private BigDecimal CHARGE_AMT;
     private String CHARGE_GB;
     private String CIX_NO;
     private String BUSEO_NO;
@@ -65,12 +65,12 @@ public class AFEX_ADH_AMEND_DTO {
     private String CHARGE_MD;
     private Date CHARGE_IL;
     private String MT707_FNM1;
-    private int PRT_CNT;
+    private BigDecimal PRT_CNT;
     private String RE_ISSUE;
     private String MT707_FNM2;
     private String MT707_FNM3;
     private String MT707_FNM4;
-    private int MT707_CNT;
+    private BigDecimal MT707_CNT;
     private String MT730_SEND;
     private String MT730_DOC_ID;
     private Date FIRST_IL;
@@ -106,7 +106,7 @@ public class AFEX_ADH_AMEND_DTO {
     private String CONFIRM_GB;
     private Date CNFR_FR_IL;
     private Date CNFR_TO_IL;
-    private int CNFR_RT;
+    private BigDecimal CNFR_RT;
     private String CNFM_BIC;
     private String CNFM_NM1;
     private String CNFM_NM2;
@@ -115,7 +115,7 @@ public class AFEX_ADH_AMEND_DTO {
     private String MT708_FNM2;
     private String MT708_FNM3;
     private String MT708_FNM4;
-    private int MT708_CNT;
+    private BigDecimal MT708_CNT;
 
     public AFEX_ADH_AMEND_DTO() {
     }

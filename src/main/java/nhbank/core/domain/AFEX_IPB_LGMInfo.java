@@ -16,19 +16,19 @@ public class AFEX_IPB_LGMInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int seq;
-    private int sseq;
+    private BigDecimal seq;
+    private BigDecimal sseq;
     private String sts;
     private Date acIl;
     private Date gisIl;
     private Date lstIbIl;
     private String ccy;
-    private int amt;
-    private int hisNo;
-    private int pSseq;
-    private int jan;
-    private int bojBjan2;
-    private int bojJan2;
+    private BigDecimal amt;
+    private BigDecimal hisNo;
+    private BigDecimal pSseq;
+    private BigDecimal jan;
+    private BigDecimal bojBjan2;
+    private BigDecimal bojJan2;
     private String blGb;
     private int bojJukYul;
     private Date ymanIl;

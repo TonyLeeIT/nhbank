@@ -7,10 +7,10 @@ import java.util.Date;
 @Data
 public class ACOM_COMH_TAGLINE_DTO {
     private String DOC_ID;
-    private int SEQ_NO;
+    private BigDecimal SEQ_NO;
     private String LINE_TYPE;
     private String TAG_NO;
-    private int SUB_NO;
+    private BigDecimal SUB_NO;
     private String LINE_DATA;
     private String TAG_GB;
     private String REG_EMP_NO;

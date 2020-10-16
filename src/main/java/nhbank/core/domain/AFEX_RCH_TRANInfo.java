@@ -19,10 +19,10 @@ public class AFEX_RCH_TRANInfo implements Serializable {
     private String ccy;
     private String mtGb;
     private Date trIl;
-    private int trSeq;
+    private BigDecimal trSeq;
     private Date valIl;
     private String drcrGb;
-    private int drcrAmt;
+    private BigDecimal drcrAmt;
     private String ourRef;
     private String theirRef;
     private Date ibIl;

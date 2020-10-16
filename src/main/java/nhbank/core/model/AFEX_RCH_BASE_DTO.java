@@ -30,7 +30,7 @@ public class AFEX_RCH_BASE_DTO {
     private String CBS_CD;
     private String DBS_CD;
     private String VOSTRO_YN;
-    private int MK950_SEQ;
+    private BigDecimal MK950_SEQ;
     private String REG_EMP_NO;
     private Date REG_DT;
     private String REG_TM;

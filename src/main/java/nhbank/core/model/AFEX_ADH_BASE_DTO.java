@@ -7,7 +7,7 @@ import java.util.Date;
 @Data
 public class AFEX_ADH_BASE_DTO {
     private Date MAKE_IL;
-    private int SEQ_NO;
+    private BigDecimal SEQ_NO;
     private String ADV_NO;
     private String SEND_GB;
     private String MSG_GB;
@@ -24,8 +24,8 @@ public class AFEX_ADH_BASE_DTO {
     private String BENE_NM2;
     private String BENE_NM3;
     private String OPEN_CCY;
-    private int OPEN_AMT;
-    private int BAL_AMT;
+    private BigDecimal OPEN_AMT;
+    private BigDecimal BAL_AMT;
     private Date EXP_IL;
     private Date SHIP_IL;
     private String SIGHT_GB;
@@ -40,17 +40,17 @@ public class AFEX_ADH_BASE_DTO {
     private String NOR_URG;
     private String SWIFT_MRN;
     private String TRAN_INPUT;
-    private int TOT_SEQ;
+    private BigDecimal TOT_SEQ;
     private String MNG_NO;
     private String OP_NO;
     private Date LST_IL;
     private String MT700_FNM;
-    private int MT701_CNT;
+    private BigDecimal MT701_CNT;
     private String MT701_FNM1;
     private String MT701_FNM2;
     private String MT701_FNM3;
     private String MT701_FNM4;
-    private int AMD_CNT;
+    private BigDecimal AMD_CNT;
     private String GYOBU_GB;
     private Date GYOBU_IL;
     private String EDI_GB;
@@ -61,8 +61,8 @@ public class AFEX_ADH_BASE_DTO {
     private String TX_KEY;
     private String FAX_NO;
     private String FIRST_GB;
-    private int BR_CHARGE;
-    private int CHARGE_AMT;
+    private BigDecimal BR_CHARGE;
+    private BigDecimal CHARGE_AMT;
     private String CHARGE_GB;
     private String EDI_ID;
     private String COND_STS;
@@ -82,7 +82,7 @@ public class AFEX_ADH_BASE_DTO {
     private String IBGM_MD;
     private String CHARGE_MD;
     private Date CHARGE_IL;
-    private int PRT_CNT;
+    private BigDecimal PRT_CNT;
     private String RE_ISSUE;
     private String CONFIRM_GB;
     private Date TRAN_IL;
@@ -107,8 +107,8 @@ public class AFEX_ADH_BASE_DTO {
     private String ADV_THRU_GB;
     private String BENE_NM4;
     private String APPL_NM4;
-    private int TOL_MORE;
-    private int TOL_LESS;
+    private BigDecimal TOL_MORE;
+    private BigDecimal TOL_LESS;
     private String SKBDN_YN;
     private String REG_EMP_NO;
     private Date REG_DT;
@@ -118,7 +118,7 @@ public class AFEX_ADH_BASE_DTO {
     private String UPD_TM;
     private Date CNFR_FR_IL;
     private Date CNFR_TO_IL;
-    private int CNFR_RT;
+    private BigDecimal CNFR_RT;
     private Date LST_EXP_IL;
     private String CNFM_BIC;
     private String CNFM_NM1;

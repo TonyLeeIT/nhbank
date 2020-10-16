@@ -16,7 +16,7 @@ public class AFIF_MTH_HISInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String sts;
     private String trGb;
     private String trCd;
@@ -24,10 +24,10 @@ public class AFIF_MTH_HISInfo implements Serializable {
     private Date acIl;
     private Date gisIl;
     private Date canIl;
-    private int sdHisNo;
+    private BigDecimal sdHisNo;
     private String trCcy;
-    private int trFamt;
-    private int trBamt;
+    private BigDecimal trFamt;
+    private BigDecimal trBamt;
     private int afJan;
     private String sndDocNo;
     private String trBr;

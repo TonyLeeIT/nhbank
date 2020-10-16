@@ -8,11 +8,11 @@ import java.util.Date;
 public class ADST_DPB_INRT_DTO {
     private String ACCT_NO;
     private String STS;
-    private int HIS_NO;
+    private BigDecimal HIS_NO;
     private Date FROM_IL;
     private Date TO_IL;
-    private int FAMT;
-    private int INT_RT;
+    private BigDecimal FAMT;
+    private BigDecimal INT_RT;
     private String REG_EMP_NO;
     private Date REG_DT;
     private String REG_TM;

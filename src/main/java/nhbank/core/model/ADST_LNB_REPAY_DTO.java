@@ -7,17 +7,17 @@ import java.util.Date;
 @Data
 public class ADST_LNB_REPAY_DTO {
     private String REF_NO;
-    private int HIS_NO;
-    private int SEQ_NO;
+    private BigDecimal HIS_NO;
+    private BigDecimal SEQ_NO;
     private String STS;
-    private int ADJ_SEQ;
-    private int SCH_SEQ;
-    private int SCH_SUB_NO;
+    private BigDecimal ADJ_SEQ;
+    private BigDecimal SCH_SEQ;
+    private BigDecimal SCH_SUB_NO;
     private Date REPAY_IL;
     private String CCY;
-    private int REPAY_AMT;
-    private int USD_CVT_AMT;
-    private int BBS_CVT_AMT;
+    private BigDecimal REPAY_AMT;
+    private BigDecimal USD_CVT_AMT;
+    private BigDecimal BBS_CVT_AMT;
     private String REPAY_STYLE;
     private String INT_GB;
     private String YC_GB;

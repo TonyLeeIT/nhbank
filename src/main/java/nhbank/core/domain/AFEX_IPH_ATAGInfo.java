@@ -18,7 +18,7 @@ public class AFEX_IPH_ATAGInfo implements Serializable {
     private String refNo;
     private String amdSeq;
     private String tagCd;
-    private int seq;
+    private BigDecimal seq;
     private String text01;
     private String text02;
     private String text03;

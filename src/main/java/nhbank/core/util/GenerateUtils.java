@@ -47,7 +47,7 @@ public class GenerateUtils {
                     case Constant.TBL_NUMBER:
                         try {
                             String key = convertCamelCase(val);
-                            outStream.writeBytes("private int " + key + "; \n");
+                            outStream.writeBytes("private BigDecimal " + key + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -99,7 +99,7 @@ public class GenerateUtils {
                         break;
                     case Constant.TBL_NUMBER:
                         try {
-                            outStream.writeBytes("private int " + val + "; \n");
+                            outStream.writeBytes("private BigDecimal " + val + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

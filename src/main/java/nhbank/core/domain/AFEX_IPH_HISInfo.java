@@ -16,8 +16,8 @@ public class AFEX_IPH_HISInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int seqNo;
-    private int hisNo;
+    private BigDecimal seqNo;
+    private BigDecimal hisNo;
     private String sts;
     private String trGb;
     private String gwamCd;

@@ -11,7 +11,7 @@ public class ACOM_COMH_MSG_DTO {
     private String IO_GB;
     private String UPMU_GB;
     private String NETW_GB;
-    private int SEQ_NO;
+    private BigDecimal SEQ_NO;
     private String MSG_GB;
     private String COND_STS;
     private String BR_NO;
@@ -25,7 +25,7 @@ public class ACOM_COMH_MSG_DTO {
     private String OUR_REF;
     private String THEIR_REF;
     private String MSG_CCY;
-    private int MSG_AMT;
+    private BigDecimal MSG_AMT;
     private String OP_NO;
     private Date AP_IL;
     private String AP_TIME;

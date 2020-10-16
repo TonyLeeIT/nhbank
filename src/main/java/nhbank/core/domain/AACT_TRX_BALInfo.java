@@ -24,7 +24,7 @@ public class AACT_TRX_BALInfo implements Serializable {
     private Date apclStrDt;
     private Date apclEndDt;
     private String brNo;
-    private int balAmt;
+    private BigDecimal balAmt;
     private String subjCd;
     private String opNo;
     private String idNo;

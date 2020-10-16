@@ -7,7 +7,7 @@ import java.util.Date;
 @Data
 public class ACOM_FAB_HIS_DTO {
     private String REF_NO;
-    private int HIS_NO;
+    private BigDecimal HIS_NO;
     private String STS;
     private String TR_GB;
     private String TR_CD;
@@ -15,12 +15,12 @@ public class ACOM_FAB_HIS_DTO {
     private Date AC_IL;
     private Date GIS_IL;
     private Date CAN_IL;
-    private int SD_HIS_NO;
+    private BigDecimal SD_HIS_NO;
     private String TR_CCY;
-    private int TR_FAMT;
-    private int TR_BAMT;
-    private int SAL_AMT;
-    private int EVEN_AMT;
+    private BigDecimal TR_FAMT;
+    private BigDecimal TR_BAMT;
+    private BigDecimal SAL_AMT;
+    private BigDecimal EVEN_AMT;
     private int DEPRI_AMT;
     private int SELL_AMT;
     private int PL_AMT;

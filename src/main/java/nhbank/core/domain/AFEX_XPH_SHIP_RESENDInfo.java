@@ -16,8 +16,8 @@ public class AFEX_XPH_SHIP_RESENDInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int bhSeq;
-    private int seq;
+    private BigDecimal bhSeq;
+    private BigDecimal seq;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

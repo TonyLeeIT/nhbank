@@ -16,7 +16,7 @@ public class ACOM_COM_FPHEADInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String prtKind;
     private String upmuCd;
     private String trCd;

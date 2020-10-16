@@ -50,8 +50,8 @@ public class ACOM_COM_ACTCDInfo implements Serializable {
     private String contraAc;
     private String accrAc;
     private String amrtAc;
-    private int acSort1;
-    private int acSort2;
+    private BigDecimal acSort1;
+    private BigDecimal acSort2;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

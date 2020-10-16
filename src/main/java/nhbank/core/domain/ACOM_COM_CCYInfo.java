@@ -18,12 +18,12 @@ public class ACOM_COM_CCYInfo implements Serializable {
     private String cd;
     private String bokCd;
     private String nm;
-    private int unit;
-    private int digit;
+    private BigDecimal unit;
+    private BigDecimal digit;
     private String ctryCd;
     private String gosiGb;
-    private int seqNo;
-    private int yearGb;
+    private BigDecimal seqNo;
+    private BigDecimal yearGb;
     private Date makeIl;
     private String regEmpNo;
     private Date regDt;

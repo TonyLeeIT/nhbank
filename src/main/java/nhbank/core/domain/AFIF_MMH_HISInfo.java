@@ -16,7 +16,7 @@ public class AFIF_MMH_HISInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private String sts;
     private String trGb;
     private String trCd;
@@ -24,11 +24,11 @@ public class AFIF_MMH_HISInfo implements Serializable {
     private Date acIl;
     private Date gisIl;
     private Date canIl;
-    private int sdHisNo;
+    private BigDecimal sdHisNo;
     private String trCcy;
-    private int trFamt;
-    private int trBamt;
-    private int afJan;
+    private BigDecimal trFamt;
+    private BigDecimal trBamt;
+    private BigDecimal afJan;
     private String sndDocNo;
     private String trBr;
     private String sdBr;
@@ -37,9 +37,9 @@ public class AFIF_MMH_HISInfo implements Serializable {
     private String managerId;
     private String ibjiMd;
     private String cdSngNo;
-    private int cdSilSeq;
+    private BigDecimal cdSilSeq;
     private String ftpSngNo;
-    private int ftpSilSeq;
+    private BigDecimal ftpSilSeq;
     private Date lstIbIl;
     private String frontSndGb;
     private String preSts;

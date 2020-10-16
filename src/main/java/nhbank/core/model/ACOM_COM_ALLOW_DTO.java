@@ -12,10 +12,10 @@ public class ACOM_COM_ALLOW_DTO {
     private String CIX_NO;
     private String GWAM_CD;
     private String CURC;
-    private int ASSET_AMT;
-    private int EXHG_AMT;
-    private int ALLOW_AMT;
-    private int COLLECT_AMT;
+    private BigDecimal ASSET_AMT;
+    private BigDecimal EXHG_AMT;
+    private BigDecimal ALLOW_AMT;
+    private BigDecimal COLLECT_AMT;
     private String COLLECT_CD;
     private String STS;
     private String REG_EMP_NO;

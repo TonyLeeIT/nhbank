@@ -12,10 +12,10 @@ public class ACOM_LMT_SIL_DTO {
     private Date FST_IL;
     private Date LST_IL;
     private Date LST_IBIL;
-    private int SIL_AMT;
-    private int DJG_AMT;
-    private int GUR_BAMT;
-    private int GUR_FAMT;
+    private BigDecimal SIL_AMT;
+    private BigDecimal DJG_AMT;
+    private BigDecimal GUR_BAMT;
+    private BigDecimal GUR_FAMT;
     private String REG_EMP_NO;
     private Date REG_DT;
     private String REG_TM;

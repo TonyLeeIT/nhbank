@@ -16,10 +16,10 @@ public class ACOM_COMH_TAGLINEInfo implements Serializable {
     @Id
     @GeneratedValue
     private String docId;
-    private int seqNo;
+    private BigDecimal seqNo;
     private String lineType;
     private String tagNo;
-    private int subNo;
+    private BigDecimal subNo;
     private String lineData;
     private String tagGb;
     private String regEmpNo;

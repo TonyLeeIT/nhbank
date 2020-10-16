@@ -16,7 +16,7 @@ public class ACOM_COMH_MSGHISInfo implements Serializable {
     @Id
     @GeneratedValue
     private String docId;
-    private int seqNo;
+    private BigDecimal seqNo;
     private String condSts;
     private String stmRmk;
     private String stmTail;

@@ -7,22 +7,22 @@ import java.util.Date;
 @Data
 public class AFEX_BFH_HIS_DTO {
     private String REF_NO;
-    private int HIS_NO;
+    private BigDecimal HIS_NO;
     private String STS;
     private String TR_GB;
     private String TR_CD;
     private Date IB_IL;
     private Date AC_IL;
     private Date CAN_IL;
-    private int BEFORE_AMT;
-    private int AFTER_AMT;
+    private BigDecimal BEFORE_AMT;
+    private BigDecimal AFTER_AMT;
     private String OP_NO;
     private String CIX_NO;
-    private int SD_HIS_NO;
+    private BigDecimal SD_HIS_NO;
     private Date GIS_IL;
     private String MNG_BR;
     private String BF_RECV_REF_NO;
-    private int BF_CH_AMT;
+    private BigDecimal BF_CH_AMT;
     private String BF_RECV_BKCD;
     private String BF_RECV_DEPO;
     private String BF_BASE_STS;

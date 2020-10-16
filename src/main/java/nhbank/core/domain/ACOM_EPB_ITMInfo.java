@@ -16,7 +16,7 @@ public class ACOM_EPB_ITMInfo implements Serializable {
     @Id
     @GeneratedValue
     private String refNo;
-    private int hisNo;
+    private BigDecimal hisNo;
     private Date acIl;
     private Date gisIl;
     private Date lstIbIl;
@@ -24,8 +24,8 @@ public class ACOM_EPB_ITMInfo implements Serializable {
     private String itmCd;
     private String beItm;
     private String afItm;
-    private int beItm1;
-    private int afItm1;
+    private BigDecimal beItm1;
+    private BigDecimal afItm1;
     private String regEmpNo;
     private Date regDt;
     private String regTm;

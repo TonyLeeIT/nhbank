@@ -17,7 +17,7 @@ public class ADST_DPB_CERTInfo implements Serializable {
     @GeneratedValue
     private String acctNo;
     private Date ibIl;
-    private int txTrxNo;
+    private BigDecimal txTrxNo;
     private String sts;
     private String prtKind;
     private String drOpno;
