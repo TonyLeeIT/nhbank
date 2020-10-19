@@ -8,8 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class ACOM_LMT_BASEHISInfoServiceImpl implements BackupService<ACOM_LMT_BASEHISInfo> {
     public static final Logger logger = LoggerFactory.getLogger(ACOM_LMT_BASEHISInfoServiceImpl.class);
@@ -18,7 +16,7 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements BackupService<ACOM_LMT_B
     ACOM_LMT_BASEHISInfoRepo repos;
 
     @Override
-    public void updateTable(List<ACOM_LMT_BASEHISInfo> acom_lmt_basehisInfo) {
+    public void updateTable(Iterable<ACOM_LMT_BASEHISInfo> acom_lmt_basehisInfo) {
         repos.saveAll(acom_lmt_basehisInfo);
     }
 

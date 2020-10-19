@@ -1,24 +1,26 @@
 package nhbank.core.domain;
 
 import lombok.Data;
+import nhbank.core.idclass.ACOM_LMT_BASEHIS_ID;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.IdClass;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity
-@Table(name = "acomLmtBasehis")
+@Entity(name = "ACOM_LMT_BASEHIS")
 @Data
+@IdClass(ACOM_LMT_BASEHIS_ID.class)
 public class ACOM_LMT_BASEHISInfo implements Serializable {
     @Id
-    @GeneratedValue
     private String sngNo;
+    @Id
     private String actCd;
+    @Id
     private BigDecimal hisNo;
+    @Id
     private String hisGb;
     private String trCd;
     private Date ibIl;
