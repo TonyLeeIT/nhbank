@@ -79,7 +79,7 @@ public class NHBankController {
         BufferedReader br = null;
         try {
             String line;
-            br = new BufferedReader(new FileReader("E:/ACOM_LMT_BASEHIS.txt"));
+            br = new BufferedReader(new FileReader("E:/ACOM_LMT_BASEHIS2.txt"));
 
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
@@ -172,9 +172,10 @@ public class NHBankController {
                 obj.setRegEmpNo(lineArray[78]);
 
                 obj.setRegTm(lineArray[80]);
-                obj.setRegEmpNo(lineArray[81]);
+                obj.setUpdEmpNo(lineArray[81]);
 
                 obj.setUpdTm(lineArray[83]);
+                acom_lmt_basehisInfoService.save(obj);
                 objList.add(obj);
 
             }
@@ -194,10 +195,9 @@ public class NHBankController {
     }
 
     @PostMapping("/save")
-    private ResponseEntity<List<ACOM_LMT_BASEHISInfo>> saveObjectList(){
+    private void saveObjectList(){
         List<ACOM_LMT_BASEHISInfo> objectList = readObjectFromTxt().getBody();
         acom_lmt_basehisInfoService.saveAll(objectList);
-        return new ResponseEntity<List<ACOM_LMT_BASEHISInfo>>(objectList, HttpStatus.OK);
     }
 //    private void buildDomain(String fileName, Map<String, String> listFields) {
 //        String sFileName = fileName.replace(".sql", "");
