@@ -8,11 +8,11 @@ import java.util.Map;
 
 public class GenerateUtils {
 
-    public static void buildDomain(String fileName, Map<Integer, String> listFields) {
+    public static void buildDomain(String fileName, Map<String, String> listFields) {
         String sFileName = fileName.replace(".sql", "");
         try {
 
-            File target = new File("C:\\NHBANK_TARGET\\INFO\\" + fileName.replace(".sql", "") + "Info.java");
+            File target = new File("E:\\NHBANK_TARGET\\INFO\\" + fileName.replace(".sql", "") + "Info.java");
             target.createNewFile();
 
             FileOutputStream outputStream = new FileOutputStream(target);
@@ -72,11 +72,68 @@ public class GenerateUtils {
         }
     }
 
-    public static void buildModel(String fileName, Map<Integer, String> listFields) {
+    public static void buildDomainsID(String fileName, Map<String, String> listFields) throws IOException {
+        String sFileName = fileName.replace(".sql", "");
+
+        try {
+            File target = new File("E:\\NHBANK_TARGET\\ID\\" + fileName.replace(".sql", "") + "Info_ID.java");
+            target.createNewFile();
+
+            FileOutputStream fileOutputStream = new FileOutputStream(target);
+            DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(fileOutputStream));
+            dataOutputStream.writeBytes("package nhbank.core.domain; \n");
+            dataOutputStream.writeBytes(" \n");
+            dataOutputStream.writeBytes("import lombok.Data; \n");
+            dataOutputStream.writeBytes("import java.io.Serializable; \n");
+            dataOutputStream.writeBytes("import java.math.BigDecimal; \n");
+            dataOutputStream.writeBytes("import java.util.Date; \n");
+            dataOutputStream.writeBytes(" \n");
+            dataOutputStream.writeBytes("@Data \n");
+            dataOutputStream.writeBytes("public class " + sFileName + "Info_ID implements Serializable { \n");
+            listFields.forEach((k, v) -> {
+                String type = v.substring(v.indexOf("|") + 1);
+                switch (type) {
+                    case Constant.TBL_VARCHAR:
+                        try {
+                            String key = convertCamelCase(k);
+                            dataOutputStream.writeBytes("private String " + key + "; \n");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    case Constant.TBL_NUMBER:
+                        try {
+                            String key = convertCamelCase(k);
+                            dataOutputStream.writeBytes("private BigDecimal " + key + "; \n");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    case Constant.TBL_DATE:
+                        try {
+                            String key = convertCamelCase(k);
+                            dataOutputStream.writeBytes("private Date " + key + "; \n");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            });
+            dataOutputStream.writeBytes("} \n");
+            dataOutputStream.close();
+
+        } catch (IOException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        }
+    }
+
+    public static void buildModel(String fileName, Map<String, String> listFields) {
         String sFileName = fileName.replace(".sql", "");
         try {
 
-            File target = new File("C:\\NHBANK_TARGET\\" + fileName.replace(".sql", "") + "_DTO.java");
+            File target = new File("E:\\NHBANK_TARGET\\" + fileName.replace(".sql", "") + "_DTO.java");
             target.createNewFile();
 
             FileOutputStream outputStream = new FileOutputStream(target);
@@ -126,35 +183,67 @@ public class GenerateUtils {
         }
     }
 
-    public static Map<Integer, String> convertFiletoObject(File file) {
-        Map<Integer, String> field = new HashMap<>();
+    public static Map<String, String> findPrimaryKeys(File file) {
+        Map<String, String> primaryKeysMap = new HashMap<>();
         try {
-            int i = 0;
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String currentLine = reader.readLine();
+            String[] primaryKeyArray = new String[]{};
+            while (currentLine != null) {
+                String primaryKey = "";
+                if (currentLine.contains("GRANT UPDATE")) {
+                    break;
+                }
+                if (currentLine.contains("ADD CONSTRAINT")) {
+                    primaryKey = currentLine.substring(currentLine.indexOf("(") + 1, currentLine.indexOf(")")).trim();
+                    primaryKeyArray = primaryKey.split(",");
+                }
+                currentLine = reader.readLine();
+
+            }
+            for (String s : primaryKeyArray) {
+                if (convertFileToObject(file).containsKey(s)) {
+                    primaryKeysMap.put(s, convertFileToObject(file).get(s));
+                }
+                System.out.println(primaryKeysMap.entrySet());
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return primaryKeysMap;
+    }
+
+    public static Map<String, String> convertFileToObject(File file) {
+        Map<String, String> field = new HashMap<>();
+        try {
+
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String currentLine = reader.readLine();
             while (currentLine != null) {
                 String key = "";
+                int i=0;
                 if (currentLine.contains("GRANT UPDATE")) {
                     break;
                 }
                 if (currentLine.contains(Constant.TBL_VARCHAR)) {
                     key = currentLine.substring(0, currentLine.indexOf(Constant.TBL_VARCHAR)).trim();
-                    field.put(i, key + "|" + Constant.TBL_VARCHAR);
+                    field.put(i+key, key + "|" + Constant.TBL_VARCHAR);
                 }
                 if (currentLine.contains(Constant.TBL_NUMBER)) {
                     key = currentLine.substring(0, currentLine.indexOf(Constant.TBL_NUMBER)).trim();
-                    field.put(i, key + "|" + Constant.TBL_NUMBER);
+                    field.put(i+key, key + "|" + Constant.TBL_NUMBER);
                 }
                 if (currentLine.contains(Constant.TBL_DATE)) {
                     key = currentLine.substring(0, currentLine.indexOf(Constant.TBL_DATE)).trim();
-                    field.put(i, key + "|" + Constant.TBL_DATE);
+                    field.put(i+key, key + "|" + Constant.TBL_DATE);
                 }
                 if (currentLine.contains(Constant.TBL_DATE_NOT_NULL)) {
                     key = currentLine.substring(0, currentLine.indexOf(Constant.TBL_DATE_NOT_NULL)).trim();
-                    field.put(i, key + "|" + Constant.TBL_DATE);
+                    field.put(i+key, key + "|" + Constant.TBL_DATE);
                 }
                 currentLine = reader.readLine();
-                i++;
+
             }
             reader.close();
 

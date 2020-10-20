@@ -9,8 +9,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "`ACOM_LMT_BASEHIS`")
-@IdClass(ACOM_LMT_BASEHIS_ID.class)
+@Table(name = "ACOM_LMT_BASEHIS")
+@IdClass(ACOM_LMT_BASEHISInfo_ID.class)
 @Data
 public class ACOM_LMT_BASEHISInfo implements Serializable {
     @Id

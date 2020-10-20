@@ -16,6 +16,7 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
 
     @Autowired
     ACOM_LMT_BASEHISInfoRepo acom_lmt_basehisInfoRepo;
+
     @Override
     public void saveAll(List<ACOM_LMT_BASEHISInfo> acom_lmt_basehisInfoList) {
         acom_lmt_basehisInfoRepo.saveAll(acom_lmt_basehisInfoList);
