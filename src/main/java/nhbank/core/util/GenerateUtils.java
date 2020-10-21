@@ -1,67 +1,73 @@
 package nhbank.core.util;
 
 import nhbank.core.constant.Constant;
+import nhbank.core.repositories.ACOM_LMT_BASEHISInfoRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
-
+@Component
 public class GenerateUtils {
 
-    public static void buildMapping(String fileName, Map<Integer, String> listFields) {
-        String sFileName = fileName.replace(".sql", "");
-
-    }
-
-    public static void buildDomain(String fileName, Map<Integer, String> listFields) {
+    @Autowired
+    public ACOM_LMT_BASEHISInfoRepo acom_lmt_basehisInfoRepo;
+    public static void buildDomain(String fileName, Map<Integer, String> listFields, File file) {
         String sFileName = fileName.replace(".sql", "");
         try {
 
-            File target = new File("C:\\NHBANK_TARGET\\INFO\\" + fileName.replace(".sql", "") + "Info.java");
+            File target = new File("E:\\NHBANK_TARGET\\INFO\\" + fileName.replace(".sql", "") + "Info.java");
             target.createNewFile();
 
             FileOutputStream outputStream = new FileOutputStream(target);
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
             outStream.writeBytes("package nhbank.core.domain; \n");
             outStream.writeBytes("import lombok.Data; \n");
-            outStream.writeBytes("import javax.persistence.Entity; \n");
-            outStream.writeBytes("import javax.persistence.GeneratedValue; \n");
-            outStream.writeBytes("import javax.persistence.Id; \n");
-            outStream.writeBytes("import javax.persistence.Table; \n");
+            outStream.writeBytes("import javax.persistence.*; \n");
             outStream.writeBytes("import java.io.Serializable; \n");
             outStream.writeBytes("import java.math.BigDecimal; \n");
             outStream.writeBytes("import java.util.Date; \n");
             outStream.writeBytes("@Entity \n");
-            outStream.writeBytes("@Table(name = \"" + convertCamelCase(sFileName) + "\") \n");
+            outStream.writeBytes("@IdClass(" + sFileName + "Info_ID.class" + ") \n");
+            outStream.writeBytes("@Table(name = \"" + sFileName + "\") \n");
             outStream.writeBytes("@Data \n");
             outStream.writeBytes("public class " + sFileName + "Info implements Serializable { \n");
-            outStream.writeBytes("@Id \n");
-            outStream.writeBytes("@GeneratedValue \n");
             listFields.forEach((k, v) -> {
-                System.out.println(k + "----" + v);
-                String val = v.substring(0, v.indexOf("|"));
-                String type = v.substring(v.indexOf("|") + 1);
-                switch (type) {
+                String propertyName = v.substring(0, v.indexOf("|"));
+                String dataType = v.substring(v.indexOf("|") + 1);
+                String nameCamel = convertCamelCase(propertyName);
+                if (findPrimaryKeys(file).containsKey(k)) {
+                    try {
+                        outStream.writeBytes("@Id \n");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                try {
+                    outStream.writeBytes("@Column(name = \"" + propertyName + "\") \n");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                switch (dataType) {
                     case Constant.TBL_VARCHAR:
                         try {
-                            String key = convertCamelCase(val);
-                            outStream.writeBytes("private String " + key + "; \n");
+                            outStream.writeBytes("private String " + nameCamel + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                         break;
                     case Constant.TBL_NUMBER:
                         try {
-                            String key = convertCamelCase(val);
-                            outStream.writeBytes("private BigDecimal " + key + "; \n");
+                            outStream.writeBytes("private BigDecimal " + nameCamel + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                         break;
                     case Constant.TBL_DATE:
                         try {
-                            String key = convertCamelCase(val);
-                            outStream.writeBytes("private Date " + key + "; \n");
+                            outStream.writeBytes("private Date " + nameCamel + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -77,11 +83,66 @@ public class GenerateUtils {
         }
     }
 
+    public static void buildDomainsID(String fileName, Map<Integer, String> listFields) throws IOException {
+        String sFileName = fileName.replace(".sql", "");
+
+        try {
+            File target = new File("E:\\NHBANK_TARGET\\ID\\" + fileName.replace(".sql", "") + "Info_ID.java");
+            target.createNewFile();
+
+            FileOutputStream fileOutputStream = new FileOutputStream(target);
+            DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(fileOutputStream));
+            dataOutputStream.writeBytes("package nhbank.core.domain; \n");
+            dataOutputStream.writeBytes(" \n");
+            dataOutputStream.writeBytes("import lombok.Data; \n");
+            dataOutputStream.writeBytes("import java.io.Serializable; \n");
+            dataOutputStream.writeBytes("import java.math.BigDecimal; \n");
+            dataOutputStream.writeBytes("import java.util.Date; \n");
+            dataOutputStream.writeBytes(" \n");
+            dataOutputStream.writeBytes("@Data \n");
+            dataOutputStream.writeBytes("public class " + sFileName + "Info_ID implements Serializable { \n");
+            listFields.forEach((k, v) -> {
+                String propertyName = v.substring(0, v.indexOf("|"));
+                String dataType = v.substring(v.indexOf("|") + 1);
+                String nameCamel = convertCamelCase(propertyName);
+                switch (dataType) {
+                    case Constant.TBL_VARCHAR:
+                        try {
+                            dataOutputStream.writeBytes("private String " + nameCamel + "; \n");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    case Constant.TBL_NUMBER:
+                        try {
+                            dataOutputStream.writeBytes("private BigDecimal " + nameCamel + "; \n");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    case Constant.TBL_DATE:
+                        try {
+                            dataOutputStream.writeBytes("private Date " + nameCamel + "; \n");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            });
+            dataOutputStream.writeBytes("} \n");
+            dataOutputStream.close();
+
+        } catch (IOException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        }
+    }
+
     public static void buildModel(String fileName, Map<Integer, String> listFields) {
         String sFileName = fileName.replace(".sql", "");
         try {
-
-            File target = new File("C:\\NHBANK_TARGET\\" + fileName.replace(".sql", "") + "_DTO.java");
+            File target = new File("E:\\NHBANK_TARGET\\" + fileName.replace(".sql", "") + "_DTO.java");
             target.createNewFile();
 
             FileOutputStream outputStream = new FileOutputStream(target);
@@ -93,27 +154,26 @@ public class GenerateUtils {
             outStream.writeBytes("@Data \n");
             outStream.writeBytes("public class " + sFileName + "_DTO { \n");
             listFields.forEach((k, v) -> {
-                System.out.println(k + "----" + v);
-                String val = v.substring(0, v.indexOf("|"));
-                String type = v.substring(v.indexOf("|") + 1);
-                switch (type) {
+                String propertyName = v.substring(0, v.indexOf("|"));
+                String dataType = v.substring(v.indexOf("|") + 1);
+                switch (dataType) {
                     case Constant.TBL_VARCHAR:
                         try {
-                            outStream.writeBytes("private String " + val + "; \n");
+                            outStream.writeBytes("private String " + propertyName + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                         break;
                     case Constant.TBL_NUMBER:
                         try {
-                            outStream.writeBytes("private BigDecimal " + val + "; \n");
+                            outStream.writeBytes("private BigDecimal " + propertyName + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                         break;
                     case Constant.TBL_DATE:
                         try {
-                            outStream.writeBytes("private Date " + val + "; \n");
+                            outStream.writeBytes("private Date " + propertyName + "; \n");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -131,7 +191,38 @@ public class GenerateUtils {
         }
     }
 
-    public static Map<Integer, String> convertFiletoObject(File file) {
+    public static Map<Integer, String> findPrimaryKeys(File file) {
+        Map<Integer, String> primaryKeysMap = new HashMap<>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String currentLine = reader.readLine();
+            String[] primaryKeyArray = new String[]{};
+            while (currentLine != null) {
+                String primaryKey = "";
+                if (currentLine.contains("GRANT UPDATE")) {
+                    break;
+                }
+                if (currentLine.contains("ADD CONSTRAINT")) {
+                    primaryKey = currentLine.substring(currentLine.indexOf("(") + 1, currentLine.indexOf(")")).trim();
+                    primaryKeyArray = primaryKey.split(",");
+                }
+                currentLine = reader.readLine();
+
+            }
+            for (int i = 0; i < primaryKeyArray.length; i++) {
+                if (convertFileToObject(file).containsKey(i)) {
+                    primaryKeysMap.put(i, convertFileToObject(file).get(i));
+                }
+            }
+            reader.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return primaryKeysMap;
+    }
+
+    public static Map<Integer, String> convertFileToObject(File file) {
         Map<Integer, String> field = new HashMap<>();
         try {
             int i = 0;
@@ -145,21 +236,24 @@ public class GenerateUtils {
                 if (currentLine.contains(Constant.TBL_VARCHAR)) {
                     key = currentLine.substring(0, currentLine.indexOf(Constant.TBL_VARCHAR)).trim();
                     field.put(i, key + "|" + Constant.TBL_VARCHAR);
+                    i++;
                 }
                 if (currentLine.contains(Constant.TBL_NUMBER)) {
                     key = currentLine.substring(0, currentLine.indexOf(Constant.TBL_NUMBER)).trim();
                     field.put(i, key + "|" + Constant.TBL_NUMBER);
+                    i++;
                 }
                 if (currentLine.contains(Constant.TBL_DATE)) {
                     key = currentLine.substring(0, currentLine.indexOf(Constant.TBL_DATE)).trim();
                     field.put(i, key + "|" + Constant.TBL_DATE);
+                    i++;
                 }
                 if (currentLine.contains(Constant.TBL_DATE_NOT_NULL)) {
                     key = currentLine.substring(0, currentLine.indexOf(Constant.TBL_DATE_NOT_NULL)).trim();
                     field.put(i, key + "|" + Constant.TBL_DATE);
+                    i++;
                 }
                 currentLine = reader.readLine();
-                i++;
             }
             reader.close();
 
@@ -168,6 +262,29 @@ public class GenerateUtils {
         }
         return field;
     }
+
+    public static void buildRepository(String fileName){
+        String sFileName = fileName.replace(".sql", "");
+        try {
+            File target = new File("E:\\NHBANK_TARGET\\Repo\\" + fileName.replace(".sql", "") + "InfoRepository.java");
+            target.createNewFile();
+
+            FileOutputStream outputStream = new FileOutputStream(target);
+            DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
+            outStream.writeBytes("package nhbank.core.repositories; \n");
+            outStream.writeBytes("import nhbank.core.domain." + sFileName +"Info; \n");
+            outStream.writeBytes("import nhbank.core.domain." + sFileName +"Info_ID; \n");
+            outStream.writeBytes("import org.springframework.data.jpa.repository.JpaRepository; \n");
+            outStream.writeBytes("import org.springframework.stereotype.Repository; \n");
+            outStream.writeBytes("@Repository\n");
+            outStream.writeBytes("public interface "+sFileName+"InfoRepository extends JpaRepository<" +sFileName+"Info, "+sFileName+"Info_ID> { \n");
+            outStream.writeBytes("}");
+            outStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     static String convertCamelCase(String s) {
         return toCamelCase(s).substring(0, 1).toLowerCase() +
