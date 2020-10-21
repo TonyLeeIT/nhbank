@@ -1,10 +1,11 @@
 package nhbank.core.services.impl;
 
 import nhbank.core.domain.ACOM_LMT_BASEHISInfo;
-import nhbank.core.repositories.ACOM_LMT_BASEHISInfoRepo;
+import nhbank.core.repositories.ACOM_LMT_BASEHISInfoRepository;
 import nhbank.core.services.ACOM_LMT_BASEHISInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.math.BigDecimal;
@@ -16,7 +17,7 @@ import java.util.List;
 public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoService {
 
     @Autowired
-    ACOM_LMT_BASEHISInfoRepo acom_lmt_basehisInfoRepo;
+    ACOM_LMT_BASEHISInfoRepository acom_lmt_basehisInfoRepository;
 
     @Override
     public void updateAll() {
@@ -121,7 +122,7 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
                 obj.setUpdTm(lineArray[83]);
 
                 if(isExist(obj.getSngNo(), obj.getActCd(), obj.getHisNo(), obj.getHisGb())){
-                    acom_lmt_basehisInfoRepo.save(obj);
+                    acom_lmt_basehisInfoRepository.save(obj);
                 } else {
                     objList.add(obj);
                 }
@@ -137,11 +138,11 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
 
     @Override
     public void insertAll(List<ACOM_LMT_BASEHISInfo> acom_lmt_basehisInfos) {
-        acom_lmt_basehisInfoRepo.saveAll(acom_lmt_basehisInfos);
+        acom_lmt_basehisInfoRepository.saveAll(acom_lmt_basehisInfos);
     }
 
     @Override
     public boolean isExist(String sngNo, String actCd, BigDecimal hisNo, String hisGb) {
-        return acom_lmt_basehisInfoRepo.existsBySngNoAndActCdAndHisNoAndHisGb(sngNo, actCd, hisNo, hisGb);
+        return acom_lmt_basehisInfoRepository.existsBySngNoAndActCdAndHisNoAndHisGb(sngNo, actCd, hisNo, hisGb);
     }
 }

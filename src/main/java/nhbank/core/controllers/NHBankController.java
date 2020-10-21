@@ -45,6 +45,7 @@ public class NHBankController {
         File directoryPath = new File("E:/NHBANK_TARGET/NH_BANK/");
         //List of all files and directories
         File[] filesList = directoryPath.listFiles();
+        System.out.println(filesList.length);
         for (File file : filesList) {
             if (!file.getName().endsWith(".sql")) {
                 continue;
@@ -65,6 +66,7 @@ public class NHBankController {
         File directoryPath = new File("E:\\NHBANK_TARGET\\NH_BANK");
         //List of all files and directories
         File[] filesList = directoryPath.listFiles();
+        System.out.println("List of files and directories in the specified directory:");
         for (File file : filesList) {
             if (!file.getName().endsWith(".sql")) {
                 continue;
@@ -75,6 +77,8 @@ public class NHBankController {
             Map<Integer, String> listFields = GenerateUtils.convertFileToObject(file);
             GenerateUtils.buildModel(file.getName(), listFields);
 //            GenerateUtils.buildDomain(file.getName(), listFields);
+            GenerateUtils.buildRepository(file);
+            GenerateUtils.buildServices(file);
         }
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
