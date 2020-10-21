@@ -3,7 +3,6 @@ package nhbank.core.controllers;
 import lombok.extern.log4j.Log4j;
 import nhbank.core.config.Config;
 import nhbank.core.services.ACOM_LMT_BASEHISInfoService;
-
 import nhbank.core.util.GenerateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.io.*;
 import java.util.List;
 import java.util.Map;
@@ -27,14 +25,17 @@ public class NHBankController {
     @Autowired
     private Config config;
 
-
     @Autowired
     private ACOM_LMT_BASEHISInfoService acom_lmt_basehisInfoService;
 
-    @Autowired
-
     @GetMapping(value = "/test")
     public ResponseEntity<?> testAPI() {
+        File directoryPath = new File("C:\\Users\\admin\\Desktop\\1.INFO_PLUS\\2.DOCUMENT\\SQL");
+        //List of all files and directories
+        File[] filesList = directoryPath.listFiles();
+        for(File file : filesList) {
+            GenerateUtils.buildRepository(file);
+        }
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
 
@@ -63,7 +64,7 @@ public class NHBankController {
     public ResponseEntity<?> parsingFile() {
         List<String> sqlFiles = config.getSql();
         //Creating a File object for directory
-        File directoryPath = new File("E:\\NHBANK_TARGET\\NH_BANK");
+        File directoryPath = new File("C:\\Users\\admin\\Desktop\\1.INFO_PLUS\\2.DOCUMENT\\SQL");
         //List of all files and directories
         File[] filesList = directoryPath.listFiles();
         System.out.println("List of files and directories in the specified directory:");
@@ -76,9 +77,11 @@ public class NHBankController {
             }
             System.out.println("File name: " + file.getName());
             System.out.println("File path: " + file.getAbsolutePath());
-            Map<Integer, String> listFields = GenerateUtils.convertFileToObject(file);
-            GenerateUtils.buildModel(file.getName(), listFields);
+//            Map<Integer, String> listFields = GenerateUtils.convertFileToObject(file);
+//            GenerateUtils.buildModel(file.getName(), listFields);
 //            GenerateUtils.buildDomain(file.getName(), listFields);
+            GenerateUtils.buildRepository(file);
+            GenerateUtils.buildServices(file);
         }
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
@@ -88,12 +91,5 @@ public class NHBankController {
         acom_lmt_basehisInfoService.updateAll();
         return new ResponseEntity<>("Update Successfully!", HttpStatus.OK);
     }
-
-//    @PostMapping("/save")
-//    private void saveObjectList() {
-//        List<ACOM_LMT_BASEHISInfo> objectList = readObjectFromTxt().getBody();
-//        acom_lmt_basehisInfoService.saveAll(objectList);
-//    }
-
 
 }

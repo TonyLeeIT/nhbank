@@ -1,22 +1,16 @@
 package nhbank.core.util;
 
 import nhbank.core.constant.Constant;
-import nhbank.core.repositories.ACOM_LMT_BASEHISInfoRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
-@Component
+
 public class GenerateUtils {
 
-    @Autowired
-    public ACOM_LMT_BASEHISInfoRepo acom_lmt_basehisInfoRepo;
     public static void buildDomain(String fileName, Map<Integer, String> listFields, File file) {
         String sFileName = fileName.replace(".sql", "");
         try {
-
             File target = new File("E:\\NHBANK_TARGET\\INFO\\" + fileName.replace(".sql", "") + "Info.java");
             target.createNewFile();
 
@@ -191,6 +185,114 @@ public class GenerateUtils {
         }
     }
 
+    public static void buildRepository(File file){
+        String fileName = file.getName();
+        String sFileName = fileName.replace(".sql", "");
+        Map<Integer, String> mapOfPK = findPrimaryKeys(file);
+        try {
+            File target = new File("D:\\NHBANK_TARGET\\Repo\\" + fileName.replace(".sql", "") + "InfoRepository.java");
+            target.createNewFile();
+            FileOutputStream outputStream = new FileOutputStream(target);
+            DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
+            outStream.writeBytes("package nhbank.core.repositories; \n");
+            outStream.writeBytes("import nhbank.core.domain." + sFileName +"Info; \n");
+            outStream.writeBytes("import nhbank.core.domain." + sFileName +"Info_ID; \n");
+            outStream.writeBytes("import org.springframework.data.jpa.repository.JpaRepository; \n");
+            outStream.writeBytes("import org.springframework.stereotype.Repository; \n");
+            outStream.writeBytes("import java.math.BigDecimal; \n");
+            outStream.writeBytes("import java.util.Date; \n");
+            outStream.writeBytes("import java.util.List;\n");
+            outStream.writeBytes("@Repository\n");
+            outStream.writeBytes("public interface "+sFileName+"InfoRepository extends JpaRepository<" +sFileName+"Info, "+sFileName+"Info_ID> { \n");
+
+            final String[] stmt = {"\tboolean existsBy"};
+            mapOfPK.forEach((k, v) -> {
+                String camelCase;
+                String pkName = v.substring(0, v.indexOf("|"));
+                if((mapOfPK.values().toArray()[mapOfPK.size() - 1]).toString().contains(pkName)) {
+                    camelCase = toCamelCase(pkName) + "(";
+                } else {
+                    camelCase = toCamelCase(pkName) + "And";
+                }
+                stmt[0] += camelCase;
+            });
+            outStream.writeBytes(stmt[0]);
+
+            final String[] stmt1 = {""};
+            mapOfPK.forEach((k, v) ->{
+                String pkName;
+                String pkType;
+                pkName = v.substring(0, v.indexOf("|"));
+                pkType = v.substring(v.indexOf("|") + 1);
+                if(pkType.toUpperCase().equals(Constant.TBL_VARCHAR)) {
+                    pkType = "String";
+                } else if (pkType.toUpperCase().equals(Constant.TBL_NUMBER)){
+                    pkType = "BigDecimal";
+                } else if(pkType.toUpperCase().equals(Constant.TBL_DATE) || pkType.toUpperCase().equals(Constant.TBL_DATE_NOT_NULL)) {
+                    pkType = "Date";
+                }
+                if((mapOfPK.values().toArray()[mapOfPK.size() - 1]).toString().contains(pkName)) {
+                    pkName = convertCamelCase(pkName);
+                    stmt1[0] += pkType + " " + pkName + ");";
+                } else {
+                    pkName = convertCamelCase(pkName);
+                    stmt1[0] += pkType + " " + pkName + ", ";
+                }
+            });
+            outStream.writeBytes(stmt1[0]);
+            outStream.writeBytes("\n}");
+            outStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void buildServices(File file) {
+        String fileName = file.getName();
+        String sFileName = fileName.replace(".sql", "");
+        Map<Integer, String> mapOfPK = findPrimaryKeys(file);
+        try {
+            File target = new File("D:\\NHBANK_TARGET\\Services\\" + fileName.replace(".sql", "") + "InfoService.java");
+            target.createNewFile();
+            FileOutputStream outputStream = new FileOutputStream(target);
+            DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
+            outStream.writeBytes("package nhbank.core.services;\n");
+            outStream.writeBytes("import nhbank.core.domain." + sFileName +"Info; \n");
+            outStream.writeBytes("import java.math.BigDecimal; \n");
+            outStream.writeBytes("import java.util.Date; \n");
+            outStream.writeBytes("import java.util.List;\n");
+            outStream.writeBytes("public interface " + sFileName + "InfoService {\n");
+            outStream.writeBytes("\tvoid updateAll();\n");
+            outStream.writeBytes("\tvoid insertAll(List<" + sFileName + "Info> " + sFileName.toUpperCase() + "Infos);\n");
+            final String[] stmt = {"\tboolean isExist("};
+            mapOfPK.forEach((k, v) ->{
+                String pkName;
+                String pkType;
+                pkName = v.substring(0, v.indexOf("|"));
+                pkType = v.substring(v.indexOf("|") + 1);
+                if(pkType.toUpperCase().equals(Constant.TBL_VARCHAR)) {
+                    pkType = "String";
+                } else if (pkType.toUpperCase().equals(Constant.TBL_NUMBER)){
+                    pkType = "BigDecimal";
+                } else if(pkType.toUpperCase().equals(Constant.TBL_DATE) || pkType.toUpperCase().equals(Constant.TBL_DATE_NOT_NULL)) {
+                    pkType = "Date";
+                }
+                if((mapOfPK.values().toArray()[mapOfPK.size() - 1]).toString().contains(pkName)) {
+                    pkName = convertCamelCase(pkName);
+                    stmt[0] += pkType + " " + pkName + ");";
+                } else {
+                    pkName = convertCamelCase(pkName);
+                    stmt[0] += pkType + " " + pkName + ", ";
+                }
+            });
+            outStream.writeBytes(stmt[0]);
+            outStream.writeBytes("\n}");
+            outStream.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     public static Map<Integer, String> findPrimaryKeys(File file) {
         Map<Integer, String> primaryKeysMap = new HashMap<>();
         try {
@@ -207,7 +309,6 @@ public class GenerateUtils {
                     primaryKeyArray = primaryKey.split(",");
                 }
                 currentLine = reader.readLine();
-
             }
             for (int i = 0; i < primaryKeyArray.length; i++) {
                 if (convertFileToObject(file).containsKey(i)) {
@@ -262,29 +363,6 @@ public class GenerateUtils {
         }
         return field;
     }
-
-    public static void buildRepository(String fileName){
-        String sFileName = fileName.replace(".sql", "");
-        try {
-            File target = new File("E:\\NHBANK_TARGET\\Repo\\" + fileName.replace(".sql", "") + "InfoRepository.java");
-            target.createNewFile();
-
-            FileOutputStream outputStream = new FileOutputStream(target);
-            DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
-            outStream.writeBytes("package nhbank.core.repositories; \n");
-            outStream.writeBytes("import nhbank.core.domain." + sFileName +"Info; \n");
-            outStream.writeBytes("import nhbank.core.domain." + sFileName +"Info_ID; \n");
-            outStream.writeBytes("import org.springframework.data.jpa.repository.JpaRepository; \n");
-            outStream.writeBytes("import org.springframework.stereotype.Repository; \n");
-            outStream.writeBytes("@Repository\n");
-            outStream.writeBytes("public interface "+sFileName+"InfoRepository extends JpaRepository<" +sFileName+"Info, "+sFileName+"Info_ID> { \n");
-            outStream.writeBytes("}");
-            outStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     static String convertCamelCase(String s) {
         return toCamelCase(s).substring(0, 1).toLowerCase() +
