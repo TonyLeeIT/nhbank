@@ -1,8 +1,7 @@
 package nhbank.core.util;
 
 import nhbank.core.constant.Constant;
-import nhbank.core.repositories.ACOM_LMT_BASEHISInfoRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -13,8 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Component
 public class GenerateUtils {
 
-    @Autowired
-    public ACOM_LMT_BASEHISInfoRepo acom_lmt_basehisInfoRepo;
+
     public static void buildDomain(String fileName, Map<Integer, String> listFields, File file) {
         String sFileName = fileName.replace(".sql", "");
         try {
@@ -196,9 +194,9 @@ public class GenerateUtils {
     public static void buildRepository(File file){
         String fileName = file.getName();
         String sFileName = fileName.replace(".sql", "");
-        Map<Integer, String> mapOfPK = findPrimaryKeys(file);
+        Map<Integer, String> primaryKeyMap = findPrimaryKeys(file);
         try {
-            File target = new File("D:\\NHBANK_TARGET\\Repo\\" + fileName.replace(".sql", "") + "InfoRepository.java");
+            File target = new File("E:\\NHBANK_TARGET\\Repo\\" + fileName.replace(".sql", "") + "InfoRepository.java");
             target.createNewFile();
             FileOutputStream outputStream = new FileOutputStream(target);
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
@@ -213,41 +211,49 @@ public class GenerateUtils {
             outStream.writeBytes("@Repository\n");
             outStream.writeBytes("public interface "+sFileName+"InfoRepository extends JpaRepository<" +sFileName+"Info, "+sFileName+"Info_ID> { \n");
 
-            final String[] stmt = {"\tboolean existsBy"};
-            mapOfPK.forEach((k, v) -> {
-                String camelCase;
-                String pkName = v.substring(0, v.indexOf("|"));
-                if((mapOfPK.values().toArray()[mapOfPK.size() - 1]).toString().contains(pkName)) {
-                    camelCase = toCamelCase(pkName) + "(";
-                } else {
-                    camelCase = toCamelCase(pkName) + "And";
-                }
-                stmt[0] += camelCase;
-            });
-            outStream.writeBytes(stmt[0]);
-
-            final String[] stmt1 = {""};
-            mapOfPK.forEach((k, v) ->{
-                String pkName;
-                String pkType;
-                pkName = v.substring(0, v.indexOf("|"));
-                pkType = v.substring(v.indexOf("|") + 1);
-                if(pkType.toUpperCase().equals(Constant.TBL_VARCHAR)) {
-                    pkType = "String";
-                } else if (pkType.toUpperCase().equals(Constant.TBL_NUMBER)){
-                    pkType = "BigDecimal";
-                } else if(pkType.toUpperCase().equals(Constant.TBL_DATE) || pkType.toUpperCase().equals(Constant.TBL_DATE_NOT_NULL)) {
-                    pkType = "Date";
-                }
-                if((mapOfPK.values().toArray()[mapOfPK.size() - 1]).toString().contains(pkName)) {
-                    pkName = convertCamelCase(pkName);
-                    stmt1[0] += pkType + " " + pkName + ");";
-                } else {
-                    pkName = convertCamelCase(pkName);
-                    stmt1[0] += pkType + " " + pkName + ", ";
+            outStream.writeBytes("boolean existsBy");
+            primaryKeyMap.forEach((k,v) ->{
+                String propertyName = v.substring(0, v.indexOf("|"));
+                String setter = convertGetterSetter(propertyName);
+                try {
+                    outStream.writeBytes(setter);
+                    if ((k < primaryKeyMap.size()-1)) {
+                        outStream.writeBytes("And");
+                    } else {
+                        outStream.writeBytes("");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             });
-            outStream.writeBytes(stmt1[0]);
+            primaryKeyMap.forEach((k,v) ->{
+                String propertyName = v.substring(0, v.indexOf("|"));
+                String camelName = convertCamelCase(propertyName);
+                String dataType = v.substring(v.indexOf("|") + 1);
+                try {
+                    switch (dataType){
+                        case Constant.TBL_VARCHAR :
+                            outStream.writeBytes("String "+camelName);
+                            break;
+                        case Constant.TBL_NUMBER :
+                            outStream.writeBytes("BigDecimal " + camelName);
+                            break;
+                        case Constant.TBL_DATE:
+                            outStream.writeBytes("Date " + camelName);
+                            break;
+                        default:
+                            break;
+                    }
+                    if ((k < primaryKeyMap.size()-1)) {
+                        outStream.writeBytes(", ");
+                    } else {
+                        outStream.writeBytes("");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            outStream.writeBytes(") \n");
             outStream.writeBytes("\n}");
             outStream.close();
         } catch (IOException e) {
@@ -258,9 +264,9 @@ public class GenerateUtils {
     public static void buildServices(File file) {
         String fileName = file.getName();
         String sFileName = fileName.replace(".sql", "");
-        Map<Integer, String> mapOfPK = findPrimaryKeys(file);
+        Map<Integer, String> primaryKeyMap = findPrimaryKeys(file);
         try {
-            File target = new File("D:\\NHBANK_TARGET\\Services\\" + fileName.replace(".sql", "") + "InfoService.java");
+            File target = new File("E:\\NHBANK_TARGET\\Service\\" + fileName.replace(".sql", "") + "InfoService.java");
             target.createNewFile();
             FileOutputStream outputStream = new FileOutputStream(target);
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
@@ -271,29 +277,37 @@ public class GenerateUtils {
             outStream.writeBytes("import java.util.List;\n");
             outStream.writeBytes("public interface " + sFileName + "InfoService {\n");
             outStream.writeBytes("\tvoid updateAll();\n");
-            outStream.writeBytes("\tvoid insertAll(List<" + sFileName + "Info> " + sFileName.toUpperCase() + "Infos);\n");
-            final String[] stmt = {"\tboolean isExist("};
-            mapOfPK.forEach((k, v) ->{
-                String pkName;
-                String pkType;
-                pkName = v.substring(0, v.indexOf("|"));
-                pkType = v.substring(v.indexOf("|") + 1);
-                if(pkType.toUpperCase().equals(Constant.TBL_VARCHAR)) {
-                    pkType = "String";
-                } else if (pkType.toUpperCase().equals(Constant.TBL_NUMBER)){
-                    pkType = "BigDecimal";
-                } else if(pkType.toUpperCase().equals(Constant.TBL_DATE) || pkType.toUpperCase().equals(Constant.TBL_DATE_NOT_NULL)) {
-                    pkType = "Date";
-                }
-                if((mapOfPK.values().toArray()[mapOfPK.size() - 1]).toString().contains(pkName)) {
-                    pkName = convertCamelCase(pkName);
-                    stmt[0] += pkType + " " + pkName + ");";
-                } else {
-                    pkName = convertCamelCase(pkName);
-                    stmt[0] += pkType + " " + pkName + ", ";
+            outStream.writeBytes("\tvoid insertAll(List<" + sFileName + "Info> objList);\n");
+
+            outStream.writeBytes(" boolean isExist( ");
+            primaryKeyMap.forEach((k,v) ->{
+                String propertyName = v.substring(0, v.indexOf("|"));
+                String camelName = convertCamelCase(propertyName);
+                String dataType = v.substring(v.indexOf("|") + 1);
+                try {
+                    switch (dataType){
+                        case Constant.TBL_VARCHAR :
+                            outStream.writeBytes("String "+camelName);
+                            break;
+                        case Constant.TBL_NUMBER :
+                            outStream.writeBytes("BigDecimal " + camelName);
+                            break;
+                        case Constant.TBL_DATE:
+                            outStream.writeBytes("Date " + camelName);
+                            break;
+                        default:
+                            break;
+                    }
+                    if ((k < primaryKeyMap.size()-1)) {
+                        outStream.writeBytes(", ");
+                    } else {
+                        outStream.writeBytes("");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             });
-            outStream.writeBytes(stmt[0]);
+            outStream.writeBytes(") \n");
             outStream.writeBytes("\n}");
             outStream.close();
         } catch (IOException ex) {
@@ -375,14 +389,14 @@ public class GenerateUtils {
     public static void buildDataMapping(String fileName, Map<Integer, String> listFields, Map<Integer, String> primaryKeyMap) {
         String sFileName = fileName.replace(".sql", "");
         try {
-            File target = new File("E:\\NHBANK_TARGET\\Service\\" + fileName.replace(".sql", "") + "InfoServiceImpl.java");
+            File target = new File("E:\\NHBANK_TARGET\\ServiceImpl\\" + fileName.replace(".sql", "") + "InfoServiceImpl.java");
             target.createNewFile();
 
             FileOutputStream fileOutputStream = new FileOutputStream(target);
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fileOutputStream));
             outStream.writeBytes("package nhbank.core.services.impl; \n");
             outStream.writeBytes("import nhbank.core.domain." + sFileName +"Info; \n");
-            outStream.writeBytes("import nhbank.core.repositories." + sFileName + "InfoRepo;\n");
+            outStream.writeBytes("import nhbank.core.repositories." + sFileName + "InfoRepository;\n");
             outStream.writeBytes("import nhbank.core.repositories." + sFileName + "InfoService;\n");
             outStream.writeBytes("import org.springframework.beans.factory.annotation.Autowired;\n");
             outStream.writeBytes("import org.springframework.stereotype.Service;\n");
@@ -393,7 +407,7 @@ public class GenerateUtils {
             outStream.writeBytes("@Service \n");
             outStream.writeBytes("public class " + sFileName +"InfoServiceImpl implements "+sFileName +"Service { \n");
             outStream.writeBytes("@Autowired \n");
-            outStream.writeBytes(sFileName+"InfoRepo " + sFileName.toLowerCase() + "InfoRepo; \n");
+            outStream.writeBytes(sFileName+"InfoRepository " + sFileName.toLowerCase() + "InfoRepository; \n");
             outStream.writeBytes("@Override \n");
             outStream.writeBytes("public void updateAll() { \n");
             outStream.writeBytes(" try { \n");
@@ -454,7 +468,7 @@ public class GenerateUtils {
                 }
             });
             outStream.writeBytes(")) { \n");
-            outStream.writeBytes(sFileName.toLowerCase()+ "InfoRepo.save(obj); \n");
+            outStream.writeBytes(sFileName.toLowerCase()+ "InfoRepository.save(obj); \n");
             outStream.writeBytes("} else {\n");
             outStream.writeBytes("objList.add(obj);\n");
             outStream.writeBytes("}\n");
@@ -467,7 +481,7 @@ public class GenerateUtils {
             outStream.writeBytes("}\n");
             outStream.writeBytes("@Override\n");
             outStream.writeBytes("public void insertAll(List<"+ sFileName+"Info> objList) {\n");
-            outStream.writeBytes(sFileName+"InfoRepo.saveAll(objList);\n");
+            outStream.writeBytes(sFileName+"InfoRepository.saveAll(objList);\n");
             outStream.writeBytes("}\n");
             outStream.writeBytes("@Override\n");
             outStream.writeBytes(" public boolean isExist( ");
@@ -499,7 +513,7 @@ public class GenerateUtils {
                 }
             });
             outStream.writeBytes(") \n");
-            outStream.writeBytes(" return "+ sFileName.toLowerCase() +"InfoRepo.existsBy");
+            outStream.writeBytes(" return "+ sFileName.toLowerCase() +"InfoRepository.existsBy");
             primaryKeyMap.forEach((k,v) ->{
                 String propertyName = v.substring(0, v.indexOf("|"));
                 String setter = convertGetterSetter(propertyName);
