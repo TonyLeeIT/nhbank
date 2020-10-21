@@ -1,53 +1,86 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
-
-@Entity
-@Table(name = "afexRchRecon")
-@Data
-public class AFEX_RCH_RECONInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private String cd;
-    private String ccy;
-    private String saGb;
-    private Date trIl;
-    private BigDecimal trSeq;
-    private Date reconIl;
-    private BigDecimal reconSeq;
-    private String reconGb;
-    private Date valIl;
-    private String ourRef;
-    private String drcrGb;
-    private BigDecimal drcrAmt;
-    private String theirRef;
-    private String upmuCd;
-    private String inidCd;
-    private BigDecimal origAmt;
-    private BigDecimal bunhalSeq;
-    private Date ibIl;
-    private String ibTime;
-    private String operId;
-    private String cancelYn;
-    private String origRef;
-    private String confirmYn;
-    private String nrefCnt;
-    private String amendCnt;
-    private String docId;
-    private String otherRef;
-    private BigDecimal refHisNo;
-    private String regEmpNo;
-    private Date regDt;
-    private String regTm;
-    private String updEmpNo;
-    private Date updDt;
-    private String updTm;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.*; 
+import java.io.Serializable; 
+import java.math.BigDecimal; 
+import java.util.Date; 
+@Entity 
+@IdClass(AFEX_RCH_RECONInfo_ID.class) 
+@Table(name = "AFEX_RCH_RECON") 
+@Data 
+public class AFEX_RCH_RECONInfo implements Serializable { 
+@Id 
+@Column(name = "CD") 
+private String cd; 
+@Id 
+@Column(name = "CCY") 
+private String ccy; 
+@Id 
+@Column(name = "SA_GB") 
+private String saGb; 
+@Id 
+@Column(name = "TR_IL") 
+private Date trIl; 
+@Id 
+@Column(name = "TR_SEQ") 
+private BigDecimal trSeq; 
+@Id 
+@Column(name = "RECON_IL") 
+private Date reconIl; 
+@Column(name = "RECON_SEQ") 
+private BigDecimal reconSeq; 
+@Column(name = "RECON_GB") 
+private String reconGb; 
+@Column(name = "VAL_IL") 
+private Date valIl; 
+@Column(name = "OUR_REF") 
+private String ourRef; 
+@Column(name = "DRCR_GB") 
+private String drcrGb; 
+@Column(name = "DRCR_AMT") 
+private BigDecimal drcrAmt; 
+@Column(name = "THEIR_REF") 
+private String theirRef; 
+@Column(name = "UPMU_CD") 
+private String upmuCd; 
+@Column(name = "INID_CD") 
+private String inidCd; 
+@Column(name = "ORIG_AMT") 
+private BigDecimal origAmt; 
+@Column(name = "BUNHAL_SEQ") 
+private BigDecimal bunhalSeq; 
+@Column(name = "IB_IL") 
+private Date ibIl; 
+@Column(name = "IB_TIME") 
+private String ibTime; 
+@Column(name = "OPER_ID") 
+private String operId; 
+@Column(name = "CANCEL_YN") 
+private String cancelYn; 
+@Column(name = "ORIG_REF") 
+private String origRef; 
+@Column(name = "CONFIRM_YN") 
+private String confirmYn; 
+@Column(name = "NREF_CNT") 
+private String nrefCnt; 
+@Column(name = "AMEND_CNT") 
+private String amendCnt; 
+@Column(name = "DOC_ID") 
+private String docId; 
+@Column(name = "OTHER_REF") 
+private String otherRef; 
+@Column(name = "REF_HIS_NO") 
+private BigDecimal refHisNo; 
+@Column(name = "REG_EMP_NO") 
+private String regEmpNo; 
+@Column(name = "REG_DT") 
+private Date regDt; 
+@Column(name = "REG_TM") 
+private String regTm; 
+@Column(name = "UPD_EMP_NO") 
+private String updEmpNo; 
+@Column(name = "UPD_DT") 
+private Date updDt; 
+@Column(name = "UPD_TM") 
+private String updTm; 
 } 

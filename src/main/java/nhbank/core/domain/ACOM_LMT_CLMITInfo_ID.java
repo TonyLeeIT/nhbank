@@ -1,13 +1,12 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
-
-@Data
-public class ACOM_LMT_CLMITInfo_ID implements Serializable {
-    private BigDecimal chgSqno;
-    private String laInspRcno;
+package nhbank.core.domain; 
+ 
+import lombok.Data; 
+import java.io.Serializable; 
+import java.math.BigDecimal; 
+import java.util.Date; 
+ 
+@Data 
+public class ACOM_LMT_CLMITInfo_ID implements Serializable { 
+private String laInspRcno; 
+private BigDecimal chgSqno; 
 } 

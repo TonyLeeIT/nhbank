@@ -1,114 +1,204 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
-
-@Entity
-@Table(name = "afexIphAmd")
-@Data
-public class AFEX_IPH_AMDInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private String refNo;
-    private String amdSeq;
-    private String amdNo;
-    private Date tranIl;
-    private Date amdIl;
-    private String sts;
-    private String advBic;
-    private String advNm;
-    private Date openIl;
-    private String theirRef;
-    private String beneNm;
-    private String beneAddr1;
-    private String beneAddr2;
-    private String beneAddr3;
-    private String befoCcy;
-    private BigDecimal befoAmt;
-    private BigDecimal incAmt;
-    private BigDecimal decAmt;
-    private String amdCcy;
-    private BigDecimal amdAmt;
-    private Date expIl;
-    private Date shipIl;
-    private String reimBic;
-    private String reimNm;
-    private String chargeGb;
-    private String partShip;
-    private String tranShip;
-    private String raGb;
-    private String orgnNm1;
-    private String orgnNm2;
-    private String priceNm;
-    private String fromPort;
-    private String toPort;
-    private String amtMore;
-    private String amtLess;
-    private String operNo;
-    private String mt707Nm;
-    private String mt747Nm;
-    private String applCd;
-    private String ediGb;
-    private String ediCust;
-    private String ediSend;
-    private Date ediSndIl;
-    private String ediJumNo;
-    private BigDecimal ediSeqNo;
-    private String ediSfnm;
-    private String ediRcv;
-    private Date ediRcvIl;
-    private String ediRfnm;
-    private String thrNm;
-    private String sendJumgb;
-    private String bankGb;
-    private String ncuBefoCcy;
-    private BigDecimal ncuBefoAmt;
-    private BigDecimal ncuIncAmt;
-    private BigDecimal ncuDecAmt;
-    private String ncuAmdCcy;
-    private BigDecimal ncuAmdAmt;
-    private BigDecimal hisNo;
-    private String cbsGb;
-    private String mngInfo;
-    private String presPrd;
-    private String loadPort;
-    private String discPort;
-    private String regEmpNo;
-    private Date regDt;
-    private String regTm;
-    private String updEmpNo;
-    private Date updDt;
-    private String updTm;
-    private String applNm;
-    private String applAddr1;
-    private String applAddr2;
-    private String applAddr3;
-    private String purposeCd;
-    private String cancelCd;
-    private String transGb;
-    private String applRule;
-    private String applRule2;
-    private String negoGb;
-    private String usanTerm;
-    private String termGb;
-    private String termType;
-    private String draftRate;
-    private String draweeBic;
-    private String draweeNm;
-    private String cnfmBic;
-    private String cnfmNm;
-    private String thrNm2;
-    private String thrNm3;
-    private String thrNm4;
-    private String negoBic;
-    private String ttreimGb;
-    private String cnfmGb;
-    private String thrBic;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.*; 
+import java.io.Serializable; 
+import java.math.BigDecimal; 
+import java.util.Date; 
+@Entity 
+@IdClass(AFEX_IPH_AMDInfo_ID.class) 
+@Table(name = "AFEX_IPH_AMD") 
+@Data 
+public class AFEX_IPH_AMDInfo implements Serializable { 
+@Id 
+@Column(name = "REF_NO") 
+private String refNo; 
+@Id 
+@Column(name = "AMD_SEQ") 
+private String amdSeq; 
+@Column(name = "AMD_NO") 
+private String amdNo; 
+@Column(name = "TRAN_IL") 
+private Date tranIl; 
+@Column(name = "AMD_IL") 
+private Date amdIl; 
+@Column(name = "STS") 
+private String sts; 
+@Column(name = "ADV_BIC") 
+private String advBic; 
+@Column(name = "ADV_NM") 
+private String advNm; 
+@Column(name = "OPEN_IL") 
+private Date openIl; 
+@Column(name = "THEIR_REF") 
+private String theirRef; 
+@Column(name = "BENE_NM") 
+private String beneNm; 
+@Column(name = "BENE_ADDR1") 
+private String beneAddr1; 
+@Column(name = "BENE_ADDR2") 
+private String beneAddr2; 
+@Column(name = "BENE_ADDR3") 
+private String beneAddr3; 
+@Column(name = "BEFO_CCY") 
+private String befoCcy; 
+@Column(name = "BEFO_AMT") 
+private BigDecimal befoAmt; 
+@Column(name = "INC_AMT") 
+private BigDecimal incAmt; 
+@Column(name = "DEC_AMT") 
+private BigDecimal decAmt; 
+@Column(name = "AMD_CCY") 
+private String amdCcy; 
+@Column(name = "AMD_AMT") 
+private BigDecimal amdAmt; 
+@Column(name = "EXP_IL") 
+private Date expIl; 
+@Column(name = "SHIP_IL") 
+private Date shipIl; 
+@Column(name = "REIM_BIC") 
+private String reimBic; 
+@Column(name = "REIM_NM") 
+private String reimNm; 
+@Column(name = "CHARGE_GB") 
+private String chargeGb; 
+@Column(name = "PART_SHIP") 
+private String partShip; 
+@Column(name = "TRAN_SHIP") 
+private String tranShip; 
+@Column(name = "RA_GB") 
+private String raGb; 
+@Column(name = "ORGN_NM1") 
+private String orgnNm1; 
+@Column(name = "ORGN_NM2") 
+private String orgnNm2; 
+@Column(name = "PRICE_NM") 
+private String priceNm; 
+@Column(name = "FROM_PORT") 
+private String fromPort; 
+@Column(name = "TO_PORT") 
+private String toPort; 
+@Column(name = "AMT_MORE") 
+private String amtMore; 
+@Column(name = "AMT_LESS") 
+private String amtLess; 
+@Column(name = "OPER_NO") 
+private String operNo; 
+@Column(name = "MT707_NM") 
+private String mt707Nm; 
+@Column(name = "MT747_NM") 
+private String mt747Nm; 
+@Column(name = "APPL_CD") 
+private String applCd; 
+@Column(name = "EDI_GB") 
+private String ediGb; 
+@Column(name = "EDI_CUST") 
+private String ediCust; 
+@Column(name = "EDI_SEND") 
+private String ediSend; 
+@Column(name = "EDI_SND_IL") 
+private Date ediSndIl; 
+@Column(name = "EDI_JUM_NO") 
+private String ediJumNo; 
+@Column(name = "EDI_SEQ_NO") 
+private BigDecimal ediSeqNo; 
+@Column(name = "EDI_SFNM") 
+private String ediSfnm; 
+@Column(name = "EDI_RCV") 
+private String ediRcv; 
+@Column(name = "EDI_RCV_IL") 
+private Date ediRcvIl; 
+@Column(name = "EDI_RFNM") 
+private String ediRfnm; 
+@Column(name = "THR_NM") 
+private String thrNm; 
+@Column(name = "SEND_JUMGB") 
+private String sendJumgb; 
+@Column(name = "BANK_GB") 
+private String bankGb; 
+@Column(name = "NCU_BEFO_CCY") 
+private String ncuBefoCcy; 
+@Column(name = "NCU_BEFO_AMT") 
+private BigDecimal ncuBefoAmt; 
+@Column(name = "NCU_INC_AMT") 
+private BigDecimal ncuIncAmt; 
+@Column(name = "NCU_DEC_AMT") 
+private BigDecimal ncuDecAmt; 
+@Column(name = "NCU_AMD_CCY") 
+private String ncuAmdCcy; 
+@Column(name = "NCU_AMD_AMT") 
+private BigDecimal ncuAmdAmt; 
+@Column(name = "HIS_NO") 
+private BigDecimal hisNo; 
+@Column(name = "CBS_GB") 
+private String cbsGb; 
+@Column(name = "MNG_INFO") 
+private String mngInfo; 
+@Column(name = "PRES_PRD") 
+private String presPrd; 
+@Column(name = "LOAD_PORT") 
+private String loadPort; 
+@Column(name = "DISC_PORT") 
+private String discPort; 
+@Column(name = "REG_EMP_NO") 
+private String regEmpNo; 
+@Column(name = "REG_DT") 
+private Date regDt; 
+@Column(name = "REG_TM") 
+private String regTm; 
+@Column(name = "UPD_EMP_NO") 
+private String updEmpNo; 
+@Column(name = "UPD_DT") 
+private Date updDt; 
+@Column(name = "UPD_TM") 
+private String updTm; 
+@Column(name = "APPL_NM") 
+private String applNm; 
+@Column(name = "APPL_ADDR1") 
+private String applAddr1; 
+@Column(name = "APPL_ADDR2") 
+private String applAddr2; 
+@Column(name = "APPL_ADDR3") 
+private String applAddr3; 
+@Column(name = "PURPOSE_CD") 
+private String purposeCd; 
+@Column(name = "CANCEL_CD") 
+private String cancelCd; 
+@Column(name = "TRANS_GB") 
+private String transGb; 
+@Column(name = "APPL_RULE") 
+private String applRule; 
+@Column(name = "APPL_RULE2") 
+private String applRule2; 
+@Column(name = "NEGO_GB") 
+private String negoGb; 
+@Column(name = "USAN_TERM") 
+private String usanTerm; 
+@Column(name = "TERM_GB") 
+private String termGb; 
+@Column(name = "TERM_TYPE") 
+private String termType; 
+@Column(name = "DRAFT_RATE") 
+private String draftRate; 
+@Column(name = "DRAWEE_BIC") 
+private String draweeBic; 
+@Column(name = "DRAWEE_NM") 
+private String draweeNm; 
+@Column(name = "CNFM_BIC") 
+private String cnfmBic; 
+@Column(name = "CNFM_NM") 
+private String cnfmNm; 
+@Column(name = "THR_NM2") 
+private String thrNm2; 
+@Column(name = "THR_NM3") 
+private String thrNm3; 
+@Column(name = "THR_NM4") 
+private String thrNm4; 
+@Column(name = "NEGO_BIC") 
+private String negoBic; 
+@Column(name = "TTREIM_GB") 
+private String ttreimGb; 
+@Column(name = "CNFM_GB") 
+private String cnfmGb; 
+@Column(name = "THR_BIC") 
+private String thrBic; 
 } 

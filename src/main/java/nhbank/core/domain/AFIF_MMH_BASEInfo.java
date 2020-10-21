@@ -1,105 +1,185 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
-
-@Entity
-@Table(name = "afifMmhBase")
-@Data
-public class AFIF_MMH_BASEInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private String refNo;
-    private String comId;
-    private String comNm;
-    private String counterpartyId;
-    private String counterpartyNm;
-    private Date dealIl;
-    private String valueYn;
-    private Date valueIl;
-    private String expYn;
-    private Date expIl;
-    private String borrowLonGb;
-    private String ccy;
-    private BigDecimal principalAmt;
-    private String rateCcy;
-    private String fixFltGb;
-    private BigDecimal taxAmt;
-    private String rateFreq;
-    private BigDecimal indexRt;
-    private String rateGb;
-    private BigDecimal spreadRt;
-    private BigDecimal totalRt;
-    private Date intFromIl;
-    private Date intToIl;
-    private BigDecimal intDays;
-    private String intCcy;
-    private BigDecimal intAmt;
-    private String advArrGb;
-    private String singleBothType;
-    private String accrType;
-    private String bsnsDayRule;
-    private String holidayLocation;
-    private Date intPayRcvIl;
-    private String confirmYn;
-    private Date confirmIl;
-    private String poYn;
-    private Date poIl;
-    private BigDecimal poSeq;
-    private BigDecimal poAmt;
-    private String ourRcvDepoCcy;
-    private String ourRcvDepoCd;
-    private String ourRcvDepoNm;
-    private String ourPayDepoCcy;
-    private String ourPayDepoCd;
-    private String ourPayDepoNm;
-    private String thrRcvDepoCcy;
-    private String thrRcvDepoBic;
-    private String thrRcvDepoNm;
-    private String brokerId;
-    private String brokerFeeCcy;
-    private BigDecimal brokerFeeAmt;
-    private String onoffGb;
-    private String inoutGb;
-    private String borrowGb;
-    private String borrowKind;
-    private String nationLonGb;
-    private String loanUseGb;
-    private BigDecimal usdCvtAmt;
-    private BigDecimal baseCvtAmt;
-    private String rolloverYn;
-    private String rolloverType;
-    private String rolloverRefNo;
-    private String bankCd;
-    private String changeBrSts;
-    private Date fstIbIl;
-    private Date lstDealIl;
-    private Date lstIbIl;
-    private String dealerId;
-    private String userId;
-    private String kondorId;
-    private String remark;
-    private String contractId;
-    private String relateRefNo;
-    private String interofficeBrNo;
-    private String bondRefNo;
-    private String regEmpNo;
-    private Date regDt;
-    private String regTm;
-    private String updEmpNo;
-    private Date updDt;
-    private String updTm;
-    private String upfrontFeeCcy;
-    private BigDecimal upfrontFeeAmt;
-    private String intFreq;
-    private String holiDayRule;
-    private String couponAdjYn;
-    private String intAtMatYn;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.*; 
+import java.io.Serializable; 
+import java.math.BigDecimal; 
+import java.util.Date; 
+@Entity 
+@IdClass(AFIF_MMH_BASEInfo_ID.class) 
+@Table(name = "AFIF_MMH_BASE") 
+@Data 
+public class AFIF_MMH_BASEInfo implements Serializable { 
+@Id 
+@Column(name = "REF_NO") 
+private String refNo; 
+@Column(name = "COM_ID") 
+private String comId; 
+@Column(name = "COM_NM") 
+private String comNm; 
+@Column(name = "COUNTERPARTY_ID") 
+private String counterpartyId; 
+@Column(name = "COUNTERPARTY_NM") 
+private String counterpartyNm; 
+@Column(name = "DEAL_IL") 
+private Date dealIl; 
+@Column(name = "VALUE_YN") 
+private String valueYn; 
+@Column(name = "VALUE_IL") 
+private Date valueIl; 
+@Column(name = "EXP_YN") 
+private String expYn; 
+@Column(name = "EXP_IL") 
+private Date expIl; 
+@Column(name = "BORROW_LON_GB") 
+private String borrowLonGb; 
+@Column(name = "CCY") 
+private String ccy; 
+@Column(name = "PRINCIPAL_AMT") 
+private BigDecimal principalAmt; 
+@Column(name = "RATE_CCY") 
+private String rateCcy; 
+@Column(name = "FIX_FLT_GB") 
+private String fixFltGb; 
+@Column(name = "TAX_AMT") 
+private BigDecimal taxAmt; 
+@Column(name = "RATE_FREQ") 
+private String rateFreq; 
+@Column(name = "INDEX_RT") 
+private BigDecimal indexRt; 
+@Column(name = "RATE_GB") 
+private String rateGb; 
+@Column(name = "SPREAD_RT") 
+private BigDecimal spreadRt; 
+@Column(name = "TOTAL_RT") 
+private BigDecimal totalRt; 
+@Column(name = "INT_FROM_IL") 
+private Date intFromIl; 
+@Column(name = "INT_TO_IL") 
+private Date intToIl; 
+@Column(name = "INT_DAYS") 
+private BigDecimal intDays; 
+@Column(name = "INT_CCY") 
+private String intCcy; 
+@Column(name = "INT_AMT") 
+private BigDecimal intAmt; 
+@Column(name = "ADV_ARR_GB") 
+private String advArrGb; 
+@Column(name = "SINGLE_BOTH_TYPE") 
+private String singleBothType; 
+@Column(name = "ACCR_TYPE") 
+private String accrType; 
+@Column(name = "BSNS_DAY_RULE") 
+private String bsnsDayRule; 
+@Column(name = "HOLIDAY_LOCATION") 
+private String holidayLocation; 
+@Column(name = "INT_PAY_RCV_IL") 
+private Date intPayRcvIl; 
+@Column(name = "CONFIRM_YN") 
+private String confirmYn; 
+@Column(name = "CONFIRM_IL") 
+private Date confirmIl; 
+@Column(name = "PO_YN") 
+private String poYn; 
+@Column(name = "PO_IL") 
+private Date poIl; 
+@Column(name = "PO_SEQ") 
+private BigDecimal poSeq; 
+@Column(name = "PO_AMT") 
+private BigDecimal poAmt; 
+@Column(name = "OUR_RCV_DEPO_CCY") 
+private String ourRcvDepoCcy; 
+@Column(name = "OUR_RCV_DEPO_CD") 
+private String ourRcvDepoCd; 
+@Column(name = "OUR_RCV_DEPO_NM") 
+private String ourRcvDepoNm; 
+@Column(name = "OUR_PAY_DEPO_CCY") 
+private String ourPayDepoCcy; 
+@Column(name = "OUR_PAY_DEPO_CD") 
+private String ourPayDepoCd; 
+@Column(name = "OUR_PAY_DEPO_NM") 
+private String ourPayDepoNm; 
+@Column(name = "THR_RCV_DEPO_CCY") 
+private String thrRcvDepoCcy; 
+@Column(name = "THR_RCV_DEPO_BIC") 
+private String thrRcvDepoBic; 
+@Column(name = "THR_RCV_DEPO_NM") 
+private String thrRcvDepoNm; 
+@Column(name = "BROKER_ID") 
+private String brokerId; 
+@Column(name = "BROKER_FEE_CCY") 
+private String brokerFeeCcy; 
+@Column(name = "BROKER_FEE_AMT") 
+private BigDecimal brokerFeeAmt; 
+@Column(name = "ONOFF_GB") 
+private String onoffGb; 
+@Column(name = "INOUT_GB") 
+private String inoutGb; 
+@Column(name = "BORROW_GB") 
+private String borrowGb; 
+@Column(name = "BORROW_KIND") 
+private String borrowKind; 
+@Column(name = "NATION_LON_GB") 
+private String nationLonGb; 
+@Column(name = "LOAN_USE_GB") 
+private String loanUseGb; 
+@Column(name = "USD_CVT_AMT") 
+private BigDecimal usdCvtAmt; 
+@Column(name = "BASE_CVT_AMT") 
+private BigDecimal baseCvtAmt; 
+@Column(name = "ROLLOVER_YN") 
+private String rolloverYn; 
+@Column(name = "ROLLOVER_TYPE") 
+private String rolloverType; 
+@Column(name = "ROLLOVER_REF_NO") 
+private String rolloverRefNo; 
+@Column(name = "BANK_CD") 
+private String bankCd; 
+@Column(name = "CHANGE_BR_STS") 
+private String changeBrSts; 
+@Column(name = "FST_IB_IL") 
+private Date fstIbIl; 
+@Column(name = "LST_DEAL_IL") 
+private Date lstDealIl; 
+@Column(name = "LST_IB_IL") 
+private Date lstIbIl; 
+@Column(name = "DEALER_ID") 
+private String dealerId; 
+@Column(name = "USER_ID") 
+private String userId; 
+@Column(name = "KONDOR_ID") 
+private String kondorId; 
+@Column(name = "REMARK") 
+private String remark; 
+@Column(name = "CONTRACT_ID") 
+private String contractId; 
+@Column(name = "RELATE_REF_NO") 
+private String relateRefNo; 
+@Column(name = "INTEROFFICE_BR_NO") 
+private String interofficeBrNo; 
+@Column(name = "BOND_REF_NO") 
+private String bondRefNo; 
+@Column(name = "REG_EMP_NO") 
+private String regEmpNo; 
+@Column(name = "REG_DT") 
+private Date regDt; 
+@Column(name = "REG_TM") 
+private String regTm; 
+@Column(name = "UPD_EMP_NO") 
+private String updEmpNo; 
+@Column(name = "UPD_DT") 
+private Date updDt; 
+@Column(name = "UPD_TM") 
+private String updTm; 
+@Column(name = "UPFRONT_FEE_CCY") 
+private String upfrontFeeCcy; 
+@Column(name = "UPFRONT_FEE_AMT") 
+private BigDecimal upfrontFeeAmt; 
+@Column(name = "INT_FREQ") 
+private String intFreq; 
+@Column(name = "HOLI_DAY_RULE") 
+private String holiDayRule; 
+@Column(name = "COUPON_ADJ_YN") 
+private String couponAdjYn; 
+@Column(name = "INT_AT_MAT_YN") 
+private String intAtMatYn; 
 } 
