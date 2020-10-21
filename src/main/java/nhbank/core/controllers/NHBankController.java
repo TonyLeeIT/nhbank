@@ -107,6 +107,8 @@ public class NHBankController {
             Map<Integer, String> listFields = GenerateUtils.convertFileToObject(file);
             Map<Integer, String> primaryKeyMap = GenerateUtils.findPrimaryKeys(file);
             GenerateUtils.buildDataMapping(file.getName(), listFields, primaryKeyMap);
+            GenerateUtils.buildServices(file);
+            GenerateUtils.buildRepository(file);
         }
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
