@@ -1,27 +1,13 @@
-<<<<<<< HEAD
 package nhbank.core.services;
 
 
+import java.util.List;
+
 public interface BackupService<T> {
 
-    void updateTable(Iterable<T> t);
+    void updateAll(List<T> listObj);
 
-    void insertTable(T t);
+    void insert(T obj);
 
-    boolean isExistTable(T t);
+    boolean isExist(T obj);
 }
-=======
-//package nhbank.core.services;
-//
-//
-//import java.util.List;
-//
-//public interface BackupService<T> {
-//
-//    void updateTable(List<T> t);
-//
-//    void insertTable(T t);
-//
-//    boolean isExistTable(T t);
-//}
->>>>>>> nam

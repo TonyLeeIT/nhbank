@@ -2,38 +2,19 @@ package nhbank.core.domain;
 
 import lombok.Data;
 import nhbank.core.idclass.ACOM_LMT_BASEHIS_ID;
-
-<<<<<<< HEAD
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-=======
-
 import javax.persistence.*;
->>>>>>> nam
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-<<<<<<< HEAD
 @Entity(name = "ACOM_LMT_BASEHIS")
-=======
-@Entity
-@Table(name = "`ACOM_LMT_BASEHIS`")
 @IdClass(ACOM_LMT_BASEHIS_ID.class)
->>>>>>> nam
 @Data
-@IdClass(ACOM_LMT_BASEHIS_ID.class)
 public class ACOM_LMT_BASEHISInfo implements Serializable {
     @Id
-<<<<<<< HEAD
-    private String sngNo;
-    @Id
-    private String actCd;
-    @Id
-    private BigDecimal hisNo;
-    @Id
-=======
     @Column(name = "SNG_NO")
     private String sngNo;
     @Id
@@ -44,7 +25,6 @@ public class ACOM_LMT_BASEHISInfo implements Serializable {
     private BigDecimal hisNo;
     @Id
     @Column(name = "HIS_GB")
->>>>>>> nam
     private String hisGb;
     @Column(name = "TR_CD")
     private String trCd;
