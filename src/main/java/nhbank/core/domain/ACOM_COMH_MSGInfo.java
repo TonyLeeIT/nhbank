@@ -1,92 +1,159 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
-
-@Entity
-@Table(name = "acomComhMsg")
-@Data
-public class ACOM_COMH_MSGInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private String docId;
-    private Date makeIl;
-    private String ioGb;
-    private String upmuGb;
-    private String netwGb;
-    private BigDecimal seqNo;
-    private String msgGb;
-    private String condSts;
-    private String brNo;
-    private String typeGb;
-    private String msgType;
-    private String coBkcd;
-    private String coBknm1;
-    private String coBknm2;
-    private String coBknm3;
-    private String coBknm4;
-    private String ourRef;
-    private String theirRef;
-    private String msgCcy;
-    private BigDecimal msgAmt;
-    private String opNo;
-    private Date apIl;
-    private String apTime;
-    private String apMngNo;
-    private Date inoutIl;
-    private String inoutTime;
-    private Date doneIl;
-    private String doneTime;
-    private String ansBack;
-    private String trailGb;
-    private String telexNo;
-    private String tkeyYn;
-    private String tkeyBkcd;
-    private Date tkeyIl;
-    private String tkeyPref;
-    private String tkeyVar;
-    private String tkeyVal;
-    private String tkeyLine;
-    private String tkeyCni1;
-    private String tkeyCni2;
-    private String errMsg;
-    private String headPrint;
-    private String branPrint;
-    private String tlxMngNo;
-    private String prioYn;
-    private String dupYn;
-    private String physDivi;
-    private String beDoc;
-    private String afDoc;
-    private String userKey;
-    private String tsKey;
-    private String mirNo;
-    private String morNo;
-    private String prevTs;
-    private Date prevIl;
-    private String prevMir;
-    private String prevMor;
-    private String flag1;
-    private String flag2;
-    private String flag3;
-    private String globId;
-    private String msgFileNm;
-    private Date lstIl;
-    private String lstTime;
-    private String lstTty;
-    private String lstOpNo;
-    private String relDoc;
-    private String regEmpNo;
-    private Date regDt;
-    private String regTm;
-    private String updEmpNo;
-    private Date updDt;
-    private String updTm;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.*; 
+import java.io.Serializable; 
+import java.math.BigDecimal; 
+import java.util.Date; 
+@Entity 
+@IdClass(ACOM_COMH_MSGInfo_ID.class) 
+@Table(name = "ACOM_COMH_MSG") 
+@Data 
+public class ACOM_COMH_MSGInfo implements Serializable { 
+@Id 
+@Column(name = "DOC_ID") 
+private String docId; 
+@Column(name = "MAKE_IL") 
+private Date makeIl; 
+@Column(name = "IO_GB") 
+private String ioGb; 
+@Column(name = "UPMU_GB") 
+private String upmuGb; 
+@Column(name = "NETW_GB") 
+private String netwGb; 
+@Column(name = "SEQ_NO") 
+private BigDecimal seqNo; 
+@Column(name = "MSG_GB") 
+private String msgGb; 
+@Column(name = "COND_STS") 
+private String condSts; 
+@Column(name = "BR_NO") 
+private String brNo; 
+@Column(name = "TYPE_GB") 
+private String typeGb; 
+@Column(name = "MSG_TYPE") 
+private String msgType; 
+@Column(name = "CO_BKCD") 
+private String coBkcd; 
+@Column(name = "CO_BKNM1") 
+private String coBknm1; 
+@Column(name = "CO_BKNM2") 
+private String coBknm2; 
+@Column(name = "CO_BKNM3") 
+private String coBknm3; 
+@Column(name = "CO_BKNM4") 
+private String coBknm4; 
+@Column(name = "OUR_REF") 
+private String ourRef; 
+@Column(name = "THEIR_REF") 
+private String theirRef; 
+@Column(name = "MSG_CCY") 
+private String msgCcy; 
+@Column(name = "MSG_AMT") 
+private BigDecimal msgAmt; 
+@Column(name = "OP_NO") 
+private String opNo; 
+@Column(name = "AP_IL") 
+private Date apIl; 
+@Column(name = "AP_TIME") 
+private String apTime; 
+@Column(name = "AP_MNG_NO") 
+private String apMngNo; 
+@Column(name = "INOUT_IL") 
+private Date inoutIl; 
+@Column(name = "INOUT_TIME") 
+private String inoutTime; 
+@Column(name = "DONE_IL") 
+private Date doneIl; 
+@Column(name = "DONE_TIME") 
+private String doneTime; 
+@Column(name = "ANS_BACK") 
+private String ansBack; 
+@Column(name = "TRAIL_GB") 
+private String trailGb; 
+@Column(name = "TELEX_NO") 
+private String telexNo; 
+@Column(name = "TKEY_YN") 
+private String tkeyYn; 
+@Column(name = "TKEY_BKCD") 
+private String tkeyBkcd; 
+@Column(name = "TKEY_IL") 
+private Date tkeyIl; 
+@Column(name = "TKEY_PREF") 
+private String tkeyPref; 
+@Column(name = "TKEY_VAR") 
+private String tkeyVar; 
+@Column(name = "TKEY_VAL") 
+private String tkeyVal; 
+@Column(name = "TKEY_LINE") 
+private String tkeyLine; 
+@Column(name = "TKEY_CNI1") 
+private String tkeyCni1; 
+@Column(name = "TKEY_CNI2") 
+private String tkeyCni2; 
+@Column(name = "ERR_MSG") 
+private String errMsg; 
+@Column(name = "HEAD_PRINT") 
+private String headPrint; 
+@Column(name = "BRAN_PRINT") 
+private String branPrint; 
+@Column(name = "TLX_MNG_NO") 
+private String tlxMngNo; 
+@Column(name = "PRIO_YN") 
+private String prioYn; 
+@Column(name = "DUP_YN") 
+private String dupYn; 
+@Column(name = "PHYS_DIVI") 
+private String physDivi; 
+@Column(name = "BE_DOC") 
+private String beDoc; 
+@Column(name = "AF_DOC") 
+private String afDoc; 
+@Column(name = "USER_KEY") 
+private String userKey; 
+@Column(name = "TS_KEY") 
+private String tsKey; 
+@Column(name = "MIR_NO") 
+private String mirNo; 
+@Column(name = "MOR_NO") 
+private String morNo; 
+@Column(name = "PREV_TS") 
+private String prevTs; 
+@Column(name = "PREV_IL") 
+private Date prevIl; 
+@Column(name = "PREV_MIR") 
+private String prevMir; 
+@Column(name = "PREV_MOR") 
+private String prevMor; 
+@Column(name = "FLAG_1") 
+private String flag1; 
+@Column(name = "FLAG_2") 
+private String flag2; 
+@Column(name = "FLAG_3") 
+private String flag3; 
+@Column(name = "GLOB_ID") 
+private String globId; 
+@Column(name = "MSG_FILE_NM") 
+private String msgFileNm; 
+@Column(name = "LST_IL") 
+private Date lstIl; 
+@Column(name = "LST_TIME") 
+private String lstTime; 
+@Column(name = "LST_TTY") 
+private String lstTty; 
+@Column(name = "LST_OP_NO") 
+private String lstOpNo; 
+@Column(name = "REL_DOC") 
+private String relDoc; 
+@Column(name = "REG_EMP_NO") 
+private String regEmpNo; 
+@Column(name = "REG_DT") 
+private Date regDt; 
+@Column(name = "REG_TM") 
+private String regTm; 
+@Column(name = "UPD_EMP_NO") 
+private String updEmpNo; 
+@Column(name = "UPD_DT") 
+private Date updDt; 
+@Column(name = "UPD_TM") 
+private String updTm; 
 } 

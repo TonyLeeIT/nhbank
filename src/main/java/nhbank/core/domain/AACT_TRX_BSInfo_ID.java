@@ -1,14 +1,13 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
-
-@Data
-public class AACT_TRX_BSInfo_ID implements Serializable {
-    private BigDecimal hisNo;
-    private String refNo;
-    private BigDecimal segSeq;
+package nhbank.core.domain; 
+ 
+import lombok.Data; 
+import java.io.Serializable; 
+import java.math.BigDecimal; 
+import java.util.Date; 
+ 
+@Data 
+public class AACT_TRX_BSInfo_ID implements Serializable { 
+private String refNo; 
+private BigDecimal hisNo; 
+private BigDecimal segSeq; 
 } 

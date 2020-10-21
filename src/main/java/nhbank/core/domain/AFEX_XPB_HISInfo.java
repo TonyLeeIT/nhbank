@@ -1,94 +1,166 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.*;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
-
-@Entity
-@Table(name = "afexXpbHis")
-@Data
-public class AFEX_XPB_HISInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private String refNo;
-    private BigDecimal hisNo;
-    private String sts;
-    private String trGb;
-    private String trCd;
-    private String cixNo;
-    private Date ibIl;
-    private Date acIl;
-    private Date gisIl;
-    private Date canIl;
-    private BigDecimal sdHisNo;
-    private String trCcy;
-    private BigDecimal trFamt;
-    private BigDecimal trBamt;
-    private BigDecimal afJan;
-    private String feeMd;
-    private String trBr;
-    private String sdBr;
-    private String ibTime;
-    private String opNo;
-    private String mngNo;
-    private String ibjiMd;
-    private BigDecimal ydSeq;
-    private String ydGuja;
-    private String edircvDocNm;
-    private Date edircvIl;
-    private BigDecimal edircvSeqNo;
-    private String edisndDoc1Nm;
-    private BigDecimal edisnd1SeqNo;
-    private String edisndDoc2Nm;
-    private BigDecimal edisnd2SeqNo;
-    private String edisndDoc3Nm;
-    private BigDecimal edisnd3SeqNo;
-    private String edisndDoc4Nm;
-    private BigDecimal edisnd4SeqNo;
-    private String edisndDoc5Nm;
-    private BigDecimal edisnd5SeqNo;
-    private BigDecimal bokSeq;
-    private String cdSngNo;
-    private BigDecimal cdSilSeq;
-    private String ftpSngNo;
-    private BigDecimal ftpSilSeq;
-    private String ijGb;
-    private String jichGb;
-    private String hijaGb;
-    private String plCd;
-    private String jichmGb;
-    private String hcGb;
-    private String bijaGb;
-    private BigDecimal beTerm;
-    private BigDecimal beHterm;
-    private BigDecimal crBamt;
-    private Date beLisuIl;
-    @Column(name = "BE_HRT")
-    private BigDecimal beHrt;
-    @Column(name = "BE_H_RT")
-    private BigDecimal beHRt;
-    private Date beYmanIl;
-    private Date beYdcIl;
-    private Date beShIl;
-    private Date beBudoIl;
-    private BigDecimal beFtpRt;
-    private BigDecimal beIkisHis;
-    private BigDecimal beIkisIj;
-    private String beHdSngNo;
-    private String bePbrmNo;
-    private BigDecimal gitaAmt;
-    private BigDecimal caSeq;
-    private Date baeseoIl;
-    private BigDecimal actpayHisNo1;
-    private BigDecimal suspayHisNo1;
-    private BigDecimal suspayHisNo2;
-    private String regEmpNo;
-    private Date regDt;
-    private String regTm;
-    private String updEmpNo;
-    private Date updDt;
-    private String updTm;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.*; 
+import java.io.Serializable; 
+import java.math.BigDecimal; 
+import java.util.Date; 
+@Entity 
+@IdClass(AFEX_XPB_HISInfo_ID.class) 
+@Table(name = "AFEX_XPB_HIS") 
+@Data 
+public class AFEX_XPB_HISInfo implements Serializable { 
+@Id 
+@Column(name = "REF_NO") 
+private String refNo; 
+@Id 
+@Column(name = "HIS_NO") 
+private BigDecimal hisNo; 
+@Column(name = "STS") 
+private String sts; 
+@Column(name = "TR_GB") 
+private String trGb; 
+@Column(name = "TR_CD") 
+private String trCd; 
+@Column(name = "CIX_NO") 
+private String cixNo; 
+@Column(name = "IB_IL") 
+private Date ibIl; 
+@Column(name = "AC_IL") 
+private Date acIl; 
+@Column(name = "GIS_IL") 
+private Date gisIl; 
+@Column(name = "CAN_IL") 
+private Date canIl; 
+@Column(name = "SD_HIS_NO") 
+private BigDecimal sdHisNo; 
+@Column(name = "TR_CCY") 
+private String trCcy; 
+@Column(name = "TR_FAMT") 
+private BigDecimal trFamt; 
+@Column(name = "TR_BAMT") 
+private BigDecimal trBamt; 
+@Column(name = "AF_JAN") 
+private BigDecimal afJan; 
+@Column(name = "FEE_MD") 
+private String feeMd; 
+@Column(name = "TR_BR") 
+private String trBr; 
+@Column(name = "SD_BR") 
+private String sdBr; 
+@Column(name = "IB_TIME") 
+private String ibTime; 
+@Column(name = "OP_NO") 
+private String opNo; 
+@Column(name = "MNG_NO") 
+private String mngNo; 
+@Column(name = "IBJI_MD") 
+private String ibjiMd; 
+@Column(name = "YD_SEQ") 
+private BigDecimal ydSeq; 
+@Column(name = "YD_GUJA") 
+private String ydGuja; 
+@Column(name = "EDIRCV_DOC_NM") 
+private String edircvDocNm; 
+@Column(name = "EDIRCV_IL") 
+private Date edircvIl; 
+@Column(name = "EDIRCV_SEQ_NO") 
+private BigDecimal edircvSeqNo; 
+@Column(name = "EDISND_DOC1_NM") 
+private String edisndDoc1Nm; 
+@Column(name = "EDISND1_SEQ_NO") 
+private BigDecimal edisnd1SeqNo; 
+@Column(name = "EDISND_DOC2_NM") 
+private String edisndDoc2Nm; 
+@Column(name = "EDISND2_SEQ_NO") 
+private BigDecimal edisnd2SeqNo; 
+@Column(name = "EDISND_DOC3_NM") 
+private String edisndDoc3Nm; 
+@Column(name = "EDISND3_SEQ_NO") 
+private BigDecimal edisnd3SeqNo; 
+@Column(name = "EDISND_DOC4_NM") 
+private String edisndDoc4Nm; 
+@Column(name = "EDISND4_SEQ_NO") 
+private BigDecimal edisnd4SeqNo; 
+@Column(name = "EDISND_DOC5_NM") 
+private String edisndDoc5Nm; 
+@Column(name = "EDISND5_SEQ_NO") 
+private BigDecimal edisnd5SeqNo; 
+@Column(name = "BOK_SEQ") 
+private BigDecimal bokSeq; 
+@Column(name = "CD_SNG_NO") 
+private String cdSngNo; 
+@Column(name = "CD_SIL_SEQ") 
+private BigDecimal cdSilSeq; 
+@Column(name = "FTP_SNG_NO") 
+private String ftpSngNo; 
+@Column(name = "FTP_SIL_SEQ") 
+private BigDecimal ftpSilSeq; 
+@Column(name = "IJ_GB") 
+private String ijGb; 
+@Column(name = "JICH_GB") 
+private String jichGb; 
+@Column(name = "HIJA_GB") 
+private String hijaGb; 
+@Column(name = "PL_CD") 
+private String plCd; 
+@Column(name = "JICHM_GB") 
+private String jichmGb; 
+@Column(name = "HC_GB") 
+private String hcGb; 
+@Column(name = "BIJA_GB") 
+private String bijaGb; 
+@Column(name = "BE_TERM") 
+private BigDecimal beTerm; 
+@Column(name = "BE_HTERM") 
+private BigDecimal beHterm; 
+@Column(name = "CR_BAMT") 
+private BigDecimal crBamt; 
+@Column(name = "BE_LISU_IL") 
+private Date beLisuIl; 
+@Column(name = "BE_HRT") 
+private BigDecimal beHrt; 
+@Column(name = "BE_H_RT") 
+private BigDecimal beHRt; 
+@Column(name = "BE_YMAN_IL") 
+private Date beYmanIl; 
+@Column(name = "BE_YDC_IL") 
+private Date beYdcIl; 
+@Column(name = "BE_SH_IL") 
+private Date beShIl; 
+@Column(name = "BE_BUDO_IL") 
+private Date beBudoIl; 
+@Column(name = "BE_FTP_RT") 
+private BigDecimal beFtpRt; 
+@Column(name = "BE_IKIS_HIS") 
+private BigDecimal beIkisHis; 
+@Column(name = "BE_IKIS_IJ") 
+private BigDecimal beIkisIj; 
+@Column(name = "BE_HD_SNG_NO") 
+private String beHdSngNo; 
+@Column(name = "BE_PBRM_NO") 
+private String bePbrmNo; 
+@Column(name = "GITA_AMT") 
+private BigDecimal gitaAmt; 
+@Column(name = "CA_SEQ") 
+private BigDecimal caSeq; 
+@Column(name = "BAESEO_IL") 
+private Date baeseoIl; 
+@Column(name = "ACTPAY_HIS_NO1") 
+private BigDecimal actpayHisNo1; 
+@Column(name = "SUSPAY_HIS_NO1") 
+private BigDecimal suspayHisNo1; 
+@Column(name = "SUSPAY_HIS_NO2") 
+private BigDecimal suspayHisNo2; 
+@Column(name = "REG_EMP_NO") 
+private String regEmpNo; 
+@Column(name = "REG_DT") 
+private Date regDt; 
+@Column(name = "REG_TM") 
+private String regTm; 
+@Column(name = "UPD_EMP_NO") 
+private String updEmpNo; 
+@Column(name = "UPD_DT") 
+private Date updDt; 
+@Column(name = "UPD_TM") 
+private String updTm; 
 } 

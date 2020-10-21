@@ -1,182 +1,340 @@
-package nhbank.core.domain;
-
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
-
-@Entity
-@Table(name = "afexRihBase")
-@Data
-public class AFEX_RIH_BASEInfo implements Serializable {
-    @Id
-    @GeneratedValue
-    private Date rcvIl;
-    private BigDecimal seqNo;
-    private String rtCd;
-    private String moneyCd;
-    private String rcvGb;
-    private Date makeIl;
-    private String refNo;
-    private String rcvBr;
-    private String cixNo;
-    private String bkGb;
-    private String mngInfo;
-    private String upmuGb;
-    private Date acIl;
-    private Date gisIl;
-    private Date lstIl;
-    private Date lstIbIl;
-    private String ibjiMd;
-    private Date acIl2;
-    private Date gisIl2;
-    private String junGb;
-    private String operId;
-    private String mngrId;
-    private String ccy;
-    private BigDecimal famt;
-    private BigDecimal orgFamt;
-    private String ddNo;
-    private String theirRefNo;
-    private String sdCtry;
-    private String jucheCd;
-    private String geojuGb;
-    private String sayuCd;
-    private String jukyo;
-    private String junNo;
-    private String chGb;
-    private BigDecimal chAmt;
-    private String mjGb;
-    private String rcvNation;
-    private String rcvIdNo;
-    private String rcvIdNoGb;
-    private String rcvBuseoNo;
-    private String rcvPostNo;
-    private String sjGb;
-    private String vipCode;
-    private String ownerNo;
-    private String pbrmNo;
-    private Date jungjiIl;
-    private Date sagoIl;
-    private Date negoCertiIl;
-    private BigDecimal mileage;
-    private String ydGuja;
-    private BigDecimal feeCnt;
-    private String feeMsg;
-    private String inmsgGb;
-    private String inMsg;
-    private String stateMsg;
-    private String mndGb;
-    private String creditCur;
-    private BigDecimal creditAmt;
-    private Date creditIl;
-    private String applNm;
-    private String applAddr1;
-    private String applAddr2;
-    private String applAddr3;
-    private String apliAcno;
-    private String jgDepoCd;
-    private String jgDepoNm;
-    private String jgBkcd;
-    private String jgBkAbano;
-    private String jgBknm;
-    private String jgBkAddr1;
-    private String jgBkAddr2;
-    private String jgBkAddr3;
-    private String rcvNm;
-    private String rcvAddr1;
-    private String rcvAddr2;
-    private String rcvAddr3;
-    private String rcvTelNo;
-    private String rcvAcctNo;
-    private String depoCode;
-    private String depoName1;
-    private String sbankBkcd;
-    private String sbankBknm;
-    private String sbankAddr1;
-    private String sbankAddr2;
-    private String sbankAddr3;
-    private String cbankBkcd;
-    private String cbankBknm;
-    private String cbankAddr1;
-    private String cbankAddr2;
-    private String cbankAddr3;
-    private Date valueDate;
-    private String feeCur;
-    private BigDecimal feeAmt;
-    private String info70Name1;
-    private String info70Name2;
-    private String info70Name3;
-    private String info70Name4;
-    private String infoName1;
-    private String infoName2;
-    private String infoName3;
-    private String infoName4;
-    private String infoName5;
-    private String infoName6;
-    private String imad;
-    private String preImad;
-    private String outmsgGb;
-    private String outmsgAutoYn;
-    private String outMsg;
-    private String moneyMsg;
-    private Date outmakeIl;
-    private BigDecimal outAmt;
-    private BigDecimal outComm;
-    private BigDecimal outFee;
-    private String mttypeCode;
-    private String errNo;
-    private String errMsg;
-    private String refundGb;
-    private String refundRefNo;
-    private String refundTheirRef;
-    private String refundRemark;
-    private String intBkcd;
-    private String intBknm;
-    private String intBkAddr1;
-    private String intBkAddr2;
-    private String intBkAddr3;
-    private String intBkAcct;
-    private String jgBkAcct;
-    private String msgType;
-    private String relatedRef;
-    private String boseGb;
-    private String exportSetlGb;
-    private String tradeGb;
-    private String instructCcy;
-    private BigDecimal instructAmt;
-    private BigDecimal exRate;
-    private String bopSeqNo;
-    private String bopTrxCode;
-    private String bopTrxRemark;
-    private String subDpNo;
-    private String cvtCcy;
-    private BigDecimal cvtAmt;
-    private BigDecimal cvtExrate;
-    private String cableChgCcy;
-    private BigDecimal cableChgAmt;
-    private String holdRemark1;
-    private String holdRemark2;
-    private String holdRemark3;
-    private String holdRemark4;
-    private String holdRemark5;
-    private String holdRemark6;
-    private String holdRemark7;
-    private String holdRemark8;
-    private String mngBr;
-    private String sts;
-    private String regEmpNo;
-    private Date regDt;
-    private String regTm;
-    private String updEmpNo;
-    private Date updDt;
-    private String updTm;
-    private String vcbFeeGb;
-    private String vcbFeeCcy;
-    private BigDecimal vcbFeeAmt;
+package nhbank.core.domain; 
+import lombok.Data; 
+import javax.persistence.*; 
+import java.io.Serializable; 
+import java.math.BigDecimal; 
+import java.util.Date; 
+@Entity 
+@IdClass(AFEX_RIH_BASEInfo_ID.class) 
+@Table(name = "AFEX_RIH_BASE") 
+@Data 
+public class AFEX_RIH_BASEInfo implements Serializable { 
+@Id 
+@Column(name = "RCV_IL") 
+private Date rcvIl; 
+@Id 
+@Column(name = "SEQ_NO") 
+private BigDecimal seqNo; 
+@Column(name = "RT_CD") 
+private String rtCd; 
+@Column(name = "MONEY_CD") 
+private String moneyCd; 
+@Column(name = "RCV_GB") 
+private String rcvGb; 
+@Column(name = "MAKE_IL") 
+private Date makeIl; 
+@Column(name = "REF_NO") 
+private String refNo; 
+@Column(name = "RCV_BR") 
+private String rcvBr; 
+@Column(name = "CIX_NO") 
+private String cixNo; 
+@Column(name = "BK_GB") 
+private String bkGb; 
+@Column(name = "MNG_INFO") 
+private String mngInfo; 
+@Column(name = "UPMU_GB") 
+private String upmuGb; 
+@Column(name = "AC_IL") 
+private Date acIl; 
+@Column(name = "GIS_IL") 
+private Date gisIl; 
+@Column(name = "LST_IL") 
+private Date lstIl; 
+@Column(name = "LST_IB_IL") 
+private Date lstIbIl; 
+@Column(name = "IBJI_MD") 
+private String ibjiMd; 
+@Column(name = "AC_IL2") 
+private Date acIl2; 
+@Column(name = "GIS_IL2") 
+private Date gisIl2; 
+@Column(name = "JUN_GB") 
+private String junGb; 
+@Column(name = "OPER_ID") 
+private String operId; 
+@Column(name = "MNGR_ID") 
+private String mngrId; 
+@Column(name = "CCY") 
+private String ccy; 
+@Column(name = "FAMT") 
+private BigDecimal famt; 
+@Column(name = "ORG_FAMT") 
+private BigDecimal orgFamt; 
+@Column(name = "DD_NO") 
+private String ddNo; 
+@Column(name = "THEIR_REF_NO") 
+private String theirRefNo; 
+@Column(name = "SD_CTRY") 
+private String sdCtry; 
+@Column(name = "JUCHE_CD") 
+private String jucheCd; 
+@Column(name = "GEOJU_GB") 
+private String geojuGb; 
+@Column(name = "SAYU_CD") 
+private String sayuCd; 
+@Column(name = "JUKYO") 
+private String jukyo; 
+@Column(name = "JUN_NO") 
+private String junNo; 
+@Column(name = "CH_GB") 
+private String chGb; 
+@Column(name = "CH_AMT") 
+private BigDecimal chAmt; 
+@Column(name = "MJ_GB") 
+private String mjGb; 
+@Column(name = "RCV_NATION") 
+private String rcvNation; 
+@Column(name = "RCV_ID_NO") 
+private String rcvIdNo; 
+@Column(name = "RCV_ID_NO_GB") 
+private String rcvIdNoGb; 
+@Column(name = "RCV_BUSEO_NO") 
+private String rcvBuseoNo; 
+@Column(name = "RCV_POST_NO") 
+private String rcvPostNo; 
+@Column(name = "SJ_GB") 
+private String sjGb; 
+@Column(name = "VIP_CODE") 
+private String vipCode; 
+@Column(name = "OWNER_NO") 
+private String ownerNo; 
+@Column(name = "PBRM_NO") 
+private String pbrmNo; 
+@Column(name = "JUNGJI_IL") 
+private Date jungjiIl; 
+@Column(name = "SAGO_IL") 
+private Date sagoIl; 
+@Column(name = "NEGO_CERTI_IL") 
+private Date negoCertiIl; 
+@Column(name = "MILEAGE") 
+private BigDecimal mileage; 
+@Column(name = "YD_GUJA") 
+private String ydGuja; 
+@Column(name = "FEE_CNT") 
+private BigDecimal feeCnt; 
+@Column(name = "FEE_MSG") 
+private String feeMsg; 
+@Column(name = "INMSG_GB") 
+private String inmsgGb; 
+@Column(name = "IN_MSG") 
+private String inMsg; 
+@Column(name = "STATE_MSG") 
+private String stateMsg; 
+@Column(name = "MND_GB") 
+private String mndGb; 
+@Column(name = "CREDIT_CUR") 
+private String creditCur; 
+@Column(name = "CREDIT_AMT") 
+private BigDecimal creditAmt; 
+@Column(name = "CREDIT_IL") 
+private Date creditIl; 
+@Column(name = "APPL_NM") 
+private String applNm; 
+@Column(name = "APPL_ADDR1") 
+private String applAddr1; 
+@Column(name = "APPL_ADDR2") 
+private String applAddr2; 
+@Column(name = "APPL_ADDR3") 
+private String applAddr3; 
+@Column(name = "APLI_ACNO") 
+private String apliAcno; 
+@Column(name = "JG_DEPO_CD") 
+private String jgDepoCd; 
+@Column(name = "JG_DEPO_NM") 
+private String jgDepoNm; 
+@Column(name = "JG_BKCD") 
+private String jgBkcd; 
+@Column(name = "JG_BK_ABANO") 
+private String jgBkAbano; 
+@Column(name = "JG_BKNM") 
+private String jgBknm; 
+@Column(name = "JG_BK_ADDR1") 
+private String jgBkAddr1; 
+@Column(name = "JG_BK_ADDR2") 
+private String jgBkAddr2; 
+@Column(name = "JG_BK_ADDR3") 
+private String jgBkAddr3; 
+@Column(name = "RCV_NM") 
+private String rcvNm; 
+@Column(name = "RCV_ADDR1") 
+private String rcvAddr1; 
+@Column(name = "RCV_ADDR2") 
+private String rcvAddr2; 
+@Column(name = "RCV_ADDR3") 
+private String rcvAddr3; 
+@Column(name = "RCV_TEL_NO") 
+private String rcvTelNo; 
+@Column(name = "RCV_ACCT_NO") 
+private String rcvAcctNo; 
+@Column(name = "DEPO_CODE") 
+private String depoCode; 
+@Column(name = "DEPO_NAME1") 
+private String depoName1; 
+@Column(name = "SBANK_BKCD") 
+private String sbankBkcd; 
+@Column(name = "SBANK_BKNM") 
+private String sbankBknm; 
+@Column(name = "SBANK_ADDR1") 
+private String sbankAddr1; 
+@Column(name = "SBANK_ADDR2") 
+private String sbankAddr2; 
+@Column(name = "SBANK_ADDR3") 
+private String sbankAddr3; 
+@Column(name = "CBANK_BKCD") 
+private String cbankBkcd; 
+@Column(name = "CBANK_BKNM") 
+private String cbankBknm; 
+@Column(name = "CBANK_ADDR1") 
+private String cbankAddr1; 
+@Column(name = "CBANK_ADDR2") 
+private String cbankAddr2; 
+@Column(name = "CBANK_ADDR3") 
+private String cbankAddr3; 
+@Column(name = "VALUE_DATE") 
+private Date valueDate; 
+@Column(name = "FEE_CUR") 
+private String feeCur; 
+@Column(name = "FEE_AMT") 
+private BigDecimal feeAmt; 
+@Column(name = "INFO70_NAME1") 
+private String info70Name1; 
+@Column(name = "INFO70_NAME2") 
+private String info70Name2; 
+@Column(name = "INFO70_NAME3") 
+private String info70Name3; 
+@Column(name = "INFO70_NAME4") 
+private String info70Name4; 
+@Column(name = "INFO_NAME1") 
+private String infoName1; 
+@Column(name = "INFO_NAME2") 
+private String infoName2; 
+@Column(name = "INFO_NAME3") 
+private String infoName3; 
+@Column(name = "INFO_NAME4") 
+private String infoName4; 
+@Column(name = "INFO_NAME5") 
+private String infoName5; 
+@Column(name = "INFO_NAME6") 
+private String infoName6; 
+@Column(name = "IMAD") 
+private String imad; 
+@Column(name = "PRE_IMAD") 
+private String preImad; 
+@Column(name = "OUTMSG_GB") 
+private String outmsgGb; 
+@Column(name = "OUTMSG_AUTO_YN") 
+private String outmsgAutoYn; 
+@Column(name = "OUT_MSG") 
+private String outMsg; 
+@Column(name = "MONEY_MSG") 
+private String moneyMsg; 
+@Column(name = "OUTMAKE_IL") 
+private Date outmakeIl; 
+@Column(name = "OUT_AMT") 
+private BigDecimal outAmt; 
+@Column(name = "OUT_COMM") 
+private BigDecimal outComm; 
+@Column(name = "OUT_FEE") 
+private BigDecimal outFee; 
+@Column(name = "MTTYPE_CODE") 
+private String mttypeCode; 
+@Column(name = "ERR_NO") 
+private String errNo; 
+@Column(name = "ERR_MSG") 
+private String errMsg; 
+@Column(name = "REFUND_GB") 
+private String refundGb; 
+@Column(name = "REFUND_REF_NO") 
+private String refundRefNo; 
+@Column(name = "REFUND_THEIR_REF") 
+private String refundTheirRef; 
+@Column(name = "REFUND_REMARK") 
+private String refundRemark; 
+@Column(name = "INT_BKCD") 
+private String intBkcd; 
+@Column(name = "INT_BKNM") 
+private String intBknm; 
+@Column(name = "INT_BK_ADDR1") 
+private String intBkAddr1; 
+@Column(name = "INT_BK_ADDR2") 
+private String intBkAddr2; 
+@Column(name = "INT_BK_ADDR3") 
+private String intBkAddr3; 
+@Column(name = "INT_BK_ACCT") 
+private String intBkAcct; 
+@Column(name = "JG_BK_ACCT") 
+private String jgBkAcct; 
+@Column(name = "MSG_TYPE") 
+private String msgType; 
+@Column(name = "RELATED_REF") 
+private String relatedRef; 
+@Column(name = "BOSE_GB") 
+private String boseGb; 
+@Column(name = "EXPORT_SETL_GB") 
+private String exportSetlGb; 
+@Column(name = "TRADE_GB") 
+private String tradeGb; 
+@Column(name = "INSTRUCT_CCY") 
+private String instructCcy; 
+@Column(name = "INSTRUCT_AMT") 
+private BigDecimal instructAmt; 
+@Column(name = "EX_RATE") 
+private BigDecimal exRate; 
+@Column(name = "BOP_SEQ_NO") 
+private String bopSeqNo; 
+@Column(name = "BOP_TRX_CODE") 
+private String bopTrxCode; 
+@Column(name = "BOP_TRX_REMARK") 
+private String bopTrxRemark; 
+@Column(name = "SUB_DP_NO") 
+private String subDpNo; 
+@Column(name = "CVT_CCY") 
+private String cvtCcy; 
+@Column(name = "CVT_AMT") 
+private BigDecimal cvtAmt; 
+@Column(name = "CVT_EXRATE") 
+private BigDecimal cvtExrate; 
+@Column(name = "CABLE_CHG_CCY") 
+private String cableChgCcy; 
+@Column(name = "CABLE_CHG_AMT") 
+private BigDecimal cableChgAmt; 
+@Column(name = "HOLD_REMARK1") 
+private String holdRemark1; 
+@Column(name = "HOLD_REMARK2") 
+private String holdRemark2; 
+@Column(name = "HOLD_REMARK3") 
+private String holdRemark3; 
+@Column(name = "HOLD_REMARK4") 
+private String holdRemark4; 
+@Column(name = "HOLD_REMARK5") 
+private String holdRemark5; 
+@Column(name = "HOLD_REMARK6") 
+private String holdRemark6; 
+@Column(name = "HOLD_REMARK7") 
+private String holdRemark7; 
+@Column(name = "HOLD_REMARK8") 
+private String holdRemark8; 
+@Column(name = "MNG_BR") 
+private String mngBr; 
+@Column(name = "STS") 
+private String sts; 
+@Column(name = "REG_EMP_NO") 
+private String regEmpNo; 
+@Column(name = "REG_DT") 
+private Date regDt; 
+@Column(name = "REG_TM") 
+private String regTm; 
+@Column(name = "UPD_EMP_NO") 
+private String updEmpNo; 
+@Column(name = "UPD_DT") 
+private Date updDt; 
+@Column(name = "UPD_TM") 
+private String updTm; 
+@Column(name = "VCB_FEE_GB") 
+private String vcbFeeGb; 
+@Column(name = "VCB_FEE_CCY") 
+private String vcbFeeCcy; 
+@Column(name = "VCB_FEE_AMT") 
+private BigDecimal vcbFeeAmt; 
 } 
