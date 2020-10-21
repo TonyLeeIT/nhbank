@@ -45,7 +45,6 @@ public class NHBankController {
         File directoryPath = new File("E:/NHBANK_TARGET/NH_BANK/");
         //List of all files and directories
         File[] filesList = directoryPath.listFiles();
-        System.out.println(filesList.length);
         for (File file : filesList) {
             if (!file.getName().endsWith(".sql")) {
                 continue;
@@ -53,8 +52,8 @@ public class NHBankController {
             if (!sqlFile.contains(file.getName().replace(".sql", ""))) {
                 continue;
             }
-            Map<Integer, String> listFields = GenerateUtils.findPrimaryKeys(file);
-            GenerateUtils.buildDomainsID(file.getName(), listFields);
+            Map<Integer, String> primaryKeyMap = GenerateUtils.findPrimaryKeys(file);
+            GenerateUtils.buildDomainsID(file.getName(), primaryKeyMap);
         }
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
@@ -66,7 +65,6 @@ public class NHBankController {
         File directoryPath = new File("E:\\NHBANK_TARGET\\NH_BANK");
         //List of all files and directories
         File[] filesList = directoryPath.listFiles();
-        System.out.println("List of files and directories in the specified directory:");
         for (File file : filesList) {
             if (!file.getName().endsWith(".sql")) {
                 continue;
@@ -74,8 +72,6 @@ public class NHBankController {
             if (!sqlFiles.contains(file.getName().replace(".sql", ""))) {
                 continue;
             }
-            System.out.println("File name: " + file.getName());
-            System.out.println("File path: " + file.getAbsolutePath());
             Map<Integer, String> listFields = GenerateUtils.convertFileToObject(file);
             GenerateUtils.buildModel(file.getName(), listFields);
 //            GenerateUtils.buildDomain(file.getName(), listFields);
@@ -89,11 +85,27 @@ public class NHBankController {
         return new ResponseEntity<>("Update Successfully!", HttpStatus.OK);
     }
 
-//    @PostMapping("/save")
-//    private void saveObjectList() {
-//        List<ACOM_LMT_BASEHISInfo> objectList = readObjectFromTxt().getBody();
-//        acom_lmt_basehisInfoService.saveAll(objectList);
-//    }
+    @GetMapping(value = "service")
+    public ResponseEntity<?> mappingData() {
+        List<String> sqlFile = config.getSql();
+        //Creating a File object for directory
+        File directoryPath = new File("E:/NHBANK_TARGET/NH_BANK/");
+        //List of all files and directories
+        File[] filesList = directoryPath.listFiles();
+
+        for (File file : filesList) {
+            if (!file.getName().endsWith(".sql")) {
+                continue;
+            }
+            if (!sqlFile.contains(file.getName().replace(".sql", ""))) {
+                continue;
+            }
+            Map<Integer, String> listFields = GenerateUtils.convertFileToObject(file);
+            Map<Integer, String> primaryKeyMap = GenerateUtils.findPrimaryKeys(file);
+            GenerateUtils.buildDataMapping(file.getName(), listFields, primaryKeyMap);
+        }
+        return new ResponseEntity<>("OK", HttpStatus.OK);
+    }
 
 
 }

@@ -1,227 +1,230 @@
-package nhbank.core.domain; 
-import lombok.Data; 
-import javax.persistence.*; 
-import java.io.Serializable; 
-import java.math.BigDecimal; 
-import java.util.Date; 
-@Entity 
-@IdClass(ADST_DPB_INFOInfo_ID.class) 
-@Table(name = "ADST_DPB_INFO") 
-@Data 
-public class ADST_DPB_INFOInfo implements Serializable { 
-@Id 
-@Column(name = "ACCT_NO") 
-private String acctNo; 
-@Column(name = "OPN_SAYU_CD") 
-private String opnSayuCd; 
-@Column(name = "OPN_SRC_CD") 
-private String opnSrcCd; 
-@Column(name = "CLS_SAYU_CD") 
-private String clsSayuCd; 
-@Column(name = "OPN_GB") 
-private String opnGb; 
-@Column(name = "CLS_GB") 
-private String clsGb; 
-@Column(name = "DORMANT_YN") 
-private String dormantYn; 
-@Column(name = "BL_YN") 
-private String blYn; 
-@Column(name = "EMP_PAY_ACCT_YN") 
-private String empPayAcctYn; 
-@Column(name = "LON_INT_CAL_GB") 
-private String lonIntCalGb; 
-@Column(name = "ROLL_OVER_CD") 
-private String rollOverCd; 
-@Column(name = "RO_BASE_DT_CD") 
-private String roBaseDtCd; 
-@Column(name = "ADMIN_FEE_EXMP_YN") 
-private String adminFeeExmpYn; 
-@Column(name = "CLS_FEE_EXMP_YN") 
-private String clsFeeExmpYn; 
-@Column(name = "CLS_INT_PAY_YN") 
-private String clsIntPayYn; 
-@Column(name = "SD_ACCT_NO") 
-private String sdAcctNo; 
-@Column(name = "PBOOK_GB") 
-private String pbookGb; 
-@Column(name = "PBOOK_CD") 
-private String pbookCd; 
-@Column(name = "PBOOK_LINE") 
-private BigDecimal pbookLine; 
-@Column(name = "PBOOK_SEQ") 
-private BigDecimal pbookSeq; 
-@Column(name = "PWD_ERR_CNT") 
-private BigDecimal pwdErrCnt; 
-@Column(name = "OP_NO") 
-private String opNo; 
-@Column(name = "OWNER_NO") 
-private String ownerNo; 
-@Column(name = "PBRM_NO") 
-private String pbrmNo; 
-@Column(name = "PBOOK_LOSS_GB") 
-private String pbookLossGb; 
-@Column(name = "STOP_WITH_GB") 
-private String stopWithGb; 
-@Column(name = "STOP_WITH2_GB") 
-private String stopWith2Gb; 
-@Column(name = "STOP_DEP_GB") 
-private String stopDepGb; 
-@Column(name = "COLT_GB") 
-private String coltGb; 
-@Column(name = "WARN_LTTR_CD") 
-private String warnLttrCd; 
-@Column(name = "WARN_CK_NO") 
-private String warnCkNo; 
-@Column(name = "LST_WARN_CK_NO") 
-private String lstWarnCkNo; 
-@Column(name = "WARN_REG_DT") 
-private Date warnRegDt; 
-@Column(name = "LST_WARN_REG_DT") 
-private Date lstWarnRegDt; 
-@Column(name = "IK_ING") 
-private String ikIng; 
-@Column(name = "PBOOK_USE_GB") 
-private String pbookUseGb; 
-@Column(name = "LON_ACCT_GB") 
-private String lonAcctGb; 
-@Column(name = "HOIJUN") 
-private String hoijun; 
-@Column(name = "INT_MOVE_GB") 
-private String intMoveGb; 
-@Column(name = "CLS_MOVE_GB") 
-private String clsMoveGb; 
-@Column(name = "DPT_NEGO_RT_GB") 
-private String dptNegoRtGb; 
-@Column(name = "FIX_FLT_GB") 
-private String fixFltGb; 
-@Column(name = "VOSTRO_GB") 
-private String vostroGb; 
-@Column(name = "JOINT_REL_CD") 
-private String jointRelCd; 
-@Column(name = "JOINT_CIX_NO") 
-private String jointCixNo; 
-@Column(name = "ACCT_REMARK") 
-private String acctRemark; 
-@Column(name = "LST_IB_IL") 
-private Date lstIbIl; 
-@Column(name = "LST_TIME") 
-private String lstTime; 
-@Column(name = "SELF_MNG_IL") 
-private Date selfMngIl; 
-@Column(name = "IBF_GB") 
-private String ibfGb; 
-@Column(name = "LMT_MAX_AMT") 
-private BigDecimal lmtMaxAmt; 
-@Column(name = "PBOOK_NO") 
-private String pbookNo; 
-@Column(name = "EB_USE_GB") 
-private String ebUseGb; 
-@Column(name = "NET_CLS_POSS_YN") 
-private String netClsPossYn; 
-@Column(name = "NET_PAY_POSS_YN") 
-private String netPayPossYn; 
-@Column(name = "BANK_DV_CD") 
-private String bankDvCd; 
-@Column(name = "TRF_PSBK_REPRT_YN") 
-private String trfPsbkReprtYn; 
-@Column(name = "SIGN_FILE_NM") 
-private String signFileNm; 
-@Column(name = "BI_PRD_CD") 
-private String biPrdCd; 
-@Column(name = "BI_MSRM_CTGR") 
-private String biMsrmCtgr; 
-@Column(name = "BI_ACCT_PRPT") 
-private String biAcctPrpt; 
-@Column(name = "PRCP_WITH_METH_CD") 
-private String prcpWithMethCd; 
-@Column(name = "INT_WITH_METH_CD") 
-private String intWithMethCd; 
-@Column(name = "PRCP_ACCT_NO") 
-private String prcpAcctNo; 
-@Column(name = "INT_ACCT_NO") 
-private String intAcctNo; 
-@Column(name = "PRCP_TMPL_CD") 
-private BigDecimal prcpTmplCd; 
-@Column(name = "INT_TMPL_CD") 
-private BigDecimal intTmplCd; 
-@Column(name = "CERT_NO") 
-private String certNo; 
-@Column(name = "SEND_ADDR_DV") 
-private String sendAddrDv; 
-@Column(name = "COM_BIT") 
-private String comBit; 
-@Column(name = "AMT1") 
-private BigDecimal amt1; 
-@Column(name = "AMT2") 
-private BigDecimal amt2; 
-@Column(name = "AMT3") 
-private BigDecimal amt3; 
-@Column(name = "AMT4") 
-private BigDecimal amt4; 
-@Column(name = "AMT5") 
-private BigDecimal amt5; 
-@Column(name = "AMT6") 
-private BigDecimal amt6; 
-@Column(name = "AMT7") 
-private BigDecimal amt7; 
-@Column(name = "AMT8") 
-private BigDecimal amt8; 
-@Column(name = "AMT9") 
-private BigDecimal amt9; 
-@Column(name = "AMT10") 
-private BigDecimal amt10; 
-@Column(name = "CD1") 
-private String cd1; 
-@Column(name = "CD2") 
-private String cd2; 
-@Column(name = "CD3") 
-private String cd3; 
-@Column(name = "CD4") 
-private String cd4; 
-@Column(name = "CD5") 
-private String cd5; 
-@Column(name = "CD6") 
-private String cd6; 
-@Column(name = "CD7") 
-private String cd7; 
-@Column(name = "CD8") 
-private String cd8; 
-@Column(name = "CD9") 
-private String cd9; 
-@Column(name = "CD10") 
-private String cd10; 
-@Column(name = "RT1") 
-private BigDecimal rt1; 
-@Column(name = "RT2") 
-private BigDecimal rt2; 
-@Column(name = "RT3") 
-private BigDecimal rt3; 
-@Column(name = "RT4") 
-private BigDecimal rt4; 
-@Column(name = "RT5") 
-private BigDecimal rt5; 
-@Column(name = "DT1") 
-private Date dt1; 
-@Column(name = "DT2") 
-private Date dt2; 
-@Column(name = "DT3") 
-private Date dt3; 
-@Column(name = "DT4") 
-private Date dt4; 
-@Column(name = "DT5") 
-private Date dt5; 
-@Column(name = "REG_EMP_NO") 
-private String regEmpNo; 
-@Column(name = "REG_DT") 
-private Date regDt; 
-@Column(name = "REG_TM") 
-private String regTm; 
-@Column(name = "UPD_EMP_NO") 
-private String updEmpNo; 
-@Column(name = "UPD_DT") 
-private Date updDt; 
-@Column(name = "UPD_TM") 
-private String updTm; 
-@Column(name = "PWD_LOSS_GB") 
-private String pwdLossGb; 
+package nhbank.core.domain;
+
+import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+
+@Entity
+@IdClass(ADST_DPB_INFOInfo_ID.class)
+@Table(name = "ADST_DPB_INFO")
+@Data
+public class ADST_DPB_INFOInfo implements Serializable {
+    @Id
+    @Column(name = "ACCT_NO")
+    private String acctNo;
+    @Column(name = "OPN_SAYU_CD")
+    private String opnSayuCd;
+    @Column(name = "OPN_SRC_CD")
+    private String opnSrcCd;
+    @Column(name = "CLS_SAYU_CD")
+    private String clsSayuCd;
+    @Column(name = "OPN_GB")
+    private String opnGb;
+    @Column(name = "CLS_GB")
+    private String clsGb;
+    @Column(name = "DORMANT_YN")
+    private String dormantYn;
+    @Column(name = "BL_YN")
+    private String blYn;
+    @Column(name = "EMP_PAY_ACCT_YN")
+    private String empPayAcctYn;
+    @Column(name = "LON_INT_CAL_GB")
+    private String lonIntCalGb;
+    @Column(name = "ROLL_OVER_CD")
+    private String rollOverCd;
+    @Column(name = "RO_BASE_DT_CD")
+    private String roBaseDtCd;
+    @Column(name = "ADMIN_FEE_EXMP_YN")
+    private String adminFeeExmpYn;
+    @Column(name = "CLS_FEE_EXMP_YN")
+    private String clsFeeExmpYn;
+    @Column(name = "CLS_INT_PAY_YN")
+    private String clsIntPayYn;
+    @Column(name = "SD_ACCT_NO")
+    private String sdAcctNo;
+    @Column(name = "PBOOK_GB")
+    private String pbookGb;
+    @Column(name = "PBOOK_CD")
+    private String pbookCd;
+    @Column(name = "PBOOK_LINE")
+    private BigDecimal pbookLine;
+    @Column(name = "PBOOK_SEQ")
+    private BigDecimal pbookSeq;
+    @Column(name = "PWD_ERR_CNT")
+    private BigDecimal pwdErrCnt;
+    @Column(name = "OP_NO")
+    private String opNo;
+    @Column(name = "OWNER_NO")
+    private String ownerNo;
+    @Column(name = "PBRM_NO")
+    private String pbrmNo;
+    @Column(name = "PBOOK_LOSS_GB")
+    private String pbookLossGb;
+    @Column(name = "STOP_WITH_GB")
+    private String stopWithGb;
+    @Column(name = "STOP_WITH2_GB")
+    private String stopWith2Gb;
+    @Column(name = "STOP_DEP_GB")
+    private String stopDepGb;
+    @Column(name = "COLT_GB")
+    private String coltGb;
+    @Column(name = "WARN_LTTR_CD")
+    private String warnLttrCd;
+    @Column(name = "WARN_CK_NO")
+    private String warnCkNo;
+    @Column(name = "LST_WARN_CK_NO")
+    private String lstWarnCkNo;
+    @Column(name = "WARN_REG_DT")
+    private Date warnRegDt;
+    @Column(name = "LST_WARN_REG_DT")
+    private Date lstWarnRegDt;
+    @Column(name = "IK_ING")
+    private String ikIng;
+    @Column(name = "PBOOK_USE_GB")
+    private String pbookUseGb;
+    @Column(name = "LON_ACCT_GB")
+    private String lonAcctGb;
+    @Column(name = "HOIJUN")
+    private String hoijun;
+    @Column(name = "INT_MOVE_GB")
+    private String intMoveGb;
+    @Column(name = "CLS_MOVE_GB")
+    private String clsMoveGb;
+    @Column(name = "DPT_NEGO_RT_GB")
+    private String dptNegoRtGb;
+    @Column(name = "FIX_FLT_GB")
+    private String fixFltGb;
+    @Column(name = "VOSTRO_GB")
+    private String vostroGb;
+    @Column(name = "JOINT_REL_CD")
+    private String jointRelCd;
+    @Column(name = "JOINT_CIX_NO")
+    private String jointCixNo;
+    @Column(name = "ACCT_REMARK")
+    private String acctRemark;
+    @Column(name = "LST_IB_IL")
+    private Date lstIbIl;
+    @Column(name = "LST_TIME")
+    private String lstTime;
+    @Column(name = "SELF_MNG_IL")
+    private Date selfMngIl;
+    @Column(name = "IBF_GB")
+    private String ibfGb;
+    @Column(name = "LMT_MAX_AMT")
+    private BigDecimal lmtMaxAmt;
+    @Column(name = "PBOOK_NO")
+    private String pbookNo;
+    @Column(name = "EB_USE_GB")
+    private String ebUseGb;
+    @Column(name = "NET_CLS_POSS_YN")
+    private String netClsPossYn;
+    @Column(name = "NET_PAY_POSS_YN")
+    private String netPayPossYn;
+    @Column(name = "BANK_DV_CD")
+    private String bankDvCd;
+    @Column(name = "TRF_PSBK_REPRT_YN")
+    private String trfPsbkReprtYn;
+    @Column(name = "SIGN_FILE_NM")
+    private String signFileNm;
+    @Column(name = "BI_PRD_CD")
+    private String biPrdCd;
+    @Column(name = "BI_MSRM_CTGR")
+    private String biMsrmCtgr;
+    @Column(name = "BI_ACCT_PRPT")
+    private String biAcctPrpt;
+    @Column(name = "PRCP_WITH_METH_CD")
+    private String prcpWithMethCd;
+    @Column(name = "INT_WITH_METH_CD")
+    private String intWithMethCd;
+    @Column(name = "PRCP_ACCT_NO")
+    private String prcpAcctNo;
+    @Column(name = "INT_ACCT_NO")
+    private String intAcctNo;
+    @Column(name = "PRCP_TMPL_CD")
+    private BigDecimal prcpTmplCd;
+    @Column(name = "INT_TMPL_CD")
+    private BigDecimal intTmplCd;
+    @Column(name = "CERT_NO")
+    private String certNo;
+    @Column(name = "SEND_ADDR_DV")
+    private String sendAddrDv;
+    @Column(name = "COM_BIT")
+    private String comBit;
+    @Column(name = "AMT1")
+    private BigDecimal amt1;
+    @Column(name = "AMT2")
+    private BigDecimal amt2;
+    @Column(name = "AMT3")
+    private BigDecimal amt3;
+    @Column(name = "AMT4")
+    private BigDecimal amt4;
+    @Column(name = "AMT5")
+    private BigDecimal amt5;
+    @Column(name = "AMT6")
+    private BigDecimal amt6;
+    @Column(name = "AMT7")
+    private BigDecimal amt7;
+    @Column(name = "AMT8")
+    private BigDecimal amt8;
+    @Column(name = "AMT9")
+    private BigDecimal amt9;
+    @Column(name = "AMT10")
+    private BigDecimal amt10;
+    @Column(name = "CD1")
+    private String cd1;
+    @Column(name = "CD2")
+    private String cd2;
+    @Column(name = "CD3")
+    private String cd3;
+    @Column(name = "CD4")
+    private String cd4;
+    @Column(name = "CD5")
+    private String cd5;
+    @Column(name = "CD6")
+    private String cd6;
+    @Column(name = "CD7")
+    private String cd7;
+    @Column(name = "CD8")
+    private String cd8;
+    @Column(name = "CD9")
+    private String cd9;
+    @Column(name = "CD10")
+    private String cd10;
+    @Column(name = "RT1")
+    private BigDecimal rt1;
+    @Column(name = "RT2")
+    private BigDecimal rt2;
+    @Column(name = "RT3")
+    private BigDecimal rt3;
+    @Column(name = "RT4")
+    private BigDecimal rt4;
+    @Column(name = "RT5")
+    private BigDecimal rt5;
+    @Column(name = "DT1")
+    private Date dt1;
+    @Column(name = "DT2")
+    private Date dt2;
+    @Column(name = "DT3")
+    private Date dt3;
+    @Column(name = "DT4")
+    private Date dt4;
+    @Column(name = "DT5")
+    private Date dt5;
+    @Column(name = "REG_EMP_NO")
+    private String regEmpNo;
+    @Column(name = "REG_DT")
+    private Date regDt;
+    @Column(name = "REG_TM")
+    private String regTm;
+    @Column(name = "UPD_EMP_NO")
+    private String updEmpNo;
+    @Column(name = "UPD_DT")
+    private Date updDt;
+    @Column(name = "UPD_TM")
+    private String updTm;
+    @Column(name = "PWD_LOSS_GB")
+    private String pwdLossGb;
 } 

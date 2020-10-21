@@ -24,7 +24,7 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
             List<ACOM_LMT_BASEHISInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("D:\\ACOM_LMT_BASEHIS.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
 
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
