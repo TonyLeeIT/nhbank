@@ -1,218 +1,221 @@
-package nhbank.core.domain; 
-import lombok.Data; 
-import javax.persistence.*; 
-import java.io.Serializable; 
-import java.math.BigDecimal; 
-import java.util.Date; 
-@Entity 
-@IdClass(ADST_LNB_ITMInfo_ID.class) 
-@Table(name = "ADST_LNB_ITM") 
-@Data 
-public class ADST_LNB_ITMInfo implements Serializable { 
-@Id 
-@Column(name = "REF_NO") 
-private String refNo; 
-@Id 
-@Column(name = "HIS_NO") 
-private BigDecimal hisNo; 
-@Column(name = "STS") 
-private String sts; 
-@Column(name = "TR_CD") 
-private String trCd; 
-@Column(name = "ITM_CD") 
-private String itmCd; 
-@Column(name = "BF_TOT_EXP_IL") 
-private Date bfTotExpIl; 
-@Column(name = "AF_TOT_EXP_IL") 
-private Date afTotExpIl; 
-@Column(name = "BF_REAL_EXP_IL") 
-private Date bfRealExpIl; 
-@Column(name = "AF_REAL_EXP_IL") 
-private Date afRealExpIl; 
-@Column(name = "BF_REPAY_GB") 
-private String bfRepayGb; 
-@Column(name = "AF_REPAY_GB") 
-private String afRepayGb; 
-@Column(name = "BF_SCH_GB") 
-private String bfSchGb; 
-@Column(name = "AF_SCH_GB") 
-private String afSchGb; 
-@Column(name = "BF_ACCRUAL_GB") 
-private String bfAccrualGb; 
-@Column(name = "AF_ACCRUAL_GB") 
-private String afAccrualGb; 
-@Column(name = "BF_ACT_GB") 
-private String bfActGb; 
-@Column(name = "AF_ACT_GB") 
-private String afActGb; 
-@Column(name = "BF_GRACE_DAYS") 
-private BigDecimal bfGraceDays; 
-@Column(name = "AF_GRACE_DAYS") 
-private BigDecimal afGraceDays; 
-@Column(name = "BF_TIMES_PAST") 
-private BigDecimal bfTimesPast; 
-@Column(name = "AF_TIMES_PAST") 
-private BigDecimal afTimesPast; 
-@Column(name = "BF_INT_ADJ_YN") 
-private String bfIntAdjYn; 
-@Column(name = "AF_INT_ADJ_YN") 
-private String afIntAdjYn; 
-@Column(name = "BF_EVID_NO") 
-private String bfEvidNo; 
-@Column(name = "AF_EVID_NO") 
-private String afEvidNo; 
-@Column(name = "BF_EVID_CCY") 
-private String bfEvidCcy; 
-@Column(name = "AF_EVID_CCY") 
-private String afEvidCcy; 
-@Column(name = "BF_EVID_AMT") 
-private BigDecimal bfEvidAmt; 
-@Column(name = "AF_EVID_AMT") 
-private BigDecimal afEvidAmt; 
-@Column(name = "BF_AUTO_DEBIT_YN") 
-private String bfAutoDebitYn; 
-@Column(name = "AF_AUTO_DEBIT_YN") 
-private String afAutoDebitYn; 
-@Column(name = "BF_LAST_CHG_YN") 
-private String bfLastChgYn; 
-@Column(name = "AF_LAST_CHG_YN") 
-private String afLastChgYn; 
-@Column(name = "BF_LAST_CHG_RT") 
-private BigDecimal bfLastChgRt; 
-@Column(name = "AF_LAST_CHG_RT") 
-private BigDecimal afLastChgRt; 
-@Column(name = "BF_PAST_DUE_RT") 
-private BigDecimal bfPastDueRt; 
-@Column(name = "AF_PAST_DUE_RT") 
-private BigDecimal afPastDueRt; 
-@Column(name = "BF_ACCRUAL_RT") 
-private BigDecimal bfAccrualRt; 
-@Column(name = "AF_ACCRUAL_RT") 
-private BigDecimal afAccrualRt; 
-@Column(name = "BF_REPAY_GAP") 
-private BigDecimal bfRepayGap; 
-@Column(name = "AF_REPAY_GAP") 
-private BigDecimal afRepayGap; 
-@Column(name = "BF_REPAY_GAP_GB") 
-private String bfRepayGapGb; 
-@Column(name = "AF_REPAY_GAP_GB") 
-private String afRepayGapGb; 
-@Column(name = "BF_REPAY_TERM") 
-private BigDecimal bfRepayTerm; 
-@Column(name = "AF_REPAY_TERM") 
-private BigDecimal afRepayTerm; 
-@Column(name = "BF_REPAY_ADJ_SEQ") 
-private BigDecimal bfRepayAdjSeq; 
-@Column(name = "AF_REPAY_ADJ_SEQ") 
-private BigDecimal afRepayAdjSeq; 
-@Column(name = "BF_PRN_YC_GB") 
-private String bfPrnYcGb; 
-@Column(name = "AF_PRN_YC_GB") 
-private String afPrnYcGb; 
-@Column(name = "BF_PRN_YC_IL") 
-private Date bfPrnYcIl; 
-@Column(name = "AF_PRN_YC_IL") 
-private Date afPrnYcIl; 
-@Column(name = "BF_GUCH_TERM") 
-private BigDecimal bfGuchTerm; 
-@Column(name = "AF_GUCH_TERM") 
-private BigDecimal afGuchTerm; 
-@Column(name = "BF_INT_GAP") 
-private BigDecimal bfIntGap; 
-@Column(name = "AF_INT_GAP") 
-private BigDecimal afIntGap; 
-@Column(name = "BF_INT_GAP_GB") 
-private String bfIntGapGb; 
-@Column(name = "AF_INT_GAP_GB") 
-private String afIntGapGb; 
-@Column(name = "BF_INT_ADJ_SEQ") 
-private BigDecimal bfIntAdjSeq; 
-@Column(name = "AF_INT_ADJ_SEQ") 
-private BigDecimal afIntAdjSeq; 
-@Column(name = "BF_INT_YC_GB") 
-private String bfIntYcGb; 
-@Column(name = "AF_INT_YC_GB") 
-private String afIntYcGb; 
-@Column(name = "BF_INT_YC_IL") 
-private Date bfIntYcIl; 
-@Column(name = "AF_INT_YC_IL") 
-private Date afIntYcIl; 
-@Column(name = "BF_ADV_ARR_GB") 
-private String bfAdvArrGb; 
-@Column(name = "AF_ADV_ARR_GB") 
-private String afAdvArrGb; 
-@Column(name = "BF_SINGLE_BOTH_TYPE") 
-private String bfSingleBothType; 
-@Column(name = "AF_SINGLE_BOTH_TYPE") 
-private String afSingleBothType; 
-@Column(name = "BF_ACCR_TYPE") 
-private String bfAccrType; 
-@Column(name = "AF_ACCR_TYPE") 
-private String afAccrType; 
-@Column(name = "BF_BSNS_DAY_RULE") 
-private String bfBsnsDayRule; 
-@Column(name = "AF_BSNS_DAY_RULE") 
-private String afBsnsDayRule; 
-@Column(name = "BF_ROLL_GAP") 
-private BigDecimal bfRollGap; 
-@Column(name = "AF_ROLL_GAP") 
-private BigDecimal afRollGap; 
-@Column(name = "BF_ROLL_GAP_GB") 
-private String bfRollGapGb; 
-@Column(name = "AF_ROLL_GAP_GB") 
-private String afRollGapGb; 
-@Column(name = "BF_FIX_FLT_GB") 
-private String bfFixFltGb; 
-@Column(name = "AF_FIX_FLT_GB") 
-private String afFixFltGb; 
-@Column(name = "BF_SPREAD_GB") 
-private String bfSpreadGb; 
-@Column(name = "AF_SPREAD_GB") 
-private String afSpreadGb; 
-@Column(name = "BF_SPREAD_RT") 
-private BigDecimal bfSpreadRt; 
-@Column(name = "AF_SPREAD_RT") 
-private BigDecimal afSpreadRt; 
-@Column(name = "BF_LST_RT") 
-private BigDecimal bfLstRt; 
-@Column(name = "AF_LST_RT") 
-private BigDecimal afLstRt; 
-@Column(name = "BF_RATE_CHG_YN") 
-private String bfRateChgYn; 
-@Column(name = "AF_RATE_CHG_YN") 
-private String afRateChgYn; 
-@Column(name = "FST_IB_IL") 
-private Date fstIbIl; 
-@Column(name = "LST_AC_IL") 
-private Date lstAcIl; 
-@Column(name = "LST_IB_IL") 
-private Date lstIbIl; 
-@Column(name = "BF_NX_ROLL_IL") 
-private Date bfNxRollIl; 
-@Column(name = "AF_NX_ROLL_IL") 
-private Date afNxRollIl; 
-@Column(name = "BF_NXT_RT") 
-private BigDecimal bfNxtRt; 
-@Column(name = "AF_NXT_RT") 
-private BigDecimal afNxtRt; 
-@Column(name = "BF_NXT_SCH_YN") 
-private String bfNxtSchYn; 
-@Column(name = "AF_NXT_SCH_YN") 
-private String afNxtSchYn; 
-@Column(name = "BF_NEW_SCH_YN") 
-private String bfNewSchYn; 
-@Column(name = "AF_NEW_SCH_YN") 
-private String afNewSchYn; 
-@Column(name = "REG_EMP_NO") 
-private String regEmpNo; 
-@Column(name = "REG_DT") 
-private Date regDt; 
-@Column(name = "REG_TM") 
-private String regTm; 
-@Column(name = "UPD_EMP_NO") 
-private String updEmpNo; 
-@Column(name = "UPD_DT") 
-private Date updDt; 
-@Column(name = "UPD_TM") 
-private String updTm; 
+package nhbank.core.domain;
+
+import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+
+@Entity
+@IdClass(ADST_LNB_ITMInfo_ID.class)
+@Table(name = "ADST_LNB_ITM")
+@Data
+public class ADST_LNB_ITMInfo implements Serializable {
+    @Id
+    @Column(name = "REF_NO")
+    private String refNo;
+    @Id
+    @Column(name = "HIS_NO")
+    private BigDecimal hisNo;
+    @Column(name = "STS")
+    private String sts;
+    @Column(name = "TR_CD")
+    private String trCd;
+    @Column(name = "ITM_CD")
+    private String itmCd;
+    @Column(name = "BF_TOT_EXP_IL")
+    private Date bfTotExpIl;
+    @Column(name = "AF_TOT_EXP_IL")
+    private Date afTotExpIl;
+    @Column(name = "BF_REAL_EXP_IL")
+    private Date bfRealExpIl;
+    @Column(name = "AF_REAL_EXP_IL")
+    private Date afRealExpIl;
+    @Column(name = "BF_REPAY_GB")
+    private String bfRepayGb;
+    @Column(name = "AF_REPAY_GB")
+    private String afRepayGb;
+    @Column(name = "BF_SCH_GB")
+    private String bfSchGb;
+    @Column(name = "AF_SCH_GB")
+    private String afSchGb;
+    @Column(name = "BF_ACCRUAL_GB")
+    private String bfAccrualGb;
+    @Column(name = "AF_ACCRUAL_GB")
+    private String afAccrualGb;
+    @Column(name = "BF_ACT_GB")
+    private String bfActGb;
+    @Column(name = "AF_ACT_GB")
+    private String afActGb;
+    @Column(name = "BF_GRACE_DAYS")
+    private BigDecimal bfGraceDays;
+    @Column(name = "AF_GRACE_DAYS")
+    private BigDecimal afGraceDays;
+    @Column(name = "BF_TIMES_PAST")
+    private BigDecimal bfTimesPast;
+    @Column(name = "AF_TIMES_PAST")
+    private BigDecimal afTimesPast;
+    @Column(name = "BF_INT_ADJ_YN")
+    private String bfIntAdjYn;
+    @Column(name = "AF_INT_ADJ_YN")
+    private String afIntAdjYn;
+    @Column(name = "BF_EVID_NO")
+    private String bfEvidNo;
+    @Column(name = "AF_EVID_NO")
+    private String afEvidNo;
+    @Column(name = "BF_EVID_CCY")
+    private String bfEvidCcy;
+    @Column(name = "AF_EVID_CCY")
+    private String afEvidCcy;
+    @Column(name = "BF_EVID_AMT")
+    private BigDecimal bfEvidAmt;
+    @Column(name = "AF_EVID_AMT")
+    private BigDecimal afEvidAmt;
+    @Column(name = "BF_AUTO_DEBIT_YN")
+    private String bfAutoDebitYn;
+    @Column(name = "AF_AUTO_DEBIT_YN")
+    private String afAutoDebitYn;
+    @Column(name = "BF_LAST_CHG_YN")
+    private String bfLastChgYn;
+    @Column(name = "AF_LAST_CHG_YN")
+    private String afLastChgYn;
+    @Column(name = "BF_LAST_CHG_RT")
+    private BigDecimal bfLastChgRt;
+    @Column(name = "AF_LAST_CHG_RT")
+    private BigDecimal afLastChgRt;
+    @Column(name = "BF_PAST_DUE_RT")
+    private BigDecimal bfPastDueRt;
+    @Column(name = "AF_PAST_DUE_RT")
+    private BigDecimal afPastDueRt;
+    @Column(name = "BF_ACCRUAL_RT")
+    private BigDecimal bfAccrualRt;
+    @Column(name = "AF_ACCRUAL_RT")
+    private BigDecimal afAccrualRt;
+    @Column(name = "BF_REPAY_GAP")
+    private BigDecimal bfRepayGap;
+    @Column(name = "AF_REPAY_GAP")
+    private BigDecimal afRepayGap;
+    @Column(name = "BF_REPAY_GAP_GB")
+    private String bfRepayGapGb;
+    @Column(name = "AF_REPAY_GAP_GB")
+    private String afRepayGapGb;
+    @Column(name = "BF_REPAY_TERM")
+    private BigDecimal bfRepayTerm;
+    @Column(name = "AF_REPAY_TERM")
+    private BigDecimal afRepayTerm;
+    @Column(name = "BF_REPAY_ADJ_SEQ")
+    private BigDecimal bfRepayAdjSeq;
+    @Column(name = "AF_REPAY_ADJ_SEQ")
+    private BigDecimal afRepayAdjSeq;
+    @Column(name = "BF_PRN_YC_GB")
+    private String bfPrnYcGb;
+    @Column(name = "AF_PRN_YC_GB")
+    private String afPrnYcGb;
+    @Column(name = "BF_PRN_YC_IL")
+    private Date bfPrnYcIl;
+    @Column(name = "AF_PRN_YC_IL")
+    private Date afPrnYcIl;
+    @Column(name = "BF_GUCH_TERM")
+    private BigDecimal bfGuchTerm;
+    @Column(name = "AF_GUCH_TERM")
+    private BigDecimal afGuchTerm;
+    @Column(name = "BF_INT_GAP")
+    private BigDecimal bfIntGap;
+    @Column(name = "AF_INT_GAP")
+    private BigDecimal afIntGap;
+    @Column(name = "BF_INT_GAP_GB")
+    private String bfIntGapGb;
+    @Column(name = "AF_INT_GAP_GB")
+    private String afIntGapGb;
+    @Column(name = "BF_INT_ADJ_SEQ")
+    private BigDecimal bfIntAdjSeq;
+    @Column(name = "AF_INT_ADJ_SEQ")
+    private BigDecimal afIntAdjSeq;
+    @Column(name = "BF_INT_YC_GB")
+    private String bfIntYcGb;
+    @Column(name = "AF_INT_YC_GB")
+    private String afIntYcGb;
+    @Column(name = "BF_INT_YC_IL")
+    private Date bfIntYcIl;
+    @Column(name = "AF_INT_YC_IL")
+    private Date afIntYcIl;
+    @Column(name = "BF_ADV_ARR_GB")
+    private String bfAdvArrGb;
+    @Column(name = "AF_ADV_ARR_GB")
+    private String afAdvArrGb;
+    @Column(name = "BF_SINGLE_BOTH_TYPE")
+    private String bfSingleBothType;
+    @Column(name = "AF_SINGLE_BOTH_TYPE")
+    private String afSingleBothType;
+    @Column(name = "BF_ACCR_TYPE")
+    private String bfAccrType;
+    @Column(name = "AF_ACCR_TYPE")
+    private String afAccrType;
+    @Column(name = "BF_BSNS_DAY_RULE")
+    private String bfBsnsDayRule;
+    @Column(name = "AF_BSNS_DAY_RULE")
+    private String afBsnsDayRule;
+    @Column(name = "BF_ROLL_GAP")
+    private BigDecimal bfRollGap;
+    @Column(name = "AF_ROLL_GAP")
+    private BigDecimal afRollGap;
+    @Column(name = "BF_ROLL_GAP_GB")
+    private String bfRollGapGb;
+    @Column(name = "AF_ROLL_GAP_GB")
+    private String afRollGapGb;
+    @Column(name = "BF_FIX_FLT_GB")
+    private String bfFixFltGb;
+    @Column(name = "AF_FIX_FLT_GB")
+    private String afFixFltGb;
+    @Column(name = "BF_SPREAD_GB")
+    private String bfSpreadGb;
+    @Column(name = "AF_SPREAD_GB")
+    private String afSpreadGb;
+    @Column(name = "BF_SPREAD_RT")
+    private BigDecimal bfSpreadRt;
+    @Column(name = "AF_SPREAD_RT")
+    private BigDecimal afSpreadRt;
+    @Column(name = "BF_LST_RT")
+    private BigDecimal bfLstRt;
+    @Column(name = "AF_LST_RT")
+    private BigDecimal afLstRt;
+    @Column(name = "BF_RATE_CHG_YN")
+    private String bfRateChgYn;
+    @Column(name = "AF_RATE_CHG_YN")
+    private String afRateChgYn;
+    @Column(name = "FST_IB_IL")
+    private Date fstIbIl;
+    @Column(name = "LST_AC_IL")
+    private Date lstAcIl;
+    @Column(name = "LST_IB_IL")
+    private Date lstIbIl;
+    @Column(name = "BF_NX_ROLL_IL")
+    private Date bfNxRollIl;
+    @Column(name = "AF_NX_ROLL_IL")
+    private Date afNxRollIl;
+    @Column(name = "BF_NXT_RT")
+    private BigDecimal bfNxtRt;
+    @Column(name = "AF_NXT_RT")
+    private BigDecimal afNxtRt;
+    @Column(name = "BF_NXT_SCH_YN")
+    private String bfNxtSchYn;
+    @Column(name = "AF_NXT_SCH_YN")
+    private String afNxtSchYn;
+    @Column(name = "BF_NEW_SCH_YN")
+    private String bfNewSchYn;
+    @Column(name = "AF_NEW_SCH_YN")
+    private String afNewSchYn;
+    @Column(name = "REG_EMP_NO")
+    private String regEmpNo;
+    @Column(name = "REG_DT")
+    private Date regDt;
+    @Column(name = "REG_TM")
+    private String regTm;
+    @Column(name = "UPD_EMP_NO")
+    private String updEmpNo;
+    @Column(name = "UPD_DT")
+    private Date updDt;
+    @Column(name = "UPD_TM")
+    private String updTm;
 } 
