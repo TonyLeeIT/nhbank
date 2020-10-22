@@ -75,10 +75,10 @@ public class NHBankController {
                 continue;
             }
             Map<Integer, String> listFields = GenerateUtils.convertFileToObject(file);
-            GenerateUtils.buildModel(file.getName(), listFields);
+//            GenerateUtils.buildModel(file.getName(), listFields);
 //            GenerateUtils.buildDomain(file.getName(), listFields);
             GenerateUtils.buildRepository(file);
-            GenerateUtils.buildServices(file);
+//            GenerateUtils.buildServices(file);
         }
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
@@ -108,7 +108,7 @@ public class NHBankController {
             Map<Integer, String> primaryKeyMap = GenerateUtils.findPrimaryKeys(file);
             GenerateUtils.buildDataMapping(file.getName(), listFields, primaryKeyMap);
             GenerateUtils.buildServices(file);
-            GenerateUtils.buildRepository(file);
+//            GenerateUtils.buildRepository(file);
         }
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }

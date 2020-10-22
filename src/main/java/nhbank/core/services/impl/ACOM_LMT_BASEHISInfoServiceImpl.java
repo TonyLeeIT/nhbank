@@ -121,14 +121,14 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
                 obj.setUpdEmpNo(lineArray[81]);
                 obj.setUpdTm(lineArray[83]);
 
-                if(isExist(obj.getSngNo(), obj.getActCd(), obj.getHisNo(), obj.getHisGb())){
+                if (isExist(obj.getSngNo(), obj.getActCd(), obj.getHisNo(), obj.getHisGb())) {
                     acom_lmt_basehisInfoRepository.save(obj);
                 } else {
                     objList.add(obj);
                 }
             }
 
-            if(!objList.isEmpty())
+            if (!objList.isEmpty())
                 insertAll(objList);
 
         } catch (Exception ex) {

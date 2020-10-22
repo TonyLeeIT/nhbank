@@ -31,7 +31,7 @@ sqlfiles:
     - ACOM_EPB_BASE
     - ACOM_EPB_HIS
     - ACOM_EPB_ITM
-    - ACOM_EPB_RPT
+#    - ACOM_EPB_RPT
     - ACOM_FAB_HIS
     - ACOM_FAB_ITM
     - ACOM_LMT_BASEACT
@@ -49,7 +49,7 @@ sqlfiles:
     - ADST_DPB_HEJI
     - ADST_DPB_HIS
     - ADST_DPB_INFO
-    - ADST_DPB_INRT
+#    - ADST_DPB_INRT
     - ADST_DPB_INTM
     - ADST_DPB_TRAN
     - ADST_DPB_YEDE

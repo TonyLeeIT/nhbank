@@ -191,7 +191,7 @@ public class GenerateUtils {
         }
     }
 
-    public static void buildRepository(File file){
+    public static void buildRepository(File file) {
         String fileName = file.getName();
         String sFileName = fileName.replace(".sql", "");
         Map<Integer, String> primaryKeyMap = findPrimaryKeys(file);
@@ -201,23 +201,23 @@ public class GenerateUtils {
             FileOutputStream outputStream = new FileOutputStream(target);
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
             outStream.writeBytes("package nhbank.core.repositories; \n");
-            outStream.writeBytes("import nhbank.core.domain." + sFileName +"Info; \n");
-            outStream.writeBytes("import nhbank.core.domain." + sFileName +"Info_ID; \n");
+            outStream.writeBytes("import nhbank.core.domain." + sFileName + "Info; \n");
+            outStream.writeBytes("import nhbank.core.domain." + sFileName + "Info_ID; \n");
             outStream.writeBytes("import org.springframework.data.jpa.repository.JpaRepository; \n");
             outStream.writeBytes("import org.springframework.stereotype.Repository; \n");
             outStream.writeBytes("import java.math.BigDecimal; \n");
             outStream.writeBytes("import java.util.Date; \n");
             outStream.writeBytes("import java.util.List;\n");
             outStream.writeBytes("@Repository\n");
-            outStream.writeBytes("public interface "+sFileName+"InfoRepository extends JpaRepository<" +sFileName+"Info, "+sFileName+"Info_ID> { \n");
+            outStream.writeBytes("public interface " + sFileName + "InfoRepository extends JpaRepository<" + sFileName + "Info, " + sFileName + "Info_ID> { \n");
 
             outStream.writeBytes("boolean existsBy");
-            primaryKeyMap.forEach((k,v) ->{
+            primaryKeyMap.forEach((k, v) -> {
                 String propertyName = v.substring(0, v.indexOf("|"));
                 String setter = convertGetterSetter(propertyName);
                 try {
                     outStream.writeBytes(setter);
-                    if ((k < primaryKeyMap.size()-1)) {
+                    if ((k < primaryKeyMap.size() - 1)) {
                         outStream.writeBytes("And");
                     } else {
                         outStream.writeBytes("");
@@ -226,16 +226,17 @@ public class GenerateUtils {
                     e.printStackTrace();
                 }
             });
-            primaryKeyMap.forEach((k,v) ->{
+            outStream.writeBytes("(");
+            primaryKeyMap.forEach((k, v) -> {
                 String propertyName = v.substring(0, v.indexOf("|"));
                 String camelName = convertCamelCase(propertyName);
                 String dataType = v.substring(v.indexOf("|") + 1);
                 try {
-                    switch (dataType){
-                        case Constant.TBL_VARCHAR :
-                            outStream.writeBytes("String "+camelName);
+                    switch (dataType) {
+                        case Constant.TBL_VARCHAR:
+                            outStream.writeBytes("String " + camelName);
                             break;
-                        case Constant.TBL_NUMBER :
+                        case Constant.TBL_NUMBER:
                             outStream.writeBytes("BigDecimal " + camelName);
                             break;
                         case Constant.TBL_DATE:
@@ -244,7 +245,7 @@ public class GenerateUtils {
                         default:
                             break;
                     }
-                    if ((k < primaryKeyMap.size()-1)) {
+                    if ((k < primaryKeyMap.size() - 1)) {
                         outStream.writeBytes(", ");
                     } else {
                         outStream.writeBytes("");
@@ -253,7 +254,7 @@ public class GenerateUtils {
                     e.printStackTrace();
                 }
             });
-            outStream.writeBytes(") \n");
+            outStream.writeBytes("); \n");
             outStream.writeBytes("\n}");
             outStream.close();
         } catch (IOException e) {
@@ -271,7 +272,7 @@ public class GenerateUtils {
             FileOutputStream outputStream = new FileOutputStream(target);
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
             outStream.writeBytes("package nhbank.core.services;\n");
-            outStream.writeBytes("import nhbank.core.domain." + sFileName +"Info; \n");
+            outStream.writeBytes("import nhbank.core.domain." + sFileName + "Info; \n");
             outStream.writeBytes("import java.math.BigDecimal; \n");
             outStream.writeBytes("import java.util.Date; \n");
             outStream.writeBytes("import java.util.List;\n");
@@ -280,16 +281,16 @@ public class GenerateUtils {
             outStream.writeBytes("\tvoid insertAll(List<" + sFileName + "Info> objList);\n");
 
             outStream.writeBytes(" boolean isExist( ");
-            primaryKeyMap.forEach((k,v) ->{
+            primaryKeyMap.forEach((k, v) -> {
                 String propertyName = v.substring(0, v.indexOf("|"));
                 String camelName = convertCamelCase(propertyName);
                 String dataType = v.substring(v.indexOf("|") + 1);
                 try {
-                    switch (dataType){
-                        case Constant.TBL_VARCHAR :
-                            outStream.writeBytes("String "+camelName);
+                    switch (dataType) {
+                        case Constant.TBL_VARCHAR:
+                            outStream.writeBytes("String " + camelName);
                             break;
-                        case Constant.TBL_NUMBER :
+                        case Constant.TBL_NUMBER:
                             outStream.writeBytes("BigDecimal " + camelName);
                             break;
                         case Constant.TBL_DATE:
@@ -298,7 +299,7 @@ public class GenerateUtils {
                         default:
                             break;
                     }
-                    if ((k < primaryKeyMap.size()-1)) {
+                    if ((k < primaryKeyMap.size() - 1)) {
                         outStream.writeBytes(", ");
                     } else {
                         outStream.writeBytes("");
@@ -307,7 +308,7 @@ public class GenerateUtils {
                     e.printStackTrace();
                 }
             });
-            outStream.writeBytes(") \n");
+            outStream.writeBytes(");\n");
             outStream.writeBytes("\n}");
             outStream.close();
         } catch (IOException ex) {
@@ -323,7 +324,7 @@ public class GenerateUtils {
             String[] primaryKeyArray = new String[]{};
             while (currentLine != null) {
                 String primaryKey = "";
-                if (currentLine.contains("GRANT UPDATE")) {
+                if (currentLine.contains("GRANT SELECT")) {
                     break;
                 }
                 if (currentLine.contains("ADD CONSTRAINT")) {
@@ -354,7 +355,7 @@ public class GenerateUtils {
             String currentLine = reader.readLine();
             while (currentLine != null) {
                 String key = "";
-                if (currentLine.contains("GRANT UPDATE")) {
+                if (currentLine.contains("TABLESPACE")) {
                     break;
                 }
                 if (currentLine.contains(Constant.TBL_VARCHAR)) {
@@ -386,6 +387,7 @@ public class GenerateUtils {
         }
         return field;
     }
+
     public static void buildDataMapping(String fileName, Map<Integer, String> listFields, Map<Integer, String> primaryKeyMap) {
         String sFileName = fileName.replace(".sql", "");
         try {
@@ -395,9 +397,9 @@ public class GenerateUtils {
             FileOutputStream fileOutputStream = new FileOutputStream(target);
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fileOutputStream));
             outStream.writeBytes("package nhbank.core.services.impl; \n");
-            outStream.writeBytes("import nhbank.core.domain." + sFileName +"Info; \n");
+            outStream.writeBytes("import nhbank.core.domain." + sFileName + "Info; \n");
             outStream.writeBytes("import nhbank.core.repositories." + sFileName + "InfoRepository;\n");
-            outStream.writeBytes("import nhbank.core.repositories." + sFileName + "InfoService;\n");
+            outStream.writeBytes("import nhbank.core.services." + sFileName + "InfoService;\n");
             outStream.writeBytes("import org.springframework.beans.factory.annotation.Autowired;\n");
             outStream.writeBytes("import org.springframework.stereotype.Service;\n");
             outStream.writeBytes("import java.io.*;\n");
@@ -405,19 +407,19 @@ public class GenerateUtils {
             outStream.writeBytes("import java.math.BigDecimal;\n");
             outStream.writeBytes("import java.text.SimpleDateFormat;\n");
             outStream.writeBytes("@Service \n");
-            outStream.writeBytes("public class " + sFileName +"InfoServiceImpl implements "+sFileName +"Service { \n");
+            outStream.writeBytes("public class " + sFileName + "InfoServiceImpl implements " + sFileName + "InfoService { \n");
             outStream.writeBytes("@Autowired \n");
-            outStream.writeBytes(sFileName+"InfoRepository " + sFileName.toLowerCase() + "InfoRepository; \n");
+            outStream.writeBytes(sFileName + "InfoRepository " + sFileName.toLowerCase() + "InfoRepository; \n");
             outStream.writeBytes("@Override \n");
             outStream.writeBytes("public void updateAll() { \n");
             outStream.writeBytes(" try { \n");
-            outStream.writeBytes("List<" + sFileName+"Info" +"> objList = new ArrayList<>();\n");
+            outStream.writeBytes("List<" + sFileName + "Info" + "> objList = new ArrayList<>();\n");
             outStream.writeBytes("SimpleDateFormat formatter = new SimpleDateFormat(\"yyyy/MM/dd\");\n");
             outStream.writeBytes("String line;");
             outStream.writeBytes("BufferedReader br = new BufferedReader(new FileReader(\"E:\\\\ACOM_LMT_BASEHIS.txt\"));\n");
             outStream.writeBytes("   while ((line = br.readLine()) != null) {\n");
             outStream.writeBytes("String[] lineArray = line.split(\"\\\\|\"); \n");
-            outStream.writeBytes(sFileName+"Info obj = new " +sFileName+"Info(); \n");
+            outStream.writeBytes(sFileName + "Info obj = new " + sFileName + "Info(); \n");
             AtomicInteger i = new AtomicInteger();
             listFields.forEach((k, v) -> {
                 String propertyName = v.substring(0, v.indexOf("|"));
@@ -426,7 +428,7 @@ public class GenerateUtils {
                 switch (dataType) {
                     case Constant.TBL_VARCHAR:
                         try {
-                            outStream.writeBytes("obj.set" + setter + "(lineArray[" + i + "];\n");
+                            outStream.writeBytes("obj.set" + setter + "(lineArray[" + i + "]);\n");
                             i.getAndIncrement();
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -442,7 +444,7 @@ public class GenerateUtils {
                         break;
                     case Constant.TBL_DATE:
                         try {
-                            outStream.writeBytes("obj.set" + setter + "((lineArray[" + i + "].equals(\"\")) ? null : formatter.parse(lineArray["+ i +"])); \n");
+                            outStream.writeBytes("obj.set" + setter + "((lineArray[" + i + "].equals(\"\")) ? null : formatter.parse(lineArray[" + i + "])); \n");
                             i.getAndIncrement();
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -453,12 +455,12 @@ public class GenerateUtils {
             });
 
             outStream.writeBytes("if (isExist(");
-            primaryKeyMap.forEach((k,v) ->{
+            primaryKeyMap.forEach((k, v) -> {
                 String propertyName = v.substring(0, v.indexOf("|"));
                 String getter = convertGetterSetter(propertyName);
                 try {
-                    outStream.writeBytes("obj.get" + getter +"()");
-                    if ((k < primaryKeyMap.size()-1)) {
+                    outStream.writeBytes("obj.get" + getter + "()");
+                    if ((k < primaryKeyMap.size() - 1)) {
                         outStream.writeBytes(",");
                     } else {
                         outStream.writeBytes("");
@@ -468,7 +470,7 @@ public class GenerateUtils {
                 }
             });
             outStream.writeBytes(")) { \n");
-            outStream.writeBytes(sFileName.toLowerCase()+ "InfoRepository.save(obj); \n");
+            outStream.writeBytes(sFileName.toLowerCase() + "InfoRepository.save(obj); \n");
             outStream.writeBytes("} else {\n");
             outStream.writeBytes("objList.add(obj);\n");
             outStream.writeBytes("}\n");
@@ -480,21 +482,21 @@ public class GenerateUtils {
             outStream.writeBytes("}\n");
             outStream.writeBytes("}\n");
             outStream.writeBytes("@Override\n");
-            outStream.writeBytes("public void insertAll(List<"+ sFileName+"Info> objList) {\n");
-            outStream.writeBytes(sFileName+"InfoRepository.saveAll(objList);\n");
+            outStream.writeBytes("public void insertAll(List<" + sFileName + "Info> objList) {\n");
+            outStream.writeBytes(sFileName.toLowerCase() + "InfoRepository.saveAll(objList);\n");
             outStream.writeBytes("}\n");
             outStream.writeBytes("@Override\n");
             outStream.writeBytes(" public boolean isExist( ");
-            primaryKeyMap.forEach((k,v) ->{
+            primaryKeyMap.forEach((k, v) -> {
                 String propertyName = v.substring(0, v.indexOf("|"));
                 String camelName = convertCamelCase(propertyName);
                 String dataType = v.substring(v.indexOf("|") + 1);
                 try {
-                    switch (dataType){
-                        case Constant.TBL_VARCHAR :
-                            outStream.writeBytes("String "+camelName);
+                    switch (dataType) {
+                        case Constant.TBL_VARCHAR:
+                            outStream.writeBytes("String " + camelName);
                             break;
-                        case Constant.TBL_NUMBER :
+                        case Constant.TBL_NUMBER:
                             outStream.writeBytes("BigDecimal " + camelName);
                             break;
                         case Constant.TBL_DATE:
@@ -503,7 +505,7 @@ public class GenerateUtils {
                         default:
                             break;
                     }
-                    if ((k < primaryKeyMap.size()-1)) {
+                    if ((k < primaryKeyMap.size() - 1)) {
                         outStream.writeBytes(", ");
                     } else {
                         outStream.writeBytes("");
@@ -512,14 +514,14 @@ public class GenerateUtils {
                     e.printStackTrace();
                 }
             });
-            outStream.writeBytes(") \n");
-            outStream.writeBytes(" return "+ sFileName.toLowerCase() +"InfoRepository.existsBy");
-            primaryKeyMap.forEach((k,v) ->{
+            outStream.writeBytes("){ \n");
+            outStream.writeBytes(" return " + sFileName.toLowerCase() + "InfoRepository.existsBy");
+            primaryKeyMap.forEach((k, v) -> {
                 String propertyName = v.substring(0, v.indexOf("|"));
                 String setter = convertGetterSetter(propertyName);
                 try {
                     outStream.writeBytes(setter);
-                    if ((k < primaryKeyMap.size()-1)) {
+                    if ((k < primaryKeyMap.size() - 1)) {
                         outStream.writeBytes("And");
                     } else {
                         outStream.writeBytes("");
@@ -529,12 +531,12 @@ public class GenerateUtils {
                 }
             });
             outStream.writeBytes("(");
-            primaryKeyMap.forEach((k,v) ->{
+            primaryKeyMap.forEach((k, v) -> {
                 String propertyName = v.substring(0, v.indexOf("|"));
                 String camelName = convertCamelCase(propertyName);
                 try {
                     outStream.writeBytes(camelName);
-                    if ((k < primaryKeyMap.size()-1)) {
+                    if ((k < primaryKeyMap.size() - 1)) {
                         outStream.writeBytes(", ");
                     } else {
                         outStream.writeBytes("");
@@ -557,10 +559,12 @@ public class GenerateUtils {
         return toCamelCase(s).substring(0, 1).toLowerCase() +
                 toCamelCase(s).substring(1);
     }
-    static String convertGetterSetter(String s){
+
+    static String convertGetterSetter(String s) {
         return toCamelCase(s).substring(0, 1).toUpperCase() +
                 toCamelCase(s).substring(1);
     }
+
     static String toCamelCase(String s) {
         String[] parts = s.split("_");
         String camelCaseString = "";
