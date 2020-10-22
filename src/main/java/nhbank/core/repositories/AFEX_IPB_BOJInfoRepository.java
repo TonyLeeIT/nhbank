@@ -6,8 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
 
 @Repository
 public interface AFEX_IPB_BOJInfoRepository extends JpaRepository<AFEX_IPB_BOJInfo, AFEX_IPB_BOJInfo_ID> {

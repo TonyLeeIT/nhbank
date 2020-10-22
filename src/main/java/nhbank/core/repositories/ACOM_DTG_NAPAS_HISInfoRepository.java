@@ -6,8 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
 
 @Repository
 public interface ACOM_DTG_NAPAS_HISInfoRepository extends JpaRepository<ACOM_DTG_NAPAS_HISInfo, ACOM_DTG_NAPAS_HISInfo_ID> {

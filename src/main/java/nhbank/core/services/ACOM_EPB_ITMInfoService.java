@@ -3,7 +3,6 @@ package nhbank.core.services;
 import nhbank.core.domain.ACOM_EPB_ITMInfo;
 
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 
 public interface ACOM_EPB_ITMInfoService {

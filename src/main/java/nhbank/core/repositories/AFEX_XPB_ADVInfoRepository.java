@@ -6,8 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
 
 @Repository
 public interface AFEX_XPB_ADVInfoRepository extends JpaRepository<AFEX_XPB_ADVInfo, AFEX_XPB_ADVInfo_ID> {

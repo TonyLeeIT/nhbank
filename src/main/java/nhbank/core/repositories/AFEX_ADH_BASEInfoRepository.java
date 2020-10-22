@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 @Repository
 public interface AFEX_ADH_BASEInfoRepository extends JpaRepository<AFEX_ADH_BASEInfo, AFEX_ADH_BASEInfo_ID> {

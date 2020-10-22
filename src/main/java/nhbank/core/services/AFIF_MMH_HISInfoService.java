@@ -3,7 +3,6 @@ package nhbank.core.services;
 import nhbank.core.domain.AFIF_MMH_HISInfo;
 
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 
 public interface AFIF_MMH_HISInfoService {

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 @Repository
 public interface AFTR_FFH_COMM_TRSC_PTCLInfoRepository extends JpaRepository<AFTR_FFH_COMM_TRSC_PTCLInfo, AFTR_FFH_COMM_TRSC_PTCLInfo_ID> {

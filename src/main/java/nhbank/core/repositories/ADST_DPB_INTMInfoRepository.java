@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 @Repository
 public interface ADST_DPB_INTMInfoRepository extends JpaRepository<ADST_DPB_INTMInfo, ADST_DPB_INTMInfo_ID> {

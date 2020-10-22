@@ -1,7 +1,6 @@
 package nhbank.core.util;
 
 import nhbank.core.constant.Constant;
-
 import org.springframework.stereotype.Component;
 
 import java.io.*;

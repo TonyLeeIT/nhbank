@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 @Repository
 public interface AFEX_RCH_RECONInfoRepository extends JpaRepository<AFEX_RCH_RECONInfo, AFEX_RCH_RECONInfo_ID> {
