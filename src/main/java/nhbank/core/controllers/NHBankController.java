@@ -279,7 +279,6 @@ public class NHBankController {
         File directoryPath = new File("E:\\NHBANK_TARGET\\NH_BANK");
         //List of all files and directories
         File[] filesList = directoryPath.listFiles();
-        System.out.println("List of files and directories in the specified directory:");
         for (File file : filesList) {
             if (!file.getName().endsWith(".sql")) {
                 continue;
