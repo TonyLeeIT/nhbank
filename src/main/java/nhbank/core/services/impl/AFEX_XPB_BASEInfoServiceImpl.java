@@ -114,7 +114,7 @@ public class AFEX_XPB_BASEInfoServiceImpl implements AFEX_XPB_BASEInfoService {
                 obj.setHdSngNo(lineArray[85]);
                 obj.setIjaLisuIl((lineArray[86].equals("")) ? null : formatter.parse(lineArray[86]));
                 obj.setLstIjaHrt(new BigDecimal(lineArray[87]));
-                obj.setLstIjaHRt(new BigDecimal(lineArray[88]));
+                obj.setLstIjaHRt2(new BigDecimal(lineArray[88]));
                 obj.setGaWijaGb(lineArray[89]);
                 obj.setIjaMjGb1(lineArray[90]);
                 obj.setIjaMjGb2(lineArray[91]);

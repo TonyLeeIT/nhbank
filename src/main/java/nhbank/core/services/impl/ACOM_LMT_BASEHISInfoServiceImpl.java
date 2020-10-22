@@ -6,16 +6,13 @@ import nhbank.core.services.ACOM_LMT_BASEHISInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
+import java.util.*;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoService {
-
     @Autowired
     ACOM_LMT_BASEHISInfoRepository acom_lmt_basehisInfoRepository;
 
@@ -26,11 +23,9 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
-
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_LMT_BASEHISInfo obj = new ACOM_LMT_BASEHISInfo();
-
                 obj.setSngNo(lineArray[0]);
                 obj.setActCd(lineArray[1]);
                 obj.setHisNo(new BigDecimal(lineArray[2]));
@@ -40,15 +35,6 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
                 obj.setAcIl((lineArray[6].equals("")) ? null : formatter.parse(lineArray[6]));
                 obj.setGisIl((lineArray[7].equals("")) ? null : formatter.parse(lineArray[7]));
                 obj.setCanIl((lineArray[8].equals("")) ? null : formatter.parse(lineArray[8]));
-                obj.setExpIl((lineArray[18].equals("")) ? null : formatter.parse(lineArray[18]));
-                obj.setSngIl((lineArray[19].equals("")) ? null : formatter.parse(lineArray[19]));
-                obj.setSilLstil((lineArray[34].equals("")) ? null : formatter.parse(lineArray[34]));
-                obj.setIsIl((lineArray[48].equals("")) ? null : formatter.parse(lineArray[48]));
-                obj.setIkIl((lineArray[52].equals("")) ? null : formatter.parse(lineArray[52]));
-                obj.setLstIbil((lineArray[55].equals("")) ? null : formatter.parse(lineArray[55]));
-                obj.setRegDt((lineArray[79].equals("")) ? null : formatter.parse(lineArray[79]));
-                obj.setUpdDt((lineArray[82].equals("")) ? null : formatter.parse(lineArray[82]));
-
                 obj.setMngBr(lineArray[9]);
                 obj.setCixNo(lineArray[10]);
                 obj.setSngSts(lineArray[11]);
@@ -58,7 +44,8 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
                 obj.setRevolGb(lineArray[15]);
                 obj.setGihanGb(lineArray[16]);
                 obj.setExpMm(new BigDecimal(lineArray[17]));
-
+                obj.setExpIl((lineArray[18].equals("")) ? null : formatter.parse(lineArray[18]));
+                obj.setSngIl((lineArray[19].equals("")) ? null : formatter.parse(lineArray[19]));
                 obj.setSngCcy(lineArray[20]);
                 obj.setSngAmt(new BigDecimal(lineArray[21]));
                 obj.setSngAbtrt(new BigDecimal(lineArray[22]));
@@ -73,7 +60,7 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
                 obj.setSilAccum(new BigDecimal(lineArray[31]));
                 obj.setSilWoijan(new BigDecimal(lineArray[32]));
                 obj.setSilDjgjan(new BigDecimal(lineArray[33]));
-
+                obj.setSilLstil((lineArray[34].equals("")) ? null : formatter.parse(lineArray[34]));
                 obj.setBojBcnt(new BigDecimal(lineArray[35]));
                 obj.setBojBjan(new BigDecimal(lineArray[36]));
                 obj.setBojFcnt(new BigDecimal(lineArray[37]));
@@ -87,13 +74,14 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
                 obj.setIsSngno(lineArray[45]);
                 obj.setIsCixno(lineArray[46]);
                 obj.setIsBrno(lineArray[47]);
-
+                obj.setIsIl((lineArray[48].equals("")) ? null : formatter.parse(lineArray[48]));
                 obj.setIkSngno(lineArray[49]);
                 obj.setIkCixno(lineArray[50]);
                 obj.setIkBrno(lineArray[51]);
+                obj.setIkIl((lineArray[52].equals("")) ? null : formatter.parse(lineArray[52]));
                 obj.setSngAplseq(new BigDecimal(lineArray[53]));
                 obj.setSngAuth(lineArray[54]);
-
+                obj.setLstIbil((lineArray[55].equals("")) ? null : formatter.parse(lineArray[55]));
                 obj.setSngBrno(lineArray[56]);
                 obj.setSngClerk(lineArray[57]);
                 obj.setSngAstmgr(lineArray[58]);
@@ -117,28 +105,27 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
                 obj.setAgreeNo(lineArray[76]);
                 obj.setCondSts(lineArray[77]);
                 obj.setRegEmpNo(lineArray[78]);
+                obj.setRegDt((lineArray[79].equals("")) ? null : formatter.parse(lineArray[79]));
                 obj.setRegTm(lineArray[80]);
                 obj.setUpdEmpNo(lineArray[81]);
+                obj.setUpdDt((lineArray[82].equals("")) ? null : formatter.parse(lineArray[82]));
                 obj.setUpdTm(lineArray[83]);
-
                 if (isExist(obj.getSngNo(), obj.getActCd(), obj.getHisNo(), obj.getHisGb())) {
                     acom_lmt_basehisInfoRepository.save(obj);
                 } else {
                     objList.add(obj);
                 }
             }
-
             if (!objList.isEmpty())
                 insertAll(objList);
-
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
     @Override
-    public void insertAll(List<ACOM_LMT_BASEHISInfo> acom_lmt_basehisInfos) {
-        acom_lmt_basehisInfoRepository.saveAll(acom_lmt_basehisInfos);
+    public void insertAll(List<ACOM_LMT_BASEHISInfo> objList) {
+        acom_lmt_basehisInfoRepository.saveAll(objList);
     }
 
     @Override

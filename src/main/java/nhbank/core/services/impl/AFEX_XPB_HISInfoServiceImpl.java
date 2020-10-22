@@ -80,7 +80,7 @@ public class AFEX_XPB_HISInfoServiceImpl implements AFEX_XPB_HISInfoService {
                 obj.setCrBamt(new BigDecimal(lineArray[51]));
                 obj.setBeLisuIl((lineArray[52].equals("")) ? null : formatter.parse(lineArray[52]));
                 obj.setBeHrt(new BigDecimal(lineArray[53]));
-                obj.setBeHRt(new BigDecimal(lineArray[54]));
+                obj.setBeHRt2(new BigDecimal(lineArray[54]));
                 obj.setBeYmanIl((lineArray[55].equals("")) ? null : formatter.parse(lineArray[55]));
                 obj.setBeYdcIl((lineArray[56].equals("")) ? null : formatter.parse(lineArray[56]));
                 obj.setBeShIl((lineArray[57].equals("")) ? null : formatter.parse(lineArray[57]));

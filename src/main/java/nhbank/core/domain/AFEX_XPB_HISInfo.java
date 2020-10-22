@@ -123,7 +123,7 @@ public class AFEX_XPB_HISInfo implements Serializable {
     @Column(name = "BE_HRT")
     private BigDecimal beHrt;
     @Column(name = "BE_H_RT")
-    private BigDecimal beHRt;
+    private BigDecimal beHRt2;
     @Column(name = "BE_YMAN_IL")
     private Date beYmanIl;
     @Column(name = "BE_YDC_IL")

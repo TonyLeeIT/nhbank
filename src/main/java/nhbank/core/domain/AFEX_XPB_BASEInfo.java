@@ -190,7 +190,7 @@ public class AFEX_XPB_BASEInfo implements Serializable {
     @Column(name = "LST_IJA_HRT")
     private BigDecimal lstIjaHrt;
     @Column(name = "LST_IJA_H_RT")
-    private BigDecimal lstIjaHRt;
+    private BigDecimal lstIjaHRt2;
     @Column(name = "GA_WIJA_GB")
     private String gaWijaGb;
     @Column(name = "IJA_MJ_GB1")
