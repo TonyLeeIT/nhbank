@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_LMT_BASEHDInfo;
 import nhbank.core.repositories.ACOM_LMT_BASEHDInfoRepository;
 import nhbank.core.services.ACOM_LMT_BASEHDInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +18,8 @@ import java.util.List;
 @Service
 public class ACOM_LMT_BASEHDInfoServiceImpl implements ACOM_LMT_BASEHDInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     ACOM_LMT_BASEHDInfoRepository acom_lmt_basehdInfoRepository;
 
     @Override
@@ -24,7 +28,11 @@ public class ACOM_LMT_BASEHDInfoServiceImpl implements ACOM_LMT_BASEHDInfoServic
             List<ACOM_LMT_BASEHDInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\ACOM_LMT_BASEHD.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_LMT_BASEHD.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_LMT_BASEHDInfo obj = new ACOM_LMT_BASEHDInfo();

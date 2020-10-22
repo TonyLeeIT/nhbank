@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ADST_LNB_INTInfo;
 import nhbank.core.repositories.ADST_LNB_INTInfoRepository;
 import nhbank.core.services.ADST_LNB_INTInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +18,8 @@ import java.util.List;
 @Service
 public class ADST_LNB_INTInfoServiceImpl implements ADST_LNB_INTInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     ADST_LNB_INTInfoRepository adst_lnb_intInfoRepository;
 
     @Override
@@ -24,7 +28,11 @@ public class ADST_LNB_INTInfoServiceImpl implements ADST_LNB_INTInfoService {
             List<ADST_LNB_INTInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\ADST_LNB_INT.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ADST_LNB_INT.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ADST_LNB_INTInfo obj = new ADST_LNB_INTInfo();

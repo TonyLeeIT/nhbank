@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFIF_MMH_BASEInfo;
 import nhbank.core.repositories.AFIF_MMH_BASEInfoRepository;
 import nhbank.core.services.AFIF_MMH_BASEInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +18,8 @@ import java.util.List;
 @Service
 public class AFIF_MMH_BASEInfoServiceImpl implements AFIF_MMH_BASEInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     AFIF_MMH_BASEInfoRepository afif_mmh_baseInfoRepository;
 
     @Override
@@ -24,7 +28,11 @@ public class AFIF_MMH_BASEInfoServiceImpl implements AFIF_MMH_BASEInfoService {
             List<AFIF_MMH_BASEInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\AFIF_MMH_BASE.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFIF_MMH_BASE.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFIF_MMH_BASEInfo obj = new AFIF_MMH_BASEInfo();

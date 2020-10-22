@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_IPH_ATAGInfo;
 import nhbank.core.repositories.AFEX_IPH_ATAGInfoRepository;
 import nhbank.core.services.AFEX_IPH_ATAGInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +18,8 @@ import java.util.List;
 @Service
 public class AFEX_IPH_ATAGInfoServiceImpl implements AFEX_IPH_ATAGInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     AFEX_IPH_ATAGInfoRepository afex_iph_atagInfoRepository;
 
     @Override
@@ -24,7 +28,11 @@ public class AFEX_IPH_ATAGInfoServiceImpl implements AFEX_IPH_ATAGInfoService {
             List<AFEX_IPH_ATAGInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\AFEX_IPH_ATAG.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFEX_IPH_ATAG.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_IPH_ATAGInfo obj = new AFEX_IPH_ATAGInfo();

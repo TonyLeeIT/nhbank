@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_EPB_RPTInfo;
 import nhbank.core.repositories.ACOM_EPB_RPTInfoRepository;
 import nhbank.core.services.ACOM_EPB_RPTInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +18,8 @@ import java.util.List;
 @Service
 public class ACOM_EPB_RPTInfoServiceImpl implements ACOM_EPB_RPTInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     ACOM_EPB_RPTInfoRepository acom_epb_rptInfoRepository;
 
     @Override
@@ -24,7 +28,11 @@ public class ACOM_EPB_RPTInfoServiceImpl implements ACOM_EPB_RPTInfoService {
             List<ACOM_EPB_RPTInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\ACOM_EPB_RPT.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_EPB_RPT.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_EPB_RPTInfo obj = new ACOM_EPB_RPTInfo();
@@ -59,9 +67,14 @@ public class ACOM_EPB_RPTInfoServiceImpl implements ACOM_EPB_RPTInfoService {
                 obj.setUpdEmpNo(lineArray[28]);
                 obj.setUpdDt((lineArray[29].equals("")) ? null : formatter.parse(lineArray[29]));
                 obj.setUpdTm(lineArray[30]);
-
-                acom_epb_rptInfoRepository.save(obj);
+                if (isExist()) {
+                    acom_epb_rptInfoRepository.save(obj);
+                } else {
+                    objList.add(obj);
+                }
             }
+            if (!objList.isEmpty())
+                insertAll(objList);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -72,4 +85,9 @@ public class ACOM_EPB_RPTInfoServiceImpl implements ACOM_EPB_RPTInfoService {
         acom_epb_rptInfoRepository.saveAll(objList);
     }
 
+    //@Override
+    public boolean isExist() {
+//        return acom_epb_rptInfoRepository.existsBy();
+        return false;
+    }
 }

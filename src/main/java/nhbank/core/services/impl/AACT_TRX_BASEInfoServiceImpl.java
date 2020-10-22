@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AACT_TRX_BASEInfo;
 import nhbank.core.repositories.AACT_TRX_BASEInfoRepository;
 import nhbank.core.services.AACT_TRX_BASEInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -17,6 +19,8 @@ import java.util.List;
 @Service
 public class AACT_TRX_BASEInfoServiceImpl implements AACT_TRX_BASEInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     AACT_TRX_BASEInfoRepository aact_trx_baseInfoRepository;
 
     @Override
@@ -25,7 +29,11 @@ public class AACT_TRX_BASEInfoServiceImpl implements AACT_TRX_BASEInfoService {
             List<AACT_TRX_BASEInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\AACT_TRX_BASE.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AACT_TRX_BASE.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AACT_TRX_BASEInfo obj = new AACT_TRX_BASEInfo();

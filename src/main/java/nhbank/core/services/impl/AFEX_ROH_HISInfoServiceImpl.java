@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_ROH_HISInfo;
 import nhbank.core.repositories.AFEX_ROH_HISInfoRepository;
 import nhbank.core.services.AFEX_ROH_HISInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +18,8 @@ import java.util.List;
 @Service
 public class AFEX_ROH_HISInfoServiceImpl implements AFEX_ROH_HISInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     AFEX_ROH_HISInfoRepository afex_roh_hisInfoRepository;
 
     @Override
@@ -24,7 +28,11 @@ public class AFEX_ROH_HISInfoServiceImpl implements AFEX_ROH_HISInfoService {
             List<AFEX_ROH_HISInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\AFEX_ROH_HIS.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFEX_ROH_HIS.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_ROH_HISInfo obj = new AFEX_ROH_HISInfo();

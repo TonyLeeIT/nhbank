@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_DTG_CONT_STSInfo;
 import nhbank.core.repositories.ACOM_DTG_CONT_STSInfoRepository;
 import nhbank.core.services.ACOM_DTG_CONT_STSInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +18,8 @@ import java.util.List;
 @Service
 public class ACOM_DTG_CONT_STSInfoServiceImpl implements ACOM_DTG_CONT_STSInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     ACOM_DTG_CONT_STSInfoRepository acom_dtg_cont_stsInfoRepository;
 
     @Override
@@ -24,7 +28,11 @@ public class ACOM_DTG_CONT_STSInfoServiceImpl implements ACOM_DTG_CONT_STSInfoSe
             List<ACOM_DTG_CONT_STSInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\ACOM_DTG_CONT_STS.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_DTG_CONT_STS.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_DTG_CONT_STSInfo obj = new ACOM_DTG_CONT_STSInfo();

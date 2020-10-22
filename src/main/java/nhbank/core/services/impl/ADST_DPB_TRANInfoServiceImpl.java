@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ADST_DPB_TRANInfo;
 import nhbank.core.repositories.ADST_DPB_TRANInfoRepository;
 import nhbank.core.services.ADST_DPB_TRANInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -17,6 +19,8 @@ import java.util.List;
 @Service
 public class ADST_DPB_TRANInfoServiceImpl implements ADST_DPB_TRANInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     ADST_DPB_TRANInfoRepository adst_dpb_tranInfoRepository;
 
     @Override
@@ -25,7 +29,11 @@ public class ADST_DPB_TRANInfoServiceImpl implements ADST_DPB_TRANInfoService {
             List<ADST_DPB_TRANInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\ADST_DPB_TRAN.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ADST_DPB_TRAN.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ADST_DPB_TRANInfo obj = new ADST_DPB_TRANInfo();

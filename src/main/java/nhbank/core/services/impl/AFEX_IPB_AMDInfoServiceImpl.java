@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_IPB_AMDInfo;
 import nhbank.core.repositories.AFEX_IPB_AMDInfoRepository;
 import nhbank.core.services.AFEX_IPB_AMDInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +18,8 @@ import java.util.List;
 @Service
 public class AFEX_IPB_AMDInfoServiceImpl implements AFEX_IPB_AMDInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     AFEX_IPB_AMDInfoRepository afex_ipb_amdInfoRepository;
 
     @Override
@@ -24,7 +28,11 @@ public class AFEX_IPB_AMDInfoServiceImpl implements AFEX_IPB_AMDInfoService {
             List<AFEX_IPB_AMDInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\AFEX_IPB_AMD.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFEX_IPB_AMD.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_IPB_AMDInfo obj = new AFEX_IPB_AMDInfo();

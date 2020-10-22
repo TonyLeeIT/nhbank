@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_EPB_BASEInfo;
 import nhbank.core.repositories.ACOM_EPB_BASEInfoRepository;
 import nhbank.core.services.ACOM_EPB_BASEInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +18,8 @@ import java.util.List;
 @Service
 public class ACOM_EPB_BASEInfoServiceImpl implements ACOM_EPB_BASEInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     ACOM_EPB_BASEInfoRepository acom_epb_baseInfoRepository;
 
     @Override
@@ -24,7 +28,11 @@ public class ACOM_EPB_BASEInfoServiceImpl implements ACOM_EPB_BASEInfoService {
             List<ACOM_EPB_BASEInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\ACOM_EPB_BASE.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_EPB_BASE.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_EPB_BASEInfo obj = new ACOM_EPB_BASEInfo();

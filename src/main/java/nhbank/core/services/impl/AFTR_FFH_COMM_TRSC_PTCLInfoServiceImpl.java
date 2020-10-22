@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFTR_FFH_COMM_TRSC_PTCLInfo;
 import nhbank.core.repositories.AFTR_FFH_COMM_TRSC_PTCLInfoRepository;
 import nhbank.core.services.AFTR_FFH_COMM_TRSC_PTCLInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -17,6 +19,8 @@ import java.util.List;
 @Service
 public class AFTR_FFH_COMM_TRSC_PTCLInfoServiceImpl implements AFTR_FFH_COMM_TRSC_PTCLInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     AFTR_FFH_COMM_TRSC_PTCLInfoRepository aftr_ffh_comm_trsc_ptclInfoRepository;
 
     @Override
@@ -25,7 +29,11 @@ public class AFTR_FFH_COMM_TRSC_PTCLInfoServiceImpl implements AFTR_FFH_COMM_TRS
             List<AFTR_FFH_COMM_TRSC_PTCLInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\AFTR_FFH_COMM_TRSC_PTCL.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFTR_FFH_COMM_TRSC_PTCL.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFTR_FFH_COMM_TRSC_PTCLInfo obj = new AFTR_FFH_COMM_TRSC_PTCLInfo();

@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_XPB_ITMInfo;
 import nhbank.core.repositories.AFEX_XPB_ITMInfoRepository;
 import nhbank.core.services.AFEX_XPB_ITMInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +18,8 @@ import java.util.List;
 @Service
 public class AFEX_XPB_ITMInfoServiceImpl implements AFEX_XPB_ITMInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     AFEX_XPB_ITMInfoRepository afex_xpb_itmInfoRepository;
 
     @Override
@@ -24,7 +28,11 @@ public class AFEX_XPB_ITMInfoServiceImpl implements AFEX_XPB_ITMInfoService {
             List<AFEX_XPB_ITMInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\AFEX_XPB_ITM.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFEX_XPB_ITM.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_XPB_ITMInfo obj = new AFEX_XPB_ITMInfo();

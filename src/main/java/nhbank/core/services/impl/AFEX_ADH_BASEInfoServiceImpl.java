@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_ADH_BASEInfo;
 import nhbank.core.repositories.AFEX_ADH_BASEInfoRepository;
 import nhbank.core.services.AFEX_ADH_BASEInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -17,6 +19,8 @@ import java.util.List;
 @Service
 public class AFEX_ADH_BASEInfoServiceImpl implements AFEX_ADH_BASEInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     AFEX_ADH_BASEInfoRepository afex_adh_baseInfoRepository;
 
     @Override
@@ -25,7 +29,11 @@ public class AFEX_ADH_BASEInfoServiceImpl implements AFEX_ADH_BASEInfoService {
             List<AFEX_ADH_BASEInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\AFEX_ADH_BASE.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFEX_ADH_BASE.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_ADH_BASEInfo obj = new AFEX_ADH_BASEInfo();

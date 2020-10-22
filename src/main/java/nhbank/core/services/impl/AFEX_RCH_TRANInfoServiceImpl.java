@@ -1,5 +1,6 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_RCH_TRANInfo;
 import nhbank.core.repositories.AFEX_RCH_TRANInfoRepository;
 import nhbank.core.services.AFEX_RCH_TRANInfoService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -17,6 +19,8 @@ import java.util.List;
 @Service
 public class AFEX_RCH_TRANInfoServiceImpl implements AFEX_RCH_TRANInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     AFEX_RCH_TRANInfoRepository afex_rch_tranInfoRepository;
 
     @Override
@@ -25,7 +29,11 @@ public class AFEX_RCH_TRANInfoServiceImpl implements AFEX_RCH_TRANInfoService {
             List<AFEX_RCH_TRANInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            File file = new File(pathConfig.getDataPath() + "\\AFEX_RCH_TRAN.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFEX_RCH_TRAN.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_RCH_TRANInfo obj = new AFEX_RCH_TRANInfo();

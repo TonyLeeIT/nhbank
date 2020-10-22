@@ -101,6 +101,12 @@ public class DateUtils {
         return df.format(date);
     }
 
+    public static String dateYYYMMDD() {
+        Date date = new Date();
+        DateFormat df = new SimpleDateFormat(DATE_FORMAT);
+        return df.format(date);
+    }
+
     public static String dateYYYMMDDHHMMSS() {
         Date date = new Date();
         DateFormat df = new SimpleDateFormat(DATE_TIME_FORMAT);
