@@ -388,7 +388,7 @@ public class GenerateUtils {
         return field;
     }
 
-    public static void buildDataMapping(String fileName, Map<Integer, String> listFields, Map<Integer, String> primaryKeyMap) {
+    public static void buildServiceImpl(String fileName, Map<Integer, String> listFields, Map<Integer, String> primaryKeyMap) {
         String sFileName = fileName.replace(".sql", "");
         try {
             File target = new File("E:\\NHBANK_TARGET\\ServiceImpl\\" + fileName.replace(".sql", "") + "InfoServiceImpl.java");
