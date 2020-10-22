@@ -2,129 +2,237 @@ package nhbank.core.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "adstDpbBase")
+@IdClass(ADST_DPB_BASEInfo_ID.class)
+@Table(name = "ADST_DPB_BASE")
 @Data
 public class ADST_DPB_BASEInfo implements Serializable {
     @Id
-    @GeneratedValue
+    @Column(name = "ACCT_NO")
     private String acctNo;
+    @Column(name = "BASE_CCY")
     private String baseCcy;
+    @Column(name = "ACCT_CCY")
     private String acctCcy;
+    @Column(name = "DPT_BBS_CD")
     private String dptBbsCd;
+    @Column(name = "DPT_BS_CD")
     private String dptBsCd;
+    @Column(name = "DPT_PL_CD")
     private String dptPlCd;
+    @Column(name = "INT_PAY_GB")
     private String intPayGb;
+    @Column(name = "DPT_TYPE_GB")
     private String dptTypeGb;
+    @Column(name = "INT_TERM_GB")
     private BigDecimal intTermGb;
+    @Column(name = "INT_CAL_GB")
     private String intCalGb;
+    @Column(name = "INT_CAL_METH_CD")
     private String intCalMethCd;
+    @Column(name = "DAYS_CALC_METH_CD")
     private String daysCalcMethCd;
+    @Column(name = "OPN_IL")
     private Date opnIl;
+    @Column(name = "JAGUM_IL")
     private Date jagumIl;
+    @Column(name = "DPT_INT_CAL_IL")
     private Date dptIntCalIl;
+    @Column(name = "JAN_CERTI_IL")
     private Date janCertiIl;
+    @Column(name = "IS_IL")
     private Date isIl;
+    @Column(name = "YSD_IL")
     private Date ysdIl;
+    @Column(name = "CC_NG_IL")
     private Date ccNgIl;
+    @Column(name = "DPT_MAN_IL")
     private Date dptManIl;
+    @Column(name = "ROLL_OVER_IL")
     private Date rollOverIl;
+    @Column(name = "PWD")
     private String pwd;
+    @Column(name = "EMP_PAY_ACCT_PWD")
     private String empPayAcctPwd;
+    @Column(name = "BS_JAN")
     private BigDecimal bsJan;
+    @Column(name = "CUR_JAN")
     private BigDecimal curJan;
+    @Column(name = "COLLAT_AMT")
     private BigDecimal collatAmt;
+    @Column(name = "OPEN_AMT")
     private BigDecimal openAmt;
+    @Column(name = "CLS_AMT")
     private BigDecimal clsAmt;
+    @Column(name = "STOP_AMT")
     private BigDecimal stopAmt;
+    @Column(name = "LMT_BLK_AMT")
     private BigDecimal lmtBlkAmt;
+    @Column(name = "M_TERM")
     private BigDecimal mTerm;
+    @Column(name = "D_TERM")
     private BigDecimal dTerm;
+    @Column(name = "INT_PAY_CNT")
     private BigDecimal intPayCnt;
+    @Column(name = "DPT_BASIC_RT")
     private BigDecimal dptBasicRt;
+    @Column(name = "DPT_NEGO_RT")
     private BigDecimal dptNegoRt;
+    @Column(name = "TAX_CD")
     private String taxCd;
+    @Column(name = "TAX_RT")
     private BigDecimal taxRt;
+    @Column(name = "FTP_RT_GB")
     private String ftpRtGb;
+    @Column(name = "FTP_RT")
     private BigDecimal ftpRt;
+    @Column(name = "LST_TRX_NO")
     private BigDecimal lstTrxNo;
+    @Column(name = "LST_DR_TRX_NO")
     private BigDecimal lstDrTrxNo;
+    @Column(name = "CLS_CNT")
     private BigDecimal clsCnt;
+    @Column(name = "LON_BBS_CD")
     private String lonBbsCd;
+    @Column(name = "LON_BS_CD")
     private String lonBsCd;
+    @Column(name = "LON_PL_CD")
     private String lonPlCd;
+    @Column(name = "FST_JAN")
     private BigDecimal fstJan;
+    @Column(name = "MAX_JAN")
     private BigDecimal maxJan;
+    @Column(name = "LON_SNG_AMT")
     private BigDecimal lonSngAmt;
+    @Column(name = "COL_LON_INT")
     private BigDecimal colLonInt;
+    @Column(name = "LON_PRCP_YC_INT")
     private BigDecimal lonPrcpYcInt;
+    @Column(name = "LON_INT_YC_INT")
     private BigDecimal lonIntYcInt;
+    @Column(name = "LON_YD_CD")
     private String lonYdCd;
+    @Column(name = "LON_RT_CD")
     private String lonRtCd;
+    @Column(name = "LON_RT")
     private BigDecimal lonRt;
+    @Column(name = "PRCP_OVER_DUE_INT_RT")
     private BigDecimal prcpOverDueIntRt;
+    @Column(name = "INT_OVER_DUE_INT_RT")
     private BigDecimal intOverDueIntRt;
+    @Column(name = "LON_INT_CAL_IL")
     private Date lonIntCalIl;
+    @Column(name = "LON_INT_RCV_IL")
     private Date lonIntRcvIl;
+    @Column(name = "LON_MAN_IL")
     private Date lonManIl;
+    @Column(name = "LON_TERM_IL")
     private Date lonTermIl;
+    @Column(name = "LON_FST_YC_IL")
     private Date lonFstYcIl;
+    @Column(name = "LST_IB_IL")
     private Date lstIbIl;
+    @Column(name = "LST_TIME")
     private String lstTime;
+    @Column(name = "SELF_MNG_IL")
     private Date selfMngIl;
+    @Column(name = "OPEN_EXPT_AMT")
     private BigDecimal openExptAmt;
+    @Column(name = "DUE_AMT")
     private BigDecimal dueAmt;
+    @Column(name = "DEP_CNT")
     private BigDecimal depCnt;
+    @Column(name = "PREPAY_DAY")
     private BigDecimal prepayDay;
+    @Column(name = "NOTICE_IL")
     private Date noticeIl;
+    @Column(name = "ACCT_TYPE")
     private String acctType;
+    @Column(name = "RESERVED1")
     private String reserved1;
+    @Column(name = "INT_RT_DV")
     private String intRtDv;
+    @Column(name = "BF_TM_INT")
     private BigDecimal bfTmInt;
+    @Column(name = "BF_TM_TAX")
     private BigDecimal bfTmTax;
+    @Column(name = "AMT1")
     private BigDecimal amt1;
+    @Column(name = "AMT2")
     private BigDecimal amt2;
+    @Column(name = "AMT3")
     private BigDecimal amt3;
+    @Column(name = "AMT4")
     private BigDecimal amt4;
+    @Column(name = "AMT5")
     private BigDecimal amt5;
+    @Column(name = "AMT6")
     private BigDecimal amt6;
+    @Column(name = "AMT7")
     private BigDecimal amt7;
+    @Column(name = "AMT8")
     private BigDecimal amt8;
+    @Column(name = "AMT9")
     private BigDecimal amt9;
+    @Column(name = "AMT10")
     private BigDecimal amt10;
+    @Column(name = "CD1")
     private String cd1;
+    @Column(name = "CD2")
     private String cd2;
+    @Column(name = "CD3")
     private String cd3;
+    @Column(name = "CD4")
     private String cd4;
+    @Column(name = "CD5")
     private String cd5;
+    @Column(name = "CD6")
     private String cd6;
+    @Column(name = "CD7")
     private String cd7;
+    @Column(name = "CD8")
     private String cd8;
+    @Column(name = "CD9")
     private String cd9;
+    @Column(name = "CD10")
     private String cd10;
+    @Column(name = "RT1")
     private BigDecimal rt1;
+    @Column(name = "RT2")
     private BigDecimal rt2;
+    @Column(name = "RT3")
     private BigDecimal rt3;
+    @Column(name = "RT4")
     private BigDecimal rt4;
+    @Column(name = "RT5")
     private BigDecimal rt5;
+    @Column(name = "DT1")
     private Date dt1;
+    @Column(name = "DT2")
     private Date dt2;
+    @Column(name = "DT3")
     private Date dt3;
+    @Column(name = "DT4")
     private Date dt4;
+    @Column(name = "DT5")
     private Date dt5;
+    @Column(name = "REG_EMP_NO")
     private String regEmpNo;
+    @Column(name = "REG_DT")
     private Date regDt;
+    @Column(name = "REG_TM")
     private String regTm;
+    @Column(name = "UPD_EMP_NO")
     private String updEmpNo;
+    @Column(name = "UPD_DT")
     private Date updDt;
+    @Column(name = "UPD_TM")
     private String updTm;
+    @Column(name = "RAND_SALT")
     private String randSalt;
 } 

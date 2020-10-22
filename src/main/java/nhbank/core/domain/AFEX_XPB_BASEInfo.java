@@ -2,157 +2,293 @@ package nhbank.core.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "afexXpbBase")
+@IdClass(AFEX_XPB_BASEInfo_ID.class)
+@Table(name = "AFEX_XPB_BASE")
 @Data
 public class AFEX_XPB_BASEInfo implements Serializable {
     @Id
-    @GeneratedValue
+    @Column(name = "REF_NO")
     private String refNo;
+    @Column(name = "IKIS_STS")
     private String ikisSts;
+    @Column(name = "BK_GB")
     private String bkGb;
+    @Column(name = "CIX_NO")
     private String cixNo;
+    @Column(name = "COM_NO")
     private String comNo;
+    @Column(name = "BUSEO_NO")
     private String buseoNo;
+    @Column(name = "MNG_INFO")
     private String mngInfo;
+    @Column(name = "XP_JAN")
     private BigDecimal xpJan;
+    @Column(name = "BUDO_JAN")
     private BigDecimal budoJan;
+    @Column(name = "MISU_BJAN")
     private BigDecimal misuBjan;
+    @Column(name = "MISU_JAN")
     private BigDecimal misuJan;
+    @Column(name = "LESS_SUM_AMT")
     private BigDecimal lessSumAmt;
+    @Column(name = "OVER_SUM_AMT")
     private BigDecimal overSumAmt;
+    @Column(name = "CS_SUM_AMT")
     private BigDecimal csSumAmt;
+    @Column(name = "JI_SEQ")
     private BigDecimal jiSeq;
+    @Column(name = "SET_SEQ")
     private BigDecimal setSeq;
+    @Column(name = "BUDO_SEQ")
     private BigDecimal budoSeq;
+    @Column(name = "NEGO_IL")
     private Date negoIl;
+    @Column(name = "GIS_IL")
     private Date gisIl;
+    @Column(name = "LST_IL")
     private Date lstIl;
+    @Column(name = "LST_IB_IL")
     private Date lstIbIl;
+    @Column(name = "NEGO_CCY")
     private String negoCcy;
+    @Column(name = "NEGO_AMT")
     private BigDecimal negoAmt;
+    @Column(name = "XP_GB")
     private String xpGb;
+    @Column(name = "NEGO_GB")
     private String negoGb;
+    @Column(name = "BONJI_GB")
     private String bonjiGb;
+    @Column(name = "TENOR_GB")
     private String tenorGb;
+    @Column(name = "OA_GB")
     private String oaGb;
+    @Column(name = "HJ_IL_CD")
     private String hjIlCd;
+    @Column(name = "MAN_GIJ_IL")
     private Date manGijIl;
+    @Column(name = "HAJA_MNG_INFO")
     private String hajaMngInfo;
+    @Column(name = "HAL_GB")
     private String halGb;
+    @Column(name = "COM_RT")
     private BigDecimal comRt;
+    @Column(name = "COM_AMT")
     private BigDecimal comAmt;
+    @Column(name = "INT_RT")
     private BigDecimal intRt;
+    @Column(name = "INT_AMT")
     private BigDecimal intAmt;
+    @Column(name = "HIJA_TERM")
     private BigDecimal hijaTerm;
+    @Column(name = "USANCE_TERM")
     private BigDecimal usanceTerm;
+    @Column(name = "HS_CD")
     private String hsCd;
+    @Column(name = "SP_NM")
     private String spNm;
+    @Column(name = "XP_TYPE")
     private String xpType;
+    @Column(name = "SD_CTRY")
     private String sdCtry;
+    @Column(name = "PRICE_CD")
     private String priceCd;
+    @Column(name = "OPEN_BKCD")
     private String openBkcd;
+    @Column(name = "SET_BKCD")
     private String setBkcd;
+    @Column(name = "DEPO_BKCD")
     private String depoBkcd;
+    @Column(name = "RENE_BKCD")
     private String reneBkcd;
+    @Column(name = "JASA_AMT")
     private BigDecimal jasaAmt;
+    @Column(name = "TASA_AMT")
     private BigDecimal tasaAmt;
+    @Column(name = "TREF_NO")
     private String trefNo;
+    @Column(name = "OPEN_BKNM")
     private String openBknm;
+    @Column(name = "RE_DEPO_GB")
     private String reDepoGb;
+    @Column(name = "IP_NM")
     private String ipNm;
+    @Column(name = "SHIP_IL")
     private Date shipIl;
+    @Column(name = "INVOICE_NO")
     private String invoiceNo;
+    @Column(name = "SINGO_NO")
     private String singoNo;
+    @Column(name = "RENE_REQ_GB")
     private String reneReqGb;
+    @Column(name = "RENE_GB")
     private String reneGb;
+    @Column(name = "RENE_AC_IL")
     private Date reneAcIl;
+    @Column(name = "RENE_GIS_IL")
     private Date reneGisIl;
+    @Column(name = "RENE_OREF_NO")
     private String reneOrefNo;
+    @Column(name = "RENE_TERM")
     private BigDecimal reneTerm;
+    @Column(name = "R2_FRT")
     private BigDecimal r2Frt;
+    @Column(name = "R2_FEE")
     private BigDecimal r2Fee;
+    @Column(name = "R2_IJA_AMT")
     private BigDecimal r2IjaAmt;
+    @Column(name = "CA_CCY")
     private String caCcy;
+    @Column(name = "CA_AMT")
     private BigDecimal caAmt;
+    @Column(name = "INSU_AMT")
     private BigDecimal insuAmt;
+    @Column(name = "JI_AMT")
     private BigDecimal jiAmt;
+    @Column(name = "SET_AMT")
     private BigDecimal setAmt;
+    @Column(name = "HMAN_IL")
     private Date hmanIl;
+    @Column(name = "YMAN_IL")
     private Date ymanIl;
+    @Column(name = "YDC_IL")
     private Date ydcIl;
+    @Column(name = "BUDO_IL")
     private Date budoIl;
+    @Column(name = "BUDO_AMT")
     private BigDecimal budoAmt;
+    @Column(name = "BUDO_SAMT")
     private BigDecimal budoSamt;
+    @Column(name = "MISU_IL")
     private Date misuIl;
+    @Column(name = "OBCR_GB")
     private String obcrGb;
+    @Column(name = "BUDO_LISU_IL")
     private Date budoLisuIl;
+    @Column(name = "LST_CA_IL")
     private Date lstCaIl;
+    @Column(name = "MO_JUB_IL")
     private Date moJubIl;
+    @Column(name = "MO_BAL_IL")
     private Date moBalIl;
+    @Column(name = "BAL_GB")
     private String balGb;
+    @Column(name = "MI_GUN")
     private BigDecimal miGun;
+    @Column(name = "MIPL_GUN")
     private BigDecimal miplGun;
+    @Column(name = "HD_SNG_NO")
     private String hdSngNo;
+    @Column(name = "IJA_LISU_IL")
     private Date ijaLisuIl;
+    @Column(name = "LST_IJA_HRT")
     private BigDecimal lstIjaHrt;
-    private BigDecimal lstIjaHRt;
+    @Column(name = "LST_IJA_H_RT")
+    private BigDecimal lstIjaHRt2;
+    @Column(name = "GA_WIJA_GB")
     private String gaWijaGb;
+    @Column(name = "IJA_MJ_GB1")
     private String ijaMjGb1;
+    @Column(name = "IJA_MJ_GB2")
     private String ijaMjGb2;
+    @Column(name = "IJA_HC_GB")
     private String ijaHcGb;
+    @Column(name = "BD_IJA_GB")
     private String bdIjaGb;
+    @Column(name = "FTP_RT_GB")
     private String ftpRtGb;
+    @Column(name = "FTP_RT")
     private BigDecimal ftpRt;
+    @Column(name = "IKIS_HIS_NO")
     private BigDecimal ikisHisNo;
+    @Column(name = "IKIS_IJ_AMT")
     private BigDecimal ikisIjAmt;
+    @Column(name = "OP_NO")
     private String opNo;
+    @Column(name = "OWNER_NO")
     private String ownerNo;
+    @Column(name = "PBRM_NO")
     private String pbrmNo;
+    @Column(name = "TURN_IL")
     private Date turnIl;
+    @Column(name = "AA_TRA_CNT")
     private BigDecimal aaTraCnt;
+    @Column(name = "CA_TRA_CNT")
     private BigDecimal caTraCnt;
+    @Column(name = "DL_TRA_CNT")
     private BigDecimal dlTraCnt;
+    @Column(name = "COVER_GB")
     private String coverGb;
+    @Column(name = "LST_ISU_IL")
     private Date lstIsuIl;
+    @Column(name = "BD_DELAY_IL")
     private Date bdDelayIl;
+    @Column(name = "GYOM")
     private String gyom;
+    @Column(name = "REIM_GB")
     private String reimGb;
+    @Column(name = "REIM_BKCD")
     private String reimBkcd;
+    @Column(name = "CHG_NEGO_YN")
     private String chgNegoYn;
+    @Column(name = "MNG_INFO2")
     private String mngInfo2;
+    @Column(name = "COM_ID")
     private String comId;
+    @Column(name = "TS_LC_YN")
     private String tsLcYn;
+    @Column(name = "TS_ADV_NO")
     private String tsAdvNo;
+    @Column(name = "TS_SEQ_NO")
     private BigDecimal tsSeqNo;
+    @Column(name = "TS_NEGO_AMT")
     private BigDecimal tsNegoAmt;
+    @Column(name = "RA_REF_NO")
     private String raRefNo;
+    @Column(name = "RA_CLM_CNT")
     private BigDecimal raClmCnt;
+    @Column(name = "IBF_GB")
     private String ibfGb;
+    @Column(name = "WHAN_RCV_GB")
     private String whanRcvGb;
+    @Column(name = "RPT_AMT1")
     private BigDecimal rptAmt1;
+    @Column(name = "RPT_AMT2")
     private BigDecimal rptAmt2;
+    @Column(name = "RPT_AMT3")
     private BigDecimal rptAmt3;
+    @Column(name = "RPT_AMT4")
     private BigDecimal rptAmt4;
+    @Column(name = "RPT_AMT5")
     private BigDecimal rptAmt5;
+    @Column(name = "RPT_ACCT1")
     private String rptAcct1;
+    @Column(name = "BOSE_GB")
     private String boseGb;
+    @Column(name = "PAYABLE_AMT")
     private BigDecimal payableAmt;
+    @Column(name = "ACTPAY_REF_NO1")
     private String actpayRefNo1;
+    @Column(name = "SUSPAY_REF_NO1")
     private String suspayRefNo1;
+    @Column(name = "SUSPAY_REF_NO2")
     private String suspayRefNo2;
+    @Column(name = "REG_EMP_NO")
     private String regEmpNo;
+    @Column(name = "REG_DT")
     private Date regDt;
+    @Column(name = "REG_TM")
     private String regTm;
+    @Column(name = "UPD_EMP_NO")
     private String updEmpNo;
+    @Column(name = "UPD_DT")
     private Date updDt;
+    @Column(name = "UPD_TM")
     private String updTm;
 } 

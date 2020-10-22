@@ -2,148 +2,275 @@ package nhbank.core.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "afexRohBase")
+@IdClass(AFEX_ROH_BASEInfo_ID.class)
+@Table(name = "AFEX_ROH_BASE")
 @Data
 public class AFEX_ROH_BASEInfo implements Serializable {
     @Id
-    @GeneratedValue
+    @Column(name = "REF_NO")
     private String refNo;
+    @Column(name = "CIX_NO")
     private String cixNo;
+    @Column(name = "BK_GB")
     private String bkGb;
+    @Column(name = "MNG_INFO")
     private String mngInfo;
+    @Column(name = "UPMU_GB")
     private String upmuGb;
+    @Column(name = "AC_IL")
     private Date acIl;
+    @Column(name = "GIS_IL")
     private Date gisIl;
+    @Column(name = "LST_IL")
     private Date lstIl;
+    @Column(name = "LST_IB_IL")
     private Date lstIbIl;
+    @Column(name = "IBJI_MD")
     private String ibjiMd;
+    @Column(name = "SET_IL")
     private Date setIl;
+    @Column(name = "SET_GIS_IL")
     private Date setGisIl;
+    @Column(name = "RT_CD")
     private String rtCd;
+    @Column(name = "TS_CD")
     private String tsCd;
+    @Column(name = "CCY")
     private String ccy;
+    @Column(name = "FAMT")
     private BigDecimal famt;
+    @Column(name = "DD_TYPE")
     private String ddType;
+    @Column(name = "DD_NO")
     private String ddNo;
+    @Column(name = "SD_CTRY")
     private String sdCtry;
+    @Column(name = "JUCHE_CD")
     private String jucheCd;
+    @Column(name = "GEOJU_GB")
     private String geojuGb;
+    @Column(name = "SAYU_CD")
     private String sayuCd;
+    @Column(name = "JUN_GB")
     private String junGb;
+    @Column(name = "JUN_NO1")
     private String junNo1;
+    @Column(name = "APPL_ID_NO")
     private String applIdNo;
+    @Column(name = "APPL_ID_NO_GB")
     private String applIdNoGb;
+    @Column(name = "APPL_NATION")
     private String applNation;
+    @Column(name = "APPL_POST_NO")
     private String applPostNo;
+    @Column(name = "VIP_CD")
     private String vipCd;
+    @Column(name = "SJ_GB")
     private String sjGb;
+    @Column(name = "RCV_ID_NO")
     private String rcvIdNo;
+    @Column(name = "RCV_ID_NO_GB")
     private String rcvIdNoGb;
+    @Column(name = "SET_BKCD")
     private String setBkcd;
+    @Column(name = "SET_BKNM")
     private String setBknm;
+    @Column(name = "REMIT_DEPO")
     private String remitDepo;
+    @Column(name = "YDAE_IL")
     private Date ydaeIl;
+    @Column(name = "JIJUNG_CD")
     private String jijungCd;
+    @Column(name = "ID_NO")
     private String idNo;
+    @Column(name = "ID_NO_GB")
     private String idNoGb;
+    @Column(name = "JIGB_NO")
     private String jigbNo;
+    @Column(name = "JIGB_SEQ")
     private BigDecimal jigbSeq;
+    @Column(name = "CH_AMT")
     private BigDecimal chAmt;
+    @Column(name = "CH_GB")
     private String chGb;
+    @Column(name = "JUN_NO2")
     private String junNo2;
+    @Column(name = "MJ_GB")
     private String mjGb;
+    @Column(name = "CD_SNG_NO")
     private String cdSngNo;
+    @Column(name = "CD_SIL_SEQ")
     private BigDecimal cdSilSeq;
+    @Column(name = "OP_NO")
     private String opNo;
+    @Column(name = "OWNER_NO")
     private String ownerNo;
+    @Column(name = "PBRM_NO")
     private String pbrmNo;
+    @Column(name = "SD_TR_IL")
     private Date sdTrIl;
+    @Column(name = "JI_OK_NO")
     private String jiOkNo;
+    @Column(name = "MILEAGE")
     private BigDecimal mileage;
+    @Column(name = "PH_ID_NO")
     private String phIdNo;
+    @Column(name = "PH_SEQ_NO")
     private BigDecimal phSeqNo;
+    @Column(name = "YD_GUJA")
     private String ydGuja;
+    @Column(name = "CAN_GB")
     private String canGb;
+    @Column(name = "DEBIT_VDATE")
     private Date debitVdate;
+    @Column(name = "DEBIT_CUR")
     private String debitCur;
+    @Column(name = "DEBIT_AMT")
     private BigDecimal debitAmt;
+    @Column(name = "STATE_MSG")
     private String stateMsg;
+    @Column(name = "EMAIL_NM")
     private String emailNm;
+    @Column(name = "MAKE_IL")
     private Date makeIl;
+    @Column(name = "MTTYPE_CODE")
     private String mttypeCode;
+    @Column(name = "OUT_MSG")
     private String outMsg;
+    @Column(name = "MONEY_MSG")
     private String moneyMsg;
+    @Column(name = "VALUE_DATE")
     private Date valueDate;
+    @Column(name = "RCV_BIC")
     private String rcvBic;
+    @Column(name = "RCV_NAME1")
     private String rcvName1;
+    @Column(name = "RCV_NAME2")
     private String rcvName2;
+    @Column(name = "RCV_NAME3")
     private String rcvName3;
+    @Column(name = "APPL_NM1")
     private String applNm1;
+    @Column(name = "APPL_NM2")
     private String applNm2;
+    @Column(name = "APPL_ADDR1")
     private String applAddr1;
+    @Column(name = "APPL_ADDR2")
     private String applAddr2;
+    @Column(name = "APPL_ADDR3")
     private String applAddr3;
+    @Column(name = "RCV_NM1")
     private String rcvNm1;
+    @Column(name = "RCV_NM2")
     private String rcvNm2;
+    @Column(name = "RCV_ADDR1")
     private String rcvAddr1;
+    @Column(name = "RCV_ADDR2")
     private String rcvAddr2;
+    @Column(name = "RCV_ADDR3")
     private String rcvAddr3;
+    @Column(name = "RCV_ACCT_NO")
     private String rcvAcctNo;
+    @Column(name = "RCV_BKCD")
     private String rcvBkcd;
+    @Column(name = "RCV_BK_ACNO")
     private String rcvBkAcno;
+    @Column(name = "RCV_BKNM1")
     private String rcvBknm1;
+    @Column(name = "RCV_BKNM2")
     private String rcvBknm2;
+    @Column(name = "RCV_BK_ADDR1")
     private String rcvBkAddr1;
+    @Column(name = "RCV_BK_ADDR2")
     private String rcvBkAddr2;
+    @Column(name = "RCV_BK_ADDR3")
     private String rcvBkAddr3;
+    @Column(name = "INTER_BIC")
     private String interBic;
+    @Column(name = "INTER_NAME1")
     private String interName1;
+    @Column(name = "INTER_NAME2")
     private String interName2;
+    @Column(name = "INTER_NAME3")
     private String interName3;
+    @Column(name = "INFO_NAME1")
     private String infoName1;
+    @Column(name = "INFO_NAME2")
     private String infoName2;
+    @Column(name = "INFO_NAME3")
     private String infoName3;
+    @Column(name = "INFO_NAME4")
     private String infoName4;
+    @Column(name = "INFO72_NAME1")
     private String info72Name1;
+    @Column(name = "INFO72_NAME2")
     private String info72Name2;
+    @Column(name = "INFO72_NAME3")
     private String info72Name3;
+    @Column(name = "INFO72_NAME4")
     private String info72Name4;
+    @Column(name = "INFO72_NAME5")
     private String info72Name5;
+    @Column(name = "INFO72_NAME6")
     private String info72Name6;
+    @Column(name = "CABLE_CHG")
     private BigDecimal cableChg;
+    @Column(name = "LIFT_CHG")
     private BigDecimal liftChg;
+    @Column(name = "CASH_CHG")
     private BigDecimal cashChg;
+    @Column(name = "EXCH_CHG")
     private BigDecimal exchChg;
+    @Column(name = "PAY_COMM")
     private BigDecimal payComm;
+    @Column(name = "BOSE_GB")
     private String boseGb;
+    @Column(name = "PAID_OPTION")
     private String paidOption;
+    @Column(name = "INSTRUCT_CCY")
     private String instructCcy;
+    @Column(name = "INSTRUCT_AMT")
     private BigDecimal instructAmt;
+    @Column(name = "EX_RATE")
     private BigDecimal exRate;
+    @Column(name = "BOP_SEQ_NO")
     private String bopSeqNo;
+    @Column(name = "BOP_TRX_CODE")
     private String bopTrxCode;
+    @Column(name = "BOP_TRX_REMARK")
     private String bopTrxRemark;
+    @Column(name = "TRADE_GB")
     private String tradeGb;
+    @Column(name = "SUB_DP_NO")
     private String subDpNo;
+    @Column(name = "CVT_CCY")
     private String cvtCcy;
+    @Column(name = "CVT_AMT")
     private BigDecimal cvtAmt;
+    @Column(name = "CVT_EXRATE")
     private BigDecimal cvtExrate;
+    @Column(name = "FX_CCY")
     private String fxCcy;
+    @Column(name = "FX_AMT")
     private BigDecimal fxAmt;
+    @Column(name = "FX_EXRATE")
     private BigDecimal fxExrate;
+    @Column(name = "REG_EMP_NO")
     private String regEmpNo;
+    @Column(name = "REG_DT")
     private Date regDt;
+    @Column(name = "REG_TM")
     private String regTm;
+    @Column(name = "UPD_EMP_NO")
     private String updEmpNo;
+    @Column(name = "UPD_DT")
     private Date updDt;
+    @Column(name = "UPD_TM")
     private String updTm;
 } 

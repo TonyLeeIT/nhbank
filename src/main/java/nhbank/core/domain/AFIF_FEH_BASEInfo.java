@@ -2,136 +2,251 @@ package nhbank.core.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "afifFehBase")
+@IdClass(AFIF_FEH_BASEInfo_ID.class)
+@Table(name = "AFIF_FEH_BASE")
 @Data
 public class AFIF_FEH_BASEInfo implements Serializable {
     @Id
-    @GeneratedValue
+    @Column(name = "REF_NO")
     private String refNo;
+    @Column(name = "COM_ID")
     private String comId;
+    @Column(name = "COM_NM")
     private String comNm;
+    @Column(name = "COUNTERPARTY_ID")
     private String counterpartyId;
+    @Column(name = "COUNTERPARTY_NM")
     private String counterpartyNm;
+    @Column(name = "DEAL_TYPE")
     private String dealType;
+    @Column(name = "DEAL_IL")
     private Date dealIl;
+    @Column(name = "BASE_CCY")
     private String baseCcy;
+    @Column(name = "CPTY_CCY")
     private String cptyCcy;
+    @Column(name = "NEAR_VALUE_IL_GB")
     private String nearValueIlGb;
+    @Column(name = "NEAR_VALUE_IL")
     private Date nearValueIl;
+    @Column(name = "NEAR_EX_HRT")
     private BigDecimal nearExHrt;
+    @Column(name = "NEAR_BUY_CCY")
     private String nearBuyCcy;
+    @Column(name = "NEAR_BUY_AMT")
     private BigDecimal nearBuyAmt;
+    @Column(name = "NEAR_SELL_CCY")
     private String nearSellCcy;
+    @Column(name = "NEAR_SELL_AMT")
     private BigDecimal nearSellAmt;
+    @Column(name = "NEAR_INPUT_GB")
     private String nearInputGb;
+    @Column(name = "NEAR_USD_CVT_AMT")
     private BigDecimal nearUsdCvtAmt;
+    @Column(name = "NEAR_CUST_USD_AMT")
     private BigDecimal nearCustUsdAmt;
+    @Column(name = "NEAR_BASE_CVT_AMT")
     private BigDecimal nearBaseCvtAmt;
+    @Column(name = "NEAR_BR_HRT")
     private BigDecimal nearBrHrt;
+    @Column(name = "NEAR_KRUS_DEALER")
     private String nearKrusDealer;
+    @Column(name = "NEAR_KRUS_HRT")
     private BigDecimal nearKrusHrt;
+    @Column(name = "NEAR_OUR_RCV_DEPO_CD")
     private String nearOurRcvDepoCd;
+    @Column(name = "NEAR_OUR_RCV_DEPO_NM")
     private String nearOurRcvDepoNm;
+    @Column(name = "NEAR_OUR_PAY_DEPO_CD")
     private String nearOurPayDepoCd;
+    @Column(name = "NEAR_OUR_PAY_DEPO_NM")
     private String nearOurPayDepoNm;
+    @Column(name = "NEAR_THR_RCV_DEPO_BIC")
     private String nearThrRcvDepoBic;
+    @Column(name = "NEAR_THR_RCV_DEPO_NM")
     private String nearThrRcvDepoNm;
+    @Column(name = "NEAR_CONFIRM_YN")
     private String nearConfirmYn;
+    @Column(name = "NEAR_CONFIRM_IL")
     private Date nearConfirmIl;
+    @Column(name = "NEAR_PO_YN")
     private String nearPoYn;
+    @Column(name = "NEAR_PO_IL")
     private Date nearPoIl;
+    @Column(name = "NEAR_PO_SEQ")
     private BigDecimal nearPoSeq;
+    @Column(name = "FAR_VALUE_IL_GB")
     private String farValueIlGb;
+    @Column(name = "FAR_VALUE_IL")
     private Date farValueIl;
+    @Column(name = "FAR_EX_HRT")
     private BigDecimal farExHrt;
+    @Column(name = "FAR_BUY_CCY")
     private String farBuyCcy;
+    @Column(name = "FAR_BUY_AMT")
     private BigDecimal farBuyAmt;
+    @Column(name = "FAR_SELL_CCY")
     private String farSellCcy;
+    @Column(name = "FAR_SELL_AMT")
     private BigDecimal farSellAmt;
+    @Column(name = "FAR_INPUT_GB")
     private String farInputGb;
+    @Column(name = "FAR_USD_CVT_AMT")
     private BigDecimal farUsdCvtAmt;
+    @Column(name = "FAR_CUST_USD_AMT")
     private BigDecimal farCustUsdAmt;
+    @Column(name = "FAR_BASE_CVT_AMT")
     private BigDecimal farBaseCvtAmt;
+    @Column(name = "FAR_BR_HRT")
     private BigDecimal farBrHrt;
+    @Column(name = "FAR_KRUS_DEALER")
     private String farKrusDealer;
+    @Column(name = "FAR_KRUS_HRT")
     private BigDecimal farKrusHrt;
+    @Column(name = "FAR_OUR_RCV_DEPO_CD")
     private String farOurRcvDepoCd;
+    @Column(name = "FAR_OUR_RCV_DEPO_NM")
     private String farOurRcvDepoNm;
+    @Column(name = "FAR_OUR_PAY_DEPO_CD")
     private String farOurPayDepoCd;
+    @Column(name = "FAR_OUR_PAY_DEPO_NM")
     private String farOurPayDepoNm;
+    @Column(name = "FAR_THR_RCV_DEPO_BIC")
     private String farThrRcvDepoBic;
+    @Column(name = "FAR_THR_RCV_DEPO_NM")
     private String farThrRcvDepoNm;
+    @Column(name = "FAR_CONFIRM_YN")
     private String farConfirmYn;
+    @Column(name = "FAR_CONFIRM_IL")
     private Date farConfirmIl;
+    @Column(name = "FAR_PO_YN")
     private String farPoYn;
+    @Column(name = "FAR_PO_IL")
     private Date farPoIl;
+    @Column(name = "FAR_PO_SEQ")
     private BigDecimal farPoSeq;
+    @Column(name = "ONOFF_GB")
     private String onoffGb;
+    @Column(name = "INOUT_GB")
     private String inoutGb;
+    @Column(name = "DEAL_MATCH_TYPE")
     private String dealMatchType;
+    @Column(name = "SWAP_HRT")
     private BigDecimal swapHrt;
+    @Column(name = "DEAL_GB")
     private String dealGb;
+    @Column(name = "INTER_CUST_TYPE")
     private String interCustType;
+    @Column(name = "BR_NO")
     private String brNo;
+    @Column(name = "SBR_NO")
     private String sbrNo;
+    @Column(name = "OUTOF_RISK_GB")
     private String outofRiskGb;
+    @Column(name = "LINKED_REF_NO")
     private String linkedRefNo;
+    @Column(name = "RATE_FIX_IL")
     private Date rateFixIl;
+    @Column(name = "FIX_EX_HRT")
     private BigDecimal fixExHrt;
+    @Column(name = "SETL_CCY")
     private String setlCcy;
+    @Column(name = "SETL_AMT_GB")
     private String setlAmtGb;
+    @Column(name = "SETL_AMT")
     private BigDecimal setlAmt;
+    @Column(name = "SETL_IL")
     private Date setlIl;
+    @Column(name = "NEAR_SNG_NO")
     private String nearSngNo;
+    @Column(name = "FAR_SNG_NO")
     private String farSngNo;
+    @Column(name = "SYSTEM_GB")
     private String systemGb;
+    @Column(name = "BANK_CD")
     private String bankCd;
+    @Column(name = "CHANGE_BR_STS")
     private String changeBrSts;
+    @Column(name = "INTERFACE_GB")
     private String interfaceGb;
+    @Column(name = "NEAR_BBS_YN")
     private String nearBbsYn;
+    @Column(name = "FAR_BBS_YN")
     private String farBbsYn;
+    @Column(name = "FWD_EBS_YN")
     private String fwdEbsYn;
+    @Column(name = "FST_IB_IL")
     private Date fstIbIl;
+    @Column(name = "LST_DEAL_IL")
     private Date lstDealIl;
+    @Column(name = "LST_IB_IL")
     private Date lstIbIl;
+    @Column(name = "HIS_NO")
     private BigDecimal hisNo;
+    @Column(name = "DEALER_ID")
     private String dealerId;
+    @Column(name = "USER_ID")
     private String userId;
+    @Column(name = "KONDOR_ID")
     private String kondorId;
+    @Column(name = "LINKED_DEAL")
     private String linkedDeal;
+    @Column(name = "NEAR_SPOT_HRT")
     private BigDecimal nearSpotHrt;
+    @Column(name = "FAR_SPOT_HRT")
     private BigDecimal farSpotHrt;
+    @Column(name = "NEAR_BUY_BOJ")
     private BigDecimal nearBuyBoj;
+    @Column(name = "NEAR_SELL_BOJ")
     private BigDecimal nearSellBoj;
+    @Column(name = "FAR_BUY_BOJ")
     private BigDecimal farBuyBoj;
+    @Column(name = "FAR_SELL_BOJ")
     private BigDecimal farSellBoj;
+    @Column(name = "HD_SNG_NO")
     private String hdSngNo;
+    @Column(name = "BE_HD_SNGNO")
     private String beHdSngno;
+    @Column(name = "REMARK")
     private String remark;
+    @Column(name = "PVP_YN")
     private String pvpYn;
+    @Column(name = "BI_CUST_STS")
     private String biCustSts;
+    @Column(name = "BI_NON_BANK_CD")
     private String biNonBankCd;
+    @Column(name = "BI_BANK_CD")
     private String biBankCd;
+    @Column(name = "BI_DEAL_PPS")
     private String biDealPps;
+    @Column(name = "BI_BUSINESS_ACT_TYPE")
     private String biBusinessActType;
+    @Column(name = "BI_CNTY_CD")
     private String biCntyCd;
+    @Column(name = "BI_CCY")
     private String biCcy;
+    @Column(name = "BROKER_ID")
     private String brokerId;
+    @Column(name = "BROKER_FEE_CCY")
     private String brokerFeeCcy;
+    @Column(name = "BROKER_FEE_AMT")
     private BigDecimal brokerFeeAmt;
+    @Column(name = "REG_EMP_NO")
     private String regEmpNo;
+    @Column(name = "REG_DT")
     private Date regDt;
+    @Column(name = "REG_TM")
     private String regTm;
+    @Column(name = "UPD_EMP_NO")
     private String updEmpNo;
+    @Column(name = "UPD_DT")
     private Date updDt;
+    @Column(name = "UPD_TM")
     private String updTm;
 } 

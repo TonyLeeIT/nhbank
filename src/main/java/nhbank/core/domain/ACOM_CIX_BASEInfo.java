@@ -2,102 +2,183 @@ package nhbank.core.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "acomCixBase")
+@IdClass(ACOM_CIX_BASEInfo_ID.class)
+@Table(name = "ACOM_CIX_BASE")
 @Data
 public class ACOM_CIX_BASEInfo implements Serializable {
     @Id
-    @GeneratedValue
+    @Column(name = "CIX_NO")
     private String cixNo;
+    @Column(name = "ID_NO")
     private String idNo;
+    @Column(name = "ID_TP")
     private String idTp;
+    @Column(name = "END_ID_DT")
     private Date endIdDt;
+    @Column(name = "ID_NM")
     private String idNm;
+    @Column(name = "ID_NO_KOR")
     private String idNoKor;
+    @Column(name = "OPEN_BR")
     private String openBr;
+    @Column(name = "LST_BR")
     private String lstBr;
+    @Column(name = "OPEN_DT")
     private Date openDt;
+    @Column(name = "LST_DT")
     private Date lstDt;
+    @Column(name = "CUST_ENM")
     private String custEnm;
+    @Column(name = "CUST_SNM")
     private String custSnm;
+    @Column(name = "CUST_HNM")
     private String custHnm;
+    @Column(name = "CUST_HSNM")
     private String custHsnm;
+    @Column(name = "ADDR_ENM_1")
     private String addrEnm1;
+    @Column(name = "ADDR_ENM_2")
     private String addrEnm2;
+    @Column(name = "ADDR_ENM_3")
     private String addrEnm3;
+    @Column(name = "ADDR_ENM_4")
     private String addrEnm4;
+    @Column(name = "ADDR_HNM_1")
     private String addrHnm1;
+    @Column(name = "ADDR_HNM_2")
     private String addrHnm2;
+    @Column(name = "ADDR_HNM_3")
     private String addrHnm3;
+    @Column(name = "ADDR_HNM_4")
     private String addrHnm4;
+    @Column(name = "ADDR_HNM2_1")
     private String addrHnm21;
+    @Column(name = "ADDR_HNM2_2")
     private String addrHnm22;
+    @Column(name = "ADDR_HNM2_3")
     private String addrHnm23;
+    @Column(name = "ADDR_HNM2_4")
     private String addrHnm24;
+    @Column(name = "POST_NO")
     private String postNo;
+    @Column(name = "POST_NO2")
     private String postNo2;
+    @Column(name = "MAIN_TEL_NO")
     private String mainTelNo;
+    @Column(name = "TEL_NO")
     private String telNo;
+    @Column(name = "TEL_NO2")
     private String telNo2;
+    @Column(name = "MOBILE_NO")
     private String mobileNo;
+    @Column(name = "FAX_NO")
     private String faxNo;
+    @Column(name = "CIX_CD")
     private String cixCd;
+    @Column(name = "CTRY_CD")
     private String ctryCd;
+    @Column(name = "DMCL_CTRY_CD")
     private String dmclCtryCd;
+    @Column(name = "GYUMO_CD")
     private String gyumoCd;
+    @Column(name = "UPJO_CD")
     private String upjoCd;
+    @Column(name = "JOB_CD")
     private String jobCd;
+    @Column(name = "JOB_PLACE")
     private String jobPlace;
+    @Column(name = "JOB_PLC_ADDR_1")
     private String jobPlcAddr1;
+    @Column(name = "JOB_PLC_ADDR_2")
     private String jobPlcAddr2;
+    @Column(name = "JOB_PLC_ADDR_3")
     private String jobPlcAddr3;
+    @Column(name = "JOB_PLC_ADDR_4")
     private String jobPlcAddr4;
+    @Column(name = "JOB_POST_NO")
     private String jobPostNo;
+    @Column(name = "JOB_CORRES")
     private String jobCorres;
+    @Column(name = "JOB_POS")
     private String jobPos;
+    @Column(name = "JOB_YEAR")
     private String jobYear;
+    @Column(name = "JOB_MON")
     private String jobMon;
+    @Column(name = "JOB_CTRY_CD")
     private String jobCtryCd;
+    @Column(name = "OCCUP_SINCE")
     private String occupSince;
+    @Column(name = "SEX_CD")
     private String sexCd;
+    @Column(name = "BIRTH_DT")
     private Date birthDt;
+    @Column(name = "BIRTH_PLACE")
     private String birthPlace;
+    @Column(name = "MARRIAGE_YN")
     private String marriageYn;
+    @Column(name = "HOUSE_OWN_YN")
     private String houseOwnYn;
+    @Column(name = "BIC_CD")
     private String bicCd;
+    @Column(name = "OP_NO")
     private String opNo;
+    @Column(name = "YD_GUJA")
     private String ydGuja;
+    @Column(name = "MNG_INFO")
     private String mngInfo;
+    @Column(name = "MAIL_TP")
     private String mailTp;
+    @Column(name = "MAIL_ADDR_1")
     private String mailAddr1;
+    @Column(name = "MAIL_ADDR_2")
     private String mailAddr2;
+    @Column(name = "MAIL_ADDR_3")
     private String mailAddr3;
+    @Column(name = "MAIL_ADDR_4")
     private String mailAddr4;
+    @Column(name = "CREDIT_GRADE")
     private String creditGrade;
+    @Column(name = "EMAIL_ADDR")
     private String emailAddr;
+    @Column(name = "CAPITAL")
     private BigDecimal capital;
+    @Column(name = "SALES_SCALE")
     private BigDecimal salesScale;
+    @Column(name = "PROFIT_EX_TAX")
     private BigDecimal profitExTax;
+    @Column(name = "ASSET")
     private BigDecimal asset;
+    @Column(name = "PDIN_CAPTL")
     private BigDecimal pdinCaptl;
+    @Column(name = "AMT_EMPLOYEE")
     private BigDecimal amtEmployee;
+    @Column(name = "CORP_TP")
     private String corpTp;
+    @Column(name = "REMARKS1")
     private String remarks1;
+    @Column(name = "REMARKS2")
     private String remarks2;
+    @Column(name = "HQ_CIX_NO")
     private String hqCixNo;
+    @Column(name = "HQ_ID_NO")
     private String hqIdNo;
+    @Column(name = "REG_EMP_NO")
     private String regEmpNo;
+    @Column(name = "REG_DT")
     private Date regDt;
+    @Column(name = "REG_TM")
     private String regTm;
+    @Column(name = "UPD_EMP_NO")
     private String updEmpNo;
+    @Column(name = "UPD_DT")
     private Date updDt;
+    @Column(name = "UPD_TM")
     private String updTm;
 } 
