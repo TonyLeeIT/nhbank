@@ -391,8 +391,8 @@ public class GenerateUtils {
         String sFileName = fileName.replace(".sql", "");
         FileOutputStream fileOutputStream = null;
         DataOutputStream outStream = null;
+        File target = new File("E:\\NHBANK_TARGET\\ServicesImpl\\" + fileName.replace(".sql", "") + "InfoServiceImpl.java");
         try {
-            File target = new File("E:\\NHBANK_TARGET\\ServicesImpl\\" + fileName.replace(".sql", "") + "InfoServiceImpl.java");
             target.createNewFile();
 
             fileOutputStream = new FileOutputStream(target);
@@ -488,6 +488,7 @@ public class GenerateUtils {
             outStream.writeBytes("objList.add(obj);\n");
             outStream.writeBytes("}\n");
             outStream.writeBytes("}\n");
+            outStream.writeBytes("br.close();");
             outStream.writeBytes("if (!objList.isEmpty())\n");
             outStream.writeBytes(" insertAll(objList);\n");
             outStream.writeBytes("} catch (Exception ex) {\n");
@@ -564,12 +565,15 @@ public class GenerateUtils {
             outStream.writeBytes(");\n");
             outStream.writeBytes("}\n");
             outStream.writeBytes("}\n");
+            outStream.close();
+            fileOutputStream.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            assert outStream != null;
+            if (outStream != null)
             outStream.close();
+            if (fileOutputStream!=null)
             fileOutputStream.close();
 
         }

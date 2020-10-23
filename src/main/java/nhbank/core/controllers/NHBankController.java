@@ -297,7 +297,9 @@ public class NHBankController {
         List<String> files = FileUtils.getFilesDirectory(dataPath);
         for (String file : files) {
             File file1 = new File(file);
+
             FileUtils.moveFile(dataPath, uploadPath, file1.getName());
+            FileUtils.deleteFile(file1);
         }
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }

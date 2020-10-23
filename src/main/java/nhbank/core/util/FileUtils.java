@@ -63,13 +63,6 @@ public class FileUtils {
         } finally {
             if (inStream != null) inStream.close();
             if (outStream != null) outStream.close();
-            Files.delete(afile.toPath());
-            if (afile.delete()) {
-                logger.error("File deleted successfully");
-            } else {
-                logger.error("Failed to delete the file");
-            }
-            logger.error("File is copied successful!");
         }
     }
 
@@ -87,5 +80,12 @@ public class FileUtils {
             logger.error(e.getMessage());
         }
     }
-
+    public static void deleteFile(File file){
+        if (file.delete()) {
+            logger.error("File deleted successfully");
+        } else {
+            logger.error("Failed to delete the file");
+        }
+        logger.error("File is copied successful!");
+    }
 }
