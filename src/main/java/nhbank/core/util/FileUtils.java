@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 public class FileUtils {
     public static final Logger logger = LoggerFactory.getLogger(FileUtils.class);
 
-    public List<String> getFilesDirectory(String directoryPath) {
+    public static List<String> getFilesDirectory(String directoryPath) {
         List<String> result = new ArrayList<>();
         try (Stream<Path> walk = Files.walk(Paths.get(directoryPath))) {
             result = walk.filter(Files::isRegularFile)
@@ -30,11 +30,11 @@ public class FileUtils {
         return result;
     }
 
-    public void moveFile(String inputFile, String outputFile, String fileName) throws IOException {
+    public static void moveFile(String inputFile, String outputFile, String fileName) throws IOException {
         InputStream inStream = null;
         OutputStream outStream = null;
         try {
-            File afile = new File(inputFile);
+            File afile = new File(inputFile + "\\" + fileName);
             File bfile = new File(outputFile);
             if (!bfile.exists() || !bfile.isDirectory()) {
                 System.out.println("Backup folder not exist");
@@ -43,7 +43,7 @@ public class FileUtils {
                 Files.createDirectories(path);
             }
 
-            File newFile = new File(outputFile + fileName + ".bak");
+            File newFile = new File(outputFile + "\\" + fileName + ".bak");
 
             inStream = new FileInputStream(afile);
             outStream = new FileOutputStream(newFile);
@@ -55,7 +55,11 @@ public class FileUtils {
 
             }
             //delete the original file
-            afile.delete();
+            if (afile.delete()) {
+                logger.error("File deleted successfully");
+            } else {
+                logger.error("Failed to delete the file");
+            }
             logger.error("File is copied successful!");
         } catch (IOException e) {
             e.printStackTrace();
@@ -65,7 +69,7 @@ public class FileUtils {
         }
     }
 
-    public void createFile(String dir, List<String> content) {
+    public static void createFile(String dir, List<String> content) {
         Charset utf8 = StandardCharsets.UTF_8;
         try (Writer writer = new BufferedWriter(
                 new OutputStreamWriter(new FileOutputStream(dir), utf8)

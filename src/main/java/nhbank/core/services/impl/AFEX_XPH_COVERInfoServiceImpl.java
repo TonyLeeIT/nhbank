@@ -1,18 +1,25 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_XPH_COVERInfo;
 import nhbank.core.repositories.AFEX_XPH_COVERInfoRepository;
 import nhbank.core.services.AFEX_XPH_COVERInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AFEX_XPH_COVERInfoServiceImpl implements AFEX_XPH_COVERInfoService {
+    @Autowired
+    PathConfig pathConfig;
     @Autowired
     AFEX_XPH_COVERInfoRepository afex_xph_coverInfoRepository;
 
@@ -22,7 +29,13 @@ public class AFEX_XPH_COVERInfoServiceImpl implements AFEX_XPH_COVERInfoService 
             List<AFEX_XPH_COVERInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFEX_XPH_COVER.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFEX_XPH_COVER.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_XPH_COVERInfo obj = new AFEX_XPH_COVERInfo();

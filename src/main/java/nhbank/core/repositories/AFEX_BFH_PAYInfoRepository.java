@@ -6,8 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
 
 @Repository
 public interface AFEX_BFH_PAYInfoRepository extends JpaRepository<AFEX_BFH_PAYInfo, AFEX_BFH_PAYInfo_ID> {

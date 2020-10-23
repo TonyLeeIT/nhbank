@@ -1,18 +1,25 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ADST_DPB_YEDEInfo;
 import nhbank.core.repositories.ADST_DPB_YEDEInfoRepository;
 import nhbank.core.services.ADST_DPB_YEDEInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ADST_DPB_YEDEInfoServiceImpl implements ADST_DPB_YEDEInfoService {
+    @Autowired
+    PathConfig pathConfig;
     @Autowired
     ADST_DPB_YEDEInfoRepository adst_dpb_yedeInfoRepository;
 
@@ -22,7 +29,13 @@ public class ADST_DPB_YEDEInfoServiceImpl implements ADST_DPB_YEDEInfoService {
             List<ADST_DPB_YEDEInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ADST_DPB_YEDE.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ADST_DPB_YEDE.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ADST_DPB_YEDEInfo obj = new ADST_DPB_YEDEInfo();

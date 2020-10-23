@@ -1,18 +1,25 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_IPB_LGMInfo;
 import nhbank.core.repositories.AFEX_IPB_LGMInfoRepository;
 import nhbank.core.services.AFEX_IPB_LGMInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AFEX_IPB_LGMInfoServiceImpl implements AFEX_IPB_LGMInfoService {
+    @Autowired
+    PathConfig pathConfig;
     @Autowired
     AFEX_IPB_LGMInfoRepository afex_ipb_lgmInfoRepository;
 
@@ -22,7 +29,13 @@ public class AFEX_IPB_LGMInfoServiceImpl implements AFEX_IPB_LGMInfoService {
             List<AFEX_IPB_LGMInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFEX_IPB_LGM.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFEX_IPB_LGM.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_IPB_LGMInfo obj = new AFEX_IPB_LGMInfo();

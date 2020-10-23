@@ -1,18 +1,25 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFIF_MMH_HISInfo;
 import nhbank.core.repositories.AFIF_MMH_HISInfoRepository;
 import nhbank.core.services.AFIF_MMH_HISInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AFIF_MMH_HISInfoServiceImpl implements AFIF_MMH_HISInfoService {
+    @Autowired
+    PathConfig pathConfig;
     @Autowired
     AFIF_MMH_HISInfoRepository afif_mmh_hisInfoRepository;
 
@@ -22,7 +29,13 @@ public class AFIF_MMH_HISInfoServiceImpl implements AFIF_MMH_HISInfoService {
             List<AFIF_MMH_HISInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFIF_MMH_HIS.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFIF_MMH_HIS.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFIF_MMH_HISInfo obj = new AFIF_MMH_HISInfo();

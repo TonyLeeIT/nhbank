@@ -1,8 +1,7 @@
-server:
-  host: 118.70.245.192
-  port: 22
-  user: info_woori
-  password: Infocity@123
+server.port: 8080
+dataPath: C:\vnhnbackup\yyyymmdd
+sqlPath:  C:\vnhnbackup\sql
+uploadPath: C:\vnhnbackup\bkupload
 
 sqlfiles:
   sql:

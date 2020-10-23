@@ -1,18 +1,25 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AACT_TRX_BSInfo;
 import nhbank.core.repositories.AACT_TRX_BSInfoRepository;
 import nhbank.core.services.AACT_TRX_BSInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AACT_TRX_BSInfoServiceImpl implements AACT_TRX_BSInfoService {
+    @Autowired
+    PathConfig pathConfig;
     @Autowired
     AACT_TRX_BSInfoRepository aact_trx_bsInfoRepository;
 
@@ -22,7 +29,13 @@ public class AACT_TRX_BSInfoServiceImpl implements AACT_TRX_BSInfoService {
             List<AACT_TRX_BSInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AACT_TRX_BS.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AACT_TRX_BS.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AACT_TRX_BSInfo obj = new AACT_TRX_BSInfo();

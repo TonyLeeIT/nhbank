@@ -6,8 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
 
 @Repository
 public interface AFIF_MTH_HISInfoRepository extends JpaRepository<AFIF_MTH_HISInfo, AFIF_MTH_HISInfo_ID> {

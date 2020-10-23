@@ -1,18 +1,25 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_EPB_HISInfo;
 import nhbank.core.repositories.ACOM_EPB_HISInfoRepository;
 import nhbank.core.services.ACOM_EPB_HISInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ACOM_EPB_HISInfoServiceImpl implements ACOM_EPB_HISInfoService {
+    @Autowired
+    PathConfig pathConfig;
     @Autowired
     ACOM_EPB_HISInfoRepository acom_epb_hisInfoRepository;
 
@@ -22,7 +29,13 @@ public class ACOM_EPB_HISInfoServiceImpl implements ACOM_EPB_HISInfoService {
             List<ACOM_EPB_HISInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_EPB_HIS.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_EPB_HIS.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_EPB_HISInfo obj = new ACOM_EPB_HISInfo();

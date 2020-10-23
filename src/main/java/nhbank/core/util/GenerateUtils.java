@@ -1,7 +1,6 @@
 package nhbank.core.util;
 
 import nhbank.core.constant.Constant;
-
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -17,7 +16,7 @@ public class GenerateUtils {
         String sFileName = fileName.replace(".sql", "");
         try {
 
-            File target = new File("E:\\NHBANK_TARGET\\INFO\\" + fileName.replace(".sql", "") + "Info.java");
+            File target = new File("D:\\NHBANK_TARGET\\INFO\\" + fileName.replace(".sql", "") + "Info.java");
             target.createNewFile();
 
             FileOutputStream outputStream = new FileOutputStream(target);
@@ -87,7 +86,7 @@ public class GenerateUtils {
         String sFileName = fileName.replace(".sql", "");
 
         try {
-            File target = new File("E:\\NHBANK_TARGET\\ID\\" + fileName.replace(".sql", "") + "Info_ID.java");
+            File target = new File("D:\\NHBANK_TARGET\\ID\\" + fileName.replace(".sql", "") + "Info_ID.java");
             target.createNewFile();
 
             FileOutputStream fileOutputStream = new FileOutputStream(target);
@@ -142,7 +141,7 @@ public class GenerateUtils {
     public static void buildModel(String fileName, Map<Integer, String> listFields) {
         String sFileName = fileName.replace(".sql", "");
         try {
-            File target = new File("E:\\NHBANK_TARGET\\" + fileName.replace(".sql", "") + "_DTO.java");
+            File target = new File("D:\\NHBANK_TARGET\\" + fileName.replace(".sql", "") + "_DTO.java");
             target.createNewFile();
 
             FileOutputStream outputStream = new FileOutputStream(target);
@@ -196,7 +195,7 @@ public class GenerateUtils {
         String sFileName = fileName.replace(".sql", "");
         Map<Integer, String> primaryKeyMap = findPrimaryKeys(file);
         try {
-            File target = new File("E:\\NHBANK_TARGET\\Repo\\" + fileName.replace(".sql", "") + "InfoRepository.java");
+            File target = new File("D:\\NHBANK_TARGET\\Repo\\" + fileName.replace(".sql", "") + "InfoRepository.java");
             target.createNewFile();
             FileOutputStream outputStream = new FileOutputStream(target);
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
@@ -267,7 +266,7 @@ public class GenerateUtils {
         String sFileName = fileName.replace(".sql", "");
         Map<Integer, String> primaryKeyMap = findPrimaryKeys(file);
         try {
-            File target = new File("E:\\NHBANK_TARGET\\Service\\" + fileName.replace(".sql", "") + "InfoService.java");
+            File target = new File("D:\\NHBANK_TARGET\\Service\\" + fileName.replace(".sql", "") + "InfoService.java");
             target.createNewFile();
             FileOutputStream outputStream = new FileOutputStream(target);
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
@@ -391,12 +390,13 @@ public class GenerateUtils {
     public static void buildServiceImpl(String fileName, Map<Integer, String> listFields, Map<Integer, String> primaryKeyMap) {
         String sFileName = fileName.replace(".sql", "");
         try {
-            File target = new File("E:\\NHBANK_TARGET\\ServiceImpl\\" + fileName.replace(".sql", "") + "InfoServiceImpl.java");
+            File target = new File("D:\\NHBANK_TARGET\\ServiceImpl\\" + fileName.replace(".sql", "") + "InfoServiceImpl.java");
             target.createNewFile();
 
             FileOutputStream fileOutputStream = new FileOutputStream(target);
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fileOutputStream));
             outStream.writeBytes("package nhbank.core.services.impl; \n");
+            outStream.writeBytes("import nhbank.core.config.PathConfig; \n");
             outStream.writeBytes("import nhbank.core.domain." + sFileName + "Info; \n");
             outStream.writeBytes("import nhbank.core.repositories." + sFileName + "InfoRepository;\n");
             outStream.writeBytes("import nhbank.core.services." + sFileName + "InfoService;\n");
@@ -404,10 +404,13 @@ public class GenerateUtils {
             outStream.writeBytes("import org.springframework.stereotype.Service;\n");
             outStream.writeBytes("import java.io.*;\n");
             outStream.writeBytes("import java.util.*;\n");
+            outStream.writeBytes("import nhbank.core.util.DateUtils;\n");
             outStream.writeBytes("import java.math.BigDecimal;\n");
             outStream.writeBytes("import java.text.SimpleDateFormat;\n");
             outStream.writeBytes("@Service \n");
             outStream.writeBytes("public class " + sFileName + "InfoServiceImpl implements " + sFileName + "InfoService { \n");
+            outStream.writeBytes("@Autowired \n");
+            outStream.writeBytes("PathConfig pathConfig; \n");
             outStream.writeBytes("@Autowired \n");
             outStream.writeBytes(sFileName + "InfoRepository " + sFileName.toLowerCase() + "InfoRepository; \n");
             outStream.writeBytes("@Override \n");
@@ -415,8 +418,14 @@ public class GenerateUtils {
             outStream.writeBytes(" try { \n");
             outStream.writeBytes("List<" + sFileName + "Info" + "> objList = new ArrayList<>();\n");
             outStream.writeBytes("SimpleDateFormat formatter = new SimpleDateFormat(\"yyyy/MM/dd\");\n");
-            outStream.writeBytes("String line;\n");
-            outStream.writeBytes("BufferedReader br = new BufferedReader(new FileReader(\"E:\\\\ACOM_LMT_BASEHIS.txt\"));\n");
+            outStream.writeBytes("String line; \n");
+            outStream.writeBytes("String todayDate = DateUtils.dateYYYMMDD(); \n");
+            outStream.writeBytes("String dataPath = pathConfig.getDataPath().replace(\"yyyymmdd\", todayDate); \n");
+            outStream.writeBytes("File file = new File(dataPath + \"\\\\" + sFileName + ".dat\"); \n");
+            outStream.writeBytes("if (!file.exists()){ \n");
+            outStream.writeBytes("return; \n");
+            outStream.writeBytes("} \n");
+            outStream.writeBytes("BufferedReader br = new BufferedReader(new FileReader(dataPath + " + "\"\\\\" + sFileName + ".dat\"));\n");
             outStream.writeBytes("   while ((line = br.readLine()) != null) {\n");
             outStream.writeBytes("String[] lineArray = line.split(\"\\\\|\"); \n");
             outStream.writeBytes(sFileName + "Info obj = new " + sFileName + "Info(); \n");
