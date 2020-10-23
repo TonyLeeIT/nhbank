@@ -4,17 +4,16 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_LMT_SILInfo;
 import nhbank.core.repositories.ACOM_LMT_SILInfoRepository;
 import nhbank.core.services.ACOM_LMT_SILInfoService;
-import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
+import java.util.*;
+
+import nhbank.core.util.DateUtils;
+
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class ACOM_LMT_SILInfoServiceImpl implements ACOM_LMT_SILInfoService {
@@ -61,6 +60,7 @@ public class ACOM_LMT_SILInfoServiceImpl implements ACOM_LMT_SILInfoService {
                     objList.add(obj);
                 }
             }
+            br.close();
             if (!objList.isEmpty())
                 insertAll(objList);
         } catch (Exception ex) {

@@ -4,18 +4,16 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_ADH_AMENDInfo;
 import nhbank.core.repositories.AFEX_ADH_AMENDInfoRepository;
 import nhbank.core.services.AFEX_ADH_AMENDInfoService;
-import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
+import java.util.*;
+
+import nhbank.core.util.DateUtils;
+
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Service
 public class AFEX_ADH_AMENDInfoServiceImpl implements AFEX_ADH_AMENDInfoService {
@@ -156,6 +154,7 @@ public class AFEX_ADH_AMENDInfoServiceImpl implements AFEX_ADH_AMENDInfoService 
                     objList.add(obj);
                 }
             }
+            br.close();
             if (!objList.isEmpty())
                 insertAll(objList);
         } catch (Exception ex) {

@@ -4,17 +4,16 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_RIH_HISInfo;
 import nhbank.core.repositories.AFEX_RIH_HISInfoRepository;
 import nhbank.core.services.AFEX_RIH_HISInfoService;
-import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
+import java.util.*;
+
+import nhbank.core.util.DateUtils;
+
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class AFEX_RIH_HISInfoServiceImpl implements AFEX_RIH_HISInfoService {
@@ -78,6 +77,7 @@ public class AFEX_RIH_HISInfoServiceImpl implements AFEX_RIH_HISInfoService {
                     objList.add(obj);
                 }
             }
+            br.close();
             if (!objList.isEmpty())
                 insertAll(objList);
         } catch (Exception ex) {

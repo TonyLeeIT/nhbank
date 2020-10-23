@@ -291,7 +291,7 @@ public class NHBankController {
         if (!Files.isDirectory(dPath)) {
             Files.createDirectories(dPath);
         }
-        //Import Data
+//        Import Data
         importDB();
         //Move file
         List<String> files = FileUtils.getFilesDirectory(dataPath);

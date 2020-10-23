@@ -4,17 +4,16 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFIF_FEH_BASEInfo;
 import nhbank.core.repositories.AFIF_FEH_BASEInfoRepository;
 import nhbank.core.services.AFIF_FEH_BASEInfoService;
-import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
+import java.util.*;
+
+import nhbank.core.util.DateUtils;
+
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class AFIF_FEH_BASEInfoServiceImpl implements AFIF_FEH_BASEInfoService {
@@ -163,6 +162,7 @@ public class AFIF_FEH_BASEInfoServiceImpl implements AFIF_FEH_BASEInfoService {
                     objList.add(obj);
                 }
             }
+            br.close();
             if (!objList.isEmpty())
                 insertAll(objList);
         } catch (Exception ex) {

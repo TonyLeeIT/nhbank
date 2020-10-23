@@ -4,17 +4,16 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_EPB_RPTInfo;
 import nhbank.core.repositories.ACOM_EPB_RPTInfoRepository;
 import nhbank.core.services.ACOM_EPB_RPTInfoService;
-import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
+import java.util.*;
+
+import nhbank.core.util.DateUtils;
+
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class ACOM_EPB_RPTInfoServiceImpl implements ACOM_EPB_RPTInfoService {
@@ -70,14 +69,9 @@ public class ACOM_EPB_RPTInfoServiceImpl implements ACOM_EPB_RPTInfoService {
                 obj.setUpdEmpNo(lineArray[28]);
                 obj.setUpdDt((lineArray[29].equals("")) ? null : formatter.parse(lineArray[29]));
                 obj.setUpdTm(lineArray[30]);
-                if (isExist()) {
                     acom_epb_rptInfoRepository.save(obj);
-                } else {
-                    objList.add(obj);
-                }
             }
-            if (!objList.isEmpty())
-                insertAll(objList);
+            br.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -88,9 +82,4 @@ public class ACOM_EPB_RPTInfoServiceImpl implements ACOM_EPB_RPTInfoService {
         acom_epb_rptInfoRepository.saveAll(objList);
     }
 
-    //    @Override
-    public boolean isExist() {
-//        return acom_epb_rptInfoRepository.existsBy();
-        return false;
-    }
 }
