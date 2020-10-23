@@ -1,12 +1,15 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_DMH_ALLOCInfo;
 import nhbank.core.repositories.ACOM_DMH_ALLOCInfoRepository;
 import nhbank.core.services.ACOM_DMH_ALLOCInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +19,8 @@ import java.util.List;
 @Service
 public class ACOM_DMH_ALLOCInfoServiceImpl implements ACOM_DMH_ALLOCInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     ACOM_DMH_ALLOCInfoRepository acom_dmh_allocInfoRepository;
 
     @Override
@@ -24,7 +29,13 @@ public class ACOM_DMH_ALLOCInfoServiceImpl implements ACOM_DMH_ALLOCInfoService 
             List<ACOM_DMH_ALLOCInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_DMH_ALLOC.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_DMH_ALLOC.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_DMH_ALLOCInfo obj = new ACOM_DMH_ALLOCInfo();

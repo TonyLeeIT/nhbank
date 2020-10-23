@@ -1,12 +1,15 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_COM_CCYInfo;
 import nhbank.core.repositories.ACOM_COM_CCYInfoRepository;
 import nhbank.core.services.ACOM_COM_CCYInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +19,8 @@ import java.util.List;
 @Service
 public class ACOM_COM_CCYInfoServiceImpl implements ACOM_COM_CCYInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     ACOM_COM_CCYInfoRepository acom_com_ccyInfoRepository;
 
     @Override
@@ -24,7 +29,13 @@ public class ACOM_COM_CCYInfoServiceImpl implements ACOM_COM_CCYInfoService {
             List<ACOM_COM_CCYInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_COM_CCY.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_COM_CCY.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_COM_CCYInfo obj = new ACOM_COM_CCYInfo();

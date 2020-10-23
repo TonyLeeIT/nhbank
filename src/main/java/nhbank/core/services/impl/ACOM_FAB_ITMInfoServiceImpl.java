@@ -1,12 +1,15 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_FAB_ITMInfo;
 import nhbank.core.repositories.ACOM_FAB_ITMInfoRepository;
 import nhbank.core.services.ACOM_FAB_ITMInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +19,8 @@ import java.util.List;
 @Service
 public class ACOM_FAB_ITMInfoServiceImpl implements ACOM_FAB_ITMInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     ACOM_FAB_ITMInfoRepository acom_fab_itmInfoRepository;
 
     @Override
@@ -24,7 +29,13 @@ public class ACOM_FAB_ITMInfoServiceImpl implements ACOM_FAB_ITMInfoService {
             List<ACOM_FAB_ITMInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_FAB_ITM.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_FAB_ITM.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_FAB_ITMInfo obj = new ACOM_FAB_ITMInfo();

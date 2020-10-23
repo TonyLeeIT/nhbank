@@ -1,12 +1,15 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ADST_LNB_SCHInfo;
 import nhbank.core.repositories.ADST_LNB_SCHInfoRepository;
 import nhbank.core.services.ADST_LNB_SCHInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +19,8 @@ import java.util.List;
 @Service
 public class ADST_LNB_SCHInfoServiceImpl implements ADST_LNB_SCHInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     ADST_LNB_SCHInfoRepository adst_lnb_schInfoRepository;
 
     @Override
@@ -24,7 +29,13 @@ public class ADST_LNB_SCHInfoServiceImpl implements ADST_LNB_SCHInfoService {
             List<ADST_LNB_SCHInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ADST_LNB_SCH.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ADST_LNB_SCH.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ADST_LNB_SCHInfo obj = new ADST_LNB_SCHInfo();

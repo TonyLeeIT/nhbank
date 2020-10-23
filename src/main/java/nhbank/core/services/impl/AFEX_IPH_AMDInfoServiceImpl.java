@@ -1,12 +1,15 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_IPH_AMDInfo;
 import nhbank.core.repositories.AFEX_IPH_AMDInfoRepository;
 import nhbank.core.services.AFEX_IPH_AMDInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +19,8 @@ import java.util.List;
 @Service
 public class AFEX_IPH_AMDInfoServiceImpl implements AFEX_IPH_AMDInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     AFEX_IPH_AMDInfoRepository afex_iph_amdInfoRepository;
 
     @Override
@@ -24,7 +29,13 @@ public class AFEX_IPH_AMDInfoServiceImpl implements AFEX_IPH_AMDInfoService {
             List<AFEX_IPH_AMDInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFEX_IPH_AMD.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFEX_IPH_AMD.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_IPH_AMDInfo obj = new AFEX_IPH_AMDInfo();

@@ -1,12 +1,15 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ADST_DPB_HISInfo;
 import nhbank.core.repositories.ADST_DPB_HISInfoRepository;
 import nhbank.core.services.ADST_DPB_HISInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +19,8 @@ import java.util.List;
 @Service
 public class ADST_DPB_HISInfoServiceImpl implements ADST_DPB_HISInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     ADST_DPB_HISInfoRepository adst_dpb_hisInfoRepository;
 
     @Override
@@ -24,7 +29,13 @@ public class ADST_DPB_HISInfoServiceImpl implements ADST_DPB_HISInfoService {
             List<ADST_DPB_HISInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ADST_DPB_HIS.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ADST_DPB_HIS.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ADST_DPB_HISInfo obj = new ADST_DPB_HISInfo();

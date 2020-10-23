@@ -2,7 +2,10 @@ package nhbank.core.controllers;
 
 import lombok.extern.log4j.Log4j;
 import nhbank.core.config.Config;
+import nhbank.core.config.PathConfig;
 import nhbank.core.services.*;
+import nhbank.core.util.DateUtils;
+import nhbank.core.util.FileUtils;
 import nhbank.core.util.GenerateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
@@ -29,8 +35,8 @@ public class NHBankController {
     public static final Logger logger = LoggerFactory.getLogger(NHBankController.class);
     @Autowired
     private Config config;
-
-
+    @Autowired
+    private PathConfig pathConfig;
     @Autowired
     private AACT_TRX_BALInfoService aact_trx_balInfoService;
     @Autowired
@@ -274,12 +280,34 @@ public class NHBankController {
     @Autowired
     private AFTR_FFH_COMM_TRSC_PTCLInfoService aftr_ffh_comm_trsc_ptclInfoService;
 
+    @GetMapping(value = "/worker")
+//    @Scheduled(cron = "0 0 7,12 * * *")
+    public ResponseEntity<?> worker() throws IOException {
+        String todayDate = DateUtils.dateYYYMMDD();
+        String dataPath = pathConfig.getDataPath();
+        String uploadPath = pathConfig.getUploadPath();
+        dataPath = dataPath.replace("yyyymmdd", todayDate);
+        Path dPath = Paths.get(dataPath);
+        if (!Files.isDirectory(dPath)) {
+            Files.createDirectories(dPath);
+        }
+        //Import Data
+        importDB();
+        //Move file
+        List<String> files = FileUtils.getFilesDirectory(dataPath);
+        for (String file : files) {
+            File file1 = new File(file);
+            FileUtils.moveFile(dataPath, uploadPath, file1.getName());
+        }
+        return new ResponseEntity<>("OK", HttpStatus.OK);
+    }
 
-    @GetMapping(value = "/build")
+    @GetMapping(value = "/generate")
     public ResponseEntity<?> parsingFile() throws IOException {
+        String sqlPath = pathConfig.getSqlPath();
         List<String> sqlFiles = config.getSql();
         //Creating a File object for directory
-        File directoryPath = new File("E:\\NHBANK_TARGET\\NH_BANK");
+        File directoryPath = new File(sqlPath);
         //List of all files and directories
         File[] filesList = directoryPath.listFiles();
         for (File file : filesList) {
@@ -301,8 +329,7 @@ public class NHBankController {
         return new ResponseEntity<>("Build success", HttpStatus.OK);
     }
 
-    @GetMapping(value = "/update")
-    public ResponseEntity<?> updateDB() {
+    public void importDB() {
         aact_trx_balInfoService.updateAll();
         aact_trx_baseInfoService.updateAll();
         aact_trx_bsInfoService.updateAll();
@@ -424,8 +451,5 @@ public class NHBankController {
         afif_mth_baseInfoService.updateAll();
         afif_mth_hisInfoService.updateAll();
         aftr_ffh_comm_trsc_ptclInfoService.updateAll();
-
-        return new ResponseEntity<>("Update Successfully!", HttpStatus.OK);
     }
-
 }

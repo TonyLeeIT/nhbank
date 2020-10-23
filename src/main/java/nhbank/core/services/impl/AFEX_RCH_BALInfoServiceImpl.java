@@ -1,12 +1,15 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_RCH_BALInfo;
 import nhbank.core.repositories.AFEX_RCH_BALInfoRepository;
 import nhbank.core.services.AFEX_RCH_BALInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -17,6 +20,8 @@ import java.util.List;
 @Service
 public class AFEX_RCH_BALInfoServiceImpl implements AFEX_RCH_BALInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     AFEX_RCH_BALInfoRepository afex_rch_balInfoRepository;
 
     @Override
@@ -25,7 +30,13 @@ public class AFEX_RCH_BALInfoServiceImpl implements AFEX_RCH_BALInfoService {
             List<AFEX_RCH_BALInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFEX_RCH_BAL.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFEX_RCH_BAL.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_RCH_BALInfo obj = new AFEX_RCH_BALInfo();

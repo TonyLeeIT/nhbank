@@ -1,12 +1,15 @@
 package nhbank.core.services.impl;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_XPB_BDSInfo;
 import nhbank.core.repositories.AFEX_XPB_BDSInfoRepository;
 import nhbank.core.services.AFEX_XPB_BDSInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -16,6 +19,8 @@ import java.util.List;
 @Service
 public class AFEX_XPB_BDSInfoServiceImpl implements AFEX_XPB_BDSInfoService {
     @Autowired
+    PathConfig pathConfig;
+    @Autowired
     AFEX_XPB_BDSInfoRepository afex_xpb_bdsInfoRepository;
 
     @Override
@@ -24,7 +29,13 @@ public class AFEX_XPB_BDSInfoServiceImpl implements AFEX_XPB_BDSInfoService {
             List<AFEX_XPB_BDSInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            BufferedReader br = new BufferedReader(new FileReader("E:\\ACOM_LMT_BASEHIS.txt"));
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFEX_XPB_BDS.dat");
+            if (!file.exists()) {
+                return;
+            }
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFEX_XPB_BDS.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_XPB_BDSInfo obj = new AFEX_XPB_BDSInfo();
