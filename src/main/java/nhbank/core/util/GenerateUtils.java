@@ -404,6 +404,7 @@ public class GenerateUtils {
             outStream.writeBytes("import org.springframework.stereotype.Service;\n");
             outStream.writeBytes("import java.io.*;\n");
             outStream.writeBytes("import java.util.*;\n");
+            outStream.writeBytes("import nhbank.core.util.DateUtils;\n");
             outStream.writeBytes("import java.math.BigDecimal;\n");
             outStream.writeBytes("import java.text.SimpleDateFormat;\n");
             outStream.writeBytes("@Service \n");
@@ -418,7 +419,9 @@ public class GenerateUtils {
             outStream.writeBytes("List<" + sFileName + "Info" + "> objList = new ArrayList<>();\n");
             outStream.writeBytes("SimpleDateFormat formatter = new SimpleDateFormat(\"yyyy/MM/dd\");\n");
             outStream.writeBytes("String line; \n");
-            outStream.writeBytes("File file = new File(pathConfig.getDataPath() + \"\\\\" + sFileName + ".dat\"); \n");
+            outStream.writeBytes("String todayDate = DateUtils.dateYYYMMDD(); \n");
+            outStream.writeBytes("String dataPath = pathConfig.getDataPath().replace(\"yyyymmdd\", todayDate); \n");
+            outStream.writeBytes("File file = new File(dataPath + \"\\\\" + sFileName + ".dat\"); \n");
             outStream.writeBytes("if (!file.exists()){ \n");
             outStream.writeBytes("return; \n");
             outStream.writeBytes("} \n");
