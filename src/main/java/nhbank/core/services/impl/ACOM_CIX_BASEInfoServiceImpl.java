@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_CIX_BASEInfo;
 import nhbank.core.repositories.ACOM_CIX_BASEInfoRepository;
 import nhbank.core.services.ACOM_CIX_BASEInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class ACOM_CIX_BASEInfoServiceImpl implements ACOM_CIX_BASEInfoService {
             List<ACOM_CIX_BASEInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ACOM_CIX_BASE.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_CIX_BASE.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_CIX_BASE.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_CIX_BASE.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_CIX_BASEInfo obj = new ACOM_CIX_BASEInfo();

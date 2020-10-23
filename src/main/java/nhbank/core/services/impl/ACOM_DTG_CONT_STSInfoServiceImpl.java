@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_DTG_CONT_STSInfo;
 import nhbank.core.repositories.ACOM_DTG_CONT_STSInfoRepository;
 import nhbank.core.services.ACOM_DTG_CONT_STSInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class ACOM_DTG_CONT_STSInfoServiceImpl implements ACOM_DTG_CONT_STSInfoSe
             List<ACOM_DTG_CONT_STSInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ACOM_DTG_CONT_STS.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_DTG_CONT_STS.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_DTG_CONT_STS.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_DTG_CONT_STS.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_DTG_CONT_STSInfo obj = new ACOM_DTG_CONT_STSInfo();

@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_LMT_SILHISInfo;
 import nhbank.core.repositories.ACOM_LMT_SILHISInfoRepository;
 import nhbank.core.services.ACOM_LMT_SILHISInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class ACOM_LMT_SILHISInfoServiceImpl implements ACOM_LMT_SILHISInfoServic
             List<ACOM_LMT_SILHISInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ACOM_LMT_SILHIS.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_LMT_SILHIS.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_LMT_SILHIS.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_LMT_SILHIS.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_LMT_SILHISInfo obj = new ACOM_LMT_SILHISInfo();

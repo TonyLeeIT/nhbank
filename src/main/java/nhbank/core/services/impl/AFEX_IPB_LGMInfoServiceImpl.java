@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_IPB_LGMInfo;
 import nhbank.core.repositories.AFEX_IPB_LGMInfoRepository;
 import nhbank.core.services.AFEX_IPB_LGMInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class AFEX_IPB_LGMInfoServiceImpl implements AFEX_IPB_LGMInfoService {
             List<AFEX_IPB_LGMInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\AFEX_IPB_LGM.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFEX_IPB_LGM.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFEX_IPB_LGM.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFEX_IPB_LGM.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_IPB_LGMInfo obj = new AFEX_IPB_LGMInfo();

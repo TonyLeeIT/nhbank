@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AACT_TRX_PLInfo;
 import nhbank.core.repositories.AACT_TRX_PLInfoRepository;
 import nhbank.core.services.AACT_TRX_PLInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class AACT_TRX_PLInfoServiceImpl implements AACT_TRX_PLInfoService {
             List<AACT_TRX_PLInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\AACT_TRX_PL.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AACT_TRX_PL.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AACT_TRX_PL.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AACT_TRX_PL.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AACT_TRX_PLInfo obj = new AACT_TRX_PLInfo();

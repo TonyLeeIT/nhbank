@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFIF_FEH_HISInfo;
 import nhbank.core.repositories.AFIF_FEH_HISInfoRepository;
 import nhbank.core.services.AFIF_FEH_HISInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class AFIF_FEH_HISInfoServiceImpl implements AFIF_FEH_HISInfoService {
             List<AFIF_FEH_HISInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\AFIF_FEH_HIS.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFIF_FEH_HIS.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFIF_FEH_HIS.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFIF_FEH_HIS.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFIF_FEH_HISInfo obj = new AFIF_FEH_HISInfo();

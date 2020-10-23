@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_ADH_HISInfo;
 import nhbank.core.repositories.AFEX_ADH_HISInfoRepository;
 import nhbank.core.services.AFEX_ADH_HISInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class AFEX_ADH_HISInfoServiceImpl implements AFEX_ADH_HISInfoService {
             List<AFEX_ADH_HISInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\AFEX_ADH_HIS.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFEX_ADH_HIS.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFEX_ADH_HIS.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFEX_ADH_HIS.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_ADH_HISInfo obj = new AFEX_ADH_HISInfo();

@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_COM_FEERTInfo;
 import nhbank.core.repositories.ACOM_COM_FEERTInfoRepository;
 import nhbank.core.services.ACOM_COM_FEERTInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,11 +30,13 @@ public class ACOM_COM_FEERTInfoServiceImpl implements ACOM_COM_FEERTInfoService 
             List<ACOM_COM_FEERTInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ACOM_COM_FEERT.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_COM_FEERT.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_COM_FEERT.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_COM_FEERT.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_COM_FEERTInfo obj = new ACOM_COM_FEERTInfo();

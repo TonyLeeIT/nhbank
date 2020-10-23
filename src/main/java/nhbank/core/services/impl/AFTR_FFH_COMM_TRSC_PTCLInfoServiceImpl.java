@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFTR_FFH_COMM_TRSC_PTCLInfo;
 import nhbank.core.repositories.AFTR_FFH_COMM_TRSC_PTCLInfoRepository;
 import nhbank.core.services.AFTR_FFH_COMM_TRSC_PTCLInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,11 +30,13 @@ public class AFTR_FFH_COMM_TRSC_PTCLInfoServiceImpl implements AFTR_FFH_COMM_TRS
             List<AFTR_FFH_COMM_TRSC_PTCLInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\AFTR_FFH_COMM_TRSC_PTCL.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFTR_FFH_COMM_TRSC_PTCL.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFTR_FFH_COMM_TRSC_PTCL.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFTR_FFH_COMM_TRSC_PTCL.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFTR_FFH_COMM_TRSC_PTCLInfo obj = new AFTR_FFH_COMM_TRSC_PTCLInfo();

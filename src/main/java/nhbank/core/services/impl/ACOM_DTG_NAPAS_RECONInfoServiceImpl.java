@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_DTG_NAPAS_RECONInfo;
 import nhbank.core.repositories.ACOM_DTG_NAPAS_RECONInfoRepository;
 import nhbank.core.services.ACOM_DTG_NAPAS_RECONInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class ACOM_DTG_NAPAS_RECONInfoServiceImpl implements ACOM_DTG_NAPAS_RECON
             List<ACOM_DTG_NAPAS_RECONInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ACOM_DTG_NAPAS_RECON.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_DTG_NAPAS_RECON.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_DTG_NAPAS_RECON.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_DTG_NAPAS_RECON.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_DTG_NAPAS_RECONInfo obj = new ACOM_DTG_NAPAS_RECONInfo();

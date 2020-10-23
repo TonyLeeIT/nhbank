@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_DMH_ALLOCHISInfo;
 import nhbank.core.repositories.ACOM_DMH_ALLOCHISInfoRepository;
 import nhbank.core.services.ACOM_DMH_ALLOCHISInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class ACOM_DMH_ALLOCHISInfoServiceImpl implements ACOM_DMH_ALLOCHISInfoSe
             List<ACOM_DMH_ALLOCHISInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ACOM_DMH_ALLOCHIS.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_DMH_ALLOCHIS.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_DMH_ALLOCHIS.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_DMH_ALLOCHIS.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_DMH_ALLOCHISInfo obj = new ACOM_DMH_ALLOCHISInfo();

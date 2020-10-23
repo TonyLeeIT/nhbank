@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_COM_FPBODYInfo;
 import nhbank.core.repositories.ACOM_COM_FPBODYInfoRepository;
 import nhbank.core.services.ACOM_COM_FPBODYInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class ACOM_COM_FPBODYInfoServiceImpl implements ACOM_COM_FPBODYInfoServic
             List<ACOM_COM_FPBODYInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ACOM_COM_FPBODY.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_COM_FPBODY.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_COM_FPBODY.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_COM_FPBODY.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_COM_FPBODYInfo obj = new ACOM_COM_FPBODYInfo();

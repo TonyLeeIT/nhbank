@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_CIX_LOCALInfo;
 import nhbank.core.repositories.ACOM_CIX_LOCALInfoRepository;
 import nhbank.core.services.ACOM_CIX_LOCALInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,11 +28,13 @@ public class ACOM_CIX_LOCALInfoServiceImpl implements ACOM_CIX_LOCALInfoService 
             List<ACOM_CIX_LOCALInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ACOM_CIX_LOCAL.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_CIX_LOCAL.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_CIX_LOCAL.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_CIX_LOCAL.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_CIX_LOCALInfo obj = new ACOM_CIX_LOCALInfo();

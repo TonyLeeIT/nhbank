@@ -425,7 +425,7 @@ public class GenerateUtils {
             outStream.writeBytes("if (!file.exists()){ \n");
             outStream.writeBytes("return; \n");
             outStream.writeBytes("} \n");
-            outStream.writeBytes("BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + " + "\"\\\\" + sFileName + ".dat\"));\n");
+            outStream.writeBytes("BufferedReader br = new BufferedReader(new FileReader(dataPath + " + "\"\\\\" + sFileName + ".dat\"));\n");
             outStream.writeBytes("   while ((line = br.readLine()) != null) {\n");
             outStream.writeBytes("String[] lineArray = line.split(\"\\\\|\"); \n");
             outStream.writeBytes(sFileName + "Info obj = new " + sFileName + "Info(); \n");

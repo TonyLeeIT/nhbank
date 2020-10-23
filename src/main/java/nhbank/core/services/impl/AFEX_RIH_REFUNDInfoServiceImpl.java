@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_RIH_REFUNDInfo;
 import nhbank.core.repositories.AFEX_RIH_REFUNDInfoRepository;
 import nhbank.core.services.AFEX_RIH_REFUNDInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class AFEX_RIH_REFUNDInfoServiceImpl implements AFEX_RIH_REFUNDInfoServic
             List<AFEX_RIH_REFUNDInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\AFEX_RIH_REFUND.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFEX_RIH_REFUND.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFEX_RIH_REFUND.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFEX_RIH_REFUND.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_RIH_REFUNDInfo obj = new AFEX_RIH_REFUNDInfo();

@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_ATB_APPLYInfo;
 import nhbank.core.repositories.ACOM_ATB_APPLYInfoRepository;
 import nhbank.core.services.ACOM_ATB_APPLYInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class ACOM_ATB_APPLYInfoServiceImpl implements ACOM_ATB_APPLYInfoService 
             List<ACOM_ATB_APPLYInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ACOM_ATB_APPLY.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_ATB_APPLY.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_ATB_APPLY.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_ATB_APPLY.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_ATB_APPLYInfo obj = new ACOM_ATB_APPLYInfo();

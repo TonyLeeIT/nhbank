@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_FAB_HISInfo;
 import nhbank.core.repositories.ACOM_FAB_HISInfoRepository;
 import nhbank.core.services.ACOM_FAB_HISInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class ACOM_FAB_HISInfoServiceImpl implements ACOM_FAB_HISInfoService {
             List<ACOM_FAB_HISInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ACOM_FAB_HIS.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_FAB_HIS.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_FAB_HIS.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_FAB_HIS.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_FAB_HISInfo obj = new ACOM_FAB_HISInfo();

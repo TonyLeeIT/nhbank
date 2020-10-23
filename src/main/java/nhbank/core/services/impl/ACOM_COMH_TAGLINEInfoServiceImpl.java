@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_COMH_TAGLINEInfo;
 import nhbank.core.repositories.ACOM_COMH_TAGLINEInfoRepository;
 import nhbank.core.services.ACOM_COMH_TAGLINEInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class ACOM_COMH_TAGLINEInfoServiceImpl implements ACOM_COMH_TAGLINEInfoSe
             List<ACOM_COMH_TAGLINEInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ACOM_COMH_TAGLINE.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_COMH_TAGLINE.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_COMH_TAGLINE.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_COMH_TAGLINE.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_COMH_TAGLINEInfo obj = new ACOM_COMH_TAGLINEInfo();

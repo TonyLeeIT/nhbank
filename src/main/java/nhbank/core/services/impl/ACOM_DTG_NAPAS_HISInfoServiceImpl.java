@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_DTG_NAPAS_HISInfo;
 import nhbank.core.repositories.ACOM_DTG_NAPAS_HISInfoRepository;
 import nhbank.core.services.ACOM_DTG_NAPAS_HISInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class ACOM_DTG_NAPAS_HISInfoServiceImpl implements ACOM_DTG_NAPAS_HISInfo
             List<ACOM_DTG_NAPAS_HISInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ACOM_DTG_NAPAS_HIS.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_DTG_NAPAS_HIS.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_DTG_NAPAS_HIS.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_DTG_NAPAS_HIS.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_DTG_NAPAS_HISInfo obj = new ACOM_DTG_NAPAS_HISInfo();

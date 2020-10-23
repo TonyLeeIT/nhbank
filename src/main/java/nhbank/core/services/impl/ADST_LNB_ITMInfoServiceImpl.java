@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ADST_LNB_ITMInfo;
 import nhbank.core.repositories.ADST_LNB_ITMInfoRepository;
 import nhbank.core.services.ADST_LNB_ITMInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class ADST_LNB_ITMInfoServiceImpl implements ADST_LNB_ITMInfoService {
             List<ADST_LNB_ITMInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ADST_LNB_ITM.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ADST_LNB_ITM.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ADST_LNB_ITM.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ADST_LNB_ITM.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ADST_LNB_ITMInfo obj = new ADST_LNB_ITMInfo();

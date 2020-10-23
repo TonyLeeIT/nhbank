@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_RTB_BASEInfo;
 import nhbank.core.repositories.AFEX_RTB_BASEInfoRepository;
 import nhbank.core.services.AFEX_RTB_BASEInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class AFEX_RTB_BASEInfoServiceImpl implements AFEX_RTB_BASEInfoService {
             List<AFEX_RTB_BASEInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\AFEX_RTB_BASE.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFEX_RTB_BASE.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFEX_RTB_BASE.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFEX_RTB_BASE.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_RTB_BASEInfo obj = new AFEX_RTB_BASEInfo();

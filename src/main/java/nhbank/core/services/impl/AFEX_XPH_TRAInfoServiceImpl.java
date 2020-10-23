@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_XPH_TRAInfo;
 import nhbank.core.repositories.AFEX_XPH_TRAInfoRepository;
 import nhbank.core.services.AFEX_XPH_TRAInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class AFEX_XPH_TRAInfoServiceImpl implements AFEX_XPH_TRAInfoService {
             List<AFEX_XPH_TRAInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\AFEX_XPH_TRA.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFEX_XPH_TRA.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFEX_XPH_TRA.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFEX_XPH_TRA.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_XPH_TRAInfo obj = new AFEX_XPH_TRAInfo();

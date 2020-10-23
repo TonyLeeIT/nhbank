@@ -34,7 +34,7 @@ public class FileUtils {
         InputStream inStream = null;
         OutputStream outStream = null;
         try {
-            File afile = new File(inputFile);
+            File afile = new File(inputFile + "\\" + fileName);
             File bfile = new File(outputFile);
             if (!bfile.exists() || !bfile.isDirectory()) {
                 System.out.println("Backup folder not exist");
@@ -43,7 +43,7 @@ public class FileUtils {
                 Files.createDirectories(path);
             }
 
-            File newFile = new File(outputFile + fileName + ".bak");
+            File newFile = new File(outputFile + "\\" + fileName + ".bak");
 
             inStream = new FileInputStream(afile);
             outStream = new FileOutputStream(newFile);
@@ -55,7 +55,11 @@ public class FileUtils {
 
             }
             //delete the original file
-            afile.delete();
+            if (afile.delete()) {
+                logger.error("File deleted successfully");
+            } else {
+                logger.error("Failed to delete the file");
+            }
             logger.error("File is copied successful!");
         } catch (IOException e) {
             e.printStackTrace();

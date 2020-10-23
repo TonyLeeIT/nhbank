@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_ADH_ITMInfo;
 import nhbank.core.repositories.AFEX_ADH_ITMInfoRepository;
 import nhbank.core.services.AFEX_ADH_ITMInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class AFEX_ADH_ITMInfoServiceImpl implements AFEX_ADH_ITMInfoService {
             List<AFEX_ADH_ITMInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\AFEX_ADH_ITM.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFEX_ADH_ITM.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFEX_ADH_ITM.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFEX_ADH_ITM.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_ADH_ITMInfo obj = new AFEX_ADH_ITMInfo();

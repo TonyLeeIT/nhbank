@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_IPB_AMDInfo;
 import nhbank.core.repositories.AFEX_IPB_AMDInfoRepository;
 import nhbank.core.services.AFEX_IPB_AMDInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class AFEX_IPB_AMDInfoServiceImpl implements AFEX_IPB_AMDInfoService {
             List<AFEX_IPB_AMDInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\AFEX_IPB_AMD.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\AFEX_IPB_AMD.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\AFEX_IPB_AMD.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\AFEX_IPB_AMD.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 AFEX_IPB_AMDInfo obj = new AFEX_IPB_AMDInfo();

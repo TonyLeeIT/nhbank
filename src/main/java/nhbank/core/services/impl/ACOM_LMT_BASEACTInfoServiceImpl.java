@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_LMT_BASEACTInfo;
 import nhbank.core.repositories.ACOM_LMT_BASEACTInfoRepository;
 import nhbank.core.services.ACOM_LMT_BASEACTInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class ACOM_LMT_BASEACTInfoServiceImpl implements ACOM_LMT_BASEACTInfoServ
             List<ACOM_LMT_BASEACTInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ACOM_LMT_BASEACT.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_LMT_BASEACT.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_LMT_BASEACT.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_LMT_BASEACT.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_LMT_BASEACTInfo obj = new ACOM_LMT_BASEACTInfo();

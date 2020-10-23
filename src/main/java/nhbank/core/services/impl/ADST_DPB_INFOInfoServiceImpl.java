@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ADST_DPB_INFOInfo;
 import nhbank.core.repositories.ADST_DPB_INFOInfoRepository;
 import nhbank.core.services.ADST_DPB_INFOInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class ADST_DPB_INFOInfoServiceImpl implements ADST_DPB_INFOInfoService {
             List<ADST_DPB_INFOInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ADST_DPB_INFO.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ADST_DPB_INFO.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ADST_DPB_INFO.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ADST_DPB_INFO.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ADST_DPB_INFOInfo obj = new ADST_DPB_INFOInfo();

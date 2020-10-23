@@ -4,6 +4,7 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_COM_ACTCDInfo;
 import nhbank.core.repositories.ACOM_COM_ACTCDInfoRepository;
 import nhbank.core.services.ACOM_COM_ACTCDInfoService;
+import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +29,13 @@ public class ACOM_COM_ACTCDInfoServiceImpl implements ACOM_COM_ACTCDInfoService 
             List<ACOM_COM_ACTCDInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            File file = new File(pathConfig.getDataPath() + "\\ACOM_COM_ACTCD.dat");
+            String todayDate = DateUtils.dateYYYMMDD();
+            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            File file = new File(dataPath + "\\ACOM_COM_ACTCD.dat");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(pathConfig.getDataPath() + "\\ACOM_COM_ACTCD.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_COM_ACTCD.dat"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_COM_ACTCDInfo obj = new ACOM_COM_ACTCDInfo();
