@@ -415,7 +415,7 @@ public class GenerateUtils {
             outStream.writeBytes(" try { \n");
             outStream.writeBytes("List<" + sFileName + "Info" + "> objList = new ArrayList<>();\n");
             outStream.writeBytes("SimpleDateFormat formatter = new SimpleDateFormat(\"yyyy/MM/dd\");\n");
-            outStream.writeBytes("String line;");
+            outStream.writeBytes("String line;\n");
             outStream.writeBytes("BufferedReader br = new BufferedReader(new FileReader(\"E:\\\\ACOM_LMT_BASEHIS.txt\"));\n");
             outStream.writeBytes("   while ((line = br.readLine()) != null) {\n");
             outStream.writeBytes("String[] lineArray = line.split(\"\\\\|\"); \n");

@@ -277,6 +277,7 @@ public class NHBankController {
         List<String> sqlFiles = config.getSql();
         //Creating a File object for directory
         File directoryPath = new File("E:\\NHBANK_TARGET\\NH_BANK");
+
         //List of all files and directories
         File[] filesList = directoryPath.listFiles();
         for (File file : filesList) {
@@ -288,11 +289,11 @@ public class NHBankController {
             }
             Map<Integer, String> listFields = GenerateUtils.convertFileToObject(file);
             Map<Integer, String> primaryKeyMap = GenerateUtils.findPrimaryKeys(file);
-            GenerateUtils.buildModel(file.getName(), listFields);
-            GenerateUtils.buildDomain(file.getName(), listFields, file);
-            GenerateUtils.buildDomainsID(file.getName(), primaryKeyMap);
-            GenerateUtils.buildRepository(file);
-            GenerateUtils.buildServices(file);
+//            GenerateUtils.buildModel(file.getName(), listFields);
+//            GenerateUtils.buildDomain(file.getName(), listFields, file);
+//            GenerateUtils.buildDomainsID(file.getName(), primaryKeyMap);
+//            GenerateUtils.buildRepository(file);
+//            GenerateUtils.buildServices(file);
             GenerateUtils.buildServiceImpl(file.getName(), listFields, primaryKeyMap);
         }
         return new ResponseEntity<>("Build success", HttpStatus.OK);
