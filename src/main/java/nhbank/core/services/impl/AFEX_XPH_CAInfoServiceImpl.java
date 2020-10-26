@@ -4,18 +4,16 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFEX_XPH_CAInfo;
 import nhbank.core.repositories.AFEX_XPH_CAInfoRepository;
 import nhbank.core.services.AFEX_XPH_CAInfoService;
-import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
+import java.util.*;
+
+import nhbank.core.util.DateUtils;
+
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Service
 public class AFEX_XPH_CAInfoServiceImpl implements AFEX_XPH_CAInfoService {
@@ -83,6 +81,7 @@ public class AFEX_XPH_CAInfoServiceImpl implements AFEX_XPH_CAInfoService {
                     objList.add(obj);
                 }
             }
+            br.close();
             if (!objList.isEmpty())
                 insertAll(objList);
         } catch (Exception ex) {

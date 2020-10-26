@@ -4,17 +4,16 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ADST_DPB_INRTInfo;
 import nhbank.core.repositories.ADST_DPB_INRTInfoRepository;
 import nhbank.core.services.ADST_DPB_INRTInfoService;
-import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
+import java.util.*;
+
+import nhbank.core.util.DateUtils;
+
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class ADST_DPB_INRTInfoServiceImpl implements ADST_DPB_INRTInfoService {
@@ -52,14 +51,9 @@ public class ADST_DPB_INRTInfoServiceImpl implements ADST_DPB_INRTInfoService {
                 obj.setUpdEmpNo(lineArray[10]);
                 obj.setUpdDt((lineArray[11].equals("")) ? null : formatter.parse(lineArray[11]));
                 obj.setUpdTm(lineArray[12]);
-                if (isExist()) {
-                    adst_dpb_inrtInfoRepository.save(obj);
-                } else {
-                    objList.add(obj);
-                }
+                adst_dpb_inrtInfoRepository.save(obj);
             }
-            if (!objList.isEmpty())
-                insertAll(objList);
+            br.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -70,9 +64,4 @@ public class ADST_DPB_INRTInfoServiceImpl implements ADST_DPB_INRTInfoService {
         adst_dpb_inrtInfoRepository.saveAll(objList);
     }
 
-    //    @Override
-    public boolean isExist() {
-//        return adst_dpb_inrtInfoRepository.existsBy();
-        return false;
-    }
 }

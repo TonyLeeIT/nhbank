@@ -4,16 +4,16 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_CIX_LOCALInfo;
 import nhbank.core.repositories.ACOM_CIX_LOCALInfoRepository;
 import nhbank.core.services.ACOM_CIX_LOCALInfoService;
-import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
+import java.util.*;
+
+import nhbank.core.util.DateUtils;
+
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class ACOM_CIX_LOCALInfoServiceImpl implements ACOM_CIX_LOCALInfoService {
@@ -54,6 +54,7 @@ public class ACOM_CIX_LOCALInfoServiceImpl implements ACOM_CIX_LOCALInfoService 
                     objList.add(obj);
                 }
             }
+            br.close();
             if (!objList.isEmpty())
                 insertAll(objList);
         } catch (Exception ex) {

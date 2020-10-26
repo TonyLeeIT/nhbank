@@ -4,17 +4,16 @@ import nhbank.core.config.PathConfig;
 import nhbank.core.domain.AFIF_MMH_HISInfo;
 import nhbank.core.repositories.AFIF_MMH_HISInfoRepository;
 import nhbank.core.services.AFIF_MMH_HISInfoService;
-import nhbank.core.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
+import java.util.*;
+
+import nhbank.core.util.DateUtils;
+
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class AFIF_MMH_HISInfoServiceImpl implements AFIF_MMH_HISInfoService {
@@ -79,6 +78,7 @@ public class AFIF_MMH_HISInfoServiceImpl implements AFIF_MMH_HISInfoService {
                     objList.add(obj);
                 }
             }
+            br.close();
             if (!objList.isEmpty())
                 insertAll(objList);
         } catch (Exception ex) {
