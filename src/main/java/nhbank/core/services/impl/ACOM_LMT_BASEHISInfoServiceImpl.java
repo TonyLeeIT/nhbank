@@ -30,11 +30,11 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
             String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
-            File file = new File(dataPath + "\\ACOM_LMT_BASEHIS.dat");
+            File file = new File(dataPath + "\\ACOM_LMT_BASEHIS.txt");
             if (!file.exists()) {
                 return;
             }
-            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_LMT_BASEHIS.dat"));
+            BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_LMT_BASEHIS.txt"));
             while ((line = br.readLine()) != null) {
                 String[] lineArray = line.split("\\|");
                 ACOM_LMT_BASEHISInfo obj = new ACOM_LMT_BASEHISInfo();

@@ -1,6 +1,9 @@
 package nhbank.core.util;
 
+import nhbank.core.config.PathConfig;
 import nhbank.core.constant.Constant;
+import org.checkerframework.checker.units.qual.A;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -10,7 +13,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Component
 public class GenerateUtils {
-
 
     public static void buildDomain(String fileName, Map<Integer, String> listFields, File file) {
         String sFileName = fileName.replace(".sql", "");
@@ -427,6 +429,7 @@ public class GenerateUtils {
             outStream.writeBytes("if (!file.exists()){ \n");
             outStream.writeBytes("return; \n");
             outStream.writeBytes("} \n");
+
             outStream.writeBytes("BufferedReader br = new BufferedReader(new FileReader(dataPath + " + "\"\\\\" + sFileName + ".dat\"));\n");
             outStream.writeBytes("   while ((line = br.readLine()) != null) {\n");
             outStream.writeBytes("String[] lineArray = line.split(\"\\\\|\"); \n");

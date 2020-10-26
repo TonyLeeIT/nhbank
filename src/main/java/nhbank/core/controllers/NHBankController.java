@@ -291,13 +291,25 @@ public class NHBankController {
         if (!Files.isDirectory(dPath)) {
             Files.createDirectories(dPath);
         }
-//        Import Data
+        //Rename file , cut Korean String
+        File dataFolder = new File(dataPath);
+        File[] fileList = dataFolder.listFiles();
+        for (File f : fileList) {
+            if (f.getName().contains("(")) {
+                File newName = new File(dataPath +"\\" +FileUtils.handlingFile(f.getName()));
+                if (f.renameTo(newName)){
+                    System.out.println("Rename from " +f.getName()+" to "+newName.getName() +" done");
+                }else {
+                    System.out.println("Fail to rename file " + f.getName());
+                }
+            }
+        }
+        //Import Data
         importDB();
         //Move file
         List<String> files = FileUtils.getFilesDirectory(dataPath);
         for (String file : files) {
             File file1 = new File(file);
-
             FileUtils.moveFile(dataPath, uploadPath, file1.getName());
             FileUtils.deleteFile(file1);
         }
