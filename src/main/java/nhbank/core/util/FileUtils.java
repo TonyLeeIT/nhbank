@@ -38,7 +38,6 @@ public class FileUtils {
         try {
 
             if (!bfile.exists() || !bfile.isDirectory()) {
-                System.out.println("Backup folder not exist");
                 logger.error("Backup folder not exist");
                 Path path = Paths.get(outputFile);
                 Files.createDirectories(path);
@@ -82,11 +81,11 @@ public class FileUtils {
 
     public static void deleteFile(File file) {
         if (file.delete()) {
-            logger.error("File deleted successfully");
+            logger.info("File deleted successfully");
         } else {
             logger.error("Failed to delete the file");
         }
-        logger.error("File is copied successful!");
+        logger.info("File is copied successful!");
     }
 
     public static String handlingFile(String file) {

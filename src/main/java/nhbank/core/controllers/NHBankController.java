@@ -298,9 +298,9 @@ public class NHBankController {
             if (f.getName().contains("(")) {
                 File newName = new File(dataPath +"\\" +FileUtils.handlingFile(f.getName()));
                 if (f.renameTo(newName)){
-                    System.out.println("Rename from " +f.getName()+" to "+newName.getName() +" done");
+                    logger.info("Rename from " +f.getName()+" to "+newName.getName() +" done");
                 }else {
-                    System.out.println("Fail to rename file " + f.getName());
+                    logger.info("Fail to rename file " + f.getName());
                 }
             }
         }
