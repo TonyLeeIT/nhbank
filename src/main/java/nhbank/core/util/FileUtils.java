@@ -36,7 +36,6 @@ public class FileUtils {
         File afile = new File(inputFile + "\\" + fileName);
         File bfile = new File(outputFile);
         try {
-
             if (!bfile.exists() || !bfile.isDirectory()) {
                 logger.error("Backup folder not exist");
                 Path path = Paths.get(outputFile);

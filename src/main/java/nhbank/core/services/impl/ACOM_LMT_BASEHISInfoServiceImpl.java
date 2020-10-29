@@ -2,6 +2,7 @@ package nhbank.core.services.impl;
 
 import nhbank.core.config.PathConfig;
 import nhbank.core.domain.ACOM_LMT_BASEHISInfo;
+import nhbank.core.domain.ACOM_LMT_BASEHISInfo_ID;
 import nhbank.core.repositories.ACOM_LMT_BASEHISInfoRepository;
 import nhbank.core.services.ACOM_LMT_BASEHISInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -145,4 +146,15 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
     public boolean isExist(String sngNo, String actCd, BigDecimal hisNo, String hisGb) {
         return acom_lmt_basehisInfoRepository.existsBySngNoAndActCdAndHisNoAndHisGb(sngNo, actCd, hisNo, hisGb);
     }
+
+    @Override
+    public List<ACOM_LMT_BASEHISInfo> findAll() {
+        return acom_lmt_basehisInfoRepository.findAll();
+    }
+
+    @Override
+    public List<ACOM_LMT_BASEHISInfo> findBySngNo(String sngNo) {
+        return acom_lmt_basehisInfoRepository.findAllBySngNo(sngNo);
+    }
+
 }
