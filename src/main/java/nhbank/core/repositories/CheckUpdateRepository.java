@@ -1,12 +1,11 @@
 package nhbank.core.repositories;
 
-import nhbank.core.domain.Demo;
+import nhbank.core.domain.CheckUpdate;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 
 @Repository
-public interface DemoRepository extends JpaRepository<Demo, Long> {
-
+public interface CheckUpdateRepository extends JpaRepository<CheckUpdate, Long> {
 }

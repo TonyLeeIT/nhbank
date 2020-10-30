@@ -466,4 +466,8 @@ public class NHBankController {
         afif_mth_hisInfoService.updateAll();
         aftr_ffh_comm_trsc_ptclInfoService.updateAll();
     }
+
+    public void checkImport(){
+
+    }
 }
