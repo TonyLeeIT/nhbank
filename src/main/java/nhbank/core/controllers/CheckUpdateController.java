@@ -58,8 +58,8 @@ public class CheckUpdateController {
 
     @GetMapping("/CheckUpdate/{id}")
     public ResponseEntity<CheckUpdate> getObjById(@PathVariable Long id) {
-        Optional<CheckUpdate> checkupdateOptional = checkUpdateService.findById(id);
-        return checkupdateOptional.map(checkupdate -> new ResponseEntity<>(checkupdate, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        Optional<CheckUpdate> checkUpdateOptional = checkUpdateService.findById(id);
+        return checkUpdateOptional.map(checkUpdate -> new ResponseEntity<>(checkUpdate, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping("/CheckUpdate")
@@ -80,8 +80,8 @@ public class CheckUpdateController {
 
     @DeleteMapping("/CheckUpdate/{id}")
     public ResponseEntity<CheckUpdate> deleteObj(@PathVariable("id") Long id) {
-        Optional<CheckUpdate> checkupdateOptional = checkUpdateService.findById(id);
-        if (checkupdateOptional.isPresent()) {
+        Optional<CheckUpdate> checkUpdateOptional = checkUpdateService.findById(id);
+        if (checkUpdateOptional.isPresent()) {
             checkUpdateService.delete(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } else {
