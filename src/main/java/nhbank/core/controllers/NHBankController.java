@@ -3,6 +3,7 @@ package nhbank.core.controllers;
 import lombok.extern.log4j.Log4j;
 import nhbank.core.config.Config;
 import nhbank.core.config.PathConfig;
+import nhbank.core.domain.CheckUpdate;
 import nhbank.core.services.*;
 import nhbank.core.util.DateUtils;
 import nhbank.core.util.FileUtils;
@@ -22,6 +23,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +31,7 @@ import java.util.Map;
 @Log4j
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/nhbank")
+//@RequestMapping("/nhbank")
 
 public class NHBankController {
     public static final Logger logger = LoggerFactory.getLogger(NHBankController.class);
@@ -279,6 +281,8 @@ public class NHBankController {
     private AFIF_MTH_HISInfoService afif_mth_hisInfoService;
     @Autowired
     private AFTR_FFH_COMM_TRSC_PTCLInfoService aftr_ffh_comm_trsc_ptclInfoService;
+    @Autowired
+    private CheckUpdateService checkUpdateService;
 
     @GetMapping(value = "/worker")
 //    @Scheduled(cron = "0 0 7,12 * * *")
@@ -465,9 +469,5 @@ public class NHBankController {
         afif_mth_baseInfoService.updateAll();
         afif_mth_hisInfoService.updateAll();
         aftr_ffh_comm_trsc_ptclInfoService.updateAll();
-    }
-
-    public void checkImport(){
-
     }
 }

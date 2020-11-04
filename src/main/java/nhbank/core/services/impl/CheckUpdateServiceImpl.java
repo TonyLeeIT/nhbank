@@ -24,11 +24,6 @@ public class CheckUpdateServiceImpl implements CheckUpdateService {
     }
 
     @Override
-    public List<CheckUpdate> findAll() {
-        return checkUpdateRepository.findAll();
-    }
-
-    @Override
     public Optional<CheckUpdate> findById(Long id) {
         return checkUpdateRepository.findById(id);
     }
