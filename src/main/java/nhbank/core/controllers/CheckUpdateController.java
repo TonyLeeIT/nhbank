@@ -36,8 +36,8 @@ public class CheckUpdateController {
         int[] rangeIntArray = Arrays.stream(rangeStringArray).mapToInt(Integer::parseInt).toArray();
         int startValue = rangeIntArray[0];
         int endValue = rangeIntArray[1];
-        int size = endValue - startValue;
-        int page = endValue % size;
+        int size = (endValue - startValue) + 1;
+        int page = Math.max((endValue / (size - 1)) - 1, 0);
         String sortString = sort.substring(sort.indexOf("\"") + 1, sort.lastIndexOf("\""));
         String[] sortStringArray = sortString.replace('\"', ',').split(",,,");
         String propertyName = sortStringArray[0];
