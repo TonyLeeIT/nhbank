@@ -25,6 +25,11 @@ public class CheckUpdateServiceImpl implements CheckUpdateService {
     }
 
     @Override
+    public Page<CheckUpdate> findAllByTableName(String tableName, Pageable pageable) {
+        return checkUpdateRepository.findAllByTableNameContaining(tableName,pageable);
+    }
+
+    @Override
     public Optional<CheckUpdate> findById(Long id) {
         return checkUpdateRepository.findById(id);
     }
