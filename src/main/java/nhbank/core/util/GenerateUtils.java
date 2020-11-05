@@ -274,11 +274,12 @@ public class GenerateUtils {
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
             outStream.writeBytes("package nhbank.core.services;\n");
             outStream.writeBytes("import nhbank.core.domain." + sFileName + "Info; \n");
+            outStream.writeBytes("import java.io.IOException;\n");
             outStream.writeBytes("import java.math.BigDecimal; \n");
-            outStream.writeBytes("import java.util.Date; \n");
+            outStream.writeBytes("import java.util.Date;\n");
             outStream.writeBytes("import java.util.List;\n");
             outStream.writeBytes("public interface " + sFileName + "InfoService {\n");
-            outStream.writeBytes("\tvoid updateAll();\n");
+            outStream.writeBytes("\tvoid updateAll() throws IOException ;\n");
             outStream.writeBytes("\tvoid insertAll(List<" + sFileName + "Info> objList);\n");
 
             outStream.writeBytes(" boolean isExist( ");
@@ -401,36 +402,51 @@ public class GenerateUtils {
             outStream = new DataOutputStream(new BufferedOutputStream(fileOutputStream));
             outStream.writeBytes("package nhbank.core.services.impl; \n");
             outStream.writeBytes("import nhbank.core.config.PathConfig; \n");
+            outStream.writeBytes("import nhbank.core.controllers.NHBankController; \n");
+            outStream.writeBytes("import nhbank.core.domain.CheckUpdate; \n");
+            outStream.writeBytes("import nhbank.core.repositories.CheckUpdateRepository;\n");
             outStream.writeBytes("import nhbank.core.domain." + sFileName + "Info; \n");
             outStream.writeBytes("import nhbank.core.repositories." + sFileName + "InfoRepository;\n");
             outStream.writeBytes("import nhbank.core.services." + sFileName + "InfoService;\n");
             outStream.writeBytes("import org.springframework.beans.factory.annotation.Autowired;\n");
             outStream.writeBytes("import org.springframework.stereotype.Service;\n");
+            outStream.writeBytes("import nhbank.core.util.FileUtils;\n");
+            outStream.writeBytes("import org.slf4j.Logger;\n");
+            outStream.writeBytes("import org.slf4j.LoggerFactory;\n");
             outStream.writeBytes("import java.io.*;\n");
+            outStream.writeBytes("import java.time.LocalDateTime;\n");
             outStream.writeBytes("import java.util.*;\n");
             outStream.writeBytes("import nhbank.core.util.DateUtils;\n");
             outStream.writeBytes("import java.math.BigDecimal;\n");
             outStream.writeBytes("import java.text.SimpleDateFormat;\n");
             outStream.writeBytes("@Service \n");
             outStream.writeBytes("public class " + sFileName + "InfoServiceImpl implements " + sFileName + "InfoService { \n");
+            outStream.writeBytes("public static final Logger logger = LoggerFactory.getLogger(NHBankController.class);\n");
             outStream.writeBytes("@Autowired \n");
             outStream.writeBytes("PathConfig pathConfig; \n");
             outStream.writeBytes("@Autowired \n");
+            outStream.writeBytes("CheckUpdateRepository checkUpdateRepository;\n");
+            outStream.writeBytes("@Autowired \n");
             outStream.writeBytes(sFileName + "InfoRepository " + sFileName.toLowerCase() + "InfoRepository; \n");
             outStream.writeBytes("@Override \n");
-            outStream.writeBytes("public void updateAll() { \n");
+            outStream.writeBytes("public void updateAll() throws IOException { \n");
+            outStream.writeBytes(" CheckUpdate checkUpdate = new CheckUpdate(); \n");
+            outStream.writeBytes(" checkUpdate.setTableName(\"" + sFileName + "\"); \n");
+            outStream.writeBytes(" checkUpdate.setUpdateTime(LocalDateTime.now()); \n");
+            outStream.writeBytes(" BufferedReader br = null; \n");
             outStream.writeBytes(" try { \n");
             outStream.writeBytes("List<" + sFileName + "Info" + "> objList = new ArrayList<>();\n");
             outStream.writeBytes("SimpleDateFormat formatter = new SimpleDateFormat(\"yyyy/MM/dd\");\n");
             outStream.writeBytes("String line; \n");
             outStream.writeBytes("String todayDate = DateUtils.dateYYYMMDD(); \n");
             outStream.writeBytes("String dataPath = pathConfig.getDataPath().replace(\"yyyymmdd\", todayDate); \n");
+            outStream.writeBytes("String uploadPath = pathConfig.getUploadPath();\n");
             outStream.writeBytes("File file = new File(dataPath + \"\\\\" + sFileName + ".dat\"); \n");
             outStream.writeBytes("if (!file.exists()){ \n");
-            outStream.writeBytes("return; \n");
-            outStream.writeBytes("} \n");
+            outStream.writeBytes(" logger.info(\"No such file\"); \n");
+            outStream.writeBytes(" } else { \n");
 
-            outStream.writeBytes("BufferedReader br = new BufferedReader(new FileReader(dataPath + " + "\"\\\\" + sFileName + ".dat\"));\n");
+            outStream.writeBytes("br = new BufferedReader(new FileReader(dataPath + " + "\"\\\\" + sFileName + ".dat\"));\n");
             outStream.writeBytes("   while ((line = br.readLine()) != null) {\n");
             outStream.writeBytes("String[] lineArray = line.split(\"\\\\|\"); \n");
             outStream.writeBytes(sFileName + "Info obj = new " + sFileName + "Info(); \n");
@@ -494,8 +510,17 @@ public class GenerateUtils {
             outStream.writeBytes("br.close();");
             outStream.writeBytes("if (!objList.isEmpty())\n");
             outStream.writeBytes(" insertAll(objList);\n");
+            outStream.writeBytes("  checkUpdate.setStatus(\"Done\");\n");
+            outStream.writeBytes(" checkUpdateRepository.save(checkUpdate);\n");
+            outStream.writeBytes(" FileUtils.moveFile(dataPath, uploadPath, file.getName());\n");
+            outStream.writeBytes(" FileUtils.deleteFile(file);\n");
+            outStream.writeBytes(" }\n");
             outStream.writeBytes("} catch (Exception ex) {\n");
             outStream.writeBytes(" ex.printStackTrace();\n");
+            outStream.writeBytes(" checkUpdate.setStatus(\"File format error\");\n");
+            outStream.writeBytes(" checkUpdateRepository.save(checkUpdate);\n");
+            outStream.writeBytes(" assert br != null;\n");
+            outStream.writeBytes("  br.close();\n");
             outStream.writeBytes("}\n");
             outStream.writeBytes("}\n");
             outStream.writeBytes("@Override\n");
@@ -575,9 +600,9 @@ public class GenerateUtils {
             e.printStackTrace();
         } finally {
             if (outStream != null)
-            outStream.close();
-            if (fileOutputStream!=null)
-            fileOutputStream.close();
+                outStream.close();
+            if (fileOutputStream != null)
+                fileOutputStream.close();
 
         }
     }

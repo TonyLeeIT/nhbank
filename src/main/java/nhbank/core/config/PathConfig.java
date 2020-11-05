@@ -13,4 +13,6 @@ public class PathConfig {
     private String dataPath;
     private String sqlPath;
     private String uploadPath;
+
+
 }

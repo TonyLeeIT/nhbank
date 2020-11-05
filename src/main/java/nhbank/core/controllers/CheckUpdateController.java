@@ -27,28 +27,28 @@ public class CheckUpdateController {
 
     @GetMapping("/CheckUpdate")
     public ResponseEntity<Page<CheckUpdate>> getObjList(@RequestParam(required = false, name = "filter") String filter,
-                                                 @RequestParam(required = false, name = "range") String range,
-                                                 @RequestParam(required = false, name = "sort") String sort) {
+                                                        @RequestParam(required = false, name = "range") String range,
+                                                        @RequestParam(required = false, name = "sort") String sort) {
 
-        
+
         String rangeString = range.substring(range.indexOf("[") + 1, range.indexOf("]"));
         String[] rangeStringArray = rangeString.split(",");
-        int[] rangeIntArray =  Arrays.stream(rangeStringArray).mapToInt(Integer::parseInt).toArray();
+        int[] rangeIntArray = Arrays.stream(rangeStringArray).mapToInt(Integer::parseInt).toArray();
         int startValue = rangeIntArray[0];
         int endValue = rangeIntArray[1];
         int size = endValue - startValue;
-        int page = endValue%size;
+        int page = endValue % size;
         String sortString = sort.substring(sort.indexOf("\"") + 1, sort.lastIndexOf("\""));
-        String[] sortStringArray = sortString.replace('\"',',').split(",,,");
+        String[] sortStringArray = sortString.replace('\"', ',').split(",,,");
         String propertyName = sortStringArray[0];
         String sortMethod = sortStringArray[1];
         Page<CheckUpdate> objList = null;
-        switch (sortMethod){
-            case "ASC" :
-                objList = checkUpdateService.findAll(PageRequest.of(page,size, Sort.by(Sort.Order.asc(propertyName))));
+        switch (sortMethod) {
+            case "ASC":
+                objList = checkUpdateService.findAll(PageRequest.of(page, size, Sort.by(Sort.Order.asc(propertyName))));
                 break;
             case "DESC":
-                objList = checkUpdateService.findAll(PageRequest.of(page,size, Sort.by(Sort.Order.desc(propertyName))));
+                objList = checkUpdateService.findAll(PageRequest.of(page, size, Sort.by(Sort.Order.desc(propertyName))));
                 break;
             default:
                 break;

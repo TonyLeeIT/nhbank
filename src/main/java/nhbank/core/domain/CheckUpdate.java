@@ -8,7 +8,7 @@ import java.util.Date;
 
 
 @Data
-@Table(name="CHECK_UPDATE")
+@Table(name = "CHECK_UPDATE")
 @Entity
 public class CheckUpdate {
     @Id
@@ -19,6 +19,6 @@ public class CheckUpdate {
     private String tableName;
     @Column(name = "UPDATE_TIME")
     private LocalDateTime updateTime;
-    @Column(name="STATUS")
+    @Column(name = "STATUS")
     private String status;
 }

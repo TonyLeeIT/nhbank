@@ -31,7 +31,7 @@ import java.util.Map;
 @Log4j
 @CrossOrigin("*")
 @RestController
-//@RequestMapping("/nhbank")
+@RequestMapping("/nhbank")
 
 public class NHBankController {
     public static final Logger logger = LoggerFactory.getLogger(NHBankController.class);
@@ -289,34 +289,26 @@ public class NHBankController {
     public ResponseEntity<?> worker() throws IOException {
         String todayDate = DateUtils.dateYYYMMDD();
         String dataPath = pathConfig.getDataPath();
-        String uploadPath = pathConfig.getUploadPath();
         dataPath = dataPath.replace("yyyymmdd", todayDate);
         Path dPath = Paths.get(dataPath);
         if (!Files.isDirectory(dPath)) {
             Files.createDirectories(dPath);
         }
-        //Rename file , cut Korean String
+        //Rename file (cut Korean String or other)
         File dataFolder = new File(dataPath);
         File[] fileList = dataFolder.listFiles();
         for (File f : fileList) {
             if (f.getName().contains("(")) {
-                File newName = new File(dataPath +"\\" +FileUtils.handlingFile(f.getName()));
-                if (f.renameTo(newName)){
-                    logger.info("Rename from " +f.getName()+" to "+newName.getName() +" done");
-                }else {
+                File newName = new File(dataPath + "\\" + FileUtils.handlingFile(f.getName()));
+                if (f.renameTo(newName)) {
+                    logger.info("Rename from " + f.getName() + " to " + newName.getName() + " done");
+                } else {
                     logger.info("Fail to rename file " + f.getName());
                 }
             }
         }
         //Import Data
         importDB();
-        //Move file
-        List<String> files = FileUtils.getFilesDirectory(dataPath);
-        for (String file : files) {
-            File file1 = new File(file);
-            FileUtils.moveFile(dataPath, uploadPath, file1.getName());
-            FileUtils.deleteFile(file1);
-        }
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
 
@@ -328,6 +320,7 @@ public class NHBankController {
         File directoryPath = new File(sqlPath);
         //List of all files and directories
         File[] filesList = directoryPath.listFiles();
+        assert filesList != null;
         for (File file : filesList) {
             if (!file.getName().endsWith(".sql")) {
                 continue;
@@ -347,7 +340,7 @@ public class NHBankController {
         return new ResponseEntity<>("Build success", HttpStatus.OK);
     }
 
-    public void importDB() {
+    public void importDB() throws IOException {
         aact_trx_balInfoService.updateAll();
         aact_trx_baseInfoService.updateAll();
         aact_trx_bsInfoService.updateAll();

@@ -12,7 +12,10 @@ import java.util.Optional;
 
 public interface CheckUpdateService {
     Page<CheckUpdate> findAll(Pageable pageable);
+
     Optional<CheckUpdate> findById(Long id);
+
     void save(CheckUpdate demo);
+
     void delete(Long id);
 }

@@ -2,15 +2,16 @@ package nhbank.core.services.impl;
 
 import nhbank.core.config.PathConfig;
 import nhbank.core.controllers.NHBankController;
-import nhbank.core.domain.ACOM_LMT_BASEHISInfo;
 import nhbank.core.domain.CheckUpdate;
-import nhbank.core.repositories.ACOM_LMT_BASEHISInfoRepository;
 import nhbank.core.repositories.CheckUpdateRepository;
+import nhbank.core.domain.ACOM_LMT_BASEHISInfo;
+import nhbank.core.repositories.ACOM_LMT_BASEHISInfoRepository;
 import nhbank.core.services.ACOM_LMT_BASEHISInfoService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import nhbank.core.util.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -27,27 +28,28 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
     @Autowired
     PathConfig pathConfig;
     @Autowired
-    ACOM_LMT_BASEHISInfoRepository acom_lmt_basehisInfoRepository;
-    @Autowired
     CheckUpdateRepository checkUpdateRepository;
+    @Autowired
+    ACOM_LMT_BASEHISInfoRepository acom_lmt_basehisInfoRepository;
 
     @Override
-    public void updateAll() {
+    public void updateAll() throws IOException {
         CheckUpdate checkUpdate = new CheckUpdate();
         checkUpdate.setTableName("ACOM_LMT_BASEHIS");
         checkUpdate.setUpdateTime(LocalDateTime.now());
+        BufferedReader br = null;
         try {
             List<ACOM_LMT_BASEHISInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
             String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\ACOM_LMT_BASEHIS.txt");
-
             if (!file.exists()) {
                 logger.info("No such file");
             } else {
-                BufferedReader br = new BufferedReader(new FileReader(dataPath + "\\ACOM_LMT_BASEHIS.txt"));
+                br = new BufferedReader(new FileReader(dataPath + "\\ACOM_LMT_BASEHIS.txt"));
                 while ((line = br.readLine()) != null) {
                     String[] lineArray = line.split("\\|");
                     ACOM_LMT_BASEHISInfo obj = new ACOM_LMT_BASEHISInfo();
@@ -142,17 +144,19 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
                     }
                 }
                 br.close();
-            }
-            if (!objList.isEmpty()) {
-                insertAll(objList);
+                if (!objList.isEmpty())
+                    insertAll(objList);
                 checkUpdate.setStatus("Done");
                 checkUpdateRepository.save(checkUpdate);
+                FileUtils.moveFile(dataPath, uploadPath, file.getName());
+                FileUtils.deleteFile(file);
             }
-
         } catch (Exception ex) {
             ex.printStackTrace();
             checkUpdate.setStatus("File format error");
             checkUpdateRepository.save(checkUpdate);
+            assert br != null;
+            br.close();
         }
     }
 
@@ -165,15 +169,4 @@ public class ACOM_LMT_BASEHISInfoServiceImpl implements ACOM_LMT_BASEHISInfoServ
     public boolean isExist(String sngNo, String actCd, BigDecimal hisNo, String hisGb) {
         return acom_lmt_basehisInfoRepository.existsBySngNoAndActCdAndHisNoAndHisGb(sngNo, actCd, hisNo, hisGb);
     }
-
-    @Override
-    public List<ACOM_LMT_BASEHISInfo> findAll() {
-        return acom_lmt_basehisInfoRepository.findAll();
-    }
-
-    @Override
-    public List<ACOM_LMT_BASEHISInfo> findBySngNo(String sngNo) {
-        return acom_lmt_basehisInfoRepository.findAllBySngNo(sngNo);
-    }
-
 }

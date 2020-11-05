@@ -2,11 +2,13 @@ package nhbank.core.services;
 
 import nhbank.core.domain.AFEX_IPB_DJHInfo;
 
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 public interface AFEX_IPB_DJHInfoService {
-    void updateAll();
+    void updateAll() throws IOException;
 
     void insertAll(List<AFEX_IPB_DJHInfo> objList);
 

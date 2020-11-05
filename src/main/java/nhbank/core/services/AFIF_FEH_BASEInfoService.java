@@ -2,10 +2,13 @@ package nhbank.core.services;
 
 import nhbank.core.domain.AFIF_FEH_BASEInfo;
 
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 public interface AFIF_FEH_BASEInfoService {
-    void updateAll();
+    void updateAll() throws IOException;
 
     void insertAll(List<AFIF_FEH_BASEInfo> objList);
 

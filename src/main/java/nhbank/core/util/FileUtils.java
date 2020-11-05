@@ -42,7 +42,7 @@ public class FileUtils {
                 Files.createDirectories(path);
             }
             String todayDate = DateUtils.dateYYYMMDD();
-            File newFile = new File(outputFile + "\\" + todayDate+fileName + ".bak");
+            File newFile = new File(outputFile + "\\" + todayDate + fileName + ".bak");
 
             inStream = new FileInputStream(afile);
             outStream = new FileOutputStream(newFile);
@@ -80,7 +80,7 @@ public class FileUtils {
 
     public static void deleteFile(File file) {
         if (file.delete()) {
-            logger.info("File deleted successfully");
+            logger.info("File is deleted successfully");
         } else {
             logger.error("Failed to delete the file");
         }
@@ -88,6 +88,6 @@ public class FileUtils {
     }
 
     public static String handlingFile(String file) {
-        return file.substring(0, file.indexOf("(")).concat(file.substring(file.indexOf(")")+1));
+        return file.substring(0, file.indexOf("(")).concat(file.substring(file.indexOf(")") + 1));
     }
 }

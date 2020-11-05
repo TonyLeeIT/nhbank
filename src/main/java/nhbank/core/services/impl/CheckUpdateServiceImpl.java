@@ -18,6 +18,7 @@ import java.util.Optional;
 public class CheckUpdateServiceImpl implements CheckUpdateService {
     @Autowired
     CheckUpdateRepository checkUpdateRepository;
+
     @Override
     public Page<CheckUpdate> findAll(Pageable pageable) {
         return checkUpdateRepository.findAll(pageable);
