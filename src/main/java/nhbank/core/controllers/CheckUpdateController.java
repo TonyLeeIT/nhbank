@@ -1,9 +1,11 @@
 package nhbank.core.controllers;
 
 
+import javafx.util.Pair;
 import nhbank.core.domain.CheckUpdate;
 
 import nhbank.core.services.CheckUpdateService;
+import nhbank.core.util.HandleParams;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.domain.Page;
@@ -15,7 +17,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.util.Arrays;
 import java.util.Optional;
 
 
@@ -30,27 +31,19 @@ public class CheckUpdateController {
     public ResponseEntity<Page<CheckUpdate>> getObjList(@RequestParam(required = false, name = "filter") String filter,
                                                         @RequestParam(required = false, name = "range") String range,
                                                         @RequestParam(required = false, name = "sort") String sort) {
-        //handling filter request param
+
         String keyWord = null;
         if (!filter.equals("{}")) {
-            String filterString = filter.substring(filter.indexOf("\"") + 1, filter.lastIndexOf("\""));
-            String[] filterStringArray = filterString.split("\":\"");
-            keyWord = filterStringArray[1];
+            keyWord = HandleParams.handleFilter(filter);
         }
-        //handling range request param
-        String rangeString = range.substring(range.indexOf("[") + 1, range.indexOf("]"));
-        String[] rangeStringArray = rangeString.split(",");
-        int[] rangeIntArray = Arrays.stream(rangeStringArray).mapToInt(Integer::parseInt).toArray();
-        int startValue = rangeIntArray[0];
-        int endValue = rangeIntArray[1];
-        int size = (endValue - startValue) + 1;
-        int page = Math.max((endValue / (size - 1)) - 1, 0);
 
-        //handling sort request param
-        String sortString = sort.substring(sort.indexOf("\"") + 1, sort.lastIndexOf("\""));
-        String[] sortStringArray = sortString.replace('\"', ',').split(",,,");
-        String propertyName = sortStringArray[0];
-        String sortMethod = sortStringArray[1];
+        Pair<Integer, Integer> rangePair = HandleParams.handleRange(range);
+        int page = rangePair.getKey();
+        int size = rangePair.getValue();
+
+        Pair<String,String> sortPair = HandleParams.handleSort(sort);
+        String propertyName = sortPair.getKey();
+        String sortMethod = sortPair.getValue();
 
         Page<CheckUpdate> objList = null;
         Pageable pageableASC = PageRequest.of(page, size, Sort.by(Sort.Order.asc(propertyName)));
@@ -66,8 +59,6 @@ public class CheckUpdateController {
             default:
                 break;
         }
-
-
         return new ResponseEntity<>(objList, HttpStatus.OK);
     }
 
@@ -84,9 +75,7 @@ public class CheckUpdateController {
 
     @DeleteMapping("/CheckUpdate")
     public ResponseEntity<CheckUpdate> deleteManyObj(@RequestParam(required = false, name = "filter") String filter) {
-        String idString = filter.substring(filter.indexOf("[") + 1, filter.indexOf("]"));
-        String[] idStringArray = idString.split(",");
-        long[] idArray = Arrays.stream(idStringArray).mapToLong(Long::parseLong).toArray();
+        long[] idArray = HandleParams.handleIdFilter(filter);
         for (Long id : idArray) {
             checkUpdateService.delete(id);
         }
