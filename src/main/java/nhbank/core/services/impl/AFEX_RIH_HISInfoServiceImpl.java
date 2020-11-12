@@ -43,7 +43,7 @@ public class AFEX_RIH_HISInfoServiceImpl implements AFEX_RIH_HISInfoService {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\AFEX_RIH_HIS.dat");
             if (!file.exists()) {

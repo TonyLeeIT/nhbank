@@ -43,7 +43,7 @@ public class AFEX_XPB_AMDInfoServiceImpl implements AFEX_XPB_AMDInfoService {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\AFEX_XPB_AMD.dat");
             if (!file.exists()) {

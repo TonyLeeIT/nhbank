@@ -43,7 +43,7 @@ public class ADST_DPB_INFOInfoServiceImpl implements ADST_DPB_INFOInfoService {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\ADST_DPB_INFO.dat");
             if (!file.exists()) {

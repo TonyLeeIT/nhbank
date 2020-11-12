@@ -44,7 +44,7 @@ public class ACOM_EPB_RPTInfoServiceImpl implements ACOM_EPB_RPTInfoService {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\ACOM_EPB_RPT.dat");
             if (!file.exists()) {

@@ -289,26 +289,20 @@ public class NHBankController {
     public ResponseEntity<?> worker() throws IOException {
         String todayDate = DateUtils.dateYYYMMDD();
         String dataPath = pathConfig.getDataPath();
-        dataPath = dataPath.replace("yyyymmdd", todayDate);
-        Path dPath = Paths.get(dataPath);
+        String backupPath = pathConfig.getDataPath();
+        backupPath = backupPath + "\\" + todayDate;
+        Path dPath = Paths.get(backupPath);
         if (!Files.isDirectory(dPath)) {
             Files.createDirectories(dPath);
         }
-        //Rename file (cut Korean String or other)
-        File dataFolder = new File(dataPath);
-        File[] fileList = dataFolder.listFiles();
-        for (File f : fileList) {
-            if (f.getName().contains("(")) {
-                File newName = new File(dataPath + "\\" + FileUtils.handlingFile(f.getName()));
-                if (f.renameTo(newName)) {
-                    logger.info("Rename from " + f.getName() + " to " + newName.getName() + " done");
-                } else {
-                    logger.info("Fail to rename file " + f.getName());
-                }
-            }
-        }
         //Import Data
         importDB();
+        //Move file
+        List<String> files = FileUtils.getFilesDirectory(dataPath);
+        for (String file : files) {
+            File file1 = new File(file);
+            FileUtils.moveFile(dataPath, backupPath, file1.getName());
+        }
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
 

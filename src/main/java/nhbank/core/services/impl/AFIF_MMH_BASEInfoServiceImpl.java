@@ -43,7 +43,7 @@ public class AFIF_MMH_BASEInfoServiceImpl implements AFIF_MMH_BASEInfoService {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\AFIF_MMH_BASE.dat");
             if (!file.exists()) {

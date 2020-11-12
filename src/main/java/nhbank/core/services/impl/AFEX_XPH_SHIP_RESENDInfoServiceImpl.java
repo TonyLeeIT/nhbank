@@ -43,7 +43,7 @@ public class AFEX_XPH_SHIP_RESENDInfoServiceImpl implements AFEX_XPH_SHIP_RESEND
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\AFEX_XPH_SHIP_RESEND.dat");
             if (!file.exists()) {

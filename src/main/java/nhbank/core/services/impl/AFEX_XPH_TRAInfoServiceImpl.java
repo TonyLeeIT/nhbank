@@ -43,7 +43,7 @@ public class AFEX_XPH_TRAInfoServiceImpl implements AFEX_XPH_TRAInfoService {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\AFEX_XPH_TRA.dat");
             if (!file.exists()) {

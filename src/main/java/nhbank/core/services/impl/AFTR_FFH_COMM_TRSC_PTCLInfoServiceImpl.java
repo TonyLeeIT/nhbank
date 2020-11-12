@@ -43,7 +43,7 @@ public class AFTR_FFH_COMM_TRSC_PTCLInfoServiceImpl implements AFTR_FFH_COMM_TRS
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\AFTR_FFH_COMM_TRSC_PTCL.dat");
             if (!file.exists()) {

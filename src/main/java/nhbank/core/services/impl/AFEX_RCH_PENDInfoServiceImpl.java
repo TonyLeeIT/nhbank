@@ -43,7 +43,7 @@ public class AFEX_RCH_PENDInfoServiceImpl implements AFEX_RCH_PENDInfoService {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\AFEX_RCH_PEND.dat");
             if (!file.exists()) {

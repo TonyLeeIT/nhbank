@@ -43,7 +43,7 @@ public class AFEX_IPB_LGMInfoServiceImpl implements AFEX_IPB_LGMInfoService {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\AFEX_IPB_LGM.dat");
             if (!file.exists()) {

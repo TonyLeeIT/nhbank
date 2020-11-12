@@ -43,7 +43,7 @@ public class AFEX_XPH_CAInfoServiceImpl implements AFEX_XPH_CAInfoService {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\AFEX_XPH_CA.dat");
             if (!file.exists()) {

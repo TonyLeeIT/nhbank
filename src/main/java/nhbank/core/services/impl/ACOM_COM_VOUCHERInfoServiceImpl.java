@@ -43,7 +43,7 @@ public class ACOM_COM_VOUCHERInfoServiceImpl implements ACOM_COM_VOUCHERInfoServ
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\ACOM_COM_VOUCHER.dat");
             if (!file.exists()) {

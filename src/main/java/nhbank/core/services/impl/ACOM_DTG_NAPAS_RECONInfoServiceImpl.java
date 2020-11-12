@@ -43,7 +43,7 @@ public class ACOM_DTG_NAPAS_RECONInfoServiceImpl implements ACOM_DTG_NAPAS_RECON
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\ACOM_DTG_NAPAS_RECON.dat");
             if (!file.exists()) {

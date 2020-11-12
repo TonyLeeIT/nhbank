@@ -43,7 +43,7 @@ public class ADST_LNB_REPAYInfoServiceImpl implements ADST_LNB_REPAYInfoService 
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\ADST_LNB_REPAY.dat");
             if (!file.exists()) {

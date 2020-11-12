@@ -43,7 +43,7 @@ public class AFEX_XPH_SHIPInfoServiceImpl implements AFEX_XPH_SHIPInfoService {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\AFEX_XPH_SHIP.dat");
             if (!file.exists()) {

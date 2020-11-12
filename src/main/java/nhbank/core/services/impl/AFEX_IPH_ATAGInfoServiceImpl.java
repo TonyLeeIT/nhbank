@@ -43,7 +43,7 @@ public class AFEX_IPH_ATAGInfoServiceImpl implements AFEX_IPH_ATAGInfoService {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\AFEX_IPH_ATAG.dat");
             if (!file.exists()) {

@@ -43,7 +43,7 @@ public class AFEX_ADH_ITMInfoServiceImpl implements AFEX_ADH_ITMInfoService {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\AFEX_ADH_ITM.dat");
             if (!file.exists()) {

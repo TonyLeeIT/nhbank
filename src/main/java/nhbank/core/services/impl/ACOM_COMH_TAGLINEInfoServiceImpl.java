@@ -43,7 +43,7 @@ public class ACOM_COMH_TAGLINEInfoServiceImpl implements ACOM_COMH_TAGLINEInfoSe
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
             String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
+            String dataPath = pathConfig.getDataPath();
             String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\ACOM_COMH_TAGLINE.dat");
             if (!file.exists()) {
