@@ -2,25 +2,27 @@ package nhbank.core.services.impl;
 
 import nhbank.core.config.PathConfig;
 import nhbank.core.controllers.NHBankController;
-import nhbank.core.domain.CheckUpdate;
-import nhbank.core.repositories.CheckUpdateRepository;
 import nhbank.core.domain.AFEX_RCH_PENDInfo;
+import nhbank.core.domain.CheckUpdate;
 import nhbank.core.repositories.AFEX_RCH_PENDInfoRepository;
+import nhbank.core.repositories.CheckUpdateRepository;
 import nhbank.core.services.AFEX_RCH_PENDInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import nhbank.core.util.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.io.*;
-import java.time.LocalDateTime;
-import java.util.*;
-
-import nhbank.core.util.DateUtils;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class AFEX_RCH_PENDInfoServiceImpl implements AFEX_RCH_PENDInfoService {
@@ -42,9 +44,7 @@ public class AFEX_RCH_PENDInfoServiceImpl implements AFEX_RCH_PENDInfoService {
             List<AFEX_RCH_PENDInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            String todayDate = DateUtils.dateYYYMMDD();
             String dataPath = pathConfig.getDataPath();
-            String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\AFEX_RCH_PEND.dat");
             if (!file.exists()) {
                 logger.info("No such file");
@@ -94,7 +94,6 @@ public class AFEX_RCH_PENDInfoServiceImpl implements AFEX_RCH_PENDInfoService {
                     insertAll(objList);
                 checkUpdate.setStatus("Done");
                 checkUpdateRepository.save(checkUpdate);
-                FileUtils.moveFile(dataPath, uploadPath, file.getName());
                 FileUtils.deleteFile(file);
             }
         } catch (Exception ex) {

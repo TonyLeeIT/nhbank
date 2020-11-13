@@ -3,9 +3,7 @@ package nhbank.core.controllers;
 import lombok.extern.log4j.Log4j;
 import nhbank.core.config.Config;
 import nhbank.core.config.PathConfig;
-import nhbank.core.domain.CheckUpdate;
 import nhbank.core.services.*;
-import nhbank.core.util.DateUtils;
 import nhbank.core.util.FileUtils;
 import nhbank.core.util.GenerateUtils;
 import org.slf4j.Logger;
@@ -20,10 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -287,22 +281,23 @@ public class NHBankController {
     @GetMapping(value = "/worker")
 //    @Scheduled(cron = "0 0 7,12 * * *")
     public ResponseEntity<?> worker() throws IOException {
-        String todayDate = DateUtils.dateYYYMMDD();
         String dataPath = pathConfig.getDataPath();
-        String backupPath = pathConfig.getDataPath();
-        backupPath = backupPath + "\\" + todayDate;
-        Path dPath = Paths.get(backupPath);
-        if (!Files.isDirectory(dPath)) {
-            Files.createDirectories(dPath);
-        }
-        //Import Data
-        importDB();
-        //Move file
+        String backupPath = pathConfig.getBackupPath();
+        //Move file to Backup Folder
         List<String> files = FileUtils.getFilesDirectory(dataPath);
         for (String file : files) {
             File file1 = new File(file);
             FileUtils.moveFile(dataPath, backupPath, file1.getName());
+            // Rename File .dat . Not YYYYMMDD
+            File newFile = new File(dataPath + "\\" + file1.getName().substring(0, file1.getName().length() - 13) + ".dat");
+            if (file1.renameTo(newFile)) {
+                System.out.println("Rename from " + file1.getName() + " to " + newFile.getName() + " done");
+            } else {
+                System.out.println("Fail to rename file " + file1.getName());
+            }
         }
+        //Import Data
+        importDB();
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
 
@@ -324,11 +319,11 @@ public class NHBankController {
             }
             Map<Integer, String> listFields = GenerateUtils.convertFileToObject(file);
             Map<Integer, String> primaryKeyMap = GenerateUtils.findPrimaryKeys(file);
-            GenerateUtils.buildModel(file.getName(), listFields);
-            GenerateUtils.buildDomain(file.getName(), listFields, file);
-            GenerateUtils.buildDomainsID(file.getName(), primaryKeyMap);
-            GenerateUtils.buildRepository(file);
-            GenerateUtils.buildServices(file);
+//            GenerateUtils.buildModel(file.getName(), listFields);
+//            GenerateUtils.buildDomain(file.getName(), listFields, file);
+//            GenerateUtils.buildDomainsID(file.getName(), primaryKeyMap);
+//            GenerateUtils.buildRepository(file);
+//            GenerateUtils.buildServices(file);
             GenerateUtils.buildServiceImpl(file.getName(), listFields, primaryKeyMap);
         }
         return new ResponseEntity<>("Build success", HttpStatus.OK);

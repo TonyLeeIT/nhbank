@@ -2,25 +2,26 @@ package nhbank.core.services.impl;
 
 import nhbank.core.config.PathConfig;
 import nhbank.core.controllers.NHBankController;
-import nhbank.core.domain.CheckUpdate;
-import nhbank.core.repositories.CheckUpdateRepository;
 import nhbank.core.domain.AFEX_XPB_HISInfo;
+import nhbank.core.domain.CheckUpdate;
 import nhbank.core.repositories.AFEX_XPB_HISInfoRepository;
+import nhbank.core.repositories.CheckUpdateRepository;
 import nhbank.core.services.AFEX_XPB_HISInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import nhbank.core.util.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.io.*;
-import java.time.LocalDateTime;
-import java.util.*;
-
-import nhbank.core.util.DateUtils;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AFEX_XPB_HISInfoServiceImpl implements AFEX_XPB_HISInfoService {
@@ -42,9 +43,7 @@ public class AFEX_XPB_HISInfoServiceImpl implements AFEX_XPB_HISInfoService {
             List<AFEX_XPB_HISInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            String todayDate = DateUtils.dateYYYMMDD();
             String dataPath = pathConfig.getDataPath();
-            String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\AFEX_XPB_HIS.dat");
             if (!file.exists()) {
                 logger.info("No such file");
@@ -107,7 +106,7 @@ public class AFEX_XPB_HISInfoServiceImpl implements AFEX_XPB_HISInfoService {
                     obj.setCrBamt(new BigDecimal(lineArray[51]));
                     obj.setBeLisuIl((lineArray[52].equals("")) ? null : formatter.parse(lineArray[52]));
                     obj.setBeHrt(new BigDecimal(lineArray[53]));
-                    obj.setBeHRt2(new BigDecimal(lineArray[54]));
+                    obj.setBeHRt(new BigDecimal(lineArray[54]));
                     obj.setBeYmanIl((lineArray[55].equals("")) ? null : formatter.parse(lineArray[55]));
                     obj.setBeYdcIl((lineArray[56].equals("")) ? null : formatter.parse(lineArray[56]));
                     obj.setBeShIl((lineArray[57].equals("")) ? null : formatter.parse(lineArray[57]));
@@ -140,7 +139,6 @@ public class AFEX_XPB_HISInfoServiceImpl implements AFEX_XPB_HISInfoService {
                     insertAll(objList);
                 checkUpdate.setStatus("Done");
                 checkUpdateRepository.save(checkUpdate);
-                FileUtils.moveFile(dataPath, uploadPath, file.getName());
                 FileUtils.deleteFile(file);
             }
         } catch (Exception ex) {

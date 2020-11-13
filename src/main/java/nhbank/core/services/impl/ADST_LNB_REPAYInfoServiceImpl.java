@@ -2,25 +2,26 @@ package nhbank.core.services.impl;
 
 import nhbank.core.config.PathConfig;
 import nhbank.core.controllers.NHBankController;
-import nhbank.core.domain.CheckUpdate;
-import nhbank.core.repositories.CheckUpdateRepository;
 import nhbank.core.domain.ADST_LNB_REPAYInfo;
+import nhbank.core.domain.CheckUpdate;
 import nhbank.core.repositories.ADST_LNB_REPAYInfoRepository;
+import nhbank.core.repositories.CheckUpdateRepository;
 import nhbank.core.services.ADST_LNB_REPAYInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import nhbank.core.util.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.io.*;
-import java.time.LocalDateTime;
-import java.util.*;
-
-import nhbank.core.util.DateUtils;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ADST_LNB_REPAYInfoServiceImpl implements ADST_LNB_REPAYInfoService {
@@ -42,9 +43,7 @@ public class ADST_LNB_REPAYInfoServiceImpl implements ADST_LNB_REPAYInfoService 
             List<ADST_LNB_REPAYInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            String todayDate = DateUtils.dateYYYMMDD();
             String dataPath = pathConfig.getDataPath();
-            String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\ADST_LNB_REPAY.dat");
             if (!file.exists()) {
                 logger.info("No such file");
@@ -88,7 +87,6 @@ public class ADST_LNB_REPAYInfoServiceImpl implements ADST_LNB_REPAYInfoService 
                     insertAll(objList);
                 checkUpdate.setStatus("Done");
                 checkUpdateRepository.save(checkUpdate);
-                FileUtils.moveFile(dataPath, uploadPath, file.getName());
                 FileUtils.deleteFile(file);
             }
         } catch (Exception ex) {

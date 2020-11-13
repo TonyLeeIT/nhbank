@@ -2,26 +2,26 @@ package nhbank.core.services.impl;
 
 import nhbank.core.config.PathConfig;
 import nhbank.core.controllers.NHBankController;
-import nhbank.core.domain.CheckUpdate;
-import nhbank.core.repositories.CheckUpdateRepository;
 import nhbank.core.domain.ACOM_EPB_RPTInfo;
+import nhbank.core.domain.CheckUpdate;
 import nhbank.core.repositories.ACOM_EPB_RPTInfoRepository;
+import nhbank.core.repositories.CheckUpdateRepository;
 import nhbank.core.services.ACOM_EPB_RPTInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import nhbank.core.util.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.io.*;
-import java.text.ParseException;
-import java.time.LocalDateTime;
-import java.util.*;
-
-import nhbank.core.util.DateUtils;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ACOM_EPB_RPTInfoServiceImpl implements ACOM_EPB_RPTInfoService {
@@ -43,9 +43,7 @@ public class ACOM_EPB_RPTInfoServiceImpl implements ACOM_EPB_RPTInfoService {
             List<ACOM_EPB_RPTInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            String todayDate = DateUtils.dateYYYMMDD();
             String dataPath = pathConfig.getDataPath();
-            String uploadPath = pathConfig.getUploadPath();
             File file = new File(dataPath + "\\ACOM_EPB_RPT.dat");
             if (!file.exists()) {
                 logger.info("No such file");
@@ -85,22 +83,22 @@ public class ACOM_EPB_RPTInfoServiceImpl implements ACOM_EPB_RPTInfoService {
                     obj.setUpdEmpNo(lineArray[28]);
                     obj.setUpdDt((lineArray[29].equals("")) ? null : formatter.parse(lineArray[29]));
                     obj.setUpdTm(lineArray[30]);
-                    acom_epb_rptInfoRepository.save(obj);
+                    if (isExist()) {
+                        acom_epb_rptInfoRepository.save(obj);
+                    } else {
+                        objList.add(obj);
+                    }
                 }
                 br.close();
+                if (!objList.isEmpty())
+                    insertAll(objList);
                 checkUpdate.setStatus("Done");
                 checkUpdateRepository.save(checkUpdate);
-                FileUtils.moveFile(dataPath, uploadPath, file.getName());
                 FileUtils.deleteFile(file);
             }
-        } catch (ParseException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
             checkUpdate.setStatus("File format error");
-            checkUpdateRepository.save(checkUpdate);
-            br.close();
-        }catch (IOException ex){
-            ex.printStackTrace();
-            checkUpdate.setStatus("System error");
             checkUpdateRepository.save(checkUpdate);
             assert br != null;
             br.close();
@@ -112,4 +110,8 @@ public class ACOM_EPB_RPTInfoServiceImpl implements ACOM_EPB_RPTInfoService {
         acom_epb_rptInfoRepository.saveAll(objList);
     }
 
+    @Override
+    public boolean isExist() {
+        return acom_epb_rptInfoRepository.existsBy();
+    }
 }

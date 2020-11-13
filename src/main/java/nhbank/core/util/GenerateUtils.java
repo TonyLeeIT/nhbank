@@ -1,9 +1,6 @@
 package nhbank.core.util;
 
-import nhbank.core.config.PathConfig;
 import nhbank.core.constant.Constant;
-import org.checkerframework.checker.units.qual.A;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -439,7 +436,6 @@ public class GenerateUtils {
             outStream.writeBytes("SimpleDateFormat formatter = new SimpleDateFormat(\"yyyy/MM/dd\");\n");
             outStream.writeBytes("String line; \n");
             outStream.writeBytes("String dataPath = pathConfig.getDataPath(); \n");
-            outStream.writeBytes("String uploadPath = pathConfig.getUploadPath();\n");
             outStream.writeBytes("File file = new File(dataPath + \"\\\\" + sFileName + ".dat\"); \n");
             outStream.writeBytes("if (!file.exists()){ \n");
             outStream.writeBytes(" logger.info(\"No such file\"); \n");
@@ -511,7 +507,6 @@ public class GenerateUtils {
             outStream.writeBytes(" insertAll(objList);\n");
             outStream.writeBytes("  checkUpdate.setStatus(\"Done\");\n");
             outStream.writeBytes(" checkUpdateRepository.save(checkUpdate);\n");
-            outStream.writeBytes(" FileUtils.moveFile(dataPath, uploadPath, file.getName());\n");
             outStream.writeBytes(" FileUtils.deleteFile(file);\n");
             outStream.writeBytes(" }\n");
             outStream.writeBytes("} catch (Exception ex) {\n");

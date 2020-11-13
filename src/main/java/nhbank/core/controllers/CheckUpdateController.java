@@ -3,11 +3,9 @@ package nhbank.core.controllers;
 
 import javafx.util.Pair;
 import nhbank.core.domain.CheckUpdate;
-
 import nhbank.core.services.CheckUpdateService;
 import nhbank.core.util.HandleParams;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -15,7 +13,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 import java.util.Optional;
 
@@ -41,7 +38,7 @@ public class CheckUpdateController {
         int page = rangePair.getKey();
         int size = rangePair.getValue();
 
-        Pair<String,String> sortPair = HandleParams.handleSort(sort);
+        Pair<String, String> sortPair = HandleParams.handleSort(sort);
         String propertyName = sortPair.getKey();
         String sortMethod = sortPair.getValue();
 
@@ -51,10 +48,10 @@ public class CheckUpdateController {
 
         switch (sortMethod) {
             case "ASC":
-                objList = keyWord==null?checkUpdateService.findAll(pageableASC):checkUpdateService.findAllByTableName(keyWord,pageableASC);
+                objList = keyWord == null ? checkUpdateService.findAll(pageableASC) : checkUpdateService.findAllByTableName(keyWord, pageableASC);
                 break;
             case "DESC":
-                objList = keyWord==null?checkUpdateService.findAll(pageableDESC):checkUpdateService.findAllByTableName(keyWord,pageableDESC);
+                objList = keyWord == null ? checkUpdateService.findAll(pageableDESC) : checkUpdateService.findAllByTableName(keyWord, pageableDESC);
                 break;
             default:
                 break;
