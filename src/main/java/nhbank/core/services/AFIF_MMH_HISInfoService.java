@@ -4,7 +4,6 @@ import nhbank.core.domain.AFIF_MMH_HISInfo;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 
 public interface AFIF_MMH_HISInfoService {

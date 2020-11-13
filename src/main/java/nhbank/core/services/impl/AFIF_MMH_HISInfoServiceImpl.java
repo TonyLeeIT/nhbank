@@ -2,25 +2,26 @@ package nhbank.core.services.impl;
 
 import nhbank.core.config.PathConfig;
 import nhbank.core.controllers.NHBankController;
-import nhbank.core.domain.CheckUpdate;
-import nhbank.core.repositories.CheckUpdateRepository;
 import nhbank.core.domain.AFIF_MMH_HISInfo;
+import nhbank.core.domain.CheckUpdate;
 import nhbank.core.repositories.AFIF_MMH_HISInfoRepository;
+import nhbank.core.repositories.CheckUpdateRepository;
 import nhbank.core.services.AFIF_MMH_HISInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import nhbank.core.util.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.io.*;
-import java.time.LocalDateTime;
-import java.util.*;
-
-import nhbank.core.util.DateUtils;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AFIF_MMH_HISInfoServiceImpl implements AFIF_MMH_HISInfoService {
@@ -42,9 +43,7 @@ public class AFIF_MMH_HISInfoServiceImpl implements AFIF_MMH_HISInfoService {
             List<AFIF_MMH_HISInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
-            String uploadPath = pathConfig.getUploadPath();
+            String dataPath = pathConfig.getDataPath();
             File file = new File(dataPath + "\\AFIF_MMH_HIS.dat");
             if (!file.exists()) {
                 logger.info("No such file");
@@ -98,7 +97,6 @@ public class AFIF_MMH_HISInfoServiceImpl implements AFIF_MMH_HISInfoService {
                     insertAll(objList);
                 checkUpdate.setStatus("Done");
                 checkUpdateRepository.save(checkUpdate);
-                FileUtils.moveFile(dataPath, uploadPath, file.getName());
                 FileUtils.deleteFile(file);
             }
         } catch (Exception ex) {

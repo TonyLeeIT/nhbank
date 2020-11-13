@@ -4,7 +4,6 @@ import nhbank.core.domain.AFEX_ROH_HISInfo;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 
 public interface AFEX_ROH_HISInfoService {

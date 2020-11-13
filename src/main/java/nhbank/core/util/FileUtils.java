@@ -3,7 +3,6 @@ package nhbank.core.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -31,6 +30,8 @@ public class FileUtils {
     }
 
     public static void moveFile(String inputFile, String outputFile, String fileName) throws IOException {
+        String datePath = fileName.substring(fileName.indexOf(".dat") - 8, fileName.indexOf(".dat"));
+        outputFile = outputFile + "\\" + datePath;
         InputStream inStream = null;
         OutputStream outStream = null;
         File afile = new File(inputFile + "\\" + fileName);
@@ -41,8 +42,7 @@ public class FileUtils {
                 Path path = Paths.get(outputFile);
                 Files.createDirectories(path);
             }
-            String todayDate = DateUtils.dateYYYMMDD();
-            File newFile = new File(outputFile + "\\" + todayDate + fileName + ".bak");
+            File newFile = new File(outputFile + "\\" + fileName.replace(".dat", ".chk"));
 
             inStream = new FileInputStream(afile);
             outStream = new FileOutputStream(newFile);

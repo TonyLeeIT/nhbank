@@ -1,9 +1,6 @@
 package nhbank.core.util;
 
-import nhbank.core.config.PathConfig;
 import nhbank.core.constant.Constant;
-import org.checkerframework.checker.units.qual.A;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -18,7 +15,7 @@ public class GenerateUtils {
         String sFileName = fileName.replace(".sql", "");
         try {
 
-            File target = new File("E:\\NHBANK_TARGET\\Domain\\" + fileName.replace(".sql", "") + "Info.java");
+            File target = new File("C:\\NHBANK_TARGET\\Domain\\" + fileName.replace(".sql", "") + "Info.java");
             target.createNewFile();
 
             FileOutputStream outputStream = new FileOutputStream(target);
@@ -88,7 +85,7 @@ public class GenerateUtils {
         String sFileName = fileName.replace(".sql", "");
 
         try {
-            File target = new File("E:\\NHBANK_TARGET\\Id\\" + fileName.replace(".sql", "") + "Info_ID.java");
+            File target = new File("C:\\NHBANK_TARGET\\Id\\" + fileName.replace(".sql", "") + "Info_ID.java");
             target.createNewFile();
 
             FileOutputStream fileOutputStream = new FileOutputStream(target);
@@ -143,7 +140,7 @@ public class GenerateUtils {
     public static void buildModel(String fileName, Map<Integer, String> listFields) {
         String sFileName = fileName.replace(".sql", "");
         try {
-            File target = new File("E:\\NHBANK_TARGET\\Model" + fileName.replace(".sql", "") + "_DTO.java");
+            File target = new File("C:\\NHBANK_TARGET\\Model" + fileName.replace(".sql", "") + "_DTO.java");
             target.createNewFile();
 
             FileOutputStream outputStream = new FileOutputStream(target);
@@ -197,7 +194,7 @@ public class GenerateUtils {
         String sFileName = fileName.replace(".sql", "");
         Map<Integer, String> primaryKeyMap = findPrimaryKeys(file);
         try {
-            File target = new File("E:\\NHBANK_TARGET\\Repositories\\" + fileName.replace(".sql", "") + "InfoRepository.java");
+            File target = new File("C:\\NHBANK_TARGET\\Repositories\\" + fileName.replace(".sql", "") + "InfoRepository.java");
             target.createNewFile();
             FileOutputStream outputStream = new FileOutputStream(target);
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
@@ -268,7 +265,7 @@ public class GenerateUtils {
         String sFileName = fileName.replace(".sql", "");
         Map<Integer, String> primaryKeyMap = findPrimaryKeys(file);
         try {
-            File target = new File("E:\\NHBANK_TARGET\\Services\\" + fileName.replace(".sql", "") + "InfoService.java");
+            File target = new File("C:\\NHBANK_TARGET\\Services\\" + fileName.replace(".sql", "") + "InfoService.java");
             target.createNewFile();
             FileOutputStream outputStream = new FileOutputStream(target);
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(outputStream));
@@ -394,7 +391,7 @@ public class GenerateUtils {
         String sFileName = fileName.replace(".sql", "");
         FileOutputStream fileOutputStream = null;
         DataOutputStream outStream = null;
-        File target = new File("E:\\NHBANK_TARGET\\ServicesImpl\\" + fileName.replace(".sql", "") + "InfoServiceImpl.java");
+        File target = new File("C:\\NHBANK_TARGET\\ServicesImpl\\" + fileName.replace(".sql", "") + "InfoServiceImpl.java");
         try {
             target.createNewFile();
 
@@ -438,9 +435,7 @@ public class GenerateUtils {
             outStream.writeBytes("List<" + sFileName + "Info" + "> objList = new ArrayList<>();\n");
             outStream.writeBytes("SimpleDateFormat formatter = new SimpleDateFormat(\"yyyy/MM/dd\");\n");
             outStream.writeBytes("String line; \n");
-            outStream.writeBytes("String todayDate = DateUtils.dateYYYMMDD(); \n");
-            outStream.writeBytes("String dataPath = pathConfig.getDataPath().replace(\"yyyymmdd\", todayDate); \n");
-            outStream.writeBytes("String uploadPath = pathConfig.getUploadPath();\n");
+            outStream.writeBytes("String dataPath = pathConfig.getDataPath(); \n");
             outStream.writeBytes("File file = new File(dataPath + \"\\\\" + sFileName + ".dat\"); \n");
             outStream.writeBytes("if (!file.exists()){ \n");
             outStream.writeBytes(" logger.info(\"No such file\"); \n");
@@ -512,7 +507,6 @@ public class GenerateUtils {
             outStream.writeBytes(" insertAll(objList);\n");
             outStream.writeBytes("  checkUpdate.setStatus(\"Done\");\n");
             outStream.writeBytes(" checkUpdateRepository.save(checkUpdate);\n");
-            outStream.writeBytes(" FileUtils.moveFile(dataPath, uploadPath, file.getName());\n");
             outStream.writeBytes(" FileUtils.deleteFile(file);\n");
             outStream.writeBytes(" }\n");
             outStream.writeBytes("} catch (Exception ex) {\n");

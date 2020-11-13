@@ -1,16 +1,13 @@
 package nhbank.core.services.impl;
 
 import nhbank.core.domain.CheckUpdate;
-
 import nhbank.core.repositories.CheckUpdateRepository;
 import nhbank.core.services.CheckUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import org.springframework.data.domain.Pageable;
-
-import java.util.List;
 import java.util.Optional;
 
 
@@ -26,7 +23,7 @@ public class CheckUpdateServiceImpl implements CheckUpdateService {
 
     @Override
     public Page<CheckUpdate> findAllByTableName(String tableName, Pageable pageable) {
-        return checkUpdateRepository.findAllByTableNameContaining(tableName,pageable);
+        return checkUpdateRepository.findAllByTableNameContaining(tableName, pageable);
     }
 
     @Override

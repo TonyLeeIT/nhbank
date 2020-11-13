@@ -4,7 +4,6 @@ import nhbank.core.domain.ACOM_LMT_CLMITInfo;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 
 public interface ACOM_LMT_CLMITInfoService {

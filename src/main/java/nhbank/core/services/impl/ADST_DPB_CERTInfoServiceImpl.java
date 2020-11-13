@@ -2,25 +2,27 @@ package nhbank.core.services.impl;
 
 import nhbank.core.config.PathConfig;
 import nhbank.core.controllers.NHBankController;
-import nhbank.core.domain.CheckUpdate;
-import nhbank.core.repositories.CheckUpdateRepository;
 import nhbank.core.domain.ADST_DPB_CERTInfo;
+import nhbank.core.domain.CheckUpdate;
 import nhbank.core.repositories.ADST_DPB_CERTInfoRepository;
+import nhbank.core.repositories.CheckUpdateRepository;
 import nhbank.core.services.ADST_DPB_CERTInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import nhbank.core.util.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.io.*;
-import java.time.LocalDateTime;
-import java.util.*;
-
-import nhbank.core.util.DateUtils;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class ADST_DPB_CERTInfoServiceImpl implements ADST_DPB_CERTInfoService {
@@ -42,9 +44,7 @@ public class ADST_DPB_CERTInfoServiceImpl implements ADST_DPB_CERTInfoService {
             List<ADST_DPB_CERTInfo> objList = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String line;
-            String todayDate = DateUtils.dateYYYMMDD();
-            String dataPath = pathConfig.getDataPath().replace("yyyymmdd", todayDate);
-            String uploadPath = pathConfig.getUploadPath();
+            String dataPath = pathConfig.getDataPath();
             File file = new File(dataPath + "\\ADST_DPB_CERT.dat");
             if (!file.exists()) {
                 logger.info("No such file");
@@ -78,7 +78,6 @@ public class ADST_DPB_CERTInfoServiceImpl implements ADST_DPB_CERTInfoService {
                     insertAll(objList);
                 checkUpdate.setStatus("Done");
                 checkUpdateRepository.save(checkUpdate);
-                FileUtils.moveFile(dataPath, uploadPath, file.getName());
                 FileUtils.deleteFile(file);
             }
         } catch (Exception ex) {

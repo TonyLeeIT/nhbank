@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Configuration;
 @Data
 public class PathConfig {
     private String dataPath;
+    private String backupPath;
+    private String logPath;
     private String sqlPath;
     private String uploadPath;
 

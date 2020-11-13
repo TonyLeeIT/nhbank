@@ -1,7 +1,9 @@
 server.port: 8080
-dataPath: E:\vnhnbackup\yyyymmdd
-sqlPath: E:\vnhnbackup\sql
-uploadPath: E:\vnhnbackup\bkupload
+dataPath: C:\vnhnbackup\app
+backupPath: C:\vnhnbackup\datafile
+logPath: C:\vnhnbackup\log
+sqlPath: C:\vnhnbackup\sql
+uploadPath: C:\vnhnbackup\bkupload
 
 sqlfiles:
   sql:
