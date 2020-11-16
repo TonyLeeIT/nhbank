@@ -30,7 +30,7 @@ public class FileUtils {
     }
 
     public static void moveFile(String inputFile, String outputFile, String fileName) throws IOException {
-        String datePath = fileName.substring(fileName.indexOf(".dat") - 8, fileName.indexOf(".dat"));
+        String datePath = fileName.substring(fileName.indexOf(".") - 8, fileName.indexOf("."));
         outputFile = outputFile + "\\" + datePath;
         InputStream inStream = null;
         OutputStream outStream = null;
@@ -42,8 +42,7 @@ public class FileUtils {
                 Path path = Paths.get(outputFile);
                 Files.createDirectories(path);
             }
-            File newFile = new File(outputFile + "\\" + fileName.replace(".dat", ".chk"));
-
+            File newFile = new File(outputFile + "\\" + fileName);
             inStream = new FileInputStream(afile);
             outStream = new FileOutputStream(newFile);
             byte[] buffer = new byte[1024];
@@ -51,10 +50,7 @@ public class FileUtils {
             //copy the file content in bytes
             while ((length = inStream.read(buffer)) > 0) {
                 outStream.write(buffer, 0, length);
-
             }
-            //delete the original file
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

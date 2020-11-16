@@ -110,8 +110,7 @@ public class ACOM_EPB_RPTInfoServiceImpl implements ACOM_EPB_RPTInfoService {
         acom_epb_rptInfoRepository.saveAll(objList);
     }
 
-    @Override
     public boolean isExist() {
-        return acom_epb_rptInfoRepository.existsBy();
+        return false;
     }
 }
