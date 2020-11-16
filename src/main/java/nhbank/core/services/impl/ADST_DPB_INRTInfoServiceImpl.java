@@ -92,8 +92,7 @@ public class ADST_DPB_INRTInfoServiceImpl implements ADST_DPB_INRTInfoService {
         adst_dpb_inrtInfoRepository.saveAll(objList);
     }
 
-    @Override
     public boolean isExist() {
-        return adst_dpb_inrtInfoRepository.existsBy();
+        return false;
     }
 }

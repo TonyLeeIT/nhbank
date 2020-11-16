@@ -287,13 +287,18 @@ public class NHBankController {
         List<String> files = FileUtils.getFilesDirectory(dataPath);
         for (String file : files) {
             File file1 = new File(file);
+            if (file1.getName().endsWith(".chk")){
+                FileUtils.deleteFile(file1);
+            }
             FileUtils.moveFile(dataPath, backupPath, file1.getName());
             // Rename File .dat . Not YYYYMMDD
-            File newFile = new File(dataPath + "\\" + file1.getName().substring(0, file1.getName().length() - 13) + ".dat");
-            if (file1.renameTo(newFile)) {
-                System.out.println("Rename from " + file1.getName() + " to " + newFile.getName() + " done");
-            } else {
-                System.out.println("Fail to rename file " + file1.getName());
+            if (file1.getName().endsWith(".dat")) {
+                File newFile = new File(dataPath + "\\" + file1.getName().substring(0, file1.getName().length() - 13) + ".dat");
+                if (file1.renameTo(newFile)) {
+                    System.out.println("Rename from " + file1.getName() + " to " + newFile.getName() + " done");
+                } else {
+                    System.out.println("Fail to rename file " + file1.getName());
+                }
             }
         }
         //Import Data
@@ -319,11 +324,11 @@ public class NHBankController {
             }
             Map<Integer, String> listFields = GenerateUtils.convertFileToObject(file);
             Map<Integer, String> primaryKeyMap = GenerateUtils.findPrimaryKeys(file);
-//            GenerateUtils.buildModel(file.getName(), listFields);
-//            GenerateUtils.buildDomain(file.getName(), listFields, file);
-//            GenerateUtils.buildDomainsID(file.getName(), primaryKeyMap);
-//            GenerateUtils.buildRepository(file);
-//            GenerateUtils.buildServices(file);
+            GenerateUtils.buildModel(file.getName(), listFields);
+            GenerateUtils.buildDomain(file.getName(), listFields, file);
+            GenerateUtils.buildDomainsID(file.getName(), primaryKeyMap);
+            GenerateUtils.buildRepository(file);
+            GenerateUtils.buildServices(file);
             GenerateUtils.buildServiceImpl(file.getName(), listFields, primaryKeyMap);
         }
         return new ResponseEntity<>("Build success", HttpStatus.OK);
