@@ -30,6 +30,7 @@ public class FileUtils {
     }
 
     public static void moveFile(String inputFile, String outputFile, String fileName) throws IOException {
+    	System.out.println(fileName);
         String datePath = fileName.substring(fileName.indexOf(".") - 8, fileName.indexOf("."));
         outputFile = outputFile + "\\" + datePath;
         InputStream inStream = null;

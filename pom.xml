@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.0.RELEASE</version>
+        <version>2.3.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <properties>
@@ -95,10 +95,10 @@
         </dependency>
 
         <!-- RabbitMQ -->
-        <dependency>
+<!--         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
+        </dependency> -->
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -117,18 +117,18 @@
         <!--            <version>5.2.10.Final</version>-->
         <!--        </dependency>-->
 
-        <dependency>
+<!--         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>27.0-jre</version>
-        </dependency>
+        </dependency> -->
 
         <!-- Redis -->
-        <dependency>
+<!--         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>2.9.3</version>
-        </dependency>
+        </dependency> -->
     </dependencies>
     <build>
         <plugins>

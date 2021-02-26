@@ -3,7 +3,10 @@ package nhbank.core.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 
 @Data
@@ -20,4 +23,12 @@ public class CheckUpdate {
     private LocalDateTime updateTime;
     @Column(name = "STATUS")
     private String status;
+    @Column(name = "TOTAL_ROW")
+    private int totalRow;
+    @Column(name = "TOTAL_FAILED")
+    private int totalFailed;
+    
+    
+    @OneToMany(fetch = FetchType.LAZY,mappedBy="checkUpdate" , cascade = CascadeType.ALL)
+    private Set<CheckUpdateDetail> checkUpdateDetail;
 }

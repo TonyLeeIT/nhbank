@@ -284,23 +284,23 @@ public class NHBankController {
         String dataPath = pathConfig.getDataPath();
         String backupPath = pathConfig.getBackupPath();
         //Move file to Backup Folder
-        List<String> files = FileUtils.getFilesDirectory(dataPath);
-        for (String file : files) {
-            File file1 = new File(file);
-            if (file1.getName().endsWith(".chk")){
-                FileUtils.deleteFile(file1);
-            }
-            FileUtils.moveFile(dataPath, backupPath, file1.getName());
-            // Rename File .dat . Not YYYYMMDD
-            if (file1.getName().endsWith(".dat")) {
-                File newFile = new File(dataPath + "\\" + file1.getName().substring(0, file1.getName().length() - 13) + ".dat");
-                if (file1.renameTo(newFile)) {
-                    System.out.println("Rename from " + file1.getName() + " to " + newFile.getName() + " done");
-                } else {
-                    System.out.println("Fail to rename file " + file1.getName());
-                }
-            }
-        }
+//        List<String> files = FileUtils.getFilesDirectory(dataPath);
+//        for (String file : files) {
+//            File file1 = new File(file);
+//            if (file1.getName().endsWith(".chk")){
+//                FileUtils.deleteFile(file1);
+//            }
+//            FileUtils.moveFile(dataPath, backupPath, file1.getName());
+//            // Rename File .dat . Not YYYYMMDD
+//            if (file1.getName().endsWith(".dat")) {
+//                File newFile = new File(dataPath + "\\" + file1.getName().substring(0, file1.getName().length() - 13) + ".dat");
+//                if (file1.renameTo(newFile)) {
+//                    System.out.println("Rename from " + file1.getName() + " to " + newFile.getName() + " done");
+//                } else {
+//                    System.out.println("Fail to rename file " + file1.getName());
+//                }
+//            }
+//        }
         //Import Data
         importDB();
         return new ResponseEntity<>("OK", HttpStatus.OK);

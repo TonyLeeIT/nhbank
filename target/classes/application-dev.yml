@@ -1,9 +1,16 @@
 server.port: 8080
-dataPath: C:\vnhnbackup\app
-backupPath: C:\vnhnbackup\datafile
-logPath: C:\vnhnbackup\log
-sqlPath: C:\vnhnbackup\sql
-uploadPath: C:\vnhnbackup\bkupload
+#dataPath: C:\vnhnbackup\app
+#backupPath: C:\vnhnbackup\datafile
+#logPath: C:\vnhnbackup\log
+#sqlPath: C:\vnhnbackup\sql
+#uploadPath: C:\vnhnbackup\bkupload
+
+
+dataPath: E:\javaproject\nhbank\fileData
+backupPath: E:\javaproject\nhbank\fileData
+logPath: E:\javaproject\nhbank\fileData
+sqlPath: E:\javaproject\nhbank\fileData
+uploadPath: E:\javaproject\nhbank\fileData
 
 sqlfiles:
   sql:
